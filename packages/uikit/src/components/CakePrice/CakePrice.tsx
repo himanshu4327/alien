@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import LogoRound from "../Svg/Icons/LogoRound";
+// import LogoRound from "../Svg/Icons/LogoRound";
 import Text from "../Text/Text";
 import Skeleton from "../Skeleton/Skeleton";
 import { Colors } from "../../theme";
@@ -23,18 +23,16 @@ const PriceLink = styled.a`
     }
   }
 `;
+const Logoround = styled.div`
+  width: 32px;
+  height: 32px;
+  background-image: url("/images/nav/logo.png");
+`;
 
-const CakePrice: React.FC<React.PropsWithChildren<Props>> = ({
-  cakePriceUsd,
-  color = "textSubtle",
-  showSkeleton = true,
-}) => {
+const CakePrice: React.FC<React.PropsWithChildren<Props>> = ({ cakePriceUsd, color = "#fff", showSkeleton = true }) => {
   return cakePriceUsd ? (
-    <PriceLink
-      href="https://pancakeswap.finance/swap?outputCurrency=0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82&chainId=56"
-      target="_blank"
-    >
-      <LogoRound width="24px" mr="8px" />
+    <PriceLink href="#" target="_blank">
+      <Logoround />
       <Text color={color} bold>{`$${cakePriceUsd.toFixed(3)}`}</Text>
     </PriceLink>
   ) : showSkeleton ? (

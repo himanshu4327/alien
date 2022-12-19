@@ -59,15 +59,9 @@ const NetworkSelect = ({ switchNetwork, chainId }) => {
         style={{ justifyContent: 'flex-start' }}
         as="a"
         target="_blank"
-        href="https://aptos.pancakeswap.finance/swap"
+        href="#"
       >
-        <Image
-          src="https://aptos.pancakeswap.finance/images/apt.png"
-          width={24}
-          height={24}
-          unoptimized
-          alt={`chain-aptos-${AptosChain.id}`}
-        />{' '}
+        <Image src="#" width={24} height={24} unoptimized alt={`chain-aptos-${AptosChain.id}`} />{' '}
         <Text color="text" pl="12px">
           {AptosChain.name}
         </Text>

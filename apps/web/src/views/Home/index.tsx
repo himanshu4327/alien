@@ -18,10 +18,12 @@ import CakeDataRow from './components/CakeDataRow'
 import { WedgeTopLeft, InnerWedgeWrapper, OuterWedgeWrapper, WedgeTopRight } from './components/WedgeSvgs'
 import UserBanner from './components/UserBanner'
 import MultipleBanner from './components/Banners/MultipleBanner'
+import { Box, Button, Flex, Heading, NextLinkFromReactRouter, Text } from '@pancakeswap/uikit'
+import { StyledText } from '@pancakeswap/uikit/src/components/Footer/styles'
+import ConnectWalletButton from 'components/ConnectWalletButton'
 
 const StyledHeroSection = styled(PageSection)`
   padding-top: 16px;
-
   ${({ theme }) => theme.mediaQueries.md} {
     padding-top: 48px;
   }
@@ -42,7 +44,18 @@ const UserBannerWrapper = styled(Container)`
     padding-right: 24px;
   }
 `
-
+const StyledHeading = styled(Heading)`
+  letter-spacing: 0.12em;
+  color: #ffffff;
+  text-shadow: -1px 0px 12px #00f666;
+`
+const StyledSpan = styled.span`
+  color: #00f666;
+  text-shadow: -1px 0px 12px #00f666;
+`
+const StyledSubHeading = styled(Text)`
+  opacity: 0.5;
+`
 const Home: React.FC<React.PropsWithChildren> = () => {
   const { theme } = useTheme()
   const { address: account } = useAccount()
@@ -60,7 +73,9 @@ const Home: React.FC<React.PropsWithChildren> = () => {
           background: linear-gradient(139.73deg, #e6fdff 0%, #f3efff 100%);
         }
         [data-theme='dark'] #home-1 .page-bg {
-          background: radial-gradient(103.12% 50% at 50% 50%, #21193a 0%, #191326 100%);
+          background: rgba(0, 0, 0, 0.1);
+          //background-image: url('/images/bg-hero.png');
+          background-size: 100% 100%;
         }
         #home-2 .page-bg {
           background: linear-gradient(180deg, #ffffff 22%, #d7caec 100%);
@@ -89,13 +104,29 @@ const Home: React.FC<React.PropsWithChildren> = () => {
         index={2}
         hasCurvedDivider={false}
       >
-        {account && chainId === ChainId.BSC && (
+        {/* {account && chainId === ChainId.BSC && (
           <UserBannerWrapper>
             <UserBanner />
           </UserBannerWrapper>
-        )}
-        <MultipleBanner />
-        <Hero />
+        )} */}
+        {/* <MultipleBanner /> */}
+        <Flex marginTop="150px">
+          <StyledHeading scale="xxl" textTransform="uppercase" textAlign="center">
+            The world is ruled by humans, Universe IS by <StyledSpan>Alien</StyledSpan>
+          </StyledHeading>
+        </Flex>
+        <Box maxWidth="700px" margin="50px auto">
+          <StyledSubHeading fontSize="24px" textTransform="uppercase" textAlign="center">
+            Trade, earn, and win crypto on the most popular decentralized platform in the galaxy.
+          </StyledSubHeading>
+        </Box>
+        <Flex justifyContent="center">
+          {!account && <ConnectWalletButton mr="8px" />}
+          <NextLinkFromReactRouter to="/swap">
+            <Button variant={!account ? 'secondary' : 'primary'}>{t('Trade Now')}</Button>
+          </NextLinkFromReactRouter>
+        </Flex>
+        {/* <Hero /> */}
       </StyledHeroSection>
       <PageSection
         innerProps={{ style: { margin: '0', width: '100%' } }}
