@@ -6,8 +6,8 @@ const StatCardContent: React.FC<
   const { isMobile, isTablet } = useMatchBreakpoints()
   const isSmallerScreen = isMobile || isTablet
   const split = headingText.split(' ')
-  const lastWord = split.pop()
-  const remainingWords = split.slice(0, split.length).join(' ')
+  const firstWord = split[0]
+  const remainingWords = split.slice(1, split.length).join(' ')
 
   return (
     <Flex
@@ -16,17 +16,25 @@ const StatCardContent: React.FC<
       width="fit-content"
       flexDirection="column"
       justifyContent="flex-end"
-      mt={[null, null, null, '64px']}
+      mt={[null, null, null, '32px']}
+      mb={[null, null, null, '32px']}
     >
-      {isSmallerScreen && remainingWords.length > 13 ? (
-        <Heading scale="lg">{remainingWords}</Heading>
-      ) : (
-        <Heading scale="xl">{remainingWords}</Heading>
-      )}
-      <Heading color={highlightColor} scale="xl" mb="24px">
-        {lastWord}
+      <Heading color={highlightColor} scale="xl" mb="24px" textAlign="center">
+        {firstWord}
       </Heading>
-      <Text color="textSubtle">{bodyText}</Text>
+      {isSmallerScreen && remainingWords.length > 13 ? (
+        <Heading scale="lg" textTransform="uppercase" textAlign="center">
+          {remainingWords}
+        </Heading>
+      ) : (
+        <Heading scale="xl" textTransform="uppercase" textAlign="center">
+          {remainingWords}
+        </Heading>
+      )}
+
+      <Text color="textSubtle" textAlign="center">
+        {bodyText}
+      </Text>
     </Flex>
   )
 }

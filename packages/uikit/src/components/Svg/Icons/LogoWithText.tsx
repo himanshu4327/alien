@@ -6,9 +6,9 @@ import { SvgProps } from "../types";
 const Logo: React.FC<React.PropsWithChildren<SvgProps>> = (props) => {
   return (
     <Svg viewBox="0 0 214 60" {...props}>
-      <rect width="214" height="60" fill="url(#pattern0)" />
+      <rect width="214" height="60" fill="url(#pattern10)" />
       <defs>
-        <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+        <pattern id="pattern10" patternContentUnits="objectBoundingBox" width="1" height="1">
           <use xlinkHref="#image0_34_608" transform="scale(0.0046729 0.0166667)" />
         </pattern>
         <image

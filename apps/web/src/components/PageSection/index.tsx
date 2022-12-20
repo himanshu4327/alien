@@ -26,6 +26,7 @@ const BackgroundColor = styled(Flex).attrs({ className: 'page-bg' as string })<B
   position: relative;
   flex-direction: column;
   align-items: center;
+  background: #000;
   z-index: ${({ index }) => index - 1};
   padding: ${({ padding }) => padding};
 `
@@ -34,7 +35,7 @@ const ChildrenWrapper = styled(Container)`
   min-height: auto;
   padding-top: 16px;
   padding-bottom: 16px;
-
+  background: linear-gradient(359.88deg, #000000 10.74%, rgba(0, 0, 0, 0) 111.56%);
   ${({ theme }) => theme.mediaQueries.sm} {
     padding-top: 32px;
     padding-bottom: 32px;

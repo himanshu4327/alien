@@ -96,7 +96,7 @@ const UserMenu = () => {
   return (
     <ConnectWalletButton scale="sm" width="auto">
       <Box display={['none', null, null, 'block']}>
-        <Trans>Connect Wallet</Trans>
+        <Trans>Connect wallet</Trans>
       </Box>
       <Box display={['block', null, null, 'none']}>
         <Trans>Connect</Trans>

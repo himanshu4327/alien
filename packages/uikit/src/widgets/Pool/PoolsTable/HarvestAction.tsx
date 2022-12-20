@@ -56,7 +56,7 @@ export function HarvestAction({
   const actionTitle = (
     <>
       <Text fontSize="12px" bold color="secondary" as="span" textTransform="uppercase">
-        {earningTokenSymbol}{" "}
+        {earningTokenSymbol}
       </Text>
       <Text fontSize="12px" bold color="textSubtle" as="span" textTransform="uppercase">
         {t("Earned")}

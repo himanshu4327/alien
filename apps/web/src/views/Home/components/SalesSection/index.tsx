@@ -1,7 +1,8 @@
 import { Flex, Text, Button, Link, NextLinkFromReactRouter as RouterLink } from '@pancakeswap/uikit'
 import CompositeImage, { CompositeImageProps } from '../CompositeImage'
 import ColoredWordHeading from '../ColoredWordHeading'
-
+import fired from '../../../../../public/images/alien/fireBurner.gif'
+import Image from 'next/image'
 interface SalesSectionButton {
   to: string
   text: string
@@ -22,11 +23,7 @@ const SalesSection: React.FC<React.PropsWithChildren<SalesSectionProps>> = (prop
 
   return (
     <Flex flexDirection="column">
-      <Flex
-        flexDirection={['column-reverse', null, null, reverse ? 'row-reverse' : 'row']}
-        alignItems={['flex-end', null, null, 'center']}
-        justifyContent="center"
-      >
+      <Flex flexDirection="column" alignItems={['flex-end', null, null, 'center']}>
         <Flex
           flexDirection="column"
           flex="1"
@@ -34,11 +31,11 @@ const SalesSection: React.FC<React.PropsWithChildren<SalesSectionProps>> = (prop
           mr={[null, null, null, !reverse && '64px']}
           alignSelf={['flex-start', null, null, 'center']}
         >
-          <ColoredWordHeading text={headingText} />
-          <Text color="textSubtle" mb="24px">
+          <ColoredWordHeading text={headingText} textAlign="center" />
+          <Text color="textSubtle" mb="24px" textAlign="center" width="80%" margin="0 auto">
             {bodyText}
           </Text>
-          <Flex>
+          <Flex justifyContent="center" my="10px">
             <Button mr="16px">
               {primaryButton.external ? (
                 <Link external href={primaryButton.to}>
@@ -63,13 +60,8 @@ const SalesSection: React.FC<React.PropsWithChildren<SalesSectionProps>> = (prop
             )}
           </Flex>
         </Flex>
-        <Flex
-          height={['192px', null, null, '100%']}
-          width={['192px', null, null, '100%']}
-          flex={[null, null, null, '1']}
-          mb={['24px', null, null, '0']}
-        >
-          <CompositeImage {...images} />
+        <Flex flex={[null, null, null, '1']} mb={['24px', null, null, '0']} maxWidth="600px" alignItems="center">
+          <Image src={images.path} alt="gif" width={500} height={500} />
         </Flex>
       </Flex>
     </Flex>

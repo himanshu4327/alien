@@ -16,17 +16,22 @@ const ColoredWordHeading: React.FC<React.PropsWithChildren<HeadingProps>> = ({
   const { theme } = useTheme()
   const { firstWord, remainingWords } = useMemo(() => {
     const split = text.split(' ')
-    const first = split[0]
-    const remaining = split.slice(1).join(' ')
+    let first = split[0]
+    first = first + ' ' + split[1]
+    const remaining = split.slice(2).join(' ')
     return { firstWord: first, remainingWords: remaining }
   }, [text])
-  const displayedColor = (theme.colors[firstColor] as string) ?? theme.colors.secondary
+  const displayedColor = (theme.colors[firstColor] as string) ?? theme.colors.primary
 
   return (
-    <Heading scale="xl" mb={mb} {...props}>
-      <span style={{ color: displayedColor }}>{firstWord} </span>
-      {remainingWords}
-    </Heading>
+    <>
+      <Heading scale="xl" mb={mb} {...props} textTransform="uppercase">
+        <span style={{ color: displayedColor }}>{firstWord} </span>
+      </Heading>
+      <Heading scale="xl" textAlign="center">
+        {remainingWords}
+      </Heading>
+    </>
   )
 }
 

@@ -17,11 +17,11 @@ export const ConnectWalletButton = ({ children, ...props }: ButtonProps) => {
   return (
     <>
       <Button width="100%" onClick={handleClick} {...props}>
-        {children || <Trans>Connect Wallet</Trans>}
+        {children || <Trans>CONNECT</Trans>}
       </Button>
       <WalletModalV2
         docText={t('Learn How to Create and Connect')}
-        docLink="https://docs.pancakeswap.finance/get-started-aptos/wallet-guide"
+        docLink="#"
         isOpen={open}
         wallets={wallets}
         login={login}

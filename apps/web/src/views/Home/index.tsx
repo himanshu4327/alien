@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import PageSection from 'components/PageSection'
 import { useAccount } from 'wagmi'
 import useTheme from 'hooks/useTheme'
@@ -28,7 +28,33 @@ const StyledHeroSection = styled(PageSection)`
     padding-top: 48px;
   }
 `
+const floatingAnim = (x: string, y: string) => keyframes`
+  from {
+    transform: rotate(50deg);
+    transform: translate(50%, 0px);
+  }
+  50% {
+    transform: rotate(100deg);
+       
+  }
+  75% {
+    transform:rotate(40deg);
+    transform: translate(100%, 600px);
+  }
+  100%{
+    transform: translate(0px, 0px);
+  }
 
+`
+const FloatingUfos = styled.div`
+  background-image: url('/images/alien/ufos.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100px;
+  height: 100px;
+  animation: ${floatingAnim('50%', '200px')} 15s ease-in-out infinite;
+  animation-delay: 1s;
+`
 const UserBannerWrapper = styled(Container)`
   z-index: 1;
   position: absolute;
@@ -73,27 +99,27 @@ const Home: React.FC<React.PropsWithChildren> = () => {
           background: linear-gradient(139.73deg, #e6fdff 0%, #f3efff 100%);
         }
         [data-theme='dark'] #home-1 .page-bg {
-          background: rgba(0, 0, 0, 0.1);
-          //background-image: url('/images/bg-hero.png');
-          background-size: 100% 100%;
+          background-image: url('/images/bg-hero.png');
+          background-size: cover;
         }
+
         #home-2 .page-bg {
           background: linear-gradient(180deg, #ffffff 22%, #d7caec 100%);
         }
         [data-theme='dark'] #home-2 .page-bg {
-          background: linear-gradient(180deg, #09070c 22%, #201335 100%);
+          background: #000;
         }
         #home-3 .page-bg {
           background: linear-gradient(180deg, #6fb6f1 0%, #eaf2f6 100%);
         }
         [data-theme='dark'] #home-3 .page-bg {
-          background: linear-gradient(180deg, #0b4576 0%, #091115 100%);
+          background: #000;
         }
         #home-4 .inner-wedge svg {
           fill: #d8cbed;
         }
         [data-theme='dark'] #home-4 .inner-wedge svg {
-          fill: #201335;
+          fill: #000;
         }
       `}</style>
       <StyledHeroSection
@@ -110,7 +136,7 @@ const Home: React.FC<React.PropsWithChildren> = () => {
           </UserBannerWrapper>
         )} */}
         {/* <MultipleBanner /> */}
-        <Flex marginTop="150px">
+        <Flex marginTop="150px" zIndex="2">
           <StyledHeading scale="xxl" textTransform="uppercase" textAlign="center">
             The world is ruled by humans, Universe IS by <StyledSpan>Alien</StyledSpan>
           </StyledHeading>
@@ -123,7 +149,7 @@ const Home: React.FC<React.PropsWithChildren> = () => {
         <Flex justifyContent="center">
           {!account && <ConnectWalletButton mr="8px" />}
           <NextLinkFromReactRouter to="/swap">
-            <Button variant={!account ? 'secondary' : 'primary'}>{t('Trade Now')}</Button>
+            <Button variant={'Alien'}>{t('Trade Now')}</Button>
           </NextLinkFromReactRouter>
         </Flex>
         {/* <Hero /> */}
@@ -136,6 +162,7 @@ const Home: React.FC<React.PropsWithChildren> = () => {
         index={2}
         hasCurvedDivider={false}
       >
+        <FloatingUfos />
         <MetricsSection />
       </PageSection>
       <PageSection

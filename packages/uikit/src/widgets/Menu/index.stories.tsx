@@ -262,7 +262,7 @@ export const WithSubmenuSelected: React.FC<React.PropsWithChildren> = () => {
         footerLinks={footerLinks}
         activeItem="/swap"
         activeSubItem="https://exchange.pancakeswap.finance"
-        buyCakeLabel="Buy CAKE"
+        buyCakeLabel="Buy Alien"
       >
         <div>
           <Heading as="h1" mb="8px">

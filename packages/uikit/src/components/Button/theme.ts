@@ -58,4 +58,9 @@ export const styleVariants = {
     color: "textSubtle",
     boxShadow: "none",
   },
+  [variants.ALIEN]: {
+    backgroundColor: "gradientBold",
+    color: "#00F666",
+    boxShadow: "0px 0px 11px -1px #00f666",
+  },
 };
