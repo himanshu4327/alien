@@ -95,15 +95,15 @@ const WinSection = () => {
 
   return (
     <>
-      <BgWrapper>
+      {/* <BgWrapper>
         <BottomLeftImgWrapper>
           <CompositeImage {...bottomLeftImage} />
         </BottomLeftImgWrapper>
         <TopRightImgWrapper>
           <CompositeImage {...topRightImage} />
         </TopRightImgWrapper>
-      </BgWrapper>
-      <TransparentFrame isDark={theme.isDark}>
+      </BgWrapper> */}
+      {/* <TransparentFrame isDark={theme.isDark}>
         <Flex flexDirection="column" alignItems="center" justifyContent="center">
           <ColoredWordHeading textAlign="center" text={t('Win millions in prizes')} />
           <Text color="textSubtle">{t('Provably fair, on-chain games.')}</Text>
@@ -128,7 +128,7 @@ const WinSection = () => {
             </Flex>
           </Flex>
         </Flex>
-      </TransparentFrame>
+      </TransparentFrame> */}
     </>
   )
 }

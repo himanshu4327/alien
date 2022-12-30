@@ -1,5 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
+
+
 const ResetCSS = createGlobalStyle`
   /* prettier-ignore */
   html, body, div, span, applet, object, iframe,
@@ -54,6 +56,12 @@ const ResetCSS = createGlobalStyle`
     color: inherit;
     text-decoration: none;
   }
+   
+  @font-face {
+    font-family: alien;
+    src: url("../../../apps/web/public/fonts/alien_league/alienleaguebold.ttf");
+  }
+
   [role="button"] {
     cursor: pointer;
   }
@@ -63,7 +71,7 @@ const ResetCSS = createGlobalStyle`
     box-sizing: border-box;
   }
   * {
-    font-family: 'Kanit', sans-serif;
+    font-family: 'alien', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

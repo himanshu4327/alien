@@ -13,7 +13,8 @@ const getColor = ({ color, theme }: ThemedProps) => {
 
 const Text = styled.div<TextProps>`
   color: ${getColor};
-  font-weight: ${({ bold }) => (bold ? 600 : 400)};
+  font-family: "AlienSolid"
+    font-weight: ${({ bold }) => (bold ? 600 : 400)};
   line-height: 1.5;
   ${({ textTransform }) => textTransform && `text-transform: ${textTransform};`}
   ${({ ellipsis }) =>

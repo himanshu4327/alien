@@ -4,23 +4,33 @@ import Flex from "../../Box/Flex";
 import Dropdown from "../../Dropdown/Dropdown";
 import Link from "../../Link/Link";
 import { socials } from "../config";
+import { background } from 'styled-system';
 
 const SocialLinks: React.FC<React.PropsWithChildren<FlexProps>> = ({ ...props }) => (
   <Flex {...props} data-theme="dark">
     {socials.map((social, index) => {
       const iconProps = {
-        width: "20px",
+        width: "50px",
         color: "textSubtle",
+        display:"flex",
+        aglinItem:"center",
+    
+      
         style: { cursor: "pointer" },
       };
+      const logoImg = {
+        fill: "#00F666"
+      }
       const Icon = social.icon;
       const mr = index < socials.length - 1 ? "24px" : 0;
       if (social.items) {
         return (
           <Dropdown key={social.label} position="top" target={<Icon {...iconProps} mr={mr} />}>
             {social.items.map((item) => (
-              <Link external key={item.label} href={item.href} aria-label={item.label} color="textSubtle">
+              <Link  external key={item.label} href={item.href} aria-label={item.label} color="textSubtle"  fill="#00F666" >
+          
                 {item.label}
+                
               </Link>
             ))}
           </Dropdown>

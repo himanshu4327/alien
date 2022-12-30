@@ -9,6 +9,7 @@ const FixedContainer = styled.div`
   position: fixed;
   right: 5%;
   bottom: calc(110px + env(safe-area-inset-bottom));
+  border:"2px solid red"
 `;
 
 const ScrollToTopButton = () => {
@@ -41,7 +42,7 @@ const ScrollToTopButton = () => {
 
   return (
     <FixedContainer style={{ display: visible ? "inline" : "none" }}>
-      <Button variant="subtle" endIcon={<ChevronUpIcon color="invertedContrast" />} onClick={scrollToTop}>
+      <Button variant="subtle" endIcon={<ChevronUpIcon color="white" />} onClick={scrollToTop}>
         {t("To Top")}
       </Button>
     </FixedContainer>

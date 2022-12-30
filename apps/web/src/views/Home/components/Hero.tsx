@@ -40,6 +40,7 @@ const BgWrapper = styled.div`
   height: 100%;
   bottom: 0px;
   left: 0px;
+
 `
 
 const InnerWrapper = styled.div`
@@ -111,11 +112,12 @@ const Hero = () => {
       </style>
       <BgWrapper>
         <InnerWrapper>
-          <SlideSvgDark className="slide-svg-dark" width="100%" />
+          <SlideSvgDark className="slide-svg-dark" width="100%" height="100%" />
           <SlideSvgLight className="slide-svg-light" width="100%" />
         </InnerWrapper>
       </BgWrapper>
-      <Flex
+
+      {/* <Flex
         position="relative"
         flexDirection={['column-reverse', null, null, 'row']}
         alignItems={['flex-end', null, null, 'center']}
@@ -138,20 +140,21 @@ const Hero = () => {
           </Flex>
         </Flex>
         <Flex
-          height={['192px', null, null, '100%']}
+          height={['1192px', null, null, '100%']}
           width={['192px', null, null, '100%']}
           flex={[null, null, null, '1']}
           mb={['24px', null, null, '0']}
           position="relative"
+          
         >
           <BunnyWrapper>
-            <Image src={bunnyImage} priority placeholder="blur" alt={t('Lunar bunny')} />
+            <Image src={bunnyImage} priority placeholder="blur" alt={t('Lunar bunny')} />  
           </BunnyWrapper>
           <StarsWrapper>
             <CompositeImage {...starsImage} />
           </StarsWrapper>
         </Flex>
-      </Flex>
+        </Flex>  */}
     </>
   )
 }

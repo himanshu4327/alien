@@ -9,7 +9,7 @@ export const THEME_DOMAIN = '.pancakeswap.finance'
 const useTheme = () => {
   const { resolvedTheme, setTheme } = useNextTheme()
   const theme = useContext(StyledThemeContext)
-
+  setTheme("dark")
   const handleSwitchTheme = useCallback(
     (themeValue: 'light' | 'dark') => {
       try {

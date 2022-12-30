@@ -1,8 +1,8 @@
 import { Flex, Text, Button, Link, NextLinkFromReactRouter as RouterLink } from '@pancakeswap/uikit'
+import Image from 'next/image'
 import CompositeImage, { CompositeImageProps } from '../CompositeImage'
 import ColoredWordHeading from '../ColoredWordHeading'
-import fired from '../../../../../public/images/alien/fireBurner.gif'
-import Image from 'next/image'
+// import fired from '../../../../../public/images/alien/fireBurner.gif'
 interface SalesSectionButton {
   to: string
   text: string
@@ -13,8 +13,8 @@ export interface SalesSectionProps {
   headingText: string
   bodyText: string
   reverse: boolean
-  primaryButton: SalesSectionButton
-  secondaryButton: SalesSectionButton
+  primaryButton?: SalesSectionButton
+  secondaryButton?: SalesSectionButton
   images: CompositeImageProps
 }
 
@@ -32,7 +32,17 @@ const SalesSection: React.FC<React.PropsWithChildren<SalesSectionProps>> = (prop
           alignSelf={['flex-start', null, null, 'center']}
         >
           <ColoredWordHeading text={headingText} textAlign="center" />
-          <Text color="textSubtle" mb="24px" textAlign="center" width="80%" margin="0 auto">
+
+          <Flex
+            flex={[null, null, null, '1']}
+            mt="5rem"
+            mb={['24px', null, null, '0']}
+            maxWidth="2000px"
+            alignItems="center"
+          >
+            <Image src={images.path} alt="gif" width={1200} height={1200} />
+          </Flex>
+          <Text fontSize="16px" color="textSubtle" mb="24px" textAlign="center" width="80%" margin="0 auto">
             {bodyText}
           </Text>
           <Flex justifyContent="center" my="10px">
@@ -59,9 +69,6 @@ const SalesSection: React.FC<React.PropsWithChildren<SalesSectionProps>> = (prop
               <RouterLink to={secondaryButton.to}>{secondaryButton.text}</RouterLink>
             )}
           </Flex>
-        </Flex>
-        <Flex flex={[null, null, null, '1']} mb={['24px', null, null, '0']} maxWidth="600px" alignItems="center">
-          <Image src={images.path} alt="gif" width={500} height={500} />
         </Flex>
       </Flex>
     </Flex>

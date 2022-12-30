@@ -19,14 +19,17 @@ const StyledColumn = styled(Flex)<{ noMobileBorder?: boolean; noDesktopBorder?: 
   ${({ noMobileBorder, theme }) =>
     noMobileBorder
       ? `${theme.mediaQueries.md} {
-           padding: 0 16px;
-           border-left: 1px ${theme.colors.inputSecondary} solid;
+       
+           padding-bottom:32px;
+    box-shadow: 7px 7px 6px #00F666;
          }
        `
-      : `border-left: 1px ${theme.colors.inputSecondary} solid;
-         padding: 0 8px;
+       : `
+      //  padding-top: 32px;
+      //  box-shadow:7px -7px 6px #00F666;
+  
          ${theme.mediaQueries.sm} {
-           padding: 0 16px;
+          //  padding: 0 16px;
          }
        `}
 
@@ -39,26 +42,38 @@ const StyledColumn = styled(Flex)<{ noMobileBorder?: boolean; noDesktopBorder?: 
        `}
 `
 
+
 const Grid = styled.div`
   display: grid;
-  grid-gap: 16px 8px;
+  // grid-gap: 16px 8px;
   margin-top: 24px;
+ 
   grid-template-columns: repeat(2, auto);
   grid-template-areas:
     'a d'
     'b e'
     'c f';
+    
 
   ${({ theme }) => theme.mediaQueries.sm} {
-    grid-gap: 16px;
+    // grid-gap: 16px;
+    // box-shadow: 0px 2px 3px #00F666;
+
+   
   }
 
   ${({ theme }) => theme.mediaQueries.md} {
     grid-template-areas:
       'a b c'
       'd e f';
+   
     grid-gap: 32px;
+   
     grid-template-columns: repeat(3, auto);
+ 
+    padding-bottom:32px;
+   
+ 
   }
 `
 
@@ -130,7 +145,7 @@ const CakeDataRow = () => {
 
   return (
     <Grid>
-      <Flex flexDirection="column" style={{ gridArea: 'a' }}>
+      <Flex flexDirection="column" style={{ gridArea: 'a' , boxShadow:"7px 7px 6px #00F666" }}>
         <Text color="textSubtle">{t('Circulating Supply')}</Text>
         {circulatingSupply ? (
           <Balance decimals={0} lineHeight="1.1" fontSize="24px" bold value={circulatingSupply} />
@@ -138,7 +153,8 @@ const CakeDataRow = () => {
           <Skeleton height={24} width={126} my="4px" />
         )}
       </Flex>
-      <StyledColumn noMobileBorder style={{ gridArea: 'b' }}>
+    
+      <StyledColumn noMobileBorder style={{  paddingBottom: "32px" , paddingLeft:"32px", boxShadow:"7px 7px 6px #00F666, -7px 7px 6px #00F666  "}}>
         <Text color="textSubtle">{t('Total supply')}</Text>
         {cakeSupply ? (
           <Balance decimals={0} lineHeight="1.1" fontSize="24px" bold value={cakeSupply} />
@@ -149,12 +165,15 @@ const CakeDataRow = () => {
           </>
         )}
       </StyledColumn>
-      <StyledColumn noMobileBorder style={{ gridArea: 'c' }}>
+      <StyledColumn noMobileBorder style={{paddingLeft: "32px" , paddingBottom:"32px", boxShadow:"-7px 7px 6px #00F666"}}>
         <Text color="textSubtle">{t('Max Supply')}</Text>
 
         <Balance decimals={0} lineHeight="1.1" fontSize="24px" bold value={750000000} />
       </StyledColumn>
-      <StyledColumn noDesktopBorder style={{ gridArea: 'd' }}>
+      
+       
+
+      <StyledColumn noDesktopBorder style={{paddingTop: "32px" , boxShadow:"7px -7px 6px #00F666"}}>
         <Text color="textSubtle">{t('Market cap')}</Text>
         {mcap?.gt(0) && mcapString ? (
           <Heading scale="lg">{t('$%marketCap%', { marketCap: mcapString })}</Heading>
@@ -162,7 +181,7 @@ const CakeDataRow = () => {
           <Skeleton height={24} width={126} my="4px" />
         )}
       </StyledColumn>
-      <StyledColumn style={{ gridArea: 'e' }}>
+      <StyledColumn style={{ gridArea: 'e'   , paddingTop: "32px" , paddingLeft:"32px", boxShadow:"7px -7px 6px #00F666 , -7px -7px 6px #00F666"  }}>
         <Text color="textSubtle">{t('Burned to date')}</Text>
         {burnedBalance ? (
           <Balance decimals={0} lineHeight="1.1" fontSize="24px" bold value={burnedBalance} />
@@ -170,11 +189,12 @@ const CakeDataRow = () => {
           <Skeleton height={24} width={126} my="4px" />
         )}
       </StyledColumn>
-      <StyledColumn style={{ gridArea: 'f' }}>
+      <StyledColumn style={{ gridArea: 'f'  , paddingTop: "32px" ,  paddingLeft:"32px" , boxShadow:"-7px -7px 6px #00F666"  }}>
         <Text color="textSubtle">{t('Current emissions')}</Text>
 
         <Heading scale="lg">{t('%cakeEmissions%/block', { cakeEmissions: emissionsPerBlock })}</Heading>
       </StyledColumn>
+      
     </Grid>
   )
 }

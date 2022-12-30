@@ -21,6 +21,8 @@ const AbsoluteWrapper = styled(Flex)<{ visible: boolean; index: number; topOffse
   margin-top: ${({ visible }) => (visible ? 0 : `50%`)};
   transition: opacity, margin-top, 0.4s ease-out;
   flex-direction: column;
+ 
+  padding:2px;
 
   ${({ index, theme }) =>
     index > 0
@@ -29,7 +31,7 @@ const AbsoluteWrapper = styled(Flex)<{ visible: boolean; index: number; topOffse
            height: 80px;
            top: 0;
            padding-left: 16px;
-           border-left: 1px ${theme.colors.inputSecondary} solid;
+           border-left: 1px ${theme.colors.inputwhiteSmoke} solid;
          }
        `
       : `padding-right: 16px;`}
@@ -54,7 +56,7 @@ const TopFarmPool: React.FC<React.PropsWithChildren<TopFarmPoolProps>> = ({ titl
     <StyledWrapper index={index}>
       <AbsoluteWrapper index={index} visible={visible} topOffset={topOffset()}>
         {title ? (
-          <Text bold mb="8px" fontSize="12px" color="secondary">
+          <Text bold mb="8px" fontSize="12px" color="textSubtle"   >
             {title}
           </Text>
         ) : (

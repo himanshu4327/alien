@@ -12,6 +12,7 @@ import { useVaultApy } from 'hooks/useVaultApy'
 import TopFarmPool from './TopFarmPool'
 import RowHeading from './RowHeading'
 
+
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(2, auto);
@@ -65,11 +66,27 @@ const FarmsPoolsRow = () => {
     })
   }
 
+  const mystyle={
+    background: 'radial-gradient(52.44% 52.44% at 50.26% 115.85%, #00F666 0%, rgba(2, 73, 32, 0.2) 100%)',
+    backdropFilter: "blur(5.5px)",
+    color:"white",
+    padding:"24px",
+    marginTop:"24px",
+    boxSizing: "border-box",
+   boxShadow:" 1px 1px 2px #00f666, 1px -2px 0px #00f666"
+   
+  }
+
   return (
-    <div ref={observerRef}>
-      <Flex flexDirection="column" mt="24px">
-        <Flex mb="24px">
+    <div style={mystyle}  ref={observerRef}>
+      <Flex justifyContent="center"  flexDirection="column" mt="24px" >
+        <Flex mb="24px" justifyContent="center">
+
+      
           <RowHeading text={showFarms ? t('Top Farms') : t('Top Syrup Pools')} />
+     
+
+        
           {chainId === ChainId.BSC && (
             <IconButton
               variant="text"
@@ -81,11 +98,11 @@ const FarmsPoolsRow = () => {
                 startTimer()
               }}
             >
-              <SwapVertIcon height="24px" width="24px" color="textSubtle" />
+              <SwapVertIcon height="24px" width="24px" color="#00F666"/>
             </IconButton>
           )}
         </Flex>
-        <Box height={['240px', null, '80px']}>
+        <Box   height={['240px', null, '80px']}>
           <Grid>
             {topFarms.map((topFarm, index) => (
               <TopFarmPool

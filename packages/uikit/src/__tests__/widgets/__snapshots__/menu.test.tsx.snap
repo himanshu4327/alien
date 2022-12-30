@@ -2420,6 +2420,8 @@ exports[`renders correctly 1`] = `
 
 .c19 {
   border-bottom: 1px solid var(--colors-cardBorder);
+  display: flex;
+    justify-content: center;
 }
 
 .c14 {

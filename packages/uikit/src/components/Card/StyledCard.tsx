@@ -64,10 +64,12 @@ export const StyledCard = styled.div<StyledCardProps>`
 export const StyledCardInner = styled(Box)<{ background?: string; hasCustomBorder: boolean }>`
   width: 100%;
   height: 100%;
+  
   overflow: ${({ hasCustomBorder }) => (hasCustomBorder ? "initial" : "inherit")};
   //background: ${({ theme, background }) => background ?? theme.card.background};
-  background: radial-gradient(55.44% 36.44% at 48.26% 115.85%, #00f666 0%, rgb(0 0 0) 100%);
-  backdrop-filter: blur(7.5px);
+  background: radial-gradient(52.44% 52.44% at 50.26% 115.85%, #00F666 0%, rgba(0, 0, 0, 0.2) 100%);
+backdrop-filter: blur(7.5px);
+
   border-radius: 0px;
   //border-radius: ${({ theme }) => theme.radii.card};
 `;

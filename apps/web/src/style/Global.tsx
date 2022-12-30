@@ -7,17 +7,34 @@ declare module 'styled-components' {
 }
 
 const GlobalStyle = createGlobalStyle`
-  * {
-    font-family: 'Kanit', sans-serif;
-  }
+
+
+
+
+@font-face {
+  font-family: "Alien";
+  src: url('/fonts/alien_league/alienleaguebold.ttf');
+}
+  
+@font-face {
+  font-family: "AlienSolid";
+  src: url('/fonts/alien-encounters-solid/Alien-Encounters-Bold.ttf');
+}
+  
+
+
+  
   body {
     background-color: ${({ theme }) => theme.colors.background};
-
     img {
       height: auto;
       max-width: 100%;
     }
-  }
+
+     
+
+    
+    
 `
 
 export default GlobalStyle

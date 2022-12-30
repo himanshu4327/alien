@@ -19,8 +19,9 @@ const StatCardContent: React.FC<
       mt={[null, null, null, '32px']}
       mb={[null, null, null, '32px']}
     >
-      <Heading color={highlightColor} scale="xl" mb="24px" textAlign="center">
+      <Heading color='#fffff'    scale="xl" mb="24px" textAlign="center">
         {firstWord}
+       
       </Heading>
       {isSmallerScreen && remainingWords.length > 13 ? (
         <Heading scale="lg" textTransform="uppercase" textAlign="center">
@@ -32,7 +33,7 @@ const StatCardContent: React.FC<
         </Heading>
       )}
 
-      <Text color="textSubtle" textAlign="center">
+      <Text     fontFamily="Aliensolid" color="textSubtle" textAlign="center">
         {bodyText}
       </Text>
     </Flex>

@@ -20,18 +20,31 @@ export const SlideSvgLight: React.FC<React.PropsWithChildren<SvgProps>> = (props
 
 export const SlideSvgDark: React.FC<React.PropsWithChildren<SvgProps>> = (props) => {
   return (
-    <Svg viewBox="0 0 1660 339" {...props}>
-      <path
-        d="M804 166.523C520.5 166.523 267.5 290.022 0 304V338.5H1660V0C1358.83 0 1104 166.523 804 166.523Z"
-        fill="url(#paint0_linear_dark)"
-      />
-      <defs>
-        <linearGradient id="paint0_linear_dark" x1="830" y1="83.5" x2="830" y2="338.5" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#08060B" stopOpacity="0.2" />
-          <stop offset="0.545554" stopColor="#08060B" stopOpacity="0.5" />
-          <stop offset="1" stopColor="#08060B" />
-        </linearGradient>
-      </defs>
-    </Svg>
+
+      <Svg width="1728" height="955" viewBox="0 0 1728 955" fill="none" xmlns="http://www.w3.org/2000/svg"  {...props}>
+<rect width="1735" height="2957" transform="matrix(1 0 0 -1 -7 955)" fill="url(#paint0_linear_87_8)"/>
+<defs>
+<linearGradient id="paint0_linear_87_8" x1="869.204" y1="855.071" x2="868.044" y2="-111.895" gradientUnits="userSpaceOnUse">
+<stop/>
+<stop offset="1" stop-opacity="0"/>
+</linearGradient>
+</defs>
+</Svg>
+
+  
+    // <Svg viewBox="0 0 1660 339" {...props}>
+    //   <path
+    //     d="M804 166.523C520.5 166.523 267.5 290.022 0 304V338.5H1660V0C1358.83 0 1104 166.523 804 166.523Z"
+    //     fill="url(#paint0_linear_dark)"
+    //   />
+    //   <defs>
+    //     <linearGradient id="paint0_linear_dark" x1="830" y1="83.5" x2="830" y2="338.5" gradientUnits="userSpaceOnUse">
+    //       <stop stopColor="#08060B" stopOpacity="0.2" />
+    //       <stop offset="0.545554" stopColor="#08060B" stopOpacity="0.5" />
+    //       <stop offset="1" stopColor="#08060B" />
+    //     </linearGradient>
+    //   </defs>
+    // </Svg>
+
   )
 }

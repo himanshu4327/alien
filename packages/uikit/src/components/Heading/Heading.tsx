@@ -13,11 +13,24 @@ const style = {
   },
   [scales.XL]: {
     fontSize: "32px",
-    fontSizeLg: "40px",
+    fontSizeLg: "70px",
+    lineHeight: "101.7%",
+    textShadow: "-1px 0px 12px #00F666;",
+    fontWeight: '400',
+    letterSpacing: "0.12em",
+    color: "#00F666"
+    
+   
+    
   },
   [scales.XXL]: {
     fontSize: "32px",
-    fontSizeLg: "48px",
+    fontSizeLg: "70px",
+    lineHeight: "137.2%",
+    textShadow: "-1px 0px 12px #00F666",
+    fontWeight: '400',
+    letterSpacing: "0.12em",
+   
   },
 };
 

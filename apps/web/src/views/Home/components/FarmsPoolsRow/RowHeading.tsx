@@ -12,9 +12,9 @@ const RowHeading: React.FC<React.PropsWithChildren<HeadingProps>> = ({ text, ...
   const remainingWords = split.slice(1).join(' ')
 
   return (
-    <Heading {...props}>
+    <Heading  style={{display:"flex" , justifyContent:"center",color:"#00F666" }} {...props}>
       {firstWord}
-      <span style={{ color: theme.colors.secondary }}> {remainingWords}</span>
+      <span> {remainingWords}</span>
     </Heading>
   )
 }

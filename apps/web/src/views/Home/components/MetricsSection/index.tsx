@@ -2,18 +2,22 @@ import { Heading, Flex, Text, Skeleton, ChartIcon, CommunityIcon, SwapIcon } fro
 import { useTranslation } from '@pancakeswap/localization'
 import useTheme from 'hooks/useTheme'
 import { formatLocalisedCompactNumber } from '@pancakeswap/utils/formatBalance'
+import styled from 'styled-components'
 import useSWRImmutable from 'swr/immutable'
 import IconCard, { IconCardData } from '../IconCard'
 import StatCardContent from './StatCardContent'
 import GradientLogo from '../GradientLogoSvg'
-import styled from 'styled-components'
 
 const StyledHeading = styled(Heading)`
   text-shadow: -1px 0px 12px #00f666;
   letter-spacing: 0.12em;
 `
 const StyledSpan = styled.span`
-  color: #00f666;
+letter-spacing: 0.12em;
+text-shadow: -1px 0px 12px #00F666;
+color: #FFFFFF;
+
+
 `
 
 const Stats = () => {
@@ -46,7 +50,7 @@ const Stats = () => {
     <Flex justifyContent="center" alignItems="center" flexDirection="column">
       <GradientLogo height="48px" width="48px" mb="24px" />
       <StyledHeading textAlign="center" scale="xl" textTransform="uppercase">
-        {t('Used by')} <StyledSpan>millions</StyledSpan>.
+        {t('Used by')} <StyledSpan>millions</StyledSpan>,
       </StyledHeading>
       <StyledHeading textAlign="center" scale="xl" mb="32px" textTransform="uppercase">
         {t('Trusted with ')}

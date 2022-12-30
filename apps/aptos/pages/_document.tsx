@@ -2,6 +2,7 @@
 import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
 
+
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const sheet = new ServerStyleSheet()
@@ -35,9 +36,14 @@ class MyDocument extends Document {
         <Head>
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link rel="preconnect" href="https://tokens.pancakeswap.finance" />
-          <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;600&amp;display=swap" rel="stylesheet" />
+          <link
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap"
+          rel="stylesheet"
+        />
+          {/* <link href="https://fonts.googleapis.com/css2?family=Alien League Bold:wght@400;600&amp;display=swap" rel="stylesheet" /> */}
           <link rel="shortcut icon" href="https://pancakeswap.finance/favicon.ico" />
           <link rel="apple-touch-icon" href="https://pancakeswap.finance/logo.png" />
+         
         </Head>
         <body>
           <Main />
