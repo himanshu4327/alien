@@ -16,6 +16,16 @@ const Text = styled.div<TextProps>`
   font-family: "AlienSolid"
     font-weight: ${({ bold }) => (bold ? 600 : 400)};
   line-height: 1.5;
+  font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 189%;
+// opacity: 0.5;
+
+letter-spacing: 0.12em;
+
+
+  
   ${({ textTransform }) => textTransform && `text-transform: ${textTransform};`}
   ${({ ellipsis }) =>
     ellipsis &&

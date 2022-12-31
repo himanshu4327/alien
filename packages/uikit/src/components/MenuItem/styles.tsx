@@ -24,7 +24,18 @@ const StyledMenuItem = styled.a<StyledMenuItemProps>`
   position: relative;
   display: flex;
   align-items: center;
+  font-family: "AlienSolid";
+  font-style: normal;
+font-weight: 400;
 
+line-height: 18px;
+/* identical to box height */
+
+letter-spacing: 0.12em;
+
+color: #FFFFFF;
+
+// opacity: 0.5;
   color: ${({ theme, $isActive }) => ($isActive ? theme.colors.secondary : theme.colors.textSubtle)};
   font-size: 16px;
   font-weight: ${({ $isActive }) => ($isActive ? "600" : "400")};

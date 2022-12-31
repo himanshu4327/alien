@@ -83,7 +83,7 @@ const FarmsPoolsRow = () => {
         <Flex mb="24px" justifyContent="center">
 
       
-          <RowHeading text={showFarms ? t('Top Farms') : t('Top Syrup Pools')} />
+          <RowHeading    text={showFarms ? t('Top  Farms') : t('Top Syrup Pools')} />
      
 
         
@@ -102,7 +102,7 @@ const FarmsPoolsRow = () => {
             </IconButton>
           )}
         </Flex>
-        <Box   height={['240px', null, '80px']}>
+        <Box   height={['240px', null, '100px']}>
           <Grid>
             {topFarms.map((topFarm, index) => (
               <TopFarmPool

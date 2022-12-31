@@ -42,7 +42,7 @@ const SalesSection: React.FC<React.PropsWithChildren<SalesSectionProps>> = (prop
           >
             <Image src={images.path} alt="gif" width={1200} height={1200} />
           </Flex>
-          <Text fontSize="16px" color="textSubtle" mb="24px" textAlign="center" width="80%" margin="0 auto">
+          <Text fontSize="16px"   fontFamily="Aliensolid" color="textSubtle" mb="24px" textAlign="center" width="80%" margin="0 auto">
             {bodyText}
           </Text>
           <Flex justifyContent="center" my="10px">
