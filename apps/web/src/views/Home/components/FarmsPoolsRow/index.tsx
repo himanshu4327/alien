@@ -66,7 +66,8 @@ const FarmsPoolsRow = () => {
     })
   }
 
-  const mystyle={
+  const UserBannerWrapper = styled.div`
+  
     background: 'radial-gradient(52.44% 52.44% at 50.26% 115.85%, #00F666 0%, rgba(2, 73, 32, 0.2) 100%)',
     backdropFilter: "blur(5.5px)",
     color:"white",
@@ -75,10 +76,26 @@ const FarmsPoolsRow = () => {
     boxSizing: "border-box",
    boxShadow:" 1px 1px 2px #00f666, 1px -2px 0px #00f666"
    
-  }
+  `
+
+//  const Mystyle={
+//    background: 'radial-gradient(52.44% 52.44% at 50.26% 115.85%, #00F666 0%, rgba(2, 73, 32, 0.2) 100%)',
+//     backdropFilter: "blur(5.5px)",
+//     color:"white",
+//     padding:"24px",
+//     marginTop:"24px",
+//     boxSizing: "border-box",
+//    boxShadow:" 1px 1px 2px #00f666, 1px -2px 0px #00f666"
+
+//  }
 
   return (
-    <div style={mystyle}  ref={observerRef}>
+    
+   
+    <div    ref={observerRef}>
+
+      <UserBannerWrapper>
+      
       <Flex justifyContent="center"  flexDirection="column" mt="24px" >
         <Flex mb="24px" justifyContent="center">
 
@@ -131,7 +148,9 @@ const FarmsPoolsRow = () => {
           )}
         </Box>
       </Flex>
+      </UserBannerWrapper>
     </div>
+
   )
 }
 

@@ -31,12 +31,12 @@ const ColoredWordHeading: React.FC<React.PropsWithChildren<HeadingProps>> = ({
   
   const StyledHeading = styled.span`
   // letter-spacing: 0.12em;
+  color: #00f666;
 
-  color: #ffffff;
   text-shadow: -1px 0px 12px #00f666;
 `
 const StyledSpan = styled.span`
-   color: #00f666;
+   
 
   text-shadow: -1px 0px 12px #00f666;
 `

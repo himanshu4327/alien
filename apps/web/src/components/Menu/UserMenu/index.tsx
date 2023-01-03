@@ -105,10 +105,10 @@ const UserMenu = () => {
 
   return (
     <ConnectWalletButton scale="sm">
-      <Box display={['none', , , 'block']}>
+      <Box  style={{fontFamily: "AlienSolid" }}  display={['none', , , 'block']}>
         <Trans>Connect Wallet</Trans>
       </Box>
-      <Box display={['block', , , 'none']}>
+      <Box   style={{fontFamily: "AlienSolid" }}   display={['block', , , 'none']}>
         <Trans>Connect</Trans>
       </Box>
     </ConnectWalletButton>

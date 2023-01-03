@@ -15,8 +15,8 @@ export type SwapLineChartProps = {
 
 const getChartColors = ({ isChangePositive }) => {
   return isChangePositive
-    ? { gradient1: '#00E7B0', gradient2: '#0C8B6C', stroke: '#31D0AA' }
-    : { gradient1: '#ED4B9E', gradient2: '#ED4B9E', stroke: '#ED4B9E ' }
+    ? { gradient1: '#002b11', gradient2: '#002b11', stroke: '#31D0AA' }
+    : { gradient1: '#007831', gradient2: '#002b11', stroke: '#00F666' }
 }
 
 const dateFormattingByTimewindow: Record<PairDataTimeWindowEnum, Intl.DateTimeFormatOptions> = {
@@ -74,6 +74,7 @@ const LineChart = ({ data, setHoverValue, setHoverDate, isChangePositive, timeWi
           </linearGradient>
         </defs>
         <XAxis
+          // style={{fontFamily:"AlienSolid"}}
           dataKey="time"
           axisLine={false}
           tickLine={false}

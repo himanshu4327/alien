@@ -47,11 +47,18 @@ color: #FFFFFF;
     `
     &:after {
       content: "";
-      border-radius: 100%;
-      background: ${theme.colors[$statusColor]};
-      height: 8px;
-      width: 8px;
-      margin-left: 12px;
+      font-family: 'Alien Encounters Solid';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 18px;
+/* identical to box height */
+
+letter-spacing: 0.12em;
+
+color: #FFFFFF;
+
+opacity: 0.5;
     }
   `}
 
@@ -67,6 +74,7 @@ color: #FFFFFF;
   `}
 
   &:hover {
+    color:'#001D13';
     background: ${({ theme }) => theme.colors.tertiary};
     ${({ $variant }) => $variant === "default" && "border-radius: 16px;"};
   }

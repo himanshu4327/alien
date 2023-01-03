@@ -8,7 +8,7 @@ import { SalesSectionProps } from '.'
 
 
 export const swapSectionData = (t: TranslateFunction): SalesSectionProps => ({
-  headingText: t('Trade anything.No registration, no hassle.'),
+  headingText: t('Trade anything. No  registration,no hassle.'),
   bodyText: t('Trade any token on BNB Smart Chain in seconds, just by connecting your wallet.'),
   reverse: false,
   primaryButton: {
@@ -52,7 +52,7 @@ export const earnSectionData = (t: TranslateFunction): SalesSectionProps => ({
 })
 
 export const cakeSectionData = (t: TranslateFunction): SalesSectionProps => ({
-  headingText: t('Aliens   knew  The universe better'),
+  headingText: t('Aliens   knew    The universe better'),
 
   images: {
     path: '/images/alien/skeleton.gif',

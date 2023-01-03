@@ -50,7 +50,7 @@ const StyledButton = styled.button<BaseButtonProps>`
   box-shadow: 0px -1px 0px 0px rgba(14, 14, 44, 0.4) inset;
   cursor: pointer;
   display: inline-flex;
-  font-family: inherit;
+font-family: "AlienSolid"
   font-size: 16px;
   font-weight: 600;
   justify-content: center;
@@ -98,7 +98,9 @@ const StyledButton = styled.button<BaseButtonProps>`
         line-height: 20px;
         font-size: 12px;
         font-weight: 400;
+        font-family: "AlienSolid" ;
         transform: rotate(31.17deg);
+      
         color: ${decorator.color ?? "white"};
       }
     `}

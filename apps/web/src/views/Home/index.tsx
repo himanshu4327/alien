@@ -70,12 +70,12 @@ const floatingAnimRight = (x: string, y: string) => keyframes`
 `
 const floatingAnimTopRight = (x: string, y: string) => keyframes`
 from {
-  -webkit-transform: rotateY(0deg) rotateX(720deg) rotateZ(0deg);
-          transform: rotateY(0deg) rotateX(720deg) rotateZ(0deg);
+  -webkit-transform: rotateZ(360deg);
+          transform: rotateZ(180deg);
 }
 to {
-  -webkit-transform: rotateY(360deg) rotateX(0deg) rotateZ(360deg);
-          transform: rotateY(360deg) rotateX(0deg) rotateZ(360deg);
+  -webkit-transform:  rotateZ(360deg);
+          transform:  rotateZ(-360deg);
 }
 
 
@@ -107,6 +107,7 @@ const FloatingUfosTopRight = styled.div`
   background-image: url('/images/alien/spaceRight.svg');
   background-size: contain;
   position:absolute;
+  
   top:-12rem;
   right:0;
   background-repeat: no-repeat;
@@ -135,9 +136,10 @@ const UserBannerWrapper = styled(Container)`
     padding-right: 24px;
   }
 `
+
 const StyledHeading = styled(Heading)`
   letter-spacing: 0.12em;
-  color: #ffffff;
+  color: #fffff;
   text-shadow: -1px 0px 12px #00f666;
 `
 const StyledSpan = styled.span`
@@ -188,6 +190,8 @@ const Home: React.FC<React.PropsWithChildren> = () => {
         [data-theme='dark'] #home-4 .inner-wedge svg {
           fill: #000;
         }
+
+
       `}</style>
       <StyledHeroSection
         innerProps={{ style: { margin: '0', width: '100%' } }}
@@ -218,7 +222,7 @@ const Home: React.FC<React.PropsWithChildren> = () => {
         <Flex marginTop='120px' justifyContent="center">
           {!account && <ConnectWalletButton mr="8px" />}
           <NextLinkFromReactRouter to="/swap">
-            <Button variant='Alien'>{t('Trade Now')}</Button>
+            <Button style={{fontFamily: "AlienSolid" , fontSize:"16px"}}  variant='Alien'>{t('Trade Now')}</Button>
           </NextLinkFromReactRouter>
         </Flex>
         <Hero />
@@ -234,12 +238,20 @@ const Home: React.FC<React.PropsWithChildren> = () => {
         <div  style={{display:"flex" , justifyContent:"end" , position:"relative"}}  >
         <FloatingUfosTopRight/>
         </div>
+      
+      
         <FloatingUfos />
-        <MetricsSection />
 
+        <MetricsSection />
+  <div className="circle">
         <div style={{display:"flex" , justifyContent:"end"}} >
         <FloatingUfosRight/>
         </div>
+      
+</div>
+       
+        
+
       </PageSection>
       <PageSection
         innerProps={{ style: HomeSectionContainerStyles }}

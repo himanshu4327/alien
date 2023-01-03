@@ -32,6 +32,7 @@ interface Props {
 
 const ColoredIconButton = styled(IconButton)`
   color: ${({ theme }) => theme.colors.textSubtle};
+ 
 `
 
 const CurrencyInputHeader: React.FC<React.PropsWithChildren<Props>> = ({
@@ -52,7 +53,7 @@ const CurrencyInputHeader: React.FC<React.PropsWithChildren<Props>> = ({
   return (
     <Swap.CurrencyInputHeader
       title={
-        <Flex width="100%" alignItems="center" justifyContent="space-between" flexDirection="column">
+        <Flex   width="100%" alignItems="center" justifyContent="space-between" flexDirection="column">
           <Flex flexDirection="column" alignItems="flex-start" width="100%" marginBottom={15}>
             <Swap.CurrencyInputHeaderTitle>{title}</Swap.CurrencyInputHeaderTitle>
           </Flex>

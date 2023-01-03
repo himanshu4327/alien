@@ -6,7 +6,8 @@
     "noImplicitAny": false,
     "noFallthroughCasesInSwitch": true,
     "downlevelIteration": true,
-    "target": "es5"
+    "target": "es5",
+    "checkJs": false,
   },
   "exclude": ["node_modules"],
   "include": ["./src/**/*.ts", "./src/**/*.tsx"]

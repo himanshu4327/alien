@@ -31,7 +31,7 @@ const AbsoluteWrapper = styled(Flex)<{ visible: boolean; index: number; topOffse
            height: 80px;
            top: 0;
            padding-left: 16px;
-           border-left: 1px ${theme.colors.inputwhiteSmoke} solid;
+          
          }
        `
       : `padding-right: 16px;`}

@@ -49,13 +49,13 @@ const SalesSection: React.FC<React.PropsWithChildren<SalesSectionProps>> = (prop
             <Button mr="16px">
               {primaryButton.external ? (
                 <Link external href={primaryButton.to}>
-                  <Text color="card" bold fontSize="16px">
+                  <Text  style={{fontFamily: "AlienSolid" , fontSize:"16px"}} color="card" bold fontSize="16px">
                     {primaryButton.text}
                   </Text>
                 </Link>
               ) : (
                 <RouterLink to={primaryButton.to}>
-                  <Text color="card" bold fontSize="16px">
+                  <Text  style={{fontFamily: "AlienSolid" , fontSize:"16px"}} color="card" bold fontSize="16px">
                     {primaryButton.text}
                   </Text>
                 </RouterLink>
@@ -63,7 +63,9 @@ const SalesSection: React.FC<React.PropsWithChildren<SalesSectionProps>> = (prop
             </Button>
             {secondaryButton.external ? (
               <Link external href={secondaryButton.to}>
-                {secondaryButton.text}
+               <Text  style={{fontFamily: "AlienSolid" , fontSize:"16px"}}>
+               {secondaryButton.text}
+                </Text> 
               </Link>
             ) : (
               <RouterLink to={secondaryButton.to}>{secondaryButton.text}</RouterLink>

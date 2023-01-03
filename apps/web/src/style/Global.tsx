@@ -18,7 +18,7 @@ const GlobalStyle = createGlobalStyle`
   
 @font-face {
   font-family: "AlienSolid";
-  src: url('/fonts/alien-encounters-solid/Alien-Encounters-Bold.ttf');
+  src: url('/fonts/alien-encounters-solid/Alien-Encounters-Solid-Bold.ttf');
 }
   
 
@@ -30,6 +30,8 @@ const GlobalStyle = createGlobalStyle`
       height: auto;
       max-width: 100%;
     }
+   
+}
 
      
 

@@ -22,6 +22,7 @@ const TextLabel = styled(Text)`
 
   ${({ theme }) => theme.mediaQueries.lg} {
     font-size: 40px;
+    font-family:"Aliensolid";
   }
 `
 

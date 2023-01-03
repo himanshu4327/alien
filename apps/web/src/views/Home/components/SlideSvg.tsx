@@ -20,16 +20,31 @@ export const SlideSvgLight: React.FC<React.PropsWithChildren<SvgProps>> = (props
 
 export const SlideSvgDark: React.FC<React.PropsWithChildren<SvgProps>> = (props) => {
   return (
-
-      <Svg width="1728" height="955" viewBox="0 0 1728 955" fill="none" xmlns="http://www.w3.org/2000/svg"  {...props}>
-<rect width="1735" height="2957" transform="matrix(1 0 0 -1 -7 955)" fill="url(#paint0_linear_87_8)"/>
+    <>
+    <Svg width="1728" height="1009" viewBox="0 0 1728 1009" fill="none" xmlns="http://www.w3.org/2000/svg   {...props}">
+<rect width="1735" height="288" transform="matrix(-1 0 0 1 1728 721)" fill="url(#paint0_linear_474_2)"/>
+<rect width="1735" height="957" transform="matrix(1 0 0 -1 -7 955)" fill="url(#paint1_linear_474_2)"/>
 <defs>
-<linearGradient id="paint0_linear_87_8" x1="869.204" y1="855.071" x2="868.044" y2="-111.895" gradientUnits="userSpaceOnUse">
+<linearGradient id="paint0_linear_474_2" x1="867" y1="16" x2="867.007" y2="208.134" gradientUnits="userSpaceOnUse">
+<stop stop-opacity="0"/>
+<stop offset="1"/>
+</linearGradient>
+<linearGradient id="paint1_linear_474_2" x1="869.204" y1="855.071" x2="868.044" y2="-111.895" gradientUnits="userSpaceOnUse">
 <stop/>
 <stop offset="1" stop-opacity="0"/>
 </linearGradient>
 </defs>
-</Svg>
+</Svg></>
+
+//       <Svg width="1728" height="955" viewBox="0 0 1728 955" fill="none" xmlns="http://www.w3.org/2000/svg"  {...props}>
+// <rect width="1735" height="2957" transform="matrix(1 0 0 -1 -7 955)" fill="url(#paint0_linear_87_8)"/>
+// <defs>
+// <linearGradient id="paint0_linear_87_8" x1="869.204" y1="855.071" x2="868.044" y2="-111.895" gradientUnits="userSpaceOnUse">
+// <stop/>
+// <stop offset="1" stop-opacity="0"/>
+// </linearGradient>
+// </defs>
+// </Svg>
 
   
     // <Svg viewBox="0 0 1660 339" {...props}>

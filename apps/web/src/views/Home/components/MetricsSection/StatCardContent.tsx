@@ -19,16 +19,16 @@ const StatCardContent: React.FC<
       mt={[null, null, null, '32px']}
       mb={[null, null, null, '32px']}
     >
-      <Heading color='#fffff'    scale="xl" mb="24px" textAlign="center">
+      <Heading  style={{textShadow:"-1px 0px 12px #00f666" , letterSpacing:"0.12em"}}    scale="xl" mb="24px" textAlign="center">
         {firstWord}
-       
       </Heading>
+       
       {isSmallerScreen && remainingWords.length > 13 ? (
-        <Heading scale="lg" textTransform="uppercase" textAlign="center">
+        <Heading style={{textShadow:"-1px 0px 12px #00f666" , letterSpacing:"0.12em"}} scale="lg" textTransform="uppercase" textAlign="center">
           {remainingWords}
         </Heading>
       ) : (
-        <Heading scale="xl" textTransform="uppercase" textAlign="center">
+        <Heading style={{textShadow:"-1px 0px 12px #00f666" , letterSpacing:"0.12em"}} scale="xl" textTransform="uppercase" textAlign="center">
           {remainingWords}
         </Heading>
       )}

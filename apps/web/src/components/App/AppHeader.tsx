@@ -25,7 +25,7 @@ const AppHeaderContainer = styled(Flex)`
 const AppHeader: React.FC<React.PropsWithChildren<Props>> = ({ title, subtitle, helper, backTo, noConfig = false }) => {
   const [expertMode] = useExpertModeManager()
 
-  return (
+  return ( 
     <AppHeaderContainer>
       <Flex alignItems="center" width="100%" style={{ gap: '16px' }}>
         {backTo &&

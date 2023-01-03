@@ -51,6 +51,7 @@ const PriceChartContainer: React.FC<React.PropsWithChildren<PriceChartContainerP
   }
 
   return (
+    
     <PriceChart
       token0Address={isPairReversed ? token1Address : token0Address}
       token1Address={isPairReversed ? token0Address : token1Address}

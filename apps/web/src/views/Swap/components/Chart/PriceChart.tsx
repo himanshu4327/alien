@@ -110,6 +110,7 @@ const PriceChart = ({
         )}
       </Flex>
       {chartView === ChartViewMode.BASIC && (
+  
         <BasicChart
           token0Address={token0Address}
           token1Address={token1Address}

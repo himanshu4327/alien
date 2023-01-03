@@ -15,7 +15,7 @@ const StyledHeading = styled(Heading)`
 const StyledSpan = styled.span`
 letter-spacing: 0.12em;
 text-shadow: -1px 0px 12px #00F666;
-color: #FFFFFF;
+color: #00f666;
 
 
 `

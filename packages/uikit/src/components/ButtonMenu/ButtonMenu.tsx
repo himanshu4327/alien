@@ -18,9 +18,12 @@ const getBorderColor = ({ theme, variant }: StyledButtonMenuProps) => {
 
 const StyledButtonMenu = styled.div<StyledButtonMenuProps>`
   background-color: ${getBackgroundColor};
-  border-radius: 16px;
+  // border-radius: 16px;
+  border:2px solid  #00F666;
+  font-family:"Alien Solid"
+  box-shadow: 0px 0px 11px -1px #00F666;
   display: ${({ fullWidth }) => (fullWidth ? "flex" : "inline-flex")};
-  border: 1px solid ${getBorderColor};
+  // border: 1px solid ${getBorderColor};
   width: ${({ fullWidth }) => (fullWidth ? "100%" : "auto")};
 
   & > button,
@@ -65,6 +68,7 @@ const ButtonMenu: React.FC<React.PropsWithChildren<ButtonMenuProps>> = ({
   ...props
 }) => {
   return (
+  
     <StyledButtonMenu disabled={disabled} variant={variant} fullWidth={fullWidth} {...props}>
       {Children.map(children, (child: ReactElement, index) => {
         return cloneElement(child, {

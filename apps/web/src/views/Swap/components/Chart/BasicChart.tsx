@@ -8,6 +8,7 @@ import NoChartAvailable from './NoChartAvailable'
 import PairPriceDisplay from '../../../../components/PairPriceDisplay'
 import { getTimeWindowChange } from './utils'
 
+
 const SwapLineChart = dynamic(() => import('./SwapLineChart'), {
   ssr: false,
 })
@@ -74,6 +75,7 @@ const BasicChart = ({
         alignItems={['flex-start', null, null, null, null, null, 'center']}
         justifyContent="space-between"
         px="24px"
+      
       >
         <Flex flexDirection="column" pt="12px">
           <PairPriceDisplay
@@ -90,11 +92,11 @@ const BasicChart = ({
           </Text>
         </Flex>
         <Box>
-          <ButtonMenu activeIndex={timeWindow} onItemClick={setTimeWindow} scale="sm">
-            <ButtonMenuItem>{t('24H')}</ButtonMenuItem>
-            <ButtonMenuItem>{t('1W')}</ButtonMenuItem>
-            <ButtonMenuItem>{t('1M')}</ButtonMenuItem>
-            <ButtonMenuItem>{t('1Y')}</ButtonMenuItem>
+          <ButtonMenu  activeIndex={timeWindow} onItemClick={setTimeWindow} scale="sm">
+            <ButtonMenuItem  style={{fontFamily:"AlienSolid"}}  >{t('24H')}</ButtonMenuItem>
+            <ButtonMenuItem  style={{fontFamily:"AlienSolid"}} >{t('1W')}</ButtonMenuItem>
+            <ButtonMenuItem  style={{fontFamily:"AlienSolid"}} >{t('1M')}</ButtonMenuItem>
+            <ButtonMenuItem  style={{fontFamily:"AlienSolid"}} >{t('1Y')}</ButtonMenuItem>
           </ButtonMenu>
         </Box>
       </Flex>
