@@ -46,6 +46,8 @@ export const StyledCard = styled.div<StyledCardProps>`
   border-radius: ${({ theme }) => theme.radii.card};
   color: ${({ theme, isDisabled }) => theme.colors[isDisabled ? "textDisabled" : "text"]};
   overflow: hidden;
+  background:#00190a;
+
   position: relative;
   border-radius: 0;
   box-shadow: 1px 0px 2px #00f666, 1px -1px 0px #00f666;
@@ -67,9 +69,9 @@ export const StyledCardInner = styled(Box)<{ background?: string; hasCustomBorde
   
   overflow: ${({ hasCustomBorder }) => (hasCustomBorder ? "initial" : "inherit")};
   //background: ${({ theme, background }) => background ?? theme.card.background};
-  background: radial-gradient(52.44% 52.44% at 50.26% 115.85%, #00F666 0%, rgba(0, 0, 0, 0.2) 100%);
+  // background: radial-gradient(52.44% 52.44% at 50.26% 115.85%, #00F666 0%, rgba(0, 0, 0, 0.2) 100%);
 backdrop-filter: blur(7.5px);
-
+ background:#00190a;
   border-radius: 0px;
   //border-radius: ${({ theme }) => theme.radii.card};
 `;

@@ -21,14 +21,18 @@ const InputRow = styled.div<{ selected: boolean }>`
   flex-flow: row nowrap;
   align-items: center;
   justify-content: flex-end;
+  
   padding: ${({ selected }) => (selected ? '0.75rem 0.5rem 0.75rem 1rem' : '0.75rem 0.75rem 0.75rem 1rem')};
 `
 const CurrencySelectButton = styled(Button).attrs({ variant: 'text', scale: 'sm' })<{ zapStyle?: ZapStyle }>`
   padding: 0 0.5rem;
+  b
+ 
   ${({ zapStyle, theme }) =>
     zapStyle &&
     css`
       padding: 8px;
+     
       background: ${theme.colors.background};
       border: 1px solid ${theme.colors.cardBorder};
       border-radius: ${zapStyle === 'zap' ? '0px' : '8px'} 8px 0px 0px;
@@ -39,34 +43,37 @@ const LabelRow = styled.div`
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  color: ${({ theme }) => theme.colors.text};
+  // color: ${({ theme }) => theme.colors.text};
   font-size: 0.75rem;
-  line-height: 1rem;
+  // border:2px solid red;
+  font-family: "AlienSolid";
   padding: 0.75rem 1rem 0 1rem;
 `
 const InputPanel = styled.div`
   display: flex;
   flex-flow: column nowrap;
   position: relative;
+  
   background-color: ${({ theme }) => theme.colors.backgroundAlt};
   z-index: 1;
 `
 const Container = styled.div<{ zapStyle?: ZapStyle; error?: boolean }>`
-  border-radius: 16px;
-  background-color: ${({ theme }) => theme.colors.input};
+  // border-radius: 16px;
+  background-color: #013120;
   box-shadow: ${({ theme, error }) => theme.shadows[error ? 'warning' : 'inset']};
   ${({ zapStyle }) =>
     !!zapStyle &&
     css`
-      border-radius: 0px 16px 16px 16px;
+      // border-radius: 0px 16px 16px 16px;
     `};
 `
 
 const Overlay = styled.div`
   position: absolute;
+  
   inset: 0;
   opacity: 0.6;
-  background-color: ${({ theme }) => theme.colors.backgroundAlt};
+  background-color: #013120;
 `
 
 type ZapStyle = 'noZap' | 'zap'
@@ -169,11 +176,11 @@ export default function CurrencyInputPanel({
                 <CurrencyLogo currency={currency} size="24px" style={{ marginRight: '8px' }} />
               ) : null}
               {pair ? (
-                <Text id="pair" bold>
+                <Text style={{fontFamily:"AlienSolid"}} id="pair" bold>
                   {pair?.token0.symbol}:{pair?.token1.symbol}
                 </Text>
               ) : (
-                <Text id="pair" bold>
+                <Text  style={{fontFamily:"AlienSolid"}} id="pair" bold>
                   {(currency && currency.symbol && currency.symbol.length > 20
                     ? `${currency.symbol.slice(0, 4)}...${currency.symbol.slice(
                         currency.symbol.length - 5,
@@ -210,8 +217,9 @@ export default function CurrencyInputPanel({
           <Text
             onClick={!disabled && onMax}
             color="textSubtle"
+            
             fontSize="14px"
-            style={{ display: 'inline', cursor: 'pointer' }}
+            style={{ display: 'inline', cursor: 'pointer', opacity:"0.5", fontFamily: "AlienSolid" }}
           >
             {!hideBalance && !!currency
               ? t('Balance: %balance%', { balance: selectedCurrencyBalance?.toSignificant(6) ?? t('Loading') })
@@ -248,6 +256,7 @@ export default function CurrencyInputPanel({
                 {showQuickInputButton &&
                   onPercentInput &&
                   [25, 50, 75].map((percent) => (
+                 
                     <Button
                       key={`btn_quickCurrency${percent}`}
                       onClick={() => {

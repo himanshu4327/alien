@@ -50,7 +50,7 @@ const StyledButton = styled.button<BaseButtonProps>`
   box-shadow: 0px -1px 0px 0px rgba(14, 14, 44, 0.4) inset;
   cursor: pointer;
   display: inline-flex;
-font-family: "AlienSolid"
+  font-family: "AlienSolid"
   font-size: 16px;
   font-weight: 600;
   justify-content: center;
@@ -62,12 +62,14 @@ font-family: "AlienSolid"
 
   &:hover:not(:disabled):not(.pancake-button--disabled):not(.pancake-button--disabled):not(:active) {
     opacity: 0.65;
+      font-family: "AlienSolid";
   }
 
   &:active:not(:disabled):not(.pancake-button--disabled):not(.pancake-button--disabled) {
     opacity: 0.85;
     transform: translateY(1px);
     box-shadow: none;
+    font-family: "AlienSolid";
   }
 
   ${getDisabledStyles}
@@ -98,7 +100,7 @@ font-family: "AlienSolid"
         line-height: 20px;
         font-size: 12px;
         font-weight: 400;
-        font-family: "AlienSolid" ;
+        font-family: "AlienSolid";
         transform: rotate(31.17deg);
       
         color: ${decorator.color ?? "white"};

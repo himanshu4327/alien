@@ -87,7 +87,7 @@ const BasicChart = ({
               {`${isChangePositive ? '+' : ''}${changeValue.toFixed(3)} (${changePercentage}%)`}
             </Text>
           </PairPriceDisplay>
-          <Text small color="secondary">
+          <Text style={{fontFamily:"AlienSolid"}} small color="secondary">
             {hoverDate || currentDate}
           </Text>
         </Flex>

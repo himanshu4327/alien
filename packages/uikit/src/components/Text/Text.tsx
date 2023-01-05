@@ -13,8 +13,8 @@ const getColor = ({ color, theme }: ThemedProps) => {
 
 const Text = styled.div<TextProps>`
   color: ${getColor};
-  font-family: "AlienSolid"
-    font-weight: ${({ bold }) => (bold ? 600 : 400)};
+  // font-family: "AlienSolid";
+  font-weight: ${({ bold }) => (bold ? 600 : 400)};
   line-height: 1.5;
   font-style: normal;
 font-weight: 400;
@@ -45,6 +45,7 @@ Text.defaultProps = {
   small: false,
   fontSize: "16px",
   ellipsis: false,
+  // fontFamily:"AlienSolid"
 };
 
 export default Text;

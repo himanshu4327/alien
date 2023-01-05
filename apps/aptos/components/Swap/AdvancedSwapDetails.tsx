@@ -26,9 +26,9 @@ function TradeSummary({
   const buyBackFeePercent = `${(BUYBACK_FEE * 100).toFixed(4)}%`
 
   return (
-    <AutoColumn style={{ padding: '0 16px' }}>
-      <RowBetween>
-        <RowFixed>
+    <AutoColumn style={{ padding: '0 16px' ,  }}>
+      <RowBetween  >
+        <RowFixed >
           <Text fontSize="14px" color="textSubtle">
             {isExactIn ? t('Minimum received') : t('Maximum sold')}
           </Text>
@@ -51,7 +51,7 @@ function TradeSummary({
       </RowBetween>
       <RowBetween>
         <RowFixed>
-          <Text fontSize="14px" color="textSubtle">
+          <Text  fontSize="14px" color="textSubtle">
             {t('Price Impact')}
           </Text>
           <QuestionHelper

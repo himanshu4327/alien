@@ -13,8 +13,10 @@ interface FarmTypesFilterProps {
 }
 
 export const FarmTypesWrapper = styled(Flex)`
-  background: ${({ theme }) => theme.colors.dropdown};
-  border-radius: 24px 24px 0 0;
+  // background: ${({ theme }) => theme.colors.dropdown};
+   background: #001d13;
+  
+ 
 `
 
 export const StyledItemRow = styled(Flex)`
@@ -72,7 +74,7 @@ export const FarmTypesFilter: React.FC<FarmTypesFilterProps> = ({
         <Box ref={wrapperRef}>
           <InlineMenu
             component={
-              <Button onClick={handleMenuClick} variant="light" scale="sm">
+              <Button  style={{fontFamily:"AleinSolid" , opacity:'0.5' , color:"white" , fontSize:"18px"}}  onClick={handleMenuClick}  scale="sm">
                 {t('Farm Types')}
                 {farmTypesEnableCount > 0 && `(${farmTypesEnableCount})`}
               </Button>
@@ -82,7 +84,7 @@ export const FarmTypesFilter: React.FC<FarmTypesFilterProps> = ({
           >
             <Box width={['100%', '345px']} ref={menuRef}>
               <FarmTypesWrapper alignItems="center" p="16px">
-                <Text fontSize={20} bold color="text" display="inline-block" ml="8px">
+                <Text  style={{fontFamily:"AlienSolid" , opacity:"0.5"}} fontSize={20} bold color="text" display="inline-block" ml="8px">
                   {t('Farm Types')}
                 </Text>
               </FarmTypesWrapper>

@@ -61,11 +61,16 @@ const Container = styled.div<{ expanded }>`
           ${collapseAnimation} 300ms linear forwards
         `};
   overflow: hidden;
-  background: ${({ theme }) => theme.colors.dropdown};
+  background:black;
+  // background: ${({ theme }) => theme.colors.dropdown};
   display: flex;
   width: 100%;
   flex-direction: column-reverse;
   padding: 24px;
+  
+ 
+  
+
 
   ${({ theme }) => theme.mediaQueries.lg} {
     flex-direction: row;
@@ -92,6 +97,7 @@ const StakeContainer = styled.div`
 const ActionContainer = styled.div`
   display: flex;
   flex-direction: column;
+font-family:"AlienSolid";
 
   ${({ theme }) => theme.mediaQueries.sm} {
     flex-direction: row;
@@ -113,6 +119,7 @@ const ValueWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   margin: 4px 0px;
+  font-family:"AlienSolid"
 `
 
 const ActionPanel: React.FunctionComponent<React.PropsWithChildren<ActionPanelProps>> = ({
@@ -159,8 +166,8 @@ const ActionPanel: React.FunctionComponent<React.PropsWithChildren<ActionPanelPr
         <ValueContainer>
           {farm.isCommunity && farm.auctionHostingEndDate && (
             <ValueWrapper>
-              <Text>{t('Auction Hosting Ends')}</Text>
-              <Text paddingLeft="4px">
+              <Text  style={{fontFamily:"AlienSolid"}} >{t('Auction Hosting Ends')}</Text>
+              <Text   style={{fontFamily:"AlienSolid"}} paddingLeft="4px">
                 {new Date(farm.auctionHostingEndDate).toLocaleString(locale, {
                   month: 'short',
                   day: 'numeric',
@@ -172,15 +179,15 @@ const ActionPanel: React.FunctionComponent<React.PropsWithChildren<ActionPanelPr
           {!isDesktop && (
             <>
               <ValueWrapper>
-                <Text>{t('APR')}</Text>
+                <Text style={{fontFamily:"AlienSolid"}} >{t('APR')}</Text>
                 <Apr {...apr} useTooltipText={false} boosted={farm.boosted} />
               </ValueWrapper>
               <ValueWrapper>
-                <Text>{t('Multiplier')}</Text>
+                <Text style={{fontFamily:"AlienSolid"}} >{t('Multiplier')}</Text>
                 <Multiplier {...multiplier} />
               </ValueWrapper>
               <ValueWrapper>
-                <Text>{t('Liquidity')}</Text>
+                <Text style={{fontFamily:"AlienSolid"}} >{t('Liquidity')}</Text>
                 <Liquidity {...liquidity} />
               </ValueWrapper>
             </>

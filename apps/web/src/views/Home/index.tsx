@@ -141,6 +141,7 @@ const StyledHeading = styled(Heading)`
   letter-spacing: 0.12em;
   color: #fffff;
   text-shadow: -1px 0px 12px #00f666;
+  font-family: "Alien";
 `
 const StyledSpan = styled.span`
   color: #00f666;

@@ -74,7 +74,7 @@ const LineChart = ({ data, setHoverValue, setHoverDate, isChangePositive, timeWi
           </linearGradient>
         </defs>
         <XAxis
-          // style={{fontFamily:"AlienSolid"}}
+          fontFamily='AlienSolid'
           dataKey="time"
           axisLine={false}
           tickLine={false}

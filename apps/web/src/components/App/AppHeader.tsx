@@ -19,7 +19,7 @@ const AppHeaderContainer = styled(Flex)`
   justify-content: space-between;
   padding: 24px;
   width: 100%;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.cardBorder};
+  // border-bottom: 1px solid ${({ theme }) => theme.colors.cardBorder};
 `
 
 const AppHeader: React.FC<React.PropsWithChildren<Props>> = ({ title, subtitle, helper, backTo, noConfig = false }) => {
@@ -41,22 +41,22 @@ const AppHeader: React.FC<React.PropsWithChildren<Props>> = ({ title, subtitle, 
             </IconButton>
           ))}
         <Flex flexDirection="column" width="100%">
-          <Flex mb="8px" alignItems="center" justifyContent="space-between">
-            <Flex>
-              <Heading as="h2">{title}</Heading>
-              {helper && <QuestionHelper text={helper} ml="4px" placement="top-start" />}
+          <Flex mb="8px"   alignItems="center" justifyContent="center">
+            <Flex  alignItems="center" >
+              <Heading  style={{fontFamily:"AlienSolid"}} as="h2">{title}</Heading>
+              {/* {helper && <QuestionHelper text={helper} ml="4px" placement="top-start" />} */}
             </Flex>
             {!noConfig && (
               <Flex alignItems="center">
                 <NotificationDot show={expertMode}>
-                  <GlobalSettings mode={SettingsMode.SWAP_LIQUIDITY} />
+                  {/* <GlobalSettings mode={SettingsMode.SWAP_LIQUIDITY} /> */}
                 </NotificationDot>
                 <Transactions />
               </Flex>
             )}
           </Flex>
           <Flex alignItems="center">
-            <Text color="textSubtle" fontSize="14px">
+            <Text style={{fontFamily:"AlienSolid" , opacity:"0.5"}} color="textSubtle" fontSize="14px">
               {subtitle}
             </Text>
           </Flex>

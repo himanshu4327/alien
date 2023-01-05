@@ -11,7 +11,10 @@ const Container = styled.div`
   padding-left: 16px;
   display: flex;
   align-items: center;
-
+font-family:"AlienSolid";
+  
+background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+border: 1px solid #00F666;
   ${({ theme }) => theme.mediaQueries.sm} {
     padding-left: 32px;
   }
@@ -20,9 +23,14 @@ const Container = styled.div`
 const TokenWrapper = styled.div`
   padding-right: 8px;
   width: 32px;
+  
+background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+border: 1px solid #00F666;
 
   ${({ theme }) => theme.mediaQueries.sm} {
     width: 40px;
+    background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+border: 1px solid #00F666;
   }
 `;
 
@@ -64,7 +72,7 @@ const Farm: React.FunctionComponent<React.PropsWithChildren<FarmTableFarmTokenIn
       <TokenWrapper>{children}</TokenWrapper>
       <div>
         {handleRenderFarming()}
-        <Text bold>{label}</Text>
+        <Text   style={{fontFamily:"AlienSolid"}} bold>{label}</Text>
       </div>
     </Container>
   );

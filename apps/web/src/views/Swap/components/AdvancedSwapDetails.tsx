@@ -43,7 +43,7 @@ function TradeSummary({
     <AutoColumn style={{ padding: '0 16px' }}>
       <RowBetween>
         <RowFixed>
-          <Text fontSize="14px" color="textSubtle">
+          <Text style={{fontFamily:"AlienSolid"}} fontSize="14px" color="textSubtle">
             {isExactIn ? t('Minimum received') : t('Maximum sold')}
           </Text>
           <QuestionHelper
@@ -55,7 +55,7 @@ function TradeSummary({
           />
         </RowFixed>
         <RowFixed>
-          <Text fontSize="14px">
+          <Text style={{fontFamily:"AlienSolid"}} fontSize="14px">
             {isExactIn
               ? `${slippageAdjustedAmounts[Field.OUTPUT]?.toSignificant(4)} ${outputAmount.currency.symbol}` ?? '-'
               : `${slippageAdjustedAmounts[Field.INPUT]?.toSignificant(4)} ${inputAmount.currency.symbol}` ?? '-'}
@@ -65,7 +65,7 @@ function TradeSummary({
       {priceImpactWithoutFee && (
         <RowBetween>
           <RowFixed>
-            <Text fontSize="14px" color="textSubtle">
+            <Text style={{fontFamily:"AlienSolid"}} fontSize="14px" color="textSubtle">
               {t('Price Impact')}
             </Text>
             <QuestionHelper
@@ -81,23 +81,23 @@ function TradeSummary({
       {realizedLPFee && (
         <RowBetween>
           <RowFixed>
-            <Text fontSize="14px" color="textSubtle">
+            <Text  style={{fontFamily:"AlienSolid"}} fontSize="14px" color="textSubtle">
               {t('Liquidity Provider Fee')}
             </Text>
             <QuestionHelper
               text={
                 <>
-                  <Text mb="12px">
+                  <Text style={{fontFamily:"AlienSolid"}} mb="12px">
                     {hasStablePair
                       ? t('For each non-stableswap trade, a %amount% fee is paid', { amount: totalFeePercent })
                       : t('For each trade a %amount% fee is paid', { amount: totalFeePercent })}
                   </Text>
-                  <Text>- {t('%amount% to LP token holders', { amount: lpHoldersFeePercent })}</Text>
-                  <Text>- {t('%amount% to the Treasury', { amount: treasuryFeePercent })}</Text>
-                  <Text>- {t('%amount% towards CAKE buyback and burn', { amount: buyBackFeePercent })}</Text>
+                   <Text style={{fontFamily:"AlienSolid"}} >- {t('%amount% to LP token holders', { amount: lpHoldersFeePercent })}</Text>
+                   <Text style={{fontFamily:"AlienSolid"}} >- {t('%amount% to the Treasury', { amount: treasuryFeePercent })}</Text>
+                   <Text style={{fontFamily:"AlienSolid"}} >- {t('%amount% towards CAKE buyback and burn', { amount: buyBackFeePercent })}</Text>
                   {hasStablePair && (
                     <>
-                      <Text mt="12px">
+                      <Text style={{fontFamily:"AlienSolid"}} mt="12px">
                         {t('For each stableswap trade, refer to the fee table')}
                         <Link
                           style={{ display: 'inline' }}
@@ -116,7 +116,7 @@ function TradeSummary({
               placement="top-start"
             />
           </RowFixed>
-          <Text fontSize="14px">{`${realizedLPFee.toSignificant(4)} ${inputAmount.currency.symbol}`}</Text>
+          <Text style={{fontFamily:"AlienSolid"}} fontSize="14px">{`${realizedLPFee.toSignificant(4)} ${inputAmount.currency.symbol}`}</Text>
         </RowBetween>
       )}
     </AutoColumn>
@@ -168,8 +168,8 @@ export function AdvancedSwapDetails({
           {showRoute && (
             <>
               <RowBetween style={{ padding: '0 16px' }}>
-                <span style={{ display: 'flex', alignItems: 'center' }}>
-                  <Text fontSize="14px" color="textSubtle">
+                <span style={{ display: 'flex', alignItems: 'center', fontFamily:"AlienSolid" }}>
+                  <Text style={{fontFamily:"AlienSolid"}} fontSize="14px" color="textSubtle">
                     {t('Route')}
                   </Text>
                   <QuestionHelper
@@ -179,7 +179,7 @@ export function AdvancedSwapDetails({
                   />
                 </span>
                 <SwapRoute path={path} />
-                <SearchIcon style={{ cursor: 'pointer' }} onClick={() => setIsModalOpen(true)} />
+                <SearchIcon style={{ cursor: 'pointer'  , fontFamily:"AlienSolid" }} onClick={() => setIsModalOpen(true)} />
                 <ModalV2 closeOnOverlayClick isOpen={isModalOpen} onDismiss={() => setIsModalOpen(false)}>
                   <Modal
                     title={

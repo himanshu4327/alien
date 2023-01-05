@@ -4,6 +4,7 @@ import { Box, BoxProps } from "../Box";
 import { ArrowDropDownIcon } from "../Svg";
 import { Text } from "../Text";
 
+
 const DropDownHeader = styled.div`
   width: 100%;
   height: 40px;
@@ -13,9 +14,11 @@ const DropDownHeader = styled.div`
   padding: 0px 16px;
   box-shadow: ${({ theme }) => theme.shadows.inset};
   border: 1px solid ${({ theme }) => theme.colors.inputSecondary};
-  border-radius: 16px;
-  background: ${({ theme }) => theme.colors.input};
+  // border-radius: 16px;
+  backgound-color: #001D13;
+  // background: ${({ theme }) => theme.colors.input};
   transition: border-radius 0.15s;
+  fontFamily:"AlienSolid";
 `;
 
 const DropDownListContainer = styled.div`
@@ -23,16 +26,19 @@ const DropDownListContainer = styled.div`
   height: 0;
   position: absolute;
   overflow: hidden;
-  background: ${({ theme }) => theme.colors.input};
+  backgound-color: #001D13;
+  // background: ${({ theme }) => theme.colors.input};
   z-index: ${({ theme }) => theme.zIndices.dropdown};
   transition: transform 0.15s, opacity 0.15s;
   transform: scaleY(0);
   transform-origin: top;
   opacity: 0;
   width: 100%;
+  fontFamily:"AlienSolid";
 
   ${({ theme }) => theme.mediaQueries.sm} {
     min-width: 168px;
+    fontFamily:"AlienSolid";
   }
 `;
 
@@ -40,15 +46,19 @@ const DropDownContainer = styled(Box)<{ isOpen: boolean }>`
   cursor: pointer;
   width: 100%;
   position: relative;
-  background: ${({ theme }) => theme.colors.input};
-  border-radius: 16px;
+
+  backgound-color: #001D13;
+  // background: ${({ theme }) => theme.colors.input};
+  // border-radius: 16px;
   height: 40px;
   min-width: 136px;
   user-select: none;
   z-index: 20;
+  font-family:"AlienSolid";
 
   ${({ theme }) => theme.mediaQueries.sm} {
     min-width: 168px;
+    font-family:"AlienSolid";
   }
 
   ${(props) =>
@@ -57,16 +67,19 @@ const DropDownContainer = styled(Box)<{ isOpen: boolean }>`
       ${DropDownHeader} {
         border-bottom: 1px solid ${({ theme }) => theme.colors.inputSecondary};
         box-shadow: ${({ theme }) => theme.tooltip.boxShadow};
-        border-radius: 16px 16px 0 0;
+        // border-radius: 16px 16px 0 0;
+        font-family:"AlienSolid";
       }
 
       ${DropDownListContainer} {
         height: auto;
         transform: scaleY(1);
         opacity: 1;
+        backgound-color: #001D13;
         border: 1px solid ${({ theme }) => theme.colors.inputSecondary};
         border-top-width: 0;
-        border-radius: 0 0 16px 16px;
+        font-family:"AlienSolid";
+        // border-radius: 0 0 16px 16px;
         box-shadow: ${({ theme }) => theme.tooltip.boxShadow};
       }
     `}
@@ -90,7 +103,8 @@ const ListItem = styled.li`
   list-style: none;
   padding: 8px 16px;
   &:hover {
-    background: ${({ theme }) => theme.colors.inputSecondary};
+    backgound-color: #001D13;;
+    // background: ${({ theme }) => theme.colors.inputSecondary};
   }
 `;
 
@@ -153,7 +167,7 @@ const Select: React.FunctionComponent<React.PropsWithChildren<SelectProps>> = ({
   return (
     <DropDownContainer isOpen={isOpen} {...props}>
       <DropDownHeader onClick={toggling}>
-        <Text color={!optionSelected && placeHolderText ? "text" : undefined}>
+        <Text style={{fontFamily:"AlienSolid" , opacity:"0.5"}} color={!optionSelected && placeHolderText ? "text" : undefined}>
           {!optionSelected && placeHolderText ? placeHolderText : options[selectedOptionIndex].label}
         </Text>
       </DropDownHeader>
@@ -163,7 +177,7 @@ const Select: React.FunctionComponent<React.PropsWithChildren<SelectProps>> = ({
           {options.map((option, index) =>
             placeHolderText || index !== selectedOptionIndex ? (
               <ListItem onClick={onOptionClicked(index)} key={option.label}>
-                <Text>{option.label}</Text>
+                <Text  style={{fontFamily:"AlienSolid" , opacity:"0.5"}} >{option.label}</Text>
               </ListItem>
             ) : null
           )}

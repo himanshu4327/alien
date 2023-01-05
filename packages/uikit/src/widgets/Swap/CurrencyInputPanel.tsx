@@ -56,6 +56,7 @@ export function CurrencyInputPanel({
             lineHeight="16px"
             px="16px"
             pt="12px"
+           
           >
             <NumericalInput
               error={error}
