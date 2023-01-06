@@ -5,6 +5,9 @@ import BundleAnalyzer from '@next/bundle-analyzer'
 import { createVanillaExtractPlugin } from '@vanilla-extract/next-plugin'
 import NextTranspileModules from 'next-transpile-modules'
 
+
+
+
 const withBundleAnalyzer = BundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
 })
@@ -48,6 +51,7 @@ const config = {
   compiler: {
     styledComponents: true,
   },
+  
   experimental: {
     scrollRestoration: true,
   },

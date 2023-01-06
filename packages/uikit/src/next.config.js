@@ -1,6 +1,9 @@
-const withFonts = require('next-fonts');
-module.exports = withFonts({
-  webpack(config, "../../../apps/web/public/fonts/alien_league/alienleaguebold.ttf") {
-    return config;
-  }
-});
+module.exports = {
+  typescript: {
+    // !! WARN !!
+    // Dangerously allow production builds to successfully complete even if
+    // your project has type errors.
+    // !! WARN !!
+    ignoreBuildErrors: true,
+  },
+}

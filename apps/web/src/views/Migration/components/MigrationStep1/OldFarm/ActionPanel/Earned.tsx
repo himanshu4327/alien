@@ -35,7 +35,7 @@ const Earned: React.FC<React.PropsWithChildren<EarnedProps>> = ({ earnings }) =>
           {Number(displayBalance) ? (
             <Balance fontSize="16px" value={Number(displayBalance)} />
           ) : (
-            <Text fontSize="16px">0</Text>
+             <Text fontSize="16px">0</Text>
           )}
         </Flex>
       </Flex>

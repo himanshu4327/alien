@@ -5,7 +5,7 @@ import styled, { keyframes } from 'styled-components'
 interface HeadingProps extends TextProps {
   text: string
   firstColor?: keyof Colors
-  firstWordlen : number
+  firstWordlen? : number
 }
 
 const ColoredWordHeading: React.FC<React.PropsWithChildren<HeadingProps>> = ({

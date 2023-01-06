@@ -16,6 +16,7 @@ const LiquidityWrapper = styled.div`
   text-align: right;
   margin-right: 14px;
 
+
   ${({ theme }) => theme.mediaQueries.lg} {
     text-align: left;
     margin-right: 0;
@@ -43,7 +44,7 @@ const Liquidity: React.FunctionComponent<React.PropsWithChildren<FarmTableLiquid
   return (
     <Container>
       <LiquidityWrapper>
-        <Text>{displayLiquidity}</Text>
+        <Text  style={{fontFamily:"AlienSolid"}} >{displayLiquidity}</Text>
       </LiquidityWrapper>
       <ReferenceElement ref={targetRef}>
         <HelpIcon color="textSubtle" />

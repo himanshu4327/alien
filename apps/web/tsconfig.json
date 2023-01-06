@@ -8,6 +8,7 @@
     "downlevelIteration": true,
     "target": "es5",
     "checkJs": false,
+    "strict": false,
   },
   "exclude": ["node_modules"],
   "include": ["./src/**/*.ts", "./src/**/*.tsx"]

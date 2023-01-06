@@ -96,32 +96,32 @@ const ApyButton: React.FC<React.PropsWithChildren<ApyButtonProps>> = ({
 
   const { targetRef, tooltip, tooltipVisible } = useTooltip(
     <>
-      <Text>
+      <Text  style={{fontFamily:"AlienSolid" , opacity:"0.5"  ,color:"white" }} >
         {t('APR (incl. LP rewards)')}:{' '}
-        <Text style={{ display: 'inline-block' }} color={strikethrough && 'secondary'}>
+        <Text style={{ display: 'inline-block',fontFamily:"AlienSolid" , opacity:"0.5"  ,color:"white"  }} color={strikethrough && 'secondary'}>
           {strikethrough ? `${(apr * boostMultiplier + lpRewardsApr).toFixed(2)}%` : `${displayApr}%`}
         </Text>
       </Text>
-      <Text ml="5px">
+      <Text style={{fontFamily:"AlienSolid" , opacity:"0.5"  ,color:"white" }}   ml="5px">
         *{t('Base APR (CAKE yield only)')}:{' '}
         {strikethrough ? (
-          <Text style={{ display: 'inline-block' }} color="secondary">{`${(apr * boostMultiplier).toFixed(2)}%`}</Text>
+          <Text style={{ display: 'inline-block', fontFamily:"AlienSolid" , opacity:"0.5"  ,color:"white"  }} color="secondary">{`${(apr * boostMultiplier).toFixed(2)}%`}</Text>
         ) : (
           `${apr.toFixed(2)}%`
         )}
       </Text>
-      <Text ml="5px">
+      <Text style={{fontFamily:"AlienSolid" , opacity:"0.5"  ,color:"white" }}  ml="5px">
         *{t('LP Rewards APR')}: {lpRewardsApr === 0 ? '-' : lpRewardsApr}%
       </Text>
       {strikethrough && (
-        <Text>
+        <Text style={{fontFamily:"AlienSolid" , opacity:"0.5"  ,color:"white" }} >
           {t('Available Boosted')}:{' '}
-          <Text color="secondary" style={{ display: 'inline-block' }}>
+          <Text color="secondary" style={{ display: 'inline-block', fontFamily:"AlienSolid" , opacity:"0.5"  ,color:"white"   }}>
             {t('Up to %boostMultiplier%x', { boostMultiplier: boostMultiplierDisplay })}
           </Text>
         </Text>
       )}
-      {strikethrough && <Text color="secondary">{t('Boost only applies to base APR (CAKE yield)')}</Text>}
+      {strikethrough && <Text style={{fontFamily:"AlienSolid" , opacity:"0.5"  ,color:"white" }}  color="secondary">{t('Boost only applies to base APR (CAKE yield)')}</Text>}
     </>,
     {
       placement: 'top',

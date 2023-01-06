@@ -14,9 +14,9 @@ const getOutlineStyles = ({ outline, theme, variant: variantKey = variants.PRIMA
     const color = theme.colors[themeColorKey];
 
     return `
-      color: ${color};
+      color: white;
       background: ${theme.colors.background};
-      border: 2px solid ${color};
+      // border: 2px solid ${color};
     `;
   }
 
@@ -25,12 +25,12 @@ const getOutlineStyles = ({ outline, theme, variant: variantKey = variants.PRIMA
 
 export const StyledTag = styled.div<ThemedProps>`
   align-items: center;
-  border-radius: 16px;
+  // border-radius: 16px;
   color: #ffffff;
   display: inline-flex;
   font-weight: 400;
   white-space: nowrap;
-
+   font-family:"AlienSolid";
   & > svg {
     fill: currentColor;
   }

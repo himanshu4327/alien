@@ -31,7 +31,7 @@ const SalesSection: React.FC<React.PropsWithChildren<SalesSectionProps>> = (prop
           mr={[null, null, null, !reverse && '64px']}
           alignSelf={['flex-start', null, null, 'center']}
         >
-          <ColoredWordHeading text={headingText} textAlign="center" />
+          <ColoredWordHeading    text={headingText} textAlign="center" />
 
           <Flex
             flex={[null, null, null, '1']}

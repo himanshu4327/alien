@@ -24,8 +24,13 @@ export const StyledTooltip = styled(Motion.div)`
   line-height: 130%;
   border-radius: 16px;
   max-width: 320px;
-  z-index: 101;
-  background: ${({ theme }) => theme.tooltip.background};
+   z-index: 101;
+  background:black;
+  
+  /* Note: backdrop-filter has minimal browser support */
+  
+
+  // background: ${({ theme }) => theme.tooltip.background};
   color: ${({ theme }) => theme.tooltip.text};
   box-shadow: ${({ theme }) => theme.tooltip.boxShadow};
 

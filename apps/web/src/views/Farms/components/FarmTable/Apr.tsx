@@ -27,8 +27,8 @@ export interface AprProps {
 const Container = styled.div`
   display: flex;
   align-items: center;
-  color: ${({ theme }) => theme.colors.text};
-
+  // color: ${({ theme }) => theme.colors.text};
+  
   button {
     width: 20px;
     height: 20px;
@@ -44,6 +44,8 @@ const Container = styled.div`
 const AprWrapper = styled.div`
   min-width: 60px;
   text-align: left;
+  font-family:"AlienSolid" 
+ 
 `
 
 const Apr: React.FC<React.PropsWithChildren<AprProps>> = ({

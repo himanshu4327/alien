@@ -24,7 +24,7 @@ const CoreTag: React.FC<React.PropsWithChildren<TagProps>> = (props) => {
       startIcon={<VerifiedIcon width="18px" color="secondary" mr="4px" />}
       {...props}
     >
-      {t("Core")}
+      {t("Verified")}
     </Tag>
   );
 };

@@ -54,16 +54,20 @@ const CellInner = styled.div`
   display: flex;
   width: 100%;
   align-items: center;
-  padding-right: 8px;
-  font-family:"AlienSolid";
-
+  // padding-right: 8px;
+  font-family: 'AlienSolid';
+  color: white;
   ${({ theme }) => theme.mediaQueries.xl} {
-    padding-right: 32px;
+    // padding-right: 32px;
   }
 `
 
 const StyledTr = styled.tr`
   cursor: pointer;
+  background: linear-gradient(270deg, rgba(0, 246, 102, 0.15) 6.19%, rgba(0, 246, 102, 0) 146.2%);
+  backdrop-filter: blur(5.5px);
+  transform: matrix(1, 0, 0, 1, 0, 0);
+
   &:not(:last-child) {
     border-bottom: 2px solid ${({ theme }) => theme.colors.disabled};
   }
@@ -126,9 +130,9 @@ const Row: React.FunctionComponent<React.PropsWithChildren<RowPropsWithLoading>>
                 return (
                   <td key={key}>
                     {userDataReady ? (
-                      <CellInner style={{ width: '140px' }}>
+                      <CellInner style={{ width: '120px' }}>
                         {props[key] === 'community' ? <FarmAuctionTag scale="sm" /> : <CoreTag scale="sm" />}
-                        {props?.details?.boosted ? <BoostedTag scale="sm" ml="16px" /> : null}
+                        {props?.details?.boosted ? <BoostedTag scale="sm" ml="12px" /> : null}
                       </CellInner>
                     ) : (
                       <Skeleton width={60} height={24} />
@@ -149,6 +153,7 @@ const Row: React.FunctionComponent<React.PropsWithChildren<RowPropsWithLoading>>
                 return (
                   <td key={key}>
                     <CellInner>
+                   
                       <CellLayout label={t('APR')}>
                         <Apr
                           {...props.apr}
@@ -156,7 +161,9 @@ const Row: React.FunctionComponent<React.PropsWithChildren<RowPropsWithLoading>>
                           strikethrough={props?.details?.boosted}
                           boosted={props?.details?.boosted}
                         />
-                        {props?.details?.boosted && userDataReady ? (
+                      </CellLayout>
+                      <CellLayout label={t('UP TO')}>
+                      {props?.details?.boosted && userDataReady ? (
                           <BoostedApr
                             lpRewardsApr={props?.apr?.lpRewardsApr}
                             apr={props?.apr?.originalValue}
@@ -170,9 +177,14 @@ const Row: React.FunctionComponent<React.PropsWithChildren<RowPropsWithLoading>>
                           />
                         ) : null}
                       </CellLayout>
-                    </CellInner>
+                  
+                  
+                    
+                        </CellInner>
+                 
                   </td>
                 )
+
               default:
                 return (
                   <td key={key}>
