@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { useTranslation } from '@pancakeswap/localization'
 import { Flex, Text, HelpIcon, useTooltip, Pool } from '@pancakeswap/uikit'
+import { style } from '@vanilla-extract/css';
 
 const StyledCell = styled(Pool.BaseCell)`
   display: none;
@@ -13,6 +14,7 @@ const StyledCell = styled(Pool.BaseCell)`
 
 const ReferenceElement = styled.div`
   display: inline-block;
+  
 `
 
 const MultiplierWrapper = styled.div`
@@ -21,9 +23,14 @@ const MultiplierWrapper = styled.div`
   text-align: right;
   margin-right: 14px;
 
+ 
+
+
   ${({ theme }) => theme.mediaQueries.lg} {
     text-align: left;
     margin-right: 0;
+    
+    
   }
 `
 
@@ -55,7 +62,7 @@ const Multiplier: React.FC<React.PropsWithChildren<MultiplierProps>> = ({ multip
   return (
     <StyledCell role="cell">
       <Pool.CellContent>
-        <Text fontSize="12px" color="textSubtle" textAlign="left">
+        <Text  fontSize="12px" color="textSubtle" textAlign="left">
           {t('Multiplier')}
         </Text>
         <Flex mt="4px">

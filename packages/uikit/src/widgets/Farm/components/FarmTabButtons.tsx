@@ -11,6 +11,8 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+ 
+ 
 
   ${({ theme }) => theme.mediaQueries.sm} {
     margin-left: 16px;
@@ -47,7 +49,7 @@ export const FarmTabButtons: React.FC<React.PropsWithChildren<FarmTabButtonsProp
   return (
     <Wrapper>
       <Flex width="max-content" flexDirection="column">
-        <Text textTransform="uppercase" color="textSubtle" fontSize="12px" bold>
+        <Text  style={{fontFamily:"AlienSolid"}} textTransform="uppercase" color="textSubtle" fontSize="12px" bold>
           {t("Filter by")}
         </Text>
         <ButtonMenu activeIndex={activeIndex} scale="sm" variant="subtle">

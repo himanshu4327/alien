@@ -4,6 +4,7 @@ import { useTranslation } from '@pancakeswap/localization'
 import { Flex, Text, HelpIcon, useTooltip } from '@pancakeswap/uikit'
 import { MultiplierProps } from '../Cells/Multiplier'
 
+
 const Containter = styled(Flex)`
   margin-top: 12px;
   padding: 0;
@@ -28,6 +29,7 @@ const MultiplierWrapper = styled.div`
 
   ${({ theme }) => theme.mediaQueries.lg} {
     margin-right: 0;
+   
   }
 `
 
@@ -55,7 +57,7 @@ const TotalStaked: React.FC<React.PropsWithChildren<MultiplierProps>> = ({ multi
 
   return (
     <Containter justifyContent="space-between">
-      <Text>{t('Multiplier')}</Text>
+      <Text   >{t('Multiplier')}</Text>
       <Flex>
         <MultiplierWrapper>{displayMultiplier}</MultiplierWrapper>
         <ReferenceElement ref={targetRef}>

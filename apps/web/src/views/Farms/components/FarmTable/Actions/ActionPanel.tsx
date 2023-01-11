@@ -22,6 +22,7 @@ import { HarvestAction, HarvestActionContainer, ProxyHarvestActionContainer } fr
 import StakedAction, { ProxyStakedContainer, StakedContainer } from './StakedAction'
 import { ActionContainer as ActionContainerSection, ActionContent, ActionTitles } from './styles'
 
+
 const { Multiplier, Liquidity } = FarmUI.FarmTable
 
 export interface ActionPanelProps {
@@ -65,8 +66,10 @@ const Container = styled.div<{ expanded }>`
   // background: ${({ theme }) => theme.colors.dropdown};
   display: flex;
   width: 100%;
-  flex-direction: column-reverse;
+  justify-content:space-between
+   flex-direction: column-reverse;
   padding: 24px;
+  border:2px solid red;
   
  
   
@@ -81,35 +84,51 @@ const Container = styled.div<{ expanded }>`
 
 const StyledLinkExternal = styled(LinkExternal)`
   font-weight: 400;
+  font-family:"AlienSolid";
+
+  
 `
 
 const StakeContainer = styled.div`
-  color: ${({ theme }) => theme.colors.text};
+  // color: ${({ theme }) => theme.colors.text};
   align-items: center;
   display: flex;
-  justify-content: space-between;
+ 
+
+  color:white;
+
+  
+ 
 
   ${({ theme }) => theme.mediaQueries.sm} {
     justify-content: flex-start;
+  
+   
   }
 `
 
 const ActionContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  width:full;
+  align-items: center;
+
+  justify-content:space-between;
 font-family:"AlienSolid";
 
+
+
   ${({ theme }) => theme.mediaQueries.sm} {
-    flex-direction: row;
+   
+    width:100%;
     align-items: center;
-    flex-grow: 1;
-    flex-basis: 0;
-    flex-wrap: wrap;
+    justify-content:space-between;
+  
   }
 `
 
 const InfoContainer = styled.div`
   min-width: 200px;
+  border:2px solid white;
 `
 
 const ValueContainer = styled.div``
@@ -120,6 +139,7 @@ const ValueWrapper = styled.div`
   justify-content: space-between;
   margin: 4px 0px;
   font-family:"AlienSolid"
+
 `
 
 const ActionPanel: React.FunctionComponent<React.PropsWithChildren<ActionPanelProps>> = ({
@@ -204,11 +224,11 @@ const ActionPanel: React.FunctionComponent<React.PropsWithChildren<ActionPanelPr
         <StyledLinkExternal href={infoUrl}>{t('See Pair Info')}</StyledLinkExternal>
       </InfoContainer>
       <ActionContainer>
-        {shouldUseProxyFarm ? (
+        {shouldUseProxyFarm ? ( 
           <ProxyHarvestActionContainer {...proxyFarm} userDataReady={userDataReady}>
             {(props) => <HarvestAction {...props} />}
-          </ProxyHarvestActionContainer>
-        ) : (
+          </ProxyHarvestActionContainer> 
+        ) :(
           <HarvestActionContainer {...farm} userDataReady={userDataReady}>
             {(props) => <HarvestAction {...props} />}
           </HarvestActionContainer>
@@ -218,10 +238,10 @@ const ActionPanel: React.FunctionComponent<React.PropsWithChildren<ActionPanelPr
             <BoostedAction
               title={(status) => (
                 <ActionTitles>
-                  <Text mr="3px" bold textTransform="uppercase" color="textSubtle" fontSize="12px">
+                  <Text  style={{fontFamily:"AlienSolid"}}  mr="3px" bold textTransform="uppercase" color="textSubtle" fontSize="12px">
                     {t('Yield Booster')}
                   </Text>
-                  <Text bold textTransform="uppercase" color="secondary" fontSize="12px">
+                  <Text bold  style={{fontFamily:"AlienSolid"}} textTransform="uppercase" color="secondary" fontSize="12px">
                     {status}
                   </Text>
                 </ActionTitles>
@@ -237,11 +257,11 @@ const ActionPanel: React.FunctionComponent<React.PropsWithChildren<ActionPanelPr
             />
           </ActionContainerSection>
         )}
-        {shouldUseProxyFarm ? (
+        {shouldUseProxyFarm ? ( 
           <ProxyStakedContainer {...proxyFarm} userDataReady={userDataReady} lpLabel={lpLabel} displayApr={apr.value}>
             {(props) => <StakedAction {...props} />}
           </ProxyStakedContainer>
-        ) : (
+        ) : ( 
           <StakedContainer {...farm} userDataReady={userDataReady} lpLabel={lpLabel} displayApr={apr.value}>
             {(props) => <StakedAction {...props} />}
           </StakedContainer>

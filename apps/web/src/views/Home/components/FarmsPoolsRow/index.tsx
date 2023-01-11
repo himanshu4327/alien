@@ -74,7 +74,7 @@ const FarmsPoolsRow = () => {
     padding:"24px",
     marginTop:"24px",
     boxSizing: "border-box",
-   boxShadow:" 1px 1px 2px #00f666, 1px -2px 0px #00f666"
+   boxShadow:"1px 1px 2px #00f666, 1px -2px 0px #00f666"
    
   `
 

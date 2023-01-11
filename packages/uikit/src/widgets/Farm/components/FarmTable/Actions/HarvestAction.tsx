@@ -49,10 +49,10 @@ const HarvestAction: React.FunctionComponent<React.PropsWithChildren<HarvestActi
   return (
     <ActionContainer style={{ minHeight: 124.5 }}>
       <ActionTitles>
-        <Text bold textTransform="uppercase" color="secondary" fontSize="12px" pr="4px">
+        <Text bold fontFamily="AlienSolid"   textTransform="uppercase" color="textSubtle" fontSize="12px" pr="4px">
           CAKE
         </Text>
-        <Text bold textTransform="uppercase" color="textSubtle" fontSize="12px">
+        <Text bold fontFamily="AlienSolid"   textTransform="uppercase" color="textSubtle" fontSize="12px">
           {t("Earned")}
         </Text>
       </ActionTitles>
@@ -66,13 +66,13 @@ const HarvestAction: React.FunctionComponent<React.PropsWithChildren<HarvestActi
               {tooltipVisible && tooltip}
             </>
           ) : (
-            <Heading>{displayBalance}</Heading>
+          <Text bold  fontFamily="AlienSolid" >{displayBalance}</Text>
           )}
           {earningsBusd > 0 && (
-            <Balance fontSize="12px" color="textSubtle" decimals={2} value={earningsBusd} unit=" USD" prefix="~" />
+            <Balance fontFamily="AlienSolid"   fontSize="12px" color="textSubtle" decimals={2} value={earningsBusd} unit=" USD" prefix="~" />
           )}
         </div>
-        <Button ml="4px" disabled={earnings.eq(0) || pendingTx || !userDataReady} onClick={handleHarvest}>
+        <Button color="textSubtle"   ml="4px" disabled={earnings.eq(0) || pendingTx || !userDataReady} onClick={handleHarvest}>
           {pendingTx ? t("Harvesting") : t("Harvest")}
         </Button>
       </ActionContent>

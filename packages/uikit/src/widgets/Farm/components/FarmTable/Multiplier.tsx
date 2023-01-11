@@ -15,16 +15,22 @@ const MultiplierWrapper = styled.div`
   width: 36px;
   text-align: right;
   margin-right: 14px;
+  font-family: "AlienSolid";
+  
 
   ${({ theme }) => theme.mediaQueries.lg} {
     text-align: left;
     margin-right: 0;
+    font-family: "AlienSolid";
+  
+   
   }
 `;
 
 const Container = styled.div`
   display: flex;
   align-items: center;
+ 
 `;
 
 const Multiplier: React.FunctionComponent<React.PropsWithChildren<FarmTableMultiplierProps>> = ({
@@ -35,7 +41,7 @@ const Multiplier: React.FunctionComponent<React.PropsWithChildren<FarmTableMulti
   const { t } = useTranslation();
   const tooltipContent = (
     <>
-      <Text>
+      <Text  style={{fontFamily:"AlienSolid", color:"white" }} >
         {rewardCakePerSecond
           ? t(
               "The Multiplier represents the proportion of CAKE rewards each farm receives, as a proportion of the CAKE produced each second."
@@ -44,12 +50,12 @@ const Multiplier: React.FunctionComponent<React.PropsWithChildren<FarmTableMulti
               "The Multiplier represents the proportion of CAKE rewards each farm receives, as a proportion of the CAKE produced each block."
             )}
       </Text>
-      <Text my="24px">
+      <Text style={{fontFamily:"AlienSolid", color:"white" }}  my="24px">
         {rewardCakePerSecond
           ? t("For example, if a 1x farm received 1 CAKE per second, a 40x farm would receive 40 CAKE per second.")
           : t("For example, if a 1x farm received 1 CAKE per block, a 40x farm would receive 40 CAKE per block.")}
       </Text>
-      <Text>{t("This amount is already included in all APR calculations for the farm.")}</Text>
+      <Text  style={{fontFamily:"AlienSolid", color:"white" }} >{t("This amount is already included in all APR calculations for the farm.")}</Text>
     </>
   );
   const { targetRef, tooltip, tooltipVisible } = useTooltip(tooltipContent, {

@@ -9,13 +9,16 @@ interface InactiveButtonProps extends BaseButtonProps {
 }
 
 const InactiveButton: PolymorphicComponent<InactiveButtonProps, "button"> = styled(Button)<InactiveButtonProps>`
-  background-color: transparent;
+background-color: linear-gradient(242.24deg, #00F666 -86.49%, rgba(0, 246, 102, 0) 96.54%);
+font-family: "AlienSolid";
   font-size:16px;
   color:white;
   opacity:0.5;
   // color: ${({ theme, variant }) => (variant === variants.PRIMARY ? theme.colors.primary : theme.colors.textSubtle)};
   &:hover:not(:disabled):not(:active) {
-    // background-color: transparent;
+    font-family: "AlienSolid";
+  // background: linear-gradient(242.24deg, #00F666 -86.49%, rgba(0, 246, 102, 0) 96.54%);
+// box-shadow: 0px 0px 11px -1px #00F666;
   
   }
 `;

@@ -42,10 +42,6 @@ const StartInSecondSectionData: React.FC<React.PropsWithChildren<StartInSecondSe
 
 `
  
-
- 
-
-
   const StyledHeading = styled(Heading)`
     letter-spacing: 0.12em;
     color: #ffffff;

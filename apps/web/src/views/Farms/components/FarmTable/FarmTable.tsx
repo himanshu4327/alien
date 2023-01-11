@@ -200,7 +200,7 @@ const FarmTable: React.FC<React.PropsWithChildren<ITableProps>> = ({ farms, cake
                     <Row {...row} userDataReady={userDataReady} />
                   </ProxyFarmContainer>
                 ) : (
-                  <Row {...row} userDataReady={userDataReady} key={`table-row-${row.farm.pid}`} />
+                <Row {...row} userDataReady={userDataReady} key={`table-row-${row.farm.pid}`} />
                 )
               })}
             </TableBody>

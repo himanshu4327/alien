@@ -367,7 +367,7 @@ const Staked: React.FunctionComponent<React.PropsWithChildren<StackedActionProps
   if (!account) {
     return (
       <FarmUI.FarmTable.AccountNotConnect>
-        <ConnectWalletButton width="100%" />
+        <ConnectWalletButton />
       </FarmUI.FarmTable.AccountNotConnect>
     )
   }

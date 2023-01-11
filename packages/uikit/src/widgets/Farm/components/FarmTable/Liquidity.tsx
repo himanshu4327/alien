@@ -8,6 +8,7 @@ import { FarmTableLiquidityProps } from "../../types";
 
 const ReferenceElement = styled.div`
   display: inline-block;
+ 
 `;
 
 const LiquidityWrapper = styled.div`
@@ -46,7 +47,7 @@ const Liquidity: React.FunctionComponent<React.PropsWithChildren<FarmTableLiquid
       <LiquidityWrapper>
         <Text  style={{fontFamily:"AlienSolid"}} >{displayLiquidity}</Text>
       </LiquidityWrapper>
-      <ReferenceElement ref={targetRef}>
+      <ReferenceElement  ref={targetRef}>
         <HelpIcon color="textSubtle" />
       </ReferenceElement>
       {tooltipVisible && tooltip}

@@ -121,20 +121,13 @@ const FloatingUfosTopRight = styled.div`
 
 
 `
-const UserBannerWrapper = styled(Container)`
-  z-index: 1;
-  position: absolute;
-  width: 100%;
-  top: 0;
-  left: 50%;
-  transform: translate(-50%, 0);
-  padding-left: 0px;
-  padding-right: 0px;
+const UserBannerWrapper = styled.div`
+margin-top:52px;
+  padding:12px 12px;
+background: radial-gradient(52.44% 52.44% at 50.26% 115.85%, #00F666 0%, rgba(2, 73, 32, 0.2) 100%);
+backdrop-filter: blur(5.5px);
 
-  ${({ theme }) => theme.mediaQueries.lg} {
-    padding-left: 24px;
-    padding-right: 24px;
-  }
+  
 `
 
 const StyledHeading = styled(Heading)`
@@ -283,7 +276,10 @@ const Home: React.FC<React.PropsWithChildren> = () => {
         </OuterWedgeWrapper>
         <SalesSection {...earnSectionData(t)} />
         {/* TODO: until we are enable fetch multi-chain farms */}
+
+       <UserBannerWrapper>
         {chainId === ChainId.BSC && <FarmsPoolsRow />}
+       </UserBannerWrapper>
       </PageSection>
       {/* <PageSection
         innerProps={{ style: HomeSectionContainerStyles }}
