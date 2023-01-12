@@ -17,12 +17,12 @@ const EnableStakeAction: React.FunctionComponent<React.PropsWithChildren<EnableS
   return (
     <StyledActionContainer>
       <ActionTitles>
-        <Text bold fontFamily="AlienSolid" textTransform="uppercase" color="textSubtle" fontSize="12px">
+        <Text bold textTransform="uppercase" color="textSubtle" fontSize="12px">
           {t("Enable Farm")}
         </Text>
       </ActionTitles>
       <ActionContent>
-        <Button   disabled={pendingTx} onClick={handleApprove} variant="secondary">
+        <Button disabled={pendingTx} onClick={handleApprove} variant="secondary">
           {t("Enable")}
         </Button>
       </ActionContent>

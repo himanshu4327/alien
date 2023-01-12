@@ -14,7 +14,7 @@ export const Arrow = styled.div`
   &::before {
     content: "";
     transform: rotate(45deg);
-    background: black
+    background: black;
     // background: ${({ theme }) => theme.tooltip.background};
   }
 `;
@@ -27,7 +27,6 @@ export const StyledTooltip = styled(Motion.div)`
   max-width: 320px;
    z-index: 101;
   background:black;
-  font-family:"AlienSolid";
   color:"white"
   
 

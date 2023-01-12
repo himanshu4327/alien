@@ -21,8 +21,8 @@ const AbsoluteWrapper = styled(Flex)<{ visible: boolean; index: number; topOffse
   margin-top: ${({ visible }) => (visible ? 0 : `50%`)};
   transition: opacity, margin-top, 0.4s ease-out;
   flex-direction: column;
- 
-  padding:2px;
+
+  padding: 2px;
 
   ${({ index, theme }) =>
     index > 0
@@ -56,21 +56,21 @@ const TopFarmPool: React.FC<React.PropsWithChildren<TopFarmPoolProps>> = ({ titl
     <StyledWrapper index={index}>
       <AbsoluteWrapper index={index} visible={visible} topOffset={topOffset()}>
         {title ? (
-          <Text bold mb="8px" fontFamily="Aliensolid"  fontSize="15px" color="textSubtle"   >
+          <Text bold mb="8px" fontSize="15px" color="textSubtle">
             {title}
           </Text>
         ) : (
           <Skeleton width={80} height={12} mb="8px" />
         )}
         {percentage ? (
-          <FlexGap gap="4px"  >
-            <Balance    lineHeight="1.5" fontSize="16px" bold unit="%" value={percentage} />
+          <FlexGap gap="4px">
+            <Balance lineHeight="1.5" fontSize="16px" bold unit="%" value={percentage} />
           </FlexGap>
         ) : (
           <Skeleton width={60} height={16} />
         )}
         {percentage ? (
-          <Text fontFamily="Aliensolid"  fontSize="15px" color="textSubtle" >
+          <Text fontSize="15px" color="textSubtle">
             {t('APR')}
           </Text>
         ) : (

@@ -26,7 +26,7 @@ const Wrapper = styled.div`
 
 const StyledNav = styled.nav`
   display: flex;
-  
+  color: #fff;
   justify-content: space-between;
   align-items: center;
   width: 100%;
@@ -37,7 +37,6 @@ const StyledNav = styled.nav`
 
   padding-left: 16px;
   padding-right: 16px;
-  font-family: "AlienSolid"
 `;
 
 const FixedContainer = styled.div<{ showMenu: boolean; height: number }>`
@@ -48,8 +47,6 @@ const FixedContainer = styled.div<{ showMenu: boolean; height: number }>`
   height: ${({ height }) => `${height}px`};
   width: 100%;
   z-index: 20;
-  font-family: "AlienSolid"
-  
 `;
 
 const TopBannerContainer = styled.div<{ height: number }>`
@@ -57,14 +54,12 @@ const TopBannerContainer = styled.div<{ height: number }>`
   min-height: ${({ height }) => `${height}px`};
   max-height: ${({ height }) => `${height}px`};
   width: 100%;
-  font-family: "AlienSolid"
 `;
 
 const BodyWrapper = styled(Box)`
   position: relative;
   display: flex;
   max-width: 100vw;
-  font-family: "AlienSolid"
 `;
 
 const Inner = styled.div`
@@ -72,7 +67,6 @@ const Inner = styled.div`
   transition: margin-top 0.2s, margin-left 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   transform: translate3d(0, 0, 0);
   max-width: 100%;
-  font-family: "AlienSolid"
 `;
 
 const Menu: React.FC<React.PropsWithChildren<NavProps>> = ({
@@ -153,10 +147,16 @@ const Menu: React.FC<React.PropsWithChildren<NavProps>> = ({
               <Flex>
                 <Logo href={homeLink?.href ?? "/"} />
                 <AtomBox display={{ xs: "none", md: "block" }} textTransform="uppercase">
-                  <MenuItems items={links} activeItem={activeItem} activeSubItem={activeSubItem} ml="24px" />
+                  <MenuItems
+                    items={links}
+                    activeItem={activeItem}
+                    activeSubItem={activeSubItem}
+                    ml="24px"
+                    opacity="0.5"
+                  />
                 </AtomBox>
               </Flex>
-              <Flex    alignItems="center" height="100%">
+              <Flex alignItems="center" height="100%">
                 <AtomBox mr="12px" display={{ xs: "none", lg: "block" }}>
                   <CakePrice showSkeleton={false} cakePriceUsd={cakePriceUsd} />
                 </AtomBox>

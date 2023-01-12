@@ -33,7 +33,6 @@ export const LabelText = styled.div`
     display: block;
     margin-left: 8px;
     margin-right: 4px;
-  
   }
 `;
 
@@ -47,7 +46,7 @@ const Menu = styled.div<{ isOpen: boolean }>`
   width: 280px;
   visibility: visible;
   z-index: 1001;
-  
+
   ${({ isOpen }) =>
     !isOpen &&
     `
@@ -114,17 +113,17 @@ const UserMenu: React.FC<UserMenuProps> = ({
   }, [targetRef, tooltipRef, setIsOpen]);
 
   return (
-    <Flex   alignItems="center" height="100%" ref={setTargetRef} {...props}>
+    <Flex alignItems="center" height="100%" ref={setTargetRef} {...props}>
       <StyledUserMenu
         onTouchStart={() => {
           setIsOpen((s) => !s);
         }}
       >
         <MenuIcon className={avatarClassName} avatarSrc={avatarSrc} variant={variant} />
-        <LabelText style={{ fontFamily:"AlienSolid" }} title={typeof text === "string" ? text || account : account}>{text || accountEllipsis}</LabelText>
+        <LabelText title={typeof text === "string" ? text || account : account}>{text || accountEllipsis}</LabelText>
         {!disabled && <ChevronDownIcon color="text" width="24px" />}
       </StyledUserMenu>
-      {!disabled && ( 
+      {!disabled && (
         <Menu style={styles.popper} ref={setTooltipRef} {...attributes.popper} isOpen={isOpen}>
           <Box onClick={() => setIsOpen(false)}>{children?.({ isOpen })}</Box>
         </Menu>

@@ -51,7 +51,7 @@ export const darkTheme = {
     borderRadius: 18,
   },
   typography: {
-    fontFamily: "'Aliensolid', sans-serif",
+    fontFamily: "'Aliensolid",
   },
 }
 
@@ -93,6 +93,6 @@ export const lightTheme = {
     borderRadius: 18,
   },
   typography: {
-    fontFamily: "'Aliensolid', sans-serif",
+    fontFamily: "'Aliensolid",
   },
 }

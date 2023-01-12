@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ActionContainer = styled.div`
   // padding: 16px;
-   border:3px solid #00F666;
+  border: 3px solid #00f666;
   flex-grow: 1;
   flex-basis: 0;
   margin-bottom: 16px;
@@ -24,14 +24,12 @@ export const ActionContainer = styled.div`
 export const ActionTitles = styled.div`
   display: flex;
   margin-bottom: 8px;
-  font-family: 'AlienSolid';
 `;
 
 export const ActionContent = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family:"AlienSolid"
 `;
 
 export const IconButtonWrapper = styled.div`

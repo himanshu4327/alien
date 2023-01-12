@@ -9,7 +9,7 @@ import useBoostMultiplier from '../hooks/useBoostMultiplier'
 import useGetBoostedAPR from '../hooks/useGetBoostedAPR'
 import { YieldBoosterState } from '../hooks/useYieldBoosterState'
 import { YieldBoosterStateContext } from './ProxyFarmContainer'
-import Flex from '../../../../../../../../packages/uikit/src/components/Box/Flex';
+import Flex from '../../../../../../../../packages/uikit/src/components/Box/Flex'
 
 interface BoostedAprPropsType {
   apr: number
@@ -41,7 +41,7 @@ function BoostedApr(props: BoostedAprPropsType) {
     boosterState === YieldBoosterState.ACTIVE ? (
       `${boostedAprFromSC}%`
     ) : (
-     <>
+      <>
         {/* <Text bold  style={{fontFamily:"AlienSolid"  , opacity:"0.5"}} {...rest} fontSize="12px" display="block" mr="3px">
           {t('Up to')}
         </Text> */}
@@ -55,7 +55,7 @@ function BoostedApr(props: BoostedAprPropsType) {
   return (
     <>
       {/* <RocketIcon m="4px" color="success" /> */}
-      <Text bold style={{fontFamily:"AlienSolid" , color:"#00F666" , opacity:"0.8"}}  {...rest} fontSize={14}>
+      <Text bold style={{ color: '#00F666', opacity: '0.8' }} {...rest} fontSize={14}>
         {msg}
       </Text>
     </>

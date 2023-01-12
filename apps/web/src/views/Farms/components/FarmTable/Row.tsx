@@ -55,7 +55,6 @@ const CellInner = styled.div`
   width: 100%;
   align-items: center;
   // padding-right: 8px;
-  font-family: 'AlienSolid';
   color: white;
   ${({ theme }) => theme.mediaQueries.xl} {
     // padding-right: 32px;
@@ -153,7 +152,6 @@ const Row: React.FunctionComponent<React.PropsWithChildren<RowPropsWithLoading>>
                 return (
                   <td key={key}>
                     <CellInner>
-                   
                       <CellLayout label={t('APR')}>
                         <Apr
                           {...props.apr}
@@ -163,7 +161,7 @@ const Row: React.FunctionComponent<React.PropsWithChildren<RowPropsWithLoading>>
                         />
                       </CellLayout>
                       <CellLayout label={t('UP TO')}>
-                      {props?.details?.boosted && userDataReady ? (
+                        {props?.details?.boosted && userDataReady ? (
                           <BoostedApr
                             lpRewardsApr={props?.apr?.lpRewardsApr}
                             apr={props?.apr?.originalValue}
@@ -177,11 +175,7 @@ const Row: React.FunctionComponent<React.PropsWithChildren<RowPropsWithLoading>>
                           />
                         ) : null}
                       </CellLayout>
-                  
-                  
-                    
-                        </CellInner>
-                 
+                    </CellInner>
                   </td>
                 )
 

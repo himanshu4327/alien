@@ -8,16 +8,11 @@ import Tags from "../Tags";
 import { FarmTableFarmTokenInfoProps } from "../../types";
 
 const Container = styled.div`
-  
-  
   display: flex;
   align-items: center;
-   gap:32px;
-  font-family:"AlienSolid";
- 
+  gap: 32px;
+
   ${({ theme }) => theme.mediaQueries.sm} {
-   
-  
     justify-content: space-between;
   }
 `;
@@ -25,16 +20,13 @@ const Container = styled.div`
 const TokenWrapper = styled.div`
   // padding-right: 8px;
   width: 32px;
-  
-
 
   ${({ theme }) => theme.mediaQueries.sm} {
     width: 50px;
-    
-background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
-border: 1px solid #00F666;
-box-sizing: border-box;
-   
+
+    background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+    border: 1px solid #00f666;
+    box-sizing: border-box;
   }
 `;
 
@@ -76,7 +68,7 @@ const Farm: React.FunctionComponent<React.PropsWithChildren<FarmTableFarmTokenIn
       <TokenWrapper>{children}</TokenWrapper>
       <div>
         {/* {handleRenderFarming()} */}
-        <Text   style={{fontFamily:"AlienSolid"}} bold>{label}</Text>
+        <Text bold>{label}</Text>
       </div>
     </Container>
   );

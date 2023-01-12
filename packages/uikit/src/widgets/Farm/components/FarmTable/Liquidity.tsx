@@ -8,7 +8,6 @@ import { FarmTableLiquidityProps } from "../../types";
 
 const ReferenceElement = styled.div`
   display: inline-block;
- 
 `;
 
 const LiquidityWrapper = styled.div`
@@ -16,7 +15,6 @@ const LiquidityWrapper = styled.div`
   font-weight: 600;
   text-align: right;
   margin-right: 14px;
-
 
   ${({ theme }) => theme.mediaQueries.lg} {
     text-align: left;
@@ -45,9 +43,9 @@ const Liquidity: React.FunctionComponent<React.PropsWithChildren<FarmTableLiquid
   return (
     <Container>
       <LiquidityWrapper>
-        <Text  style={{fontFamily:"AlienSolid"}} >{displayLiquidity}</Text>
+        <Text>{displayLiquidity}</Text>
       </LiquidityWrapper>
-      <ReferenceElement  ref={targetRef}>
+      <ReferenceElement ref={targetRef}>
         <HelpIcon color="textSubtle" />
       </ReferenceElement>
       {tooltipVisible && tooltip}

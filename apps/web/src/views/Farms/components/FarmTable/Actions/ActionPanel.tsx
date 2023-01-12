@@ -22,7 +22,6 @@ import { HarvestAction, HarvestActionContainer, ProxyHarvestActionContainer } fr
 import StakedAction, { ProxyStakedContainer, StakedContainer } from './StakedAction'
 import { ActionContainer as ActionContainerSection, ActionContent, ActionTitles } from './styles'
 
-
 const { Multiplier, Liquidity } = FarmUI.FarmTable
 
 export interface ActionPanelProps {
@@ -84,51 +83,37 @@ const Container = styled.div<{ expanded }>`
 
 const StyledLinkExternal = styled(LinkExternal)`
   font-weight: 400;
-  font-family:"AlienSolid";
-
-  
 `
 
 const StakeContainer = styled.div`
   // color: ${({ theme }) => theme.colors.text};
   align-items: center;
   display: flex;
- 
 
-  color:white;
-
-  
- 
+  color: white;
 
   ${({ theme }) => theme.mediaQueries.sm} {
     justify-content: flex-start;
-  
-   
   }
 `
 
 const ActionContainer = styled.div`
   display: flex;
-  width:full;
+  width: full;
   align-items: center;
 
-  justify-content:space-between;
-font-family:"AlienSolid";
-
-
+  justify-content: space-between;
 
   ${({ theme }) => theme.mediaQueries.sm} {
-   
-    width:100%;
+    width: 100%;
     align-items: center;
-    justify-content:space-between;
-  
+    justify-content: space-between;
   }
 `
 
 const InfoContainer = styled.div`
   min-width: 200px;
-  border:2px solid white;
+  border: 2px solid white;
 `
 
 const ValueContainer = styled.div``
@@ -138,8 +123,6 @@ const ValueWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   margin: 4px 0px;
-  font-family:"AlienSolid"
-
 `
 
 const ActionPanel: React.FunctionComponent<React.PropsWithChildren<ActionPanelProps>> = ({
@@ -186,8 +169,8 @@ const ActionPanel: React.FunctionComponent<React.PropsWithChildren<ActionPanelPr
         <ValueContainer>
           {farm.isCommunity && farm.auctionHostingEndDate && (
             <ValueWrapper>
-              <Text  style={{fontFamily:"AlienSolid"}} >{t('Auction Hosting Ends')}</Text>
-              <Text   style={{fontFamily:"AlienSolid"}} paddingLeft="4px">
+              <Text>{t('Auction Hosting Ends')}</Text>
+              <Text paddingLeft="4px">
                 {new Date(farm.auctionHostingEndDate).toLocaleString(locale, {
                   month: 'short',
                   day: 'numeric',
@@ -199,15 +182,15 @@ const ActionPanel: React.FunctionComponent<React.PropsWithChildren<ActionPanelPr
           {!isDesktop && (
             <>
               <ValueWrapper>
-                <Text style={{fontFamily:"AlienSolid"}} >{t('APR')}</Text>
+                <Text>{t('APR')}</Text>
                 <Apr {...apr} useTooltipText={false} boosted={farm.boosted} />
               </ValueWrapper>
               <ValueWrapper>
-                <Text style={{fontFamily:"AlienSolid"}} >{t('Multiplier')}</Text>
+                <Text>{t('Multiplier')}</Text>
                 <Multiplier {...multiplier} />
               </ValueWrapper>
               <ValueWrapper>
-                <Text style={{fontFamily:"AlienSolid"}} >{t('Liquidity')}</Text>
+                <Text>{t('Liquidity')}</Text>
                 <Liquidity {...liquidity} />
               </ValueWrapper>
             </>
@@ -224,11 +207,11 @@ const ActionPanel: React.FunctionComponent<React.PropsWithChildren<ActionPanelPr
         <StyledLinkExternal href={infoUrl}>{t('See Pair Info')}</StyledLinkExternal>
       </InfoContainer>
       <ActionContainer>
-        {shouldUseProxyFarm ? ( 
+        {shouldUseProxyFarm ? (
           <ProxyHarvestActionContainer {...proxyFarm} userDataReady={userDataReady}>
             {(props) => <HarvestAction {...props} />}
-          </ProxyHarvestActionContainer> 
-        ) :(
+          </ProxyHarvestActionContainer>
+        ) : (
           <HarvestActionContainer {...farm} userDataReady={userDataReady}>
             {(props) => <HarvestAction {...props} />}
           </HarvestActionContainer>
@@ -238,10 +221,10 @@ const ActionPanel: React.FunctionComponent<React.PropsWithChildren<ActionPanelPr
             <BoostedAction
               title={(status) => (
                 <ActionTitles>
-                  <Text  style={{fontFamily:"AlienSolid"}}  mr="3px" bold textTransform="uppercase" color="textSubtle" fontSize="12px">
+                  <Text mr="3px" bold textTransform="uppercase" color="textSubtle" fontSize="12px">
                     {t('Yield Booster')}
                   </Text>
-                  <Text bold  style={{fontFamily:"AlienSolid"}} textTransform="uppercase" color="secondary" fontSize="12px">
+                  <Text bold textTransform="uppercase" color="secondary" fontSize="12px">
                     {status}
                   </Text>
                 </ActionTitles>
@@ -257,11 +240,11 @@ const ActionPanel: React.FunctionComponent<React.PropsWithChildren<ActionPanelPr
             />
           </ActionContainerSection>
         )}
-        {shouldUseProxyFarm ? ( 
+        {shouldUseProxyFarm ? (
           <ProxyStakedContainer {...proxyFarm} userDataReady={userDataReady} lpLabel={lpLabel} displayApr={apr.value}>
             {(props) => <StakedAction {...props} />}
           </ProxyStakedContainer>
-        ) : ( 
+        ) : (
           <StakedContainer {...farm} userDataReady={userDataReady} lpLabel={lpLabel} displayApr={apr.value}>
             {(props) => <StakedAction {...props} />}
           </StakedContainer>

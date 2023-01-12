@@ -37,11 +37,17 @@ class MyDocument extends Document {
             <link rel="preconnect" href={process.env.NEXT_PUBLIC_NODE_PRODUCTION} />
           )}
           <link rel="preconnect" href="https://fonts.gstatic.com" />
-          
-       
+
           <link rel="shortcut icon" href="/favicon.ico" />
           <link rel="apple-touch-icon" href="/logo.png" />
           <link rel="manifest" href="/manifest.json" />
+          <link
+            rel="preload"
+            href="/fonts/alien_league/alienleaguebold.ttf"
+            as="font"
+            type="font/ttf"
+            crossOrigin="anonymous"
+          />
         </Head>
         <body>
           <noscript>

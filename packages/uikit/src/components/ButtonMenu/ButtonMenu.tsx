@@ -17,14 +17,13 @@ const getBorderColor = ({ theme, variant }: StyledButtonMenuProps) => {
 };
 
 const StyledButtonMenu = styled.div<StyledButtonMenuProps>`
-  background: linear-gradient(242.24deg, #00F666 -86.49%, rgba(0, 246, 102, 0) 96.54%);
-  box-shadow: 0px 0px 11px -1px #00F666;
-  
-   border:2px solid  #00F666;
-   font-family: "AlienSolid";
-  box-shadow: 0px 0px 11px -1px #00F666;
+  background: linear-gradient(242.24deg, #00f666 -86.49%, rgba(0, 246, 102, 0) 96.54%);
+  box-shadow: 0px 0px 11px -1px #00f666;
+
+  border: 2px solid #00f666;
+  box-shadow: 0px 0px 11px -1px #00f666;
   display: ${({ fullWidth }) => (fullWidth ? "flex" : "inline-flex")};
- 
+
   width: ${({ fullWidth }) => (fullWidth ? "100%" : "auto")};
 
   & > button,
@@ -46,10 +45,7 @@ const StyledButtonMenu = styled.div<StyledButtonMenuProps>`
     if (disabled) {
       return `
         opacity: 0.5;
-        font-family: "AlienSolid";
-
         & > button:disabled {
-          font-family: "AlienSolid";
           background-color: black;
           color: ${variant === variants.PRIMARY ? theme.colors.primary : theme.colors.textSubtle};
         }
@@ -71,7 +67,6 @@ const ButtonMenu: React.FC<React.PropsWithChildren<ButtonMenuProps>> = ({
   ...props
 }) => {
   return (
-  
     <StyledButtonMenu disabled={disabled} variant={variant} fullWidth={fullWidth} {...props}>
       {Children.map(children, (child: ReactElement, index) => {
         return cloneElement(child, {

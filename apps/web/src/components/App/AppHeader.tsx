@@ -25,7 +25,7 @@ const AppHeaderContainer = styled(Flex)`
 const AppHeader: React.FC<React.PropsWithChildren<Props>> = ({ title, subtitle, helper, backTo, noConfig = false }) => {
   const [expertMode] = useExpertModeManager()
 
-  return ( 
+  return (
     <AppHeaderContainer>
       <Flex alignItems="center" width="100%" style={{ gap: '16px' }}>
         {backTo &&
@@ -41,9 +41,9 @@ const AppHeader: React.FC<React.PropsWithChildren<Props>> = ({ title, subtitle, 
             </IconButton>
           ))}
         <Flex flexDirection="column" width="100%">
-          <Flex mb="8px"   alignItems="center" justifyContent="center">
-            <Flex  alignItems="center" >
-              <Heading  style={{fontFamily:"AlienSolid"}} as="h2">{title}</Heading>
+          <Flex mb="8px" alignItems="center" justifyContent="center">
+            <Flex alignItems="center">
+              <Heading as="h2">{title}</Heading>
               {/* {helper && <QuestionHelper text={helper} ml="4px" placement="top-start" />} */}
             </Flex>
             {!noConfig && (
@@ -56,7 +56,7 @@ const AppHeader: React.FC<React.PropsWithChildren<Props>> = ({ title, subtitle, 
             )}
           </Flex>
           <Flex alignItems="center">
-            <Text style={{fontFamily:"AlienSolid" , opacity:"0.5"}} color="textSubtle" fontSize="14px">
+            <Text style={{ opacity: '0.5' }} color="textSubtle" fontSize="14px">
               {subtitle}
             </Text>
           </Flex>

@@ -1,6 +1,6 @@
 import { useTranslation } from '@pancakeswap/localization'
 import { WalletModalV2 } from '@pancakeswap/ui-wallets'
-import { Button, ButtonProps } from '@pancakeswap/uikit'
+import { Button, ButtonProps, Flex } from '@pancakeswap/uikit'
 import { createWallets, getDocLink } from 'config/wallet'
 import { useActiveChainId } from 'hooks/useActiveChainId'
 import useAuth from 'hooks/useAuth'
@@ -10,7 +10,11 @@ import { useActiveHandle } from 'hooks/useEagerConnect.bmp.ts'
 import { useMemo, useState } from 'react'
 import { useConnect } from 'wagmi'
 import Trans from './Trans'
+import styled from 'styled-components'
 
+const StyledConnectbutton = styled(Button)`
+  color: #fff;
+`
 const ConnectWalletButton = ({ children, ...props }: ButtonProps) => {
   const handleActive = useActiveHandle()
   const { login } = useAuth()
@@ -36,9 +40,9 @@ const ConnectWalletButton = ({ children, ...props }: ButtonProps) => {
 
   return (
     <>
-      <Button   style={{fontFamily: "AlienSolid" , fontSize:"16px" }}  onClick={handleClick} {...props}>
+      <StyledConnectbutton style={{ fontSize: '16px' }} onClick={handleClick} {...props}>
         {children || <Trans>Connect Wallet</Trans>}
-      </Button>
+      </StyledConnectbutton>
       <WalletModalV2
         docText={t('Learn How to Connect')}
         docLink={docLink}

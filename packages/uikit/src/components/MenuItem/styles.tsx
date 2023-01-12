@@ -24,18 +24,17 @@ const StyledMenuItem = styled.a<StyledMenuItemProps>`
   position: relative;
   display: flex;
   align-items: center;
-  font-family: "AlienSolid";
   font-style: normal;
-font-weight: 400;
+  font-weight: 400;
 
-line-height: 18px;
-/* identical to box height */
+  line-height: 18px;
+  /* identical to box height */
 
-letter-spacing: 0.12em;
+  letter-spacing: 0.12em;
 
-color: #FFFFFF;
+  color: #ffffff;
 
-// opacity: 0.5;
+  // opacity: 0.5;
   color: ${({ theme, $isActive }) => ($isActive ? theme.colors.secondary : theme.colors.textSubtle)};
   font-size: 16px;
   font-weight: ${({ $isActive }) => ($isActive ? "600" : "400")};
@@ -74,7 +73,7 @@ opacity: 0.5;
   `}
 
   &:hover {
-    color:'#001D13';
+    color: "#001D13";
     background: ${({ theme }) => theme.colors.tertiary};
     ${({ $variant }) => $variant === "default" && "border-radius: 16px;"};
   }

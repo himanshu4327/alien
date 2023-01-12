@@ -33,7 +33,7 @@ const CakePrice: React.FC<React.PropsWithChildren<Props>> = ({ cakePriceUsd, col
   return cakePriceUsd ? (
     <PriceLink href="#" target="_blank">
       <Logoround />
-      <Text   fontFamily="AlienSolid" color={color} bold>{`$${cakePriceUsd.toFixed(3)}`}</Text>
+      <Text color={color} bold>{`$${cakePriceUsd.toFixed(3)}`}</Text>
     </PriceLink>
   ) : showSkeleton ? (
     <Skeleton width={80} height={24} />

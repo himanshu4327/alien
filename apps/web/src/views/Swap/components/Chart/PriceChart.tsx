@@ -67,7 +67,7 @@ const PriceChart = ({
             inputCurrency && <CurrencyLogo currency={inputCurrency} size="24px" style={{ marginRight: '8px' }} />
           )}
           {inputCurrency && (
-            <Text style={{fontFamily:"AlienSolid"}} color="text" bold>
+            <Text color="text" bold>
               {outputCurrency ? `${inputCurrency.symbol}/${outputCurrency.symbol}` : inputCurrency.symbol}
             </Text>
           )}
@@ -110,7 +110,6 @@ const PriceChart = ({
         )}
       </Flex>
       {chartView === ChartViewMode.BASIC && (
-  
         <BasicChart
           token0Address={token0Address}
           token1Address={token1Address}

@@ -44,7 +44,6 @@ import { FarmTypesFilter } from './components/FarmTypesFilter'
 const ControlContainer = styled.div`
   display: flex;
   width: 100%;
-  font-family:"AlienSolid";
   align-items: center;
   position: relative;
 
@@ -57,26 +56,22 @@ const ControlContainer = styled.div`
     flex-wrap: wrap;
     padding: 16px 32px;
     margin-bottom: 0;
-    font-family:"AlienSolid";
   }
 `
 const FarmFlexWrapper = styled(Flex)`
   flex-wrap: wrap;
- 
+
   ${({ theme }) => theme.mediaQueries.md} {
     flex-wrap: nowrap;
-    
-    
   }
 `
 const FarmH1 = styled(Heading)`
   font-size: 32px;
   margin-bottom: 8px;
-  font-family: "Alien";
-color: #FFFFFF;
-text-align: center;
-text-shadow: -1px 0px 12px #00F666;
-  
+  color: #ffffff;
+  text-align: center;
+  text-shadow: -1px 0px 12px #00f666;
+
   ${({ theme }) => theme.mediaQueries.sm} {
     font-size: 64px;
     margin-bottom: 24px;
@@ -84,14 +79,12 @@ text-shadow: -1px 0px 12px #00F666;
 `
 const FarmH2 = styled(Heading)`
   font-size: 16px;
-  font-family:"AlienSolid";
-  opacity:0.5;
+  opacity: 0.5;
   margin-bottom: 8px;
   ${({ theme }) => theme.mediaQueries.sm} {
     font-size: 24px;
     margin-bottom: 18px;
-    font-family:"AlienSolid";
-  opacity:0.5;
+    opacity: 0.5;
   }
 `
 
@@ -108,8 +101,8 @@ const ToggleWrapper = styled.div`
 const LabelWrapper = styled.div`
   > ${Text} {
     font-size: 12px;
-    font-family:"AleinSolid";
-    backgound-color: #001D13;
+    font-family: 'AleinSolid';
+    backgound-color: #001d13;
   }
 `
 
@@ -131,8 +124,6 @@ const ViewControls = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-  font-family:"AlienSolid";
-  
 
   > div {
     padding: 8px 0px;
@@ -376,8 +367,8 @@ const Farms: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
     <FarmsContext.Provider value={{ chosenFarmsMemoized }}>
       <PageHeader>
-        <FarmFlexWrapper  justifyContent="center">
-         <Box>
+        <FarmFlexWrapper justifyContent="center">
+          <Box>
             <FarmH1 as="h1" scale="xxl" color="secondary" mb="24px">
               {t('Farms')}
             </FarmH1>
@@ -392,21 +383,17 @@ const Farms: React.FC<React.PropsWithChildren> = ({ children }) => {
                 <ArrowForwardIcon color="primary" />
               </Button>
             </NextLinkFromReactRouter> */}
-          </Box> 
-          {chainId === ChainId.BSC && (
-            <Box>
-              {/* <BCakeBoosterCard /> */}
-            </Box>
-          )}
+          </Box>
+          {chainId === ChainId.BSC && <Box>{/* <BCakeBoosterCard /> */}</Box>}
         </FarmFlexWrapper>
       </PageHeader>
       <Page>
         <ControlContainer>
           <ViewControls>
-            <Flex  mt="20px">
+            <Flex mt="20px">
               <ToggleView idPrefix="clickFarm" viewMode={viewMode} onToggle={setViewMode} />
             </Flex>
-            <Flex  mt="20px" ml="16px">
+            <Flex mt="20px" ml="16px">
               <FarmTypesFilter
                 boostedOnly={boostedOnly}
                 handleSetBoostedOnly={setBoostedOnly}
@@ -417,21 +404,19 @@ const Farms: React.FC<React.PropsWithChildren> = ({ children }) => {
               />
               <ToggleWrapper>
                 <Toggle
-                  
                   id="staked-only-farms"
                   checked={stakedOnly}
                   onChange={() => setStakedOnly(!stakedOnly)}
                   scale="sm"
                 />
-                <Text  style={{fontFamily:"AlienSolid" , opacity:"0.5"}} > {t('Staked only')}</Text>
+                <Text style={{ opacity: '0.5' }}> {t('Staked only')}</Text>
               </ToggleWrapper>
             </Flex>
             <FarmUI.FarmTabButtons hasStakeInFinishedFarms={stakedInactiveFarms.length > 0} />
-
           </ViewControls>
           <FilterContainer>
             <LabelWrapper>
-              <Text style={{fontFamily:"AlienSolid"}} textTransform="uppercase" color="textSubtle" fontSize="18px" bold>
+              <Text textTransform="uppercase" color="textSubtle" fontSize="18px" bold>
                 {t('Sort by')}
               </Text>
               <Select
@@ -465,7 +450,7 @@ const Farms: React.FC<React.PropsWithChildren> = ({ children }) => {
               />
             </LabelWrapper>
             <LabelWrapper style={{ marginLeft: 16 }}>
-              <Text  style={{fontFamily:"AlienSolid" }} textTransform="uppercase" color="textSubtle" fontSize="12px" bold>
+              <Text textTransform="uppercase" color="textSubtle" fontSize="12px" bold>
                 {t('Search')}
               </Text>
               <SearchInput initialValue={normalizedUrlSearch} onChange={handleChangeQuery} placeholder="Search Farms" />
@@ -474,10 +459,10 @@ const Farms: React.FC<React.PropsWithChildren> = ({ children }) => {
         </ControlContainer>
         {isInactive && (
           <FinishedTextContainer>
-            <Text style={{fontFamily:"AlienSolid" }}  fontSize={['16px', null, '20px']} color="failure" pr="4px">
+            <Text fontSize={['16px', null, '20px']} color="failure" pr="4px">
               {t("Don't see the farm you are staking?")}
             </Text>
-            <Flex  style={{fontFamily:"AlienSolid" }}  >
+            <Flex>
               <FinishedTextLink href="/migration" fontSize={['16px', null, '20px']} color="failure">
                 {t('Go to migration page')}
               </FinishedTextLink>
@@ -495,7 +480,7 @@ const Farms: React.FC<React.PropsWithChildren> = ({ children }) => {
             </Flex>
           </FinishedTextContainer>
         )}
-        {viewMode === ViewMode.TABLE ? ( 
+        {viewMode === ViewMode.TABLE ? (
           <Table farms={chosenFarmsMemoized} cakePrice={cakePrice} userDataReady={userDataReady} />
         ) : (
           <FlexLayout>{children}</FlexLayout>

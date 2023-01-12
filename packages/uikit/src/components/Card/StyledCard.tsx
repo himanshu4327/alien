@@ -46,18 +46,16 @@ export const StyledCard = styled.div<StyledCardProps>`
   border-radius: ${({ theme }) => theme.radii.card};
   color: ${({ theme, isDisabled }) => theme.colors[isDisabled ? "textDisabled" : "text"]};
   overflow: hidden;
-  background:#00190a;
-
   position: relative;
   border-radius: 0;
-  box-shadow: 1px 0px 2px #00f666, 1px -1px 0px #00f666;
+  // max-width: 320px;
+  box-shadow: 1px 0px 1px #00f666, 0px -1px 1px #00f666;
   ${({ isActive }) =>
     isActive &&
     css`
       animation: ${PromotedGradient} 3s ease infinite;
       background-size: 400% 400%;
     `}
-
   padding: 1px 1px 3px 1px;
 
   ${space}
@@ -66,12 +64,10 @@ export const StyledCard = styled.div<StyledCardProps>`
 export const StyledCardInner = styled(Box)<{ background?: string; hasCustomBorder: boolean }>`
   width: 100%;
   height: 100%;
-  
   overflow: ${({ hasCustomBorder }) => (hasCustomBorder ? "initial" : "inherit")};
-  //background: ${({ theme, background }) => background ?? theme.card.background};
-  // background: radial-gradient(52.44% 52.44% at 50.26% 115.85%, #00F666 0%, rgba(0, 0, 0, 0.2) 100%);
-backdrop-filter: blur(7.5px);
- background:#00190a;
+  background: radial-gradient(52.44% 52.44% at 50.26% 115.85%, #00f666 0%, rgba(0, 0, 0, 0.2) 100%);
+  backdrop-filter: blur(7.5px);
+  //background: #00190a;
   border-radius: 0px;
   //border-radius: ${({ theme }) => theme.radii.card};
 `;

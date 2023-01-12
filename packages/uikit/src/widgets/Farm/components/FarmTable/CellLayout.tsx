@@ -6,8 +6,7 @@ const Label = styled.div`
   text-align: left;
   line-height: 13px;
   letter-spacing: 0.12em;
-  font-family:"AlienSolid";
-  opacity:0.5;
+  opacity: 0.5;
 `;
 
 const ContentContainer = styled.div`
@@ -15,9 +14,6 @@ const ContentContainer = styled.div`
 
   display: flex;
   align-items: center;
-  font-family:"AlienSolid";
-  
- 
 `;
 
 interface CellLayoutProps {

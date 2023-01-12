@@ -128,10 +128,15 @@ const StyledHeading = styled(Heading)`
 `
 const StyledSpan = styled.span`
   color: #00f666;
-
+  font-family: Alien;
   text-shadow: -1px 0px 12px #00f666;
 `
-const StyledSubHeading = styled(Text)``
+const StyledButton = styled(ConnectWalletButton)`
+  color: #00f666;
+`
+const StyledSubHeading = styled(Text)`
+  opacity: 0.5;
+`
 const Home: React.FC<React.PropsWithChildren> = () => {
   const { theme } = useTheme()
   const { address: account } = useAccount()
@@ -149,10 +154,12 @@ const Home: React.FC<React.PropsWithChildren> = () => {
           background: linear-gradient(139.73deg, #e6fdff 0%, #f3efff 100%);
         }
         [data-theme='dark'] #home-1 .page-bg {
-          background: url('/images/bg-hero.png') rgba(0, 0, 0, 0.5);
+          background: url('/images/bg-hero.png') rgba(0, 0, 0, 0.6);
           background-blend-mode: multiply;
           background-size: cover;
-          box-shadow: 32px;
+          backgroun-repeat: no-repeat;
+          background-position: 0 -200px;
+          box-shadow: inset 0px -250px 50px #000;
         }
 
         #home-2 .page-bg {
@@ -200,11 +207,9 @@ const Home: React.FC<React.PropsWithChildren> = () => {
           </StyledSubHeading>
         </Box>
         <Flex marginTop="120px" justifyContent="center">
-          {!account && <ConnectWalletButton mr="8px" />}
+          {!account && <StyledButton mr="8px" />}
           <NextLinkFromReactRouter to="/swap">
-            <Button style={{ fontFamily: 'AlienSolid', fontSize: '16px' }} variant="Alien">
-              {t('Trade Now')}
-            </Button>
+            <Button>{t('Trade Now')}</Button>
           </NextLinkFromReactRouter>
         </Flex>
         <Hero />
@@ -222,7 +227,6 @@ const Home: React.FC<React.PropsWithChildren> = () => {
         </div>
 
         <FloatingUfos />
-
         <MetricsSection />
         <div className="circle">
           <div style={{ display: 'flex', justifyContent: 'end' }}>

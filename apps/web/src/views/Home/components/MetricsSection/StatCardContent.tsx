@@ -1,5 +1,9 @@
 import { Heading, Flex, Text, useMatchBreakpoints } from '@pancakeswap/uikit'
+import styled from 'styled-components'
 
+const StyledText = styled(Text)`
+  opacity: 0.5;
+`
 const StatCardContent: React.FC<
   React.PropsWithChildren<{ headingText: string; bodyText: string; highlightColor: string }>
 > = ({ headingText, bodyText, highlightColor }) => {
@@ -19,23 +23,41 @@ const StatCardContent: React.FC<
       mt={[null, null, null, '32px']}
       mb={[null, null, null, '32px']}
     >
-      <Heading  style={{textShadow:"-1px 0px 12px #00f666" , letterSpacing:"0.12em"}}    scale="xl" mb="24px" textAlign="center">
+      <Heading
+        style={{ textShadow: '-1px 0px 12px #00f666', letterSpacing: '0.12em' }}
+        scale="xl"
+        mb="24px"
+        textAlign="center"
+        fontFamily="Alien"
+      >
         {firstWord}
       </Heading>
-       
+
       {isSmallerScreen && remainingWords.length > 13 ? (
-        <Heading style={{textShadow:"-1px 0px 12px #00f666" , letterSpacing:"0.12em"}} scale="lg" textTransform="uppercase" textAlign="center">
+        <Heading
+          style={{ textShadow: '-1px 0px 12px #00f666', letterSpacing: '0.12em' }}
+          scale="lg"
+          textTransform="uppercase"
+          textAlign="center"
+          fontFamily="Alien"
+        >
           {remainingWords}
         </Heading>
       ) : (
-        <Heading style={{textShadow:"-1px 0px 12px #00f666" , letterSpacing:"0.12em"}} scale="xl" textTransform="uppercase" textAlign="center">
+        <Heading
+          style={{ textShadow: '-1px 0px 12px #00f666', letterSpacing: '0.12em' }}
+          scale="xl"
+          textTransform="uppercase"
+          textAlign="center"
+          fontFamily="Alien"
+        >
           {remainingWords}
         </Heading>
       )}
 
-      <Text     fontFamily="Aliensolid" color="textSubtle" textAlign="center">
+      <StyledText color="textSubtle" textAlign="center">
         {bodyText}
-      </Text>
+      </StyledText>
     </Flex>
   )
 }

@@ -1,14 +1,8 @@
 import { TranslateFunction } from '@pancakeswap/localization'
 import { SalesSectionProps } from '.'
 
-
-
-
-
-
-
 export const swapSectionData = (t: TranslateFunction): SalesSectionProps => ({
-  headingText: t('Trade anything. No  registration,no hassle.'),
+  headingText: t('Trade anything. No registration,no hassle.'),
   bodyText: t('Trade any token on BNB Smart Chain in seconds, just by connecting your wallet.'),
   reverse: false,
   primaryButton: {
@@ -25,6 +19,7 @@ export const swapSectionData = (t: TranslateFunction): SalesSectionProps => ({
     path: '/images/alien/fireBurner.gif',
     attributes: [{ src: 'fireBurner', alt: t('Fire gif') }],
   },
+  firstWordlen: 2,
 })
 
 export const earnSectionData = (t: TranslateFunction): SalesSectionProps => ({
@@ -49,22 +44,17 @@ export const earnSectionData = (t: TranslateFunction): SalesSectionProps => ({
       // { src: 'folder', alt: t('Folder with cake token') },
     ],
   },
+  firstWordlen: 3,
 })
 
 export const cakeSectionData = (t: TranslateFunction): SalesSectionProps => ({
-  headingText: t('Aliens   knew    The universe better'),
+  headingText: t('Aliens knew The universe better'),
 
   images: {
     path: '/images/alien/skeleton.gif',
-    attributes: [
-      { src: 'skeleton', alt: t('Small 3d pancake') },
-     
-    ],
+    attributes: [{ src: 'skeleton', alt: t('Small 3d pancake') }],
   },
   bodyText: t(''),
-  
-
-
 
   reverse: false,
   primaryButton: {
@@ -77,25 +67,22 @@ export const cakeSectionData = (t: TranslateFunction): SalesSectionProps => ({
     text: t('Learn'),
     external: true,
   },
-
- 
+  firstWordlen: 1,
 })
 // export const StartInSecondSectionData = (t: TranslateFunction): SalesSectionProps => ({
-  
+
 //   headingText: t('START IN SECONDS'),
 
 //   images: {
 //     path: '/images/alien/space.svg',
 //     attributes: [
 //       { src: 'space', alt: t('Small 3d pancake') },
-     
+
 //     ],
 //   },
 //   bodyText: t(
 //     'CAKE token is at the heart of the PancakeSwap ecosystem. Buy it, win it, farm it, spend it, stake it... heck, you can even vote with it',
 //   ),
-
-
 
 //   reverse: false,
 //   primaryButton: {
@@ -108,6 +95,5 @@ export const cakeSectionData = (t: TranslateFunction): SalesSectionProps => ({
 //     text: t(''),
 //     external:false,
 //   },
-
 
 // })

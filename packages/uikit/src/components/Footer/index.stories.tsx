@@ -21,12 +21,12 @@ const Template: React.FC<React.PropsWithChildren<FooterProps>> = ({ ...args }) =
 
 export const Default = Template.bind({});
 Default.args = {
-  items: footerLinks,
+  // items: footerLinks,
   isDark: true,
   toggleTheme: noop,
-  langs,
+  // langs,
   setLang: noop,
   currentLang: "EN",
   cakePriceUsd: 0.023158668932877668,
-  buyCakeLabel: "Buy CAKE",
+  buyCakeLabel: "Buy Alien",
 };

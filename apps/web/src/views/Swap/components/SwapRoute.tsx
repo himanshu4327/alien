@@ -12,7 +12,7 @@ export default memo(function SwapRoute({ path }: { path: Currency[] }) {
         return (
           <Fragment key={token.isToken ? token.address : ''}>
             <Flex alignItems="end">
-              <Text style={{fontFamily:"AlienSolid"}}  fontSize="14px" ml="0.125rem" mr="0.125rem">
+              <Text fontSize="14px" ml="0.125rem" mr="0.125rem">
                 {currency.symbol}
               </Text>
             </Flex>

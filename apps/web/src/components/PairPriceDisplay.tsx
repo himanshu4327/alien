@@ -22,7 +22,6 @@ const TextLabel = styled(Text)`
 
   ${({ theme }) => theme.mediaQueries.lg} {
     font-size: 40px;
-    font-family:"Aliensolid";
   }
 `
 
@@ -37,11 +36,11 @@ const PairPriceDisplay: FC<React.PropsWithChildren<TokenDisplayProps>> = ({
   return value ? (
     <FlexGap alignItems="baseline" {...props}>
       <Flex alignItems="inherit">
-        <TextLabel   mr="8px" bold>
+        <TextLabel mr="8px" bold>
           {format ? formatAmount(typeof value === 'string' ? parseFloat(value) : value, formatOptions) : value}
         </TextLabel>
         {inputSymbol && outputSymbol && (
-          <Text   style={{fontFamily:"AlienSolid" , opacity:"0.5"}}  color="textSubtle" fontSize="20px" bold lineHeight={1.1}>
+          <Text style={{ opacity: '0.5' }} color="textSubtle" fontSize="20px" bold lineHeight={1.1}>
             {`${inputSymbol}/${outputSymbol}`}
           </Text>
         )}

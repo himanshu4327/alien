@@ -5,9 +5,6 @@ import BundleAnalyzer from '@next/bundle-analyzer'
 import { createVanillaExtractPlugin } from '@vanilla-extract/next-plugin'
 import NextTranspileModules from 'next-transpile-modules'
 
-
-
-
 const withBundleAnalyzer = BundleAnalyzer({
   enabled: process.env.ANALYZE === 'true',
 })
@@ -51,15 +48,14 @@ const config = {
   compiler: {
     styledComponents: true,
   },
-  
+
   experimental: {
     scrollRestoration: true,
   },
   reactStrictMode: true,
   swcMinify: true,
-  
+
   images: {
-  
     remotePatterns: [
       {
         protocol: 'https',
@@ -82,7 +78,7 @@ const config = {
   async headers() {
     return [
       {
-        source: '/logo.png',
+        source: '/fonts/alien_league/alienleaguebold.ttf',
         headers: [
           {
             key: 'Cache-Control',

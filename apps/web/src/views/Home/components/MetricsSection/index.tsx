@@ -11,13 +11,13 @@ import GradientLogo from '../GradientLogoSvg'
 const StyledHeading = styled(Heading)`
   text-shadow: -1px 0px 12px #00f666;
   letter-spacing: 0.12em;
+  font-family: 'Alien';
 `
 const StyledSpan = styled.span`
-letter-spacing: 0.12em;
-text-shadow: -1px 0px 12px #00F666;
-color: #00f666;
-
-
+  letter-spacing: 0.12em;
+  text-shadow: -1px 0px 12px #00f666;
+  color: #00f666;
+  font-family: 'Alien';
 `
 
 const Stats = () => {

@@ -3,8 +3,7 @@ import Image from 'next/image'
 
 import CompositeImage, { CompositeImageProps } from '../CompositeImage'
 import ColoredWordHeading from '../ColoredWordHeading'
-
-
+import styled from 'styled-components'
 
 interface SalesSectionButton {
   to: string
@@ -19,10 +18,15 @@ export interface SalesSectionProps {
   primaryButton?: SalesSectionButton
   secondaryButton?: SalesSectionButton
   images: CompositeImageProps
+  firstWordlen?: number
 }
 
+const StyledText = styled(Text)`
+  opacity: 0.5;
+`
+
 const SalesSection: React.FC<React.PropsWithChildren<SalesSectionProps>> = (props) => {
-  const { headingText, bodyText, reverse, primaryButton, secondaryButton, images } = props
+  const { headingText, bodyText, reverse, primaryButton, secondaryButton, images, firstWordlen } = props
 
   return (
     <Flex flexDirection="column">
@@ -34,7 +38,7 @@ const SalesSection: React.FC<React.PropsWithChildren<SalesSectionProps>> = (prop
           mr={[null, null, null, !reverse && '64px']}
           alignSelf={['flex-start', null, null, 'center']}
         >
-          <ColoredWordHeading    text={headingText} textAlign="center" />
+          <ColoredWordHeading text={headingText} textAlign="center" firstWordlen={firstWordlen} />
 
           <Flex
             flex={[null, null, null, '1']}
@@ -45,20 +49,20 @@ const SalesSection: React.FC<React.PropsWithChildren<SalesSectionProps>> = (prop
           >
             <Image src={images.path} alt="gif" width={1200} height={1200} />
           </Flex>
-          <Text fontSize="16px"   fontFamily="Aliensolid" color="textSubtle" mb="24px" textAlign="center" width="80%" margin="0 auto">
+          <StyledText fontSize="16px" color="textSubtle" mb="24px" textAlign="center" width="80%" margin="0 auto">
             {bodyText}
-          </Text>
+          </StyledText>
           <Flex justifyContent="center" my="10px">
             <Button mr="16px">
               {primaryButton.external ? (
                 <Link external href={primaryButton.to}>
-                  <Text  style={{fontFamily: "AlienSolid" , fontSize:"16px"}} color="card" bold fontSize="16px">
+                  <Text style={{ fontSize: '16px' }} color="card" bold fontSize="16px">
                     {primaryButton.text}
                   </Text>
                 </Link>
               ) : (
                 <RouterLink to={primaryButton.to}>
-                  <Text  style={{fontFamily: "AlienSolid" , fontSize:"16px"}} color="card" bold fontSize="16px">
+                  <Text style={{ fontSize: '16px' }} color="card" bold fontSize="16px">
                     {primaryButton.text}
                   </Text>
                 </RouterLink>
@@ -66,9 +70,7 @@ const SalesSection: React.FC<React.PropsWithChildren<SalesSectionProps>> = (prop
             </Button>
             {secondaryButton.external ? (
               <Link external href={secondaryButton.to}>
-               <Text  style={{fontFamily: "AlienSolid" , fontSize:"16px"}}>
-               {secondaryButton.text}
-                </Text> 
+                <Text style={{ fontSize: '16px' }}>{secondaryButton.text}</Text>
               </Link>
             ) : (
               <RouterLink to={secondaryButton.to}>{secondaryButton.text}</RouterLink>

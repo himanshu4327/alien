@@ -14,12 +14,11 @@ import { AppHeader, AppBody } from '../../components/App'
 import Page from '../Page'
 
 const Body = styled(CardBody)`
+  // background: radial-gradient(78.23% 34.54% at 49.89% 118.47%, #00F666 0%, rgba(2, 73, 32, 0.2) 100%);
+  // backdrop-filter: blur(5.5px);
+  // /* Note: backdrop-filter has minimal browser support */
 
-// background: radial-gradient(78.23% 34.54% at 49.89% 118.47%, #00F666 0%, rgba(2, 73, 32, 0.2) 100%);
-// backdrop-filter: blur(5.5px);
-// /* Note: backdrop-filter has minimal browser support */
-
-// transform: matrix(1, 0, 0, 1, 0, 0);
+  // transform: matrix(1, 0, 0, 1, 0, 0);
   // background-color: ${({ theme }) => theme.colors.dropdownDeep};
 `
 
@@ -109,7 +108,7 @@ export default function Pool() {
     }
 
     return (
-      <Text style={{fontFamily:"AlienSolid"}} color="textSubtle" textAlign="center">
+      <Text color="textSubtle" textAlign="center">
         {t('No liquidity found.')}
       </Text>
     )
@@ -118,25 +117,25 @@ export default function Pool() {
   return (
     <Page>
       <AppBody>
-        <AppHeader  title={t('Your Liquidity')} subtitle={t('Remove liquidity to receive tokens back')} />
+        <AppHeader title={t('Your Liquidity')} subtitle={t('Remove liquidity to receive tokens back')} />
         <Body>
           {renderBody()}
           {account && !v2IsLoading && (
             <Flex flexDirection="column" alignItems="center" mt="24px">
-              <Text style={{fontFamily:"AlienSolid"}}  color="textSubtle" mb="8px">
+              <Text color="textSubtle" mb="8px">
                 {t("Don't see a pair you joined?")}
               </Text>
               <Link href="/find" passHref>
-                <Button style={{ border:"none", fontFamily:"AlienSolid"}} id="import-pool-link" variant="secondary" scale="sm" as="a">
+                <Button style={{ border: 'none' }} id="import-pool-link" variant="secondary" scale="sm" as="a">
                   {t('Find other LP tokens')}
                 </Button>
               </Link>
             </Flex>
           )}
         </Body>
-        <CardFooter style={{ textAlign: 'center' , border:"none" }}>
+        <CardFooter style={{ textAlign: 'center', border: 'none' }}>
           <Link href="/add" passHref>
-            <Button style={{color:"white" , fontFamily:"AlienSolid"}} id="join-pool-button" width="100%" startIcon={<AddIcon color="white" />}>
+            <Button style={{ color: 'white' }} id="join-pool-button" width="100%" startIcon={<AddIcon color="white" />}>
               {t('Add Liquidity')}
             </Button>
           </Link>
