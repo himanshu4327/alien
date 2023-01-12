@@ -14,11 +14,13 @@ const GlobalStyle = createGlobalStyle`
 @font-face {
   font-family: "Alien";
   src: url('/fonts/alien_league/alienleaguebold.ttf');
+  font-display: fallback;
 }
   
 @font-face {
-  font-family: "AlienSolid";
+  font-family: "AlienSolid" ;
   src: url('/fonts/alien-encounters-solid/Alien-Encounters-Solid-Bold.ttf');
+  font-display: fallback;
 }
   
 

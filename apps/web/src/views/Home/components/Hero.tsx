@@ -40,7 +40,6 @@ const BgWrapper = styled.div`
   height: 100%;
   bottom: 0px;
   left: 0px;
-
 `
 
 const InnerWrapper = styled.div`
@@ -112,7 +111,7 @@ const Hero = () => {
       </style>
       <BgWrapper>
         <InnerWrapper>
-          <SlideSvgDark className="slide-svg-dark" width="100%" height="100%" />
+          {/* <SlideSvgDark className="slide-svg-dark" width="100%" height="100%" /> */}
           <SlideSvgLight className="slide-svg-light" width="100%" />
         </InnerWrapper>
       </BgWrapper>

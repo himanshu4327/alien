@@ -11,7 +11,7 @@ import ConnectWalletButton from 'components/ConnectWalletButton'
 import { useActiveChainId } from 'hooks/useActiveChainId'
 import { ChainId } from '@pancakeswap/sdk'
 import Hero from './components/Hero'
-import { swapSectionData, earnSectionData, cakeSectionData, } from './components/SalesSection/data'
+import { swapSectionData, earnSectionData, cakeSectionData } from './components/SalesSection/data'
 import MetricsSection from './components/MetricsSection'
 import SalesSection from './components/SalesSection'
 import WinSection from './components/WinSection'
@@ -22,13 +22,12 @@ import { WedgeTopLeft, InnerWedgeWrapper, OuterWedgeWrapper, WedgeTopRight } fro
 import UserBanner from './components/UserBanner'
 import MultipleBanner from './components/Banners/MultipleBanner'
 
-import { swapStartInSecondData } from './components/StartInSecondSectionData/data';
+import { swapStartInSecondData } from './components/StartInSecondSectionData/data'
 import StartInSecondSectionData from './components/StartInSecondSectionData'
 
 const StyledHeroSection = styled(PageSection)`
   padding-top: 16px;
-  border:2px solid red
-  ${({ theme }) => theme.mediaQueries.md} {
+  border: 2px solid red ${({ theme }) => theme.mediaQueries.md} {
     padding-top: 48px;
   }
 `
@@ -81,7 +80,6 @@ to {
 
 `
 
-
 const FloatingUfos = styled.div`
   background-image: url('/images/alien/ufos.png');
   background-size: contain;
@@ -94,56 +92,46 @@ const FloatingUfos = styled.div`
 const FloatingUfosRight = styled.div`
   background-image: url('/images/alien/rightdown.svg');
   background-size: contain;
-  
+
   background-repeat: no-repeat;
   width: 100px;
   height: 100px;
   animation: ${floatingAnimRight('50%', '200px')} 15s ease-in-out infinite;
   animation-delay: 1s;
-
-
 `
 const FloatingUfosTopRight = styled.div`
   background-image: url('/images/alien/spaceRight.svg');
   background-size: contain;
-  position:absolute;
-  
-  top:-12rem;
-  right:0;
+  position: absolute;
+
+  top: -12rem;
+  right: 0;
   background-repeat: no-repeat;
   animation: ${floatingAnimTopRight('50%', '200px')} 13s linear infinite;
   animation-delay: 1s;
-  width:307px;
-  height:153px;
-  overflowX:hidden;
-  
-
-
-
+  width: 307px;
+  height: 153px;
+  overflowx: hidden;
 `
 const UserBannerWrapper = styled.div`
-margin-top:52px;
-  padding:12px 12px;
-background: radial-gradient(52.44% 52.44% at 50.26% 115.85%, #00F666 0%, rgba(2, 73, 32, 0.2) 100%);
-backdrop-filter: blur(5.5px);
-
-  
+  margin-top: 52px;
+  padding: 12px 12px;
+  background: radial-gradient(52.44% 52.44% at 50.26% 115.85%, #00f666 0%, rgba(2, 73, 32, 0.2) 100%);
+  backdrop-filter: blur(5.5px);
 `
 
 const StyledHeading = styled(Heading)`
   letter-spacing: 0.12em;
   color: #fffff;
   text-shadow: -1px 0px 12px #00f666;
-  font-family: "Alien";
+  font-family: 'Alien';
 `
 const StyledSpan = styled.span`
   color: #00f666;
 
   text-shadow: -1px 0px 12px #00f666;
 `
-const StyledSubHeading = styled(Text)`
-  
-`
+const StyledSubHeading = styled(Text)``
 const Home: React.FC<React.PropsWithChildren> = () => {
   const { theme } = useTheme()
   const { address: account } = useAccount()
@@ -161,9 +149,10 @@ const Home: React.FC<React.PropsWithChildren> = () => {
           background: linear-gradient(139.73deg, #e6fdff 0%, #f3efff 100%);
         }
         [data-theme='dark'] #home-1 .page-bg {
-          background-image: url('/images/bg-hero.png');
+          background: url('/images/bg-hero.png') rgba(0, 0, 0, 0.5);
+          background-blend-mode: multiply;
           background-size: cover;
-          box-shadow:32px;
+          box-shadow: 32px;
         }
 
         #home-2 .page-bg {
@@ -184,8 +173,6 @@ const Home: React.FC<React.PropsWithChildren> = () => {
         [data-theme='dark'] #home-4 .inner-wedge svg {
           fill: #000;
         }
-
-
       `}</style>
       <StyledHeroSection
         innerProps={{ style: { margin: '0', width: '100%' } }}
@@ -201,22 +188,23 @@ const Home: React.FC<React.PropsWithChildren> = () => {
           </UserBannerWrapper>
         )} */}
         {/* <MultipleBanner /> */}
-      
-         
+
         <Flex paddingTop="123px" zIndex="-1">
           <StyledHeading scale="xxl" textTransform="uppercase" textAlign="center">
             The world is ruled by humans, Universe IS by <StyledSpan>Alien</StyledSpan>
           </StyledHeading>
         </Flex>
         <Box maxWidth="700px" margin="50px auto">
-          <StyledSubHeading fontSize="24px" textTransform="uppercase" textAlign="center"   >
+          <StyledSubHeading fontSize="24px" textTransform="uppercase" textAlign="center">
             Trade, earn, and win crypto on the most popular decentralized platform in the galaxy.
           </StyledSubHeading>
         </Box>
-        <Flex marginTop='120px' justifyContent="center">
+        <Flex marginTop="120px" justifyContent="center">
           {!account && <ConnectWalletButton mr="8px" />}
           <NextLinkFromReactRouter to="/swap">
-            <Button style={{fontFamily: "AlienSolid" , fontSize:"16px"}}  variant='Alien'>{t('Trade Now')}</Button>
+            <Button style={{ fontFamily: 'AlienSolid', fontSize: '16px' }} variant="Alien">
+              {t('Trade Now')}
+            </Button>
           </NextLinkFromReactRouter>
         </Flex>
         <Hero />
@@ -229,23 +217,18 @@ const Home: React.FC<React.PropsWithChildren> = () => {
         index={2}
         hasCurvedDivider={false}
       >
-        <div  style={{display:"flex" , justifyContent:"end" , position:"relative"}}  >
-        <FloatingUfosTopRight/>
+        <div style={{ display: 'flex', justifyContent: 'end', position: 'relative' }}>
+          <FloatingUfosTopRight />
         </div>
-      
-      
+
         <FloatingUfos />
 
         <MetricsSection />
-  <div className="circle">
-        <div style={{display:"flex" , justifyContent:"end"}} >
-        <FloatingUfosRight/>
+        <div className="circle">
+          <div style={{ display: 'flex', justifyContent: 'end' }}>
+            <FloatingUfosRight />
+          </div>
         </div>
-      
-</div>
-       
-        
-
       </PageSection>
       <PageSection
         innerProps={{ style: HomeSectionContainerStyles }}
@@ -277,9 +260,7 @@ const Home: React.FC<React.PropsWithChildren> = () => {
         <SalesSection {...earnSectionData(t)} />
         {/* TODO: until we are enable fetch multi-chain farms */}
 
-       <UserBannerWrapper>
-        {chainId === ChainId.BSC && <FarmsPoolsRow />}
-       </UserBannerWrapper>
+        <UserBannerWrapper>{chainId === ChainId.BSC && <FarmsPoolsRow />}</UserBannerWrapper>
       </PageSection>
       {/* <PageSection
         innerProps={{ style: HomeSectionContainerStyles }}
@@ -306,10 +287,10 @@ const Home: React.FC<React.PropsWithChildren> = () => {
         index={2}
         hasCurvedDivider={false}
       >
-          <StartInSecondSectionData {...swapStartInSecondData(t)}  />
-        <div  style={{marginTop:"24px"}} >
-        <Footer />
-          </div>
+        <StartInSecondSectionData {...swapStartInSecondData(t)} />
+        <div style={{ marginTop: '24px' }}>
+          <Footer />
+        </div>
       </PageSection>
       {/* <PageSection
         innerProps={{ style: HomeSectionContainerStyles }}
