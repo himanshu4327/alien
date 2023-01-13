@@ -47,7 +47,7 @@ const SalesSection: React.FC<React.PropsWithChildren<SalesSectionProps>> = (prop
             maxWidth="2000px"
             alignItems="center"
           >
-            <Image src={images.path} alt="gif" width={1200} height={1200} />
+            <Image src={images.path} alt="gif" width={900} height={700} />
           </Flex>
           <StyledText fontSize="16px" color="textSubtle" mb="24px" textAlign="center" width="80%" margin="0 auto">
             {bodyText}

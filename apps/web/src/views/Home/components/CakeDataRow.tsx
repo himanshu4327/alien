@@ -16,18 +16,19 @@ import { BigNumber } from '@ethersproject/bignumber'
 
 const StyledColumn = styled(Flex)<{ noMobileBorder?: boolean; noDesktopBorder?: boolean }>`
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 10px;
   ${({ noMobileBorder, theme }) =>
     noMobileBorder
       ? `${theme.mediaQueries.md} {
-       
            padding-bottom:32px;
-    box-shadow: 7px 7px 6px #00F666;
+           
          }
        `
-       : `
+      : `
       //  padding-top: 32px;
-      //  box-shadow:7px -7px 6px #00F666;
-  
+
          ${theme.mediaQueries.sm} {
           //  padding: 0 16px;
          }
@@ -36,45 +37,73 @@ const StyledColumn = styled(Flex)<{ noMobileBorder?: boolean; noDesktopBorder?: 
   ${({ noDesktopBorder, theme }) =>
     noDesktopBorder &&
     `${theme.mediaQueries.md} {
-           padding: 0;
+           padding: 32px;
            border-left: none;
          }
        `}
 `
 
-
 const Grid = styled.div`
   display: grid;
-  // grid-gap: 16px 8px;
-  margin-top: 24px;
- 
+  margin-top: 50px;
   grid-template-columns: repeat(2, auto);
   grid-template-areas:
     'a d'
     'b e'
     'c f';
-    
-
   ${({ theme }) => theme.mediaQueries.sm} {
-    // grid-gap: 16px;
-    // box-shadow: 0px 2px 3px #00F666;
-
-   
   }
 
   ${({ theme }) => theme.mediaQueries.md} {
     grid-template-areas:
       'a b c'
       'd e f';
-   
-    grid-gap: 32px;
-   
     grid-template-columns: repeat(3, auto);
- 
-    padding-bottom:32px;
-   
- 
+    padding: 32px;
   }
+`
+
+const StyledColumnA = styled(StyledColumn)`
+  border-bottom: 1px solid #00f666;
+  border-right: 1px solid #00f666;
+  ${({ theme }) => theme.mediaQueries.md} {
+    border-bottom: 1px solid #00f666;
+    border-right: 1px solid #00f666;
+  }
+`
+const StyledColumnB = styled(StyledColumn)`
+  border-right: 0;
+  border-bottom: 1px solid #00f666;
+  ${({ theme }) => theme.mediaQueries.md} {
+    border-bottom: 1px solid #00f666;
+    border-right: 1px solid #00f666;
+  }
+`
+const StyledColumnC = styled(StyledColumn)`
+  border-bottom: 1px solid #00f666;
+  border-right: 1px solid #00f666;
+  ${({ theme }) => theme.mediaQueries.md} {
+    border-bottom: 1px solid #00f666;
+    border-right: none;
+  }
+`
+const StyledColumnD = styled(StyledColumn)`
+  border-bottom: 1px solid #00f666;
+  border-right: 0;
+  ${({ theme }) => theme.mediaQueries.md} {
+    border-bottom: 0;
+    border-right: 1px solid #00f666;
+  }
+`
+const StyledColumnE = styled(StyledColumn)`
+  border-right: 1px solid #00f666;
+`
+const StyledColumnF = styled(StyledColumn)``
+
+const StyledText = styled(Text)`
+  opacity: 0.5;
+  font-size: 13px;
+  text-align: center;
 `
 
 const emissionsPerBlock = 11.16
@@ -145,56 +174,59 @@ const CakeDataRow = () => {
 
   return (
     <Grid>
-      <Flex flexDirection="column" style={{ gridArea: 'a' , boxShadow:"7px 7px 6px #00F666" }}>
-        <Text color="textSubtle">{t('Circulating Supply')}</Text>
+      <StyledColumnA flexDirection="column">
+        <StyledText color="textSubtle">{t('Circulating Supply')}</StyledText>
         {circulatingSupply ? (
-          <Balance decimals={0} lineHeight="1.1" fontSize="24px" bold value={circulatingSupply} />
+          <Balance decimals={0} lineHeight="1.1" fontSize="21px" bold value={circulatingSupply} />
         ) : (
           <Skeleton height={24} width={126} my="4px" />
         )}
-      </Flex>
-    
-      <StyledColumn noMobileBorder style={{  paddingBottom: "32px" , paddingLeft:"32px", boxShadow:"7px 7px 6px #00F666, -7px 7px 6px #00F666  "}}>
-        <Text color="textSubtle">{t('Total supply')}</Text>
+      </StyledColumnA>
+
+      <StyledColumnB noMobileBorder>
+        <StyledText color="textSubtle">{t('Total supply')}</StyledText>
         {cakeSupply ? (
-          <Balance decimals={0} lineHeight="1.1" fontSize="24px" bold value={cakeSupply} />
+          <Balance decimals={0} lineHeight="1.1" fontSize="21px" bold value={cakeSupply} />
         ) : (
           <>
             <div ref={observerRef} />
             <Skeleton height={24} width={126} my="4px" />
           </>
         )}
-      </StyledColumn>
-      <StyledColumn noMobileBorder style={{paddingLeft: "32px" , paddingBottom:"32px", boxShadow:"-7px 7px 6px #00F666"}}>
-        <Text color="textSubtle">{t('Max Supply')}</Text>
+      </StyledColumnB>
 
-        <Balance decimals={0} lineHeight="1.1" fontSize="24px" bold value={750000000} />
-      </StyledColumn>
-      
-       
+      <StyledColumnC noMobileBorder>
+        <StyledText color="textSubtle">{t('Max Supply')}</StyledText>
 
-      <StyledColumn noDesktopBorder style={{paddingTop: "32px" , boxShadow:"7px -7px 6px #00F666"}}>
-        <Text color="textSubtle">{t('Market cap')}</Text>
+        <Balance decimals={0} lineHeight="1.1" fontSize="21px" bold value={750000000} />
+      </StyledColumnC>
+
+      <StyledColumnD noDesktopBorder>
+        <StyledText color="textSubtle">{t('Market cap')}</StyledText>
         {mcap?.gt(0) && mcapString ? (
-          <Heading scale="lg">{t('$%marketCap%', { marketCap: mcapString })}</Heading>
+          <Heading scale="md" textAlign="center">
+            {t('$%marketCap%', { marketCap: mcapString })}
+          </Heading>
         ) : (
           <Skeleton height={24} width={126} my="4px" />
         )}
-      </StyledColumn>
-      <StyledColumn style={{ gridArea: 'e'   , paddingTop: "32px" , paddingLeft:"32px", boxShadow:"7px -7px 6px #00F666 , -7px -7px 6px #00F666"  }}>
-        <Text color="textSubtle">{t('Burned to date')}</Text>
+      </StyledColumnD>
+      <StyledColumnE>
+        <StyledText color="textSubtle" textAlign="center">
+          {t('Burned to date')}
+        </StyledText>
         {burnedBalance ? (
-          <Balance decimals={0} lineHeight="1.1" fontSize="24px" bold value={burnedBalance} />
+          <Balance decimals={0} lineHeight="1.1" fontSize="21px" bold value={burnedBalance} />
         ) : (
           <Skeleton height={24} width={126} my="4px" />
         )}
-      </StyledColumn>
-      <StyledColumn style={{ gridArea: 'f'  , paddingTop: "32px" ,  paddingLeft:"32px" , boxShadow:"-7px -7px 6px #00F666"  }}>
-        <Text color="textSubtle">{t('Current emissions')}</Text>
-
-        <Heading scale="lg">{t('%cakeEmissions%/block', { cakeEmissions: emissionsPerBlock })}</Heading>
-      </StyledColumn>
-      
+      </StyledColumnE>
+      <StyledColumnF>
+        <StyledText color="textSubtle" textAlign="center">
+          {t('Current emissions')}
+        </StyledText>
+        <Heading scale="md">{t('%cakeEmissions%/block', { cakeEmissions: emissionsPerBlock })}</Heading>
+      </StyledColumnF>
     </Grid>
   )
 }

@@ -22,6 +22,7 @@ const StatCardContent: React.FC<
       justifyContent="flex-end"
       mt={[null, null, null, '32px']}
       mb={[null, null, null, '32px']}
+      margin="0 auto"
     >
       <Heading
         style={{ textShadow: '-1px 0px 12px #00f666', letterSpacing: '0.12em' }}

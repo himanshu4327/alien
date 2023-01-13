@@ -13,7 +13,9 @@ interface TopFarmPoolProps {
 const StyledWrapper = styled(Flex)<{ index: number }>`
   position: relative;
 `
-
+const StyledText = styled(Text)`
+  opacity: 0.5;
+`
 const AbsoluteWrapper = styled(Flex)<{ visible: boolean; index: number; topOffset: string }>`
   position: absolute;
   top: ${({ topOffset }) => topOffset};
@@ -21,8 +23,10 @@ const AbsoluteWrapper = styled(Flex)<{ visible: boolean; index: number; topOffse
   margin-top: ${({ visible }) => (visible ? 0 : `50%`)};
   transition: opacity, margin-top, 0.4s ease-out;
   flex-direction: column;
-
   padding: 2px;
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
 
   ${({ index, theme }) =>
     index > 0
@@ -56,9 +60,9 @@ const TopFarmPool: React.FC<React.PropsWithChildren<TopFarmPoolProps>> = ({ titl
     <StyledWrapper index={index}>
       <AbsoluteWrapper index={index} visible={visible} topOffset={topOffset()}>
         {title ? (
-          <Text bold mb="8px" fontSize="15px" color="textSubtle">
+          <StyledText bold mb="8px" fontSize="15px" color="textSubtle">
             {title}
-          </Text>
+          </StyledText>
         ) : (
           <Skeleton width={80} height={12} mb="8px" />
         )}

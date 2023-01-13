@@ -17,7 +17,7 @@ const RowHeading: React.FC<React.PropsWithChildren<HeadingProps>> = ({ text, ...
       {...props}
     >
       {firstWord}
-      <span> {remainingWords}</span>
+      <span style={{ margin: '0 10px' }}> {remainingWords}</span>
     </Heading>
   )
 }

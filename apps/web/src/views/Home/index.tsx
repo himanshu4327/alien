@@ -31,24 +31,23 @@ const StyledHeroSection = styled(PageSection)`
     padding-top: 48px;
   }
 `
-const floatingAnim = (x: string, y: string) => keyframes`
+
+const floatingAnimSm = (x: string, y: string) => keyframes`
   from {
-    transform: rotate(50deg);
-    transform: translate(50%, 0px);
+    transform: rotate(10deg) translate(150%, 0px);
   }
   50% {
-    transform: rotate(100deg);
-       
+    transform: rotate(100deg) translate(200px, 100px);
   }
   75% {
-    transform:rotate(40deg);
-    transform: translate(100%, 600px);
+    transform:rotate(200deg) translate(150px, -150px);
   }
   100%{
-    transform: translate(0px, 0px);
+    transform: translate(100px, 0px);
   }
 
 `
+
 const floatingAnimRight = (x: string, y: string) => keyframes`
   from {
     transform: rotate(50deg);
@@ -86,38 +85,43 @@ const FloatingUfos = styled.div`
   background-repeat: no-repeat;
   width: 100px;
   height: 100px;
-  animation: ${floatingAnim('50%', '200px')} 15s ease-in-out infinite;
+  animation: ${floatingAnimSm('100%', '50px')} 25s ease-in-out infinite;
   animation-delay: 1s;
+  overflow: hidden;
 `
 const FloatingUfosRight = styled.div`
   background-image: url('/images/alien/rightdown.svg');
   background-size: contain;
-
   background-repeat: no-repeat;
   width: 100px;
   height: 100px;
-  animation: ${floatingAnimRight('50%', '200px')} 15s ease-in-out infinite;
+  animation: ${floatingAnimRight('50%', '200px')} 45s ease-in-out infinite;
   animation-delay: 1s;
+  overflow: hidden;
 `
 const FloatingUfosTopRight = styled.div`
   background-image: url('/images/alien/spaceRight.svg');
   background-size: contain;
-  position: absolute;
-
-  top: -12rem;
-  right: 0;
   background-repeat: no-repeat;
-  animation: ${floatingAnimTopRight('50%', '200px')} 13s linear infinite;
+  position: absolute;
+  right: 0;
+  top: -12rem;
+  animation: ${floatingAnimTopRight('50%', '200%')} 43s linear infinite;
   animation-delay: 1s;
-  width: 307px;
-  height: 153px;
-  overflowx: hidden;
+  width: 300px;
+  height: 300px;
+  display: none;
+  overflow: hidden;
+  @media only screen and (min-width: 856px) {
+    display: block;
+  }
 `
 const UserBannerWrapper = styled.div`
   margin-top: 52px;
-  padding: 12px 12px;
+  padding: 24px;
   background: radial-gradient(52.44% 52.44% at 50.26% 115.85%, #00f666 0%, rgba(2, 73, 32, 0.2) 100%);
   backdrop-filter: blur(5.5px);
+  box-shadow: 0px 0px 2px #00f666, 1px -1px 0px #00f666;
 `
 
 const StyledHeading = styled(Heading)`
@@ -134,7 +138,7 @@ const StyledSpan = styled.span`
 const StyledButton = styled(ConnectWalletButton)`
   color: #00f666;
 `
-const StyledSubHeading = styled(Text)`
+const StyledSubHeading = styled(Heading)`
   opacity: 0.5;
 `
 const Home: React.FC<React.PropsWithChildren> = () => {
@@ -189,20 +193,13 @@ const Home: React.FC<React.PropsWithChildren> = () => {
         index={2}
         hasCurvedDivider={false}
       >
-        {/* {account && chainId === ChainId.BSC && (
-          <UserBannerWrapper>
-            <UserBanner />
-          </UserBannerWrapper>
-        )} */}
-        {/* <MultipleBanner /> */}
-
         <Flex paddingTop="123px" zIndex="-1">
           <StyledHeading scale="xxl" textTransform="uppercase" textAlign="center">
             The world is ruled by humans, Universe IS by <StyledSpan>Alien</StyledSpan>
           </StyledHeading>
         </Flex>
         <Box maxWidth="700px" margin="50px auto">
-          <StyledSubHeading fontSize="24px" textTransform="uppercase" textAlign="center">
+          <StyledSubHeading scale="md" textTransform="uppercase" textAlign="center">
             Trade, earn, and win crypto on the most popular decentralized platform in the galaxy.
           </StyledSubHeading>
         </Box>
@@ -243,11 +240,6 @@ const Home: React.FC<React.PropsWithChildren> = () => {
         index={2}
         hasCurvedDivider={false}
       >
-        <OuterWedgeWrapper>
-          <InnerWedgeWrapper top>
-            <WedgeTopLeft />
-          </InnerWedgeWrapper>
-        </OuterWedgeWrapper>
         <SalesSection {...swapSectionData(t)} />
       </PageSection>
       <PageSection
@@ -256,26 +248,12 @@ const Home: React.FC<React.PropsWithChildren> = () => {
         index={2}
         hasCurvedDivider={false}
       >
-        <OuterWedgeWrapper>
-          <InnerWedgeWrapper width="150%" top>
-            <WedgeTopRight />
-          </InnerWedgeWrapper>
-        </OuterWedgeWrapper>
         <SalesSection {...earnSectionData(t)} />
         {/* TODO: until we are enable fetch multi-chain farms */}
 
         <UserBannerWrapper>{chainId === ChainId.BSC && <FarmsPoolsRow />}</UserBannerWrapper>
       </PageSection>
-      {/* <PageSection
-        innerProps={{ style: HomeSectionContainerStyles }}
-        containerProps={{
-          id: 'home-3',
-        }}
-        index={2}
-        hasCurvedDivider={false}
-      >
-        <WinSection />
-      </PageSection> */}
+
       <PageSection
         innerProps={{ style: HomeSectionContainerStyles }}
         background={theme.colors.background}
@@ -291,8 +269,8 @@ const Home: React.FC<React.PropsWithChildren> = () => {
         index={2}
         hasCurvedDivider={false}
       >
-        <StartInSecondSectionData {...swapStartInSecondData(t)} />
-        <div style={{ marginTop: '24px' }}>
+        {/* <StartInSecondSectionData {...swapStartInSecondData(t)} /> */}
+        <div>
           <Footer />
         </div>
       </PageSection>

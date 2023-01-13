@@ -25,22 +25,6 @@ export interface StartInSecondSectionDataProps {
 
 const StartInSecondSectionData: React.FC<React.PropsWithChildren<StartInSecondSectionDataProps>> = (props) => {
   const { headingText, bodyText, reverse, images } = props
-  const ParentDiv = styled.div`
-  background: radial-gradient(53.64% 53.64% at 50.26% 107.66%, #00F666 0%, rgba(2, 73, 32, 0.2) 100%);
-  backdropFilter: 'blur(5.5px)';
-  color: white;
-  width: 1012px;
-  height: 354px;
-
- padding-top: 20px;
-  box-shadow:1px 0px 2px #00f666, 1px -1px 0px #00f666;
-  boder:2px solid green;
-  position: relative,
-  margin-bottom: 12rem,
-
-  }
-
-`
 
   const StyledHeading = styled(Heading)`
     letter-spacing: 0.12em;
@@ -58,69 +42,33 @@ const StartInSecondSectionData: React.FC<React.PropsWithChildren<StartInSecondSe
     display: grid;
   `
   const Boxstyle = styled.div`
-    box-sizing: border-box;
     display: flex;
     justify-content: center;
-    width: 1012px;
-    height: 354px;
-    //  background-image:url("../../../../../public/images/alien/Box.svg")
+    width: 100%;
+    height: 161px;
+
     box-shadow: 1px 1px 2px #00f666, 1px -2px 0px #00f666;
+    position: relative;
+  `
 
-    @media only screen and (max-width: 380px) {
-      box-sizing: border-box;
-      display: flex;
-      justify-content: center;
-      width: 100%;
-      height: 136px;
-    }
-    @media only screen and (max-width: 500px) {
-      box-sizing: border-box;
-      display: flex;
-      justify-content: center;
-      width: 100%;
-      height: 208px;
-    }
-    @media only screen and (min-width: 768px) and (max-width: 868px) {
-      box-sizing: border-box;
-      display: flex;
-      justify-content: center;
-      width: 100%;
-      height: 258px;
-    }
-
+  const StyledImage = styled.img`
+    position: absolute;
+    top: -50%;
+  `
+  const StyledBox = styled.div`
+    width: 100%;
+    height: 150px;
+    padding: 20px;
     background: radial-gradient(53.64% 53.64% at 50.26% 107.66%, #00f666 0%, rgba(2, 73, 32, 0.2) 100%);
     backdrop-filter: blur(5.5px);
   `
 
   return (
-    <Flex flexDirection="column">
-      <Flex flexDirection="column" alignItems={['flex-end', null, null, 'center']}>
-        {/* <ParentDiv> */}
-        <Flex justifyContent="center" flexDirection="column" mt="24px">
-          <Boxstyle>
-            <Box height={['240px', null, '80px']}>
-              <Grid>
-                <StyledHeading scale="xl" paddingTop="55px" textTransform="uppercase" textAlign="center">
-                  START IN <StyledSpan>SECONDS</StyledSpan>
-                </StyledHeading>
-              </Grid>
-              <Flex
-                flexDirection="column"
-                flex="1"
-                ml={[null, null, null, reverse && '64px']}
-                mr={[null, null, null, !reverse && '64px']}
-                alignSelf={['flex-start', null, null, 'center']}
-              >
-                <Image src={images.path} width={720} height={720} alt="ggf" />
-              </Flex>
-            </Box>
-          </Boxstyle>
-        </Flex>
-        <Text color="textSubtle" fontSize="16px" textAlign="center" width="80%" margin="152px auto">
-          {bodyText}
-        </Text>
-      </Flex>
-    </Flex>
+    <StyledBox>
+      <Box>
+        <Heading>Starts in seconds</Heading>
+      </Box>
+    </StyledBox>
   )
 }
 

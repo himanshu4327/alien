@@ -54,7 +54,9 @@ export const cakeSectionData = (t: TranslateFunction): SalesSectionProps => ({
     path: '/images/alien/skeleton.gif',
     attributes: [{ src: 'skeleton', alt: t('Small 3d pancake') }],
   },
-  bodyText: t(''),
+  bodyText: t(
+    'Alien token is at the heart of the PancakeSwap ecosystem. Buy it, win it, farm it, spend it, stake it... heck, you can even vote with it.',
+  ),
 
   reverse: false,
   primaryButton: {

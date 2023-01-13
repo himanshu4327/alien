@@ -12,7 +12,6 @@ import { useVaultApy } from 'hooks/useVaultApy'
 import TopFarmPool from './TopFarmPool'
 import RowHeading from './RowHeading'
 
-
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(2, auto);
@@ -66,91 +65,61 @@ const FarmsPoolsRow = () => {
     })
   }
 
-  const UserBannerWrapper = styled.div`
-  
-    background: 'radial-gradient(52.44% 52.44% at 50.26% 115.85%, #00F666 0%, rgba(2, 73, 32, 0.2) 100%)',
-    backdropFilter: "blur(5.5px)",
-    color:"white",
-    padding:"24px",
-    marginTop:"24px",
-    boxSizing: "border-box",
-   boxShadow:"1px 1px 2px #00f666, 1px -2px 0px #00f666"
-   
-  `
-
-//  const Mystyle={
-//    background: 'radial-gradient(52.44% 52.44% at 50.26% 115.85%, #00F666 0%, rgba(2, 73, 32, 0.2) 100%)',
-//     backdropFilter: "blur(5.5px)",
-//     color:"white",
-//     padding:"24px",
-//     marginTop:"24px",
-//     boxSizing: "border-box",
-//    boxShadow:" 1px 1px 2px #00f666, 1px -2px 0px #00f666"
-
-//  }
+  const UserBannerWrapper = styled.div``
 
   return (
-    
-   
-    <div    ref={observerRef}>
-
+    <div ref={observerRef}>
       <UserBannerWrapper>
-      
-      <Flex justifyContent="center"  flexDirection="column" mt="24px" >
-        <Flex mb="24px" justifyContent="center">
+        <Flex justifyContent="center" flexDirection="column" mt="24px">
+          <Flex mb="24px" justifyContent="center">
+            <RowHeading text={showFarms ? t('Top  Farms') : t('Top Syrup Pools')} />
 
-      
-          <RowHeading    text={showFarms ? t('Top  Farms') : t('Top Syrup Pools')} />
-     
-
-        
-          {chainId === ChainId.BSC && (
-            <IconButton
-              variant="text"
-              height="100%"
-              width="auto"
-              onClick={() => {
-                setShowFarms((prev) => !prev)
-                clearInterval(timer.current)
-                startTimer()
-              }}
-            >
-              <SwapVertIcon height="24px" width="24px" color="#00F666"/>
-            </IconButton>
-          )}
-        </Flex>
-        <Box   height={['240px', null, '100px']}>
-          <Grid>
-            {topFarms.map((topFarm, index) => (
-              <TopFarmPool
-                // eslint-disable-next-line react/no-array-index-key
-                key={index}
-                title={topFarm?.lpSymbol}
-                percentage={topFarm?.apr + topFarm?.lpRewardsApr}
-                index={index}
-                visible={showFarms}
-              />
-            ))}
-          </Grid>
-          {chainId === ChainId.BSC && (
+            {chainId === ChainId.BSC && (
+              <IconButton
+                variant="text"
+                height="100%"
+                width="auto"
+                onClick={() => {
+                  setShowFarms((prev) => !prev)
+                  clearInterval(timer.current)
+                  startTimer()
+                }}
+              >
+                <SwapVertIcon height="24px" width="24px" color="#00F666" />
+              </IconButton>
+            )}
+          </Flex>
+          <Box height={['240px', null, '100px']}>
             <Grid>
-              {topPools.map((topPool, index) => (
+              {topFarms.map((topFarm, index) => (
                 <TopFarmPool
                   // eslint-disable-next-line react/no-array-index-key
                   key={index}
-                  title={topPool && getPoolText(topPool)}
-                  percentage={topPool?.sousId === 0 ? +lockedApy : topPool?.apr}
+                  title={topFarm?.lpSymbol}
+                  percentage={topFarm?.apr + topFarm?.lpRewardsApr}
                   index={index}
-                  visible={!showFarms}
+                  visible={showFarms}
                 />
               ))}
             </Grid>
-          )}
-        </Box>
-      </Flex>
+            {chainId === ChainId.BSC && (
+              <Grid>
+                {topPools.map((topPool, index) => (
+                  <TopFarmPool
+                    // eslint-disable-next-line react/no-array-index-key
+                    key={index}
+                    title={topPool && getPoolText(topPool)}
+                    percentage={topPool?.sousId === 0 ? +lockedApy : topPool?.apr}
+                    index={index}
+                    visible={!showFarms}
+                  />
+                ))}
+              </Grid>
+            )}
+          </Box>
+        </Flex>
       </UserBannerWrapper>
     </div>
-
   )
 }
 
