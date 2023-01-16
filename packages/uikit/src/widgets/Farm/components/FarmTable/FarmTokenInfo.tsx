@@ -19,11 +19,10 @@ const Container = styled.div`
 
 const TokenWrapper = styled.div`
   // padding-right: 8px;
-  width: 32px;
-
+  display: flex;
+  margin: 0 15px;
+  width: 70px;
   ${({ theme }) => theme.mediaQueries.sm} {
-    width: 50px;
-
     background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
     border: 1px solid #00f666;
     box-sizing: border-box;

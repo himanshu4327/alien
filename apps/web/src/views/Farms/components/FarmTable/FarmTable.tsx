@@ -30,7 +30,7 @@ const Container = styled.div`
 const TableWrapper = styled.div`
   overflow: visible;
   scroll-margin-top: 64px;
- 
+
   &::-webkit-scrollbar {
     display: none;
   }
@@ -38,14 +38,12 @@ const TableWrapper = styled.div`
 
 const StyledTable = styled.table`
   border-collapse: separate;
- 
   font-size: 14px;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  font-family:"AleinSolid";
-  border-spacing:0 32px;
-
+  font-family: 'AleinSolid';
+  border-spacing: 0 32px;
 `
 
 const TableBody = styled.tbody`
@@ -74,8 +72,6 @@ const TableBody = styled.tbody`
 
 const TableContainer = styled.div`
   position: relative;
- 
- 
 `
 
 const FarmTable: React.FC<React.PropsWithChildren<ITableProps>> = ({ farms, cakePrice, userDataReady }) => {
@@ -196,11 +192,11 @@ const FarmTable: React.FC<React.PropsWithChildren<ITableProps>> = ({ farms, cake
             <TableBody>
               {sortedRows.map((row) => {
                 return row?.details?.boosted ? (
-                  <ProxyFarmContainer   key={`table-row-${row.farm.pid}`} farm={row.details}>
+                  <ProxyFarmContainer key={`table-row-${row.farm.pid}`} farm={row.details}>
                     <Row {...row} userDataReady={userDataReady} />
                   </ProxyFarmContainer>
                 ) : (
-                <Row {...row} userDataReady={userDataReady} key={`table-row-${row.farm.pid}`} />
+                  <Row {...row} userDataReady={userDataReady} key={`table-row-${row.farm.pid}`} />
                 )
               })}
             </TableBody>

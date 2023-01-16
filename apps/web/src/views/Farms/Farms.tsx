@@ -71,7 +71,7 @@ const FarmH1 = styled(Heading)`
   color: #ffffff;
   text-align: center;
   text-shadow: -1px 0px 12px #00f666;
-
+  font-family: 'Alien';
   ${({ theme }) => theme.mediaQueries.sm} {
     font-size: 64px;
     margin-bottom: 24px;

@@ -63,7 +63,7 @@ const CellInner = styled.div`
 
 const StyledTr = styled.tr`
   cursor: pointer;
-  background: linear-gradient(270deg, rgba(0, 246, 102, 0.15) 6.19%, rgba(0, 246, 102, 0) 146.2%);
+  background: linear-gradient(105deg, rgba(0, 246, 102, 0.15) 6.19%, rgba(0, 246, 102, 0) 146.2%);
   backdrop-filter: blur(5.5px);
   transform: matrix(1, 0, 0, 1, 0, 0);
 
