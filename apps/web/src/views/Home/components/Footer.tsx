@@ -7,6 +7,7 @@ import { useAccount } from 'wagmi'
 import SunburstSvg from './SunburstSvg'
 import CompositeImage from './CompositeImage'
 import spaceUFO from '../../../../public/images/alien/space.svg'
+
 const Wrapper = styled(Flex)`
   z-index: 1;
   position: relative;
@@ -55,6 +56,9 @@ const StyledImage = styled.img`
 const StyledText = styled(Text)`
   opacity: 0.5;
 `
+const StyledConntectButton = styled(ConnectWalletButton)`
+  color: #00f666;
+`
 const Footer = () => {
   const { t } = useTranslation()
   const { address: account } = useAccount()
@@ -72,12 +76,12 @@ const Footer = () => {
           </StyledBox>
         </Container>
 
-        <StyledText textAlign="center" color="white" fontSize="13px" mb="10px">
+        <StyledText textAlign="center" color="white" mb="10px">
           Alien token is at the heart of the PancakeSwap ecosystem. Buy it, win it, farm it, spend it, stake it... heck,
           you can even vote with it!
         </StyledText>
 
-        {!account && <ConnectWalletButton />}
+        {!account && <StyledConntectButton />}
       </Wrapper>
     </>
   )

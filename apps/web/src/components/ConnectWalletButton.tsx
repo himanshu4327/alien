@@ -1,3 +1,4 @@
+import styled from 'styled-components'
 import { useTranslation } from '@pancakeswap/localization'
 import { WalletModalV2 } from '@pancakeswap/ui-wallets'
 import { Button, ButtonProps, Flex } from '@pancakeswap/uikit'
@@ -10,7 +11,6 @@ import { useActiveHandle } from 'hooks/useEagerConnect.bmp.ts'
 import { useMemo, useState } from 'react'
 import { useConnect } from 'wagmi'
 import Trans from './Trans'
-import styled from 'styled-components'
 
 const StyledConnectbutton = styled(Button)`
   color: #fff;

@@ -62,10 +62,10 @@ export const StyledCard = styled.div<StyledCardProps>`
 `;
 
 export const StyledCardInner = styled(Box)<{ background?: string; hasCustomBorder: boolean }>`
-  width: 100%;
+  // width: 100%;
   height: 100%;
   overflow: ${({ hasCustomBorder }) => (hasCustomBorder ? "initial" : "inherit")};
-  background: radial-gradient(52.44% 52.44% at 50.26% 115.85%, #00f666 0%, rgba(0, 0, 0, 0.2) 100%);
+  background: radial-gradient(50.44% 30.44% at 50.26% 117.85%, #00f666 0%, rgba(0, 0, 0, 0.2) 100%);
   backdrop-filter: blur(7.5px);
   //background: #00190a;
   border-radius: 0px;

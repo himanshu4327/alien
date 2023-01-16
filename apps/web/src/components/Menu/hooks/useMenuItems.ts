@@ -18,7 +18,6 @@ export const useMenuItems = (): ConfigMenuItemsType[] => {
   const menuItems = useMemo(() => {
     return config(t, isDark, languageCode, chainId)
   }, [t, isDark, languageCode, chainId])
-
   return useMemo(() => {
     if (menuItemsStatus && Object.keys(menuItemsStatus).length) {
       return menuItems.map((item) => {

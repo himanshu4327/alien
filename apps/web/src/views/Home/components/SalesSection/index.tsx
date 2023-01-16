@@ -1,9 +1,8 @@
+import styled from 'styled-components'
 import { Flex, Text, Button, Link, NextLinkFromReactRouter as RouterLink } from '@pancakeswap/uikit'
 import Image from 'next/image'
-
 import CompositeImage, { CompositeImageProps } from '../CompositeImage'
 import ColoredWordHeading from '../ColoredWordHeading'
-import styled from 'styled-components'
 
 interface SalesSectionButton {
   to: string

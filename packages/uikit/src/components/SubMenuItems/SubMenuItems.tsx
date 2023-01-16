@@ -85,7 +85,7 @@ const SubMenuItems: React.FC<React.PropsWithChildren<SubMenuItemsProps>> = ({
 
             return (
               label && (
-                <StyledSubMenuItemWrapper key={label} mr="20px">
+                <StyledSubMenuItemWrapper key={label}>
                   <MenuItem
                     href={href}
                     scrollLayerRef={scrollLayerRef}
@@ -98,7 +98,6 @@ const SubMenuItems: React.FC<React.PropsWithChildren<SubMenuItemsProps>> = ({
                     {Icon && <Icon color={isActive ? "secondary" : "textSubtle"} mr="4px" />}
                     {label}
                     {isExternalLink && (
-                     
                       <Box display={["none", null, "flex"]} style={{ alignItems: "center" }} ml="4px">
                         <OpenNewIcon color="textSubtle" />
                       </Box>

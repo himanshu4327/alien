@@ -38,8 +38,15 @@ export default function Swap() {
   const singleTokenPrice = useSingleTokenSwapInfo(inputCurrencyId, inputCurrency, outputCurrencyId, outputCurrency)
 
   return (
-    <Page   removePadding={isChartExpanded} hideFooterOnDesktop={isChartExpanded}>
-      <Flex  style={{backgroundColor:"#000000"}} width={['328px', '100%']} height="100%" justifyContent="center" position="relative" alignItems="flex-start">
+    <Page removePadding={isChartExpanded} hideFooterOnDesktop={isChartExpanded}>
+      <Flex
+        style={{ backgroundColor: '#000000' }}
+        width={['328px', '100%']}
+        height="100%"
+        justifyContent="center"
+        position="relative"
+        alignItems="flex-start"
+      >
         {!isMobile && isChartSupported && (
           <PriceChartContainer
             inputCurrencyId={inputCurrencyId}

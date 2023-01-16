@@ -40,20 +40,12 @@ const PriceChart = ({
   token1Address,
   currentSwapPrice,
 }) => {
-  // const { isDesktop } = useMatchBreakpoints()
   const toggleExpanded = () => setIsChartExpanded((currentIsExpanded) => !currentIsExpanded)
   const [chartView] = useExchangeChartViewManager()
-  // const [chartView, setChartView] = useExchangeChartViewManager()
-  // const [twChartSymbol, setTwChartSymbol] = useState('')
-  // const { t } = useTranslation()
-
-  // const handleTwChartSymbol = useCallback((symbol) => {
-  //   setTwChartSymbol(symbol)
-  // }, [])
 
   return (
     <StyledPriceChart
-      height={chartView === ChartViewMode.TRADING_VIEW ? '100%' : '70%'}
+      height={chartView === ChartViewMode.TRADING_VIEW ? '100%' : '90%'}
       overflow={chartView === ChartViewMode.TRADING_VIEW ? 'hidden' : 'unset'}
       $isDark={isDark}
       $isExpanded={isChartExpanded}

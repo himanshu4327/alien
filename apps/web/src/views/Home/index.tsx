@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components'
+import styled, { ThemeConsumer, keyframes } from 'styled-components'
 import PageSection from 'components/PageSection'
 import { useAccount } from 'wagmi'
 import useTheme from 'hooks/useTheme'
@@ -122,6 +122,13 @@ const UserBannerWrapper = styled.div`
   background: radial-gradient(52.44% 52.44% at 50.26% 115.85%, #00f666 0%, rgba(2, 73, 32, 0.2) 100%);
   backdrop-filter: blur(5.5px);
   box-shadow: 0px 0px 2px #00f666, 1px -1px 0px #00f666;
+  padding-bottom: 100px;
+  ${({ theme }) => theme.mediaQueries.sm} {
+    padding-bottom: 50px;
+  }
+  ${({ theme }) => theme.mediaQueries.md} {
+    padding-bottom: 24px;
+  }
 `
 
 const StyledHeading = styled(Heading)`

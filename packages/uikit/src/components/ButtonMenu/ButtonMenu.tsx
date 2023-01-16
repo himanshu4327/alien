@@ -17,15 +17,9 @@ const getBorderColor = ({ theme, variant }: StyledButtonMenuProps) => {
 };
 
 const StyledButtonMenu = styled.div<StyledButtonMenuProps>`
-  background: linear-gradient(242.24deg, #00f666 -86.49%, rgba(0, 246, 102, 0) 96.54%);
-  box-shadow: 0px 0px 11px -1px #00f666;
-
-  border: 2px solid #00f666;
-  box-shadow: 0px 0px 11px -1px #00f666;
+  box-shadow: 0px 0px 5px -1px #00f666;
   display: ${({ fullWidth }) => (fullWidth ? "flex" : "inline-flex")};
-
   width: ${({ fullWidth }) => (fullWidth ? "100%" : "auto")};
-
   & > button,
   & > a {
     flex: ${({ fullWidth }) => (fullWidth ? 1 : "auto")};
@@ -59,7 +53,7 @@ const StyledButtonMenu = styled.div<StyledButtonMenuProps>`
 const ButtonMenu: React.FC<React.PropsWithChildren<ButtonMenuProps>> = ({
   activeIndex = 0,
   scale = scales.MD,
-  variant = variants.PRIMARY,
+  variant = variants.TRANSPARENT,
   onItemClick,
   disabled,
   children,
@@ -67,7 +61,7 @@ const ButtonMenu: React.FC<React.PropsWithChildren<ButtonMenuProps>> = ({
   ...props
 }) => {
   return (
-    <StyledButtonMenu disabled={disabled} variant={variant} fullWidth={fullWidth} {...props}>
+    <StyledButtonMenu disabled={disabled} fullWidth={fullWidth} {...props}>
       {Children.map(children, (child: ReactElement, index) => {
         return cloneElement(child, {
           isActive: activeIndex === index,

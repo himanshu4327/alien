@@ -1,3 +1,4 @@
+import { NotEnoughTokensModal } from "../../widgets/Modal";
 import { scales, variants } from "./types";
 import { border } from "styled-system";
 
@@ -66,5 +67,13 @@ export const styleVariants = {
     boxShadow: "1px 0px 2px #00f666, 1px -1px 0px #00f666",
     backdropFilter: "blur(5.5px)",
     background: "radial-gradient(52.44% 52.44% at 50.26% 115.85%, #00F666 0%, rgba(2, 73, 32, 0.2) 100%)",
+  },
+  [variants.TRANSPARENT]: {
+    background: "none",
+    border: "0px",
+  },
+  [variants.ACTIVE]: {
+    background: "linear-gradient(242.24deg, #00F666 -86.49%, rgba(0, 246, 102, 0) 96.54%)",
+    boxShadow: "0px 0px 11px -1px #00F666",
   },
 };

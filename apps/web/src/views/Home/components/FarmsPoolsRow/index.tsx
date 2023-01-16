@@ -38,21 +38,21 @@ const FarmsPoolsRow = () => {
   const timer = useRef<ReturnType<typeof setTimeout>>(null)
   const isLoaded = topFarms[0] && topPools[0]
 
-  const startTimer = useCallback(() => {
-    timer.current = setInterval(() => {
-      setShowFarms((prev) => !prev)
-    }, 6000)
-  }, [timer])
+  // const startTimer = useCallback(() => {
+  //   timer.current = setInterval(() => {
+  //     setShowFarms((prev) => !prev)
+  //   }, 6000)
+  // }, [timer])
 
-  useEffect(() => {
-    if (isLoaded) {
-      startTimer()
-    }
+  // useEffect(() => {
+  //   if (isLoaded) {
+  //     startTimer()
+  //   }
 
-    return () => {
-      clearInterval(timer.current)
-    }
-  }, [timer, isLoaded, startTimer])
+  //   return () => {
+  //     clearInterval(timer.current)
+  //   }
+  // }, [timer, isLoaded, startTimer])
 
   const getPoolText = (pool: Pool.DeserializedPool<Token>) => {
     if (pool.vaultKey) {
@@ -65,44 +65,41 @@ const FarmsPoolsRow = () => {
     })
   }
 
-  const UserBannerWrapper = styled.div``
-
   return (
     <div ref={observerRef}>
-      <UserBannerWrapper>
-        <Flex justifyContent="center" flexDirection="column" mt="24px">
-          <Flex mb="24px" justifyContent="center">
-            <RowHeading text={showFarms ? t('Top  Farms') : t('Top Syrup Pools')} />
+      <Flex justifyContent="center" flexDirection="column" mt="24px">
+        <Flex mb="24px" justifyContent="center">
+          <RowHeading text={showFarms ? t('Top  Farms') : t('Top Syrup Pools')} />
 
-            {chainId === ChainId.BSC && (
-              <IconButton
-                variant="text"
-                height="100%"
-                width="auto"
-                onClick={() => {
-                  setShowFarms((prev) => !prev)
-                  clearInterval(timer.current)
-                  startTimer()
-                }}
-              >
-                <SwapVertIcon height="24px" width="24px" color="#00F666" />
-              </IconButton>
-            )}
-          </Flex>
-          <Box height={['240px', null, '100px']}>
-            <Grid>
-              {topFarms.map((topFarm, index) => (
-                <TopFarmPool
-                  // eslint-disable-next-line react/no-array-index-key
-                  key={index}
-                  title={topFarm?.lpSymbol}
-                  percentage={topFarm?.apr + topFarm?.lpRewardsApr}
-                  index={index}
-                  visible={showFarms}
-                />
-              ))}
-            </Grid>
-            {chainId === ChainId.BSC && (
+          {chainId === ChainId.BSC && (
+            <IconButton
+              variant="text"
+              height="100%"
+              width="auto"
+              onClick={() => {
+                setShowFarms((prev) => !prev)
+                clearInterval(timer.current)
+                // startTimer()
+              }}
+            >
+              <SwapVertIcon height="24px" width="24px" color="#00F666" />
+            </IconButton>
+          )}
+        </Flex>
+        <Box height={['240px', null, '100px']}>
+          <Grid>
+            {topFarms.map((topFarm, index) => (
+              <TopFarmPool
+                // eslint-disable-next-line react/no-array-index-key
+                key={index}
+                title={topFarm?.lpSymbol}
+                percentage={topFarm?.apr + topFarm?.lpRewardsApr}
+                index={index}
+                visible={showFarms}
+              />
+            ))}
+          </Grid>
+          {/* {chainId === ChainId.BSC && (
               <Grid>
                 {topPools.map((topPool, index) => (
                   <TopFarmPool
@@ -115,10 +112,9 @@ const FarmsPoolsRow = () => {
                   />
                 ))}
               </Grid>
-            )}
-          </Box>
-        </Flex>
-      </UserBannerWrapper>
+            )} */}
+        </Box>
+      </Flex>
     </div>
   )
 }
