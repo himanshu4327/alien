@@ -300,7 +300,7 @@ const Staked: React.FunctionComponent<React.PropsWithChildren<StackedActionProps
                 </Box>
               </ActionContent>
               {vaultPosition === VaultPosition.Locked && (
-                <Box mt="16px">
+                <Box>
                   <AddCakeButton
                     lockEndTime={(vaultData as DeserializedLockedCakeVault).userData.lockEndTime}
                     lockStartTime={(vaultData as DeserializedLockedCakeVault).userData.lockStartTime}
@@ -339,7 +339,7 @@ const Staked: React.FunctionComponent<React.PropsWithChildren<StackedActionProps
                   {t('On %date%', { date: lockEndDate })}
                 </Text>
                 {vaultPosition === VaultPosition.Locked && (
-                  <Box mt="16px">
+                  <Box>
                     <ExtendButton
                       lockEndTime={(vaultData as DeserializedLockedCakeVault).userData.lockEndTime}
                       lockStartTime={(vaultData as DeserializedLockedCakeVault).userData.lockStartTime}

@@ -61,19 +61,12 @@ const Container = styled.div<{ expanded }>`
           ${collapseAnimation} 300ms linear forwards
         `};
   overflow: hidden;
-  background:black;
+  background: black;
   //background: ${({ theme }) => theme.colors.dropdown};
   display: flex;
   width: 100%;
-  justify-content:space-between
-   flex-direction: column-reverse;
-  padding: 24px;
-  
-  
- 
-  
-
-
+  justify-content: space-between;
+  flex-direction: column;
   ${({ theme }) => theme.mediaQueries.lg} {
     flex-direction: row;
     align-items: center;
@@ -89,7 +82,6 @@ const StakeContainer = styled.div`
   // color: ${({ theme }) => theme.colors.text};
   align-items: center;
   display: flex;
-
   color: white;
 
   ${({ theme }) => theme.mediaQueries.sm} {
@@ -99,21 +91,21 @@ const StakeContainer = styled.div`
 
 const ActionContainer = styled.div`
   display: flex;
-  width: full;
-  align-items: center;
-
-  justify-content: space-between;
-
+  flex-direction: column;
   ${({ theme }) => theme.mediaQueries.sm} {
-    width: 100%;
+    flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    flex-grow: 1;
+    flex-basis: 0;
+    flex-wrap: wrap;
+  }
+  ${({ theme }) => theme.mediaQueries.xl} {
+    flex-wrap: nowrap;
   }
 `
 
 const InfoContainer = styled.div`
-  min-width: 200px;
-  border: 2px solid white;
+  padding: 10px;
 `
 
 const ValueContainer = styled.div``
@@ -146,7 +138,7 @@ const ActionPanel: React.FunctionComponent<React.PropsWithChildren<ActionPanelPr
   } = useTranslation()
   const isActive = farm.multiplier !== '0X'
   const { quoteToken, token, stableSwapAddress } = farm
-  const lpLabel = farm.lpSymbol && farm.lpSymbol.toUpperCase().replace('PANCAKE', '')
+  const lpLabel = farm.lpSymbol && farm.lpSymbol.toUpperCase().replace('Alien', '')
   const liquidityUrlPathParts = getLiquidityUrlPathParts({
     quoteTokenAddress: quoteToken.address,
     tokenAddress: token.address,
@@ -217,7 +209,7 @@ const ActionPanel: React.FunctionComponent<React.PropsWithChildren<ActionPanelPr
           </HarvestActionContainer>
         )}
         {farm?.boosted && (
-          <ActionContainerSection style={{ minHeight: 124.5 }}>
+          <ActionContainerSection>
             <BoostedAction
               title={(status) => (
                 <ActionTitles>
