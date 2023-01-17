@@ -22,6 +22,7 @@ const TokenWrapper = styled.div`
   display: flex;
   margin: 0 15px;
   width: 70px;
+  padding: 5px;
   ${({ theme }) => theme.mediaQueries.sm} {
     background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
     border: 1px solid #00f666;
