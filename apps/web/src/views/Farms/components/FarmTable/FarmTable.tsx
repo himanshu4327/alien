@@ -47,23 +47,17 @@ const StyledTable = styled.table`
 `
 
 const TableBody = styled.tbody`
+box-shadow: 1px -1px 1px #00F666,-1px -1px 3px #00F666;
   & tr {
     border-bottom-left-radius: 16px;
     border-bottom-right-radius: 16px;
-
-    
     td {
       font-size: 16px;
-      vertical-align: middle;
-      
-      
-      
+      vertical-align: middle;  
     }
-
     :last-child {
       td[colspan="7"] {
-        > div {
-          
+        > div {   
          
         }
       }
@@ -189,17 +183,19 @@ const FarmTable: React.FC<React.PropsWithChildren<ITableProps>> = ({ farms, cake
       <TableContainer id="table-container">
         <TableWrapper ref={tableWrapperEl}>
           <StyledTable>
-            <TableBody>
-              {sortedRows.map((row) => {
-                return row?.details?.boosted ? (
-                  <ProxyFarmContainer key={`table-row-${row.farm.pid}`} farm={row.details}>
+            {sortedRows.map((row) => {
+              return row?.details?.boosted ? (
+                <ProxyFarmContainer key={`table-row-${row.farm.pid}`} farm={row.details}>
+                  <TableBody>
                     <Row {...row} userDataReady={userDataReady} />
-                  </ProxyFarmContainer>
-                ) : (
+                  </TableBody>
+                </ProxyFarmContainer>
+              ) : (
+                <TableBody>
                   <Row {...row} userDataReady={userDataReady} key={`table-row-${row.farm.pid}`} />
-                )
-              })}
-            </TableBody>
+                </TableBody>
+              )
+            })}
           </StyledTable>
         </TableWrapper>
       </TableContainer>

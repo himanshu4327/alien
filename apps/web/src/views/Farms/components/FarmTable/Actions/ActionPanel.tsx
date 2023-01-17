@@ -62,13 +62,13 @@ const Container = styled.div<{ expanded }>`
         `};
   overflow: hidden;
   background:black;
-  // background: ${({ theme }) => theme.colors.dropdown};
+  //background: ${({ theme }) => theme.colors.dropdown};
   display: flex;
   width: 100%;
   justify-content:space-between
    flex-direction: column-reverse;
   padding: 24px;
-  border:2px solid red;
+  
   
  
   
