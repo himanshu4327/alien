@@ -7,18 +7,18 @@ export const ActionContainer = styled(Flex)`
   border: 2px solid ${({ theme }) => theme.colors.input};
   border-radius: 16px;
   margin-bottom: 16px;
+  margin: 10px;
+  //   ${({ theme }) => theme.mediaQueries.sm} {
+  //     margin-left: 12px;
+  //     margin-right: 12px;
+  //     margin-bottom: 0;
+  //   }
+  // }
 
-  ${({ theme }) => theme.mediaQueries.sm} {
-    margin-left: 12px;
-    margin-right: 12px;
-    margin-bottom: 0;
-  }
-}
-
-  ${({ theme }) => theme.mediaQueries.xl} {
-    margin-left: 32px;
-    margin-right: 0;
-  }
+  //   ${({ theme }) => theme.mediaQueries.xl} {
+  //     margin-left: 32px;
+  //     margin-right: 0;
+  //   }
 `
 
 ActionContainer.defaultProps = {

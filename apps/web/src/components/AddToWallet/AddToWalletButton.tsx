@@ -4,6 +4,7 @@ import {
   Button,
   ButtonProps,
   CoinbaseWalletIcon,
+  Flex,
   MetamaskIcon,
   OperaIcon,
   TokenPocketIcon,
@@ -102,8 +103,10 @@ const AddToWalletButton: React.FC<AddToWalletButtonProps & ButtonProps> = ({
         })
       }}
     >
-      {getWalletText(textOptions, tokenSymbol, t)}
-      {getWalletIcon(marginTextBetweenLogo, connector?.name)}
+      <Flex flexDirection={['row', 'row', 'row', 'row', 'column']}>
+        {getWalletText(textOptions, tokenSymbol, t)}
+        {getWalletIcon(marginTextBetweenLogo, connector?.name)}
+      </Flex>
     </Button>
   )
 }

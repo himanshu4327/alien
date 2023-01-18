@@ -63,102 +63,120 @@ const PoolStatsInfo: React.FC<React.PropsWithChildren<ExpandedFooterProps>> = ({
 
   return (
     <>
-      {profileRequirement && (profileRequirement.required || profileRequirement.thresholdPoints.gt(0)) && (
-        <Flex mb="8px" justifyContent="space-between">
-          <Text small>{t('Requirement')}:</Text>
-          <Text small textAlign="right">
-            {profileRequirement.required && t('Pancake Profile')}{' '}
-            {profileRequirement.thresholdPoints.gt(0) && (
-              <Text small>
-                {profileRequirement.thresholdPoints.toNumber().toLocaleString()} {t('Profile Points')}
+      <Flex
+        flexDirection={['column', 'column', 'row', 'column', 'row']}
+        justifyContent={['space-between', 'space-between', 'space-between', 'space-between', 'center']}
+      >
+        <Flex
+          flexDirection={['column', 'column', 'column', 'row']}
+          justifyContent="space-evenly"
+          width={['100%', '100%', '50%', '100%', '50%']}
+        >
+          {!vaultKey && <AprInfo pool={pool} stakedBalance={stakedBalance} />}
+          {showTotalStaked && (
+            <TotalStaked totalStaked={vaultKey ? totalCakeInVault : totalStaked} stakingToken={stakingToken} />
+          )}
+          {vaultKey === VaultKey.CakeVault && (
+            <TotalLocked totalLocked={totalLockedAmount} lockedToken={stakingToken} />
+          )}
+          {vaultKey === VaultKey.CakeVault && <DurationAvg />}
+          {!isFinished && stakingLimit && stakingLimit.gt(0) && (
+            <MaxStakeRow
+              small
+              currentBlock={currentBlock}
+              hasPoolStarted={hasPoolStarted}
+              stakingLimit={stakingLimit}
+              stakingLimitEndBlock={stakingLimitEndBlock}
+              stakingToken={stakingToken}
+            />
+          )}
+          {vaultKey && <PerformanceFee userData={userData} performanceFeeAsDecimal={performanceFeeAsDecimal} />}
+          {shouldShowBlockCountdown && (
+            <Flex
+              mb="2px"
+              justifyContent="space-between"
+              alignItems="center"
+              flexDirection={['row', 'row', 'row', 'column', 'column']}
+            >
+              <Text small color="textSubtle">
+                {hasPoolStarted ? t('Ends in') : t('Starts in')}:
               </Text>
-            )}
-          </Text>
-        </Flex>
-      )}
-      {!vaultKey && <AprInfo pool={pool} stakedBalance={stakedBalance} />}
-      {showTotalStaked && (
-        <TotalStaked totalStaked={vaultKey ? totalCakeInVault : totalStaked} stakingToken={stakingToken} />
-      )}
-      {vaultKey === VaultKey.CakeVault && <TotalLocked totalLocked={totalLockedAmount} lockedToken={stakingToken} />}
-      {vaultKey === VaultKey.CakeVault && <DurationAvg />}
-      {!isFinished && stakingLimit && stakingLimit.gt(0) && (
-        <MaxStakeRow
-          small
-          currentBlock={currentBlock}
-          hasPoolStarted={hasPoolStarted}
-          stakingLimit={stakingLimit}
-          stakingLimitEndBlock={stakingLimitEndBlock}
-          stakingToken={stakingToken}
-        />
-      )}
-      {shouldShowBlockCountdown && (
-        <Flex mb="2px" justifyContent="space-between" alignItems="center">
-          <Text small>{hasPoolStarted ? t('Ends in') : t('Starts in')}:</Text>
-          {blocksRemaining || blocksUntilStart ? (
-            <Flex alignItems="center">
-              <Link external href={getBlockExploreLink(hasPoolStarted ? endBlock : startBlock, 'countdown')}>
-                <Balance small value={blocksToDisplay} decimals={0} color="primary" />
-                <Text small ml="4px" color="primary" textTransform="lowercase">
-                  {t('Blocks')}
-                </Text>
-                <TimerIcon ml="4px" color="primary" />
-              </Link>
+              {blocksRemaining || blocksUntilStart ? (
+                <Flex alignItems="center">
+                  <Link external href={getBlockExploreLink(hasPoolStarted ? endBlock : startBlock, 'countdown')}>
+                    <Balance small value={blocksToDisplay} decimals={0} />
+                    <Text small ml="4px" textTransform="lowercase">
+                      {t('Blocks')}
+                    </Text>
+                    <TimerIcon ml="4px" />
+                  </Link>
+                </Flex>
+              ) : (
+                <Skeleton width="54px" height="21px" />
+              )}
             </Flex>
-          ) : (
-            <Skeleton width="54px" height="21px" />
           )}
         </Flex>
-      )}
-      {vaultKey && <PerformanceFee userData={userData} performanceFeeAsDecimal={performanceFeeAsDecimal} />}
-      <Flex mb="2px" justifyContent={alignLinksToRight ? 'flex-end' : 'flex-start'}>
-        <LinkExternal href={`/info/token/${earningToken.address}`} bold={false} small>
-          {t('See Token Info')}
-        </LinkExternal>
+        <Flex
+          flexDirection={['column', 'column', 'column', 'row']}
+          justifyContent="space-evenly"
+          // width={['100%', '100%', '50%', '100%', '50%']}
+          // maxWidth="520px"
+        >
+          <Flex mb="2px" justifyContent="flex-start" mx={['0', '0', '0', '0', '5px']}>
+            <LinkExternal href={`/info/token/${earningToken.address}`} bold={false} small>
+              {t('See Token Info')}
+            </LinkExternal>
+          </Flex>
+          {!vaultKey && (
+            <Flex mb="2px" justifyContent="flex-start" mx={['0', '0', '0', '0', '5px']}>
+              <LinkExternal href={earningToken.projectLink} bold={false} small>
+                {t('View Project Site')}
+              </LinkExternal>
+            </Flex>
+          )}
+          {vaultKey && (
+            <Flex mb="2px" justifyContent="flex-start" mx={['0', '0', '0', '0', '5px']}>
+              <LinkExternal
+                href="https://docs.pancakeswap.finance/products/syrup-pool/new-cake-pool"
+                bold={false}
+                small
+              >
+                {t('View Tutorial')}
+              </LinkExternal>
+            </Flex>
+          )}
+          {poolContractAddress && (
+            <Flex mb="2px" justifyContent="flex-start" mx={['0', '0', '0', '0', '5px']}>
+              <LinkExternal
+                href={`${bsc.blockExplorers.default.url}/address/${
+                  vaultKey ? cakeVaultContractAddress : poolContractAddress
+                }`}
+                bold={false}
+                small
+              >
+                {t('View Contract')}
+              </LinkExternal>
+            </Flex>
+          )}
+          {account && tokenAddress && (
+            <Flex justifyContent="flex-start" mx={['0', '0', '0', '0', '5px']}>
+              <AddToWalletButton
+                variant="text"
+                p="0"
+                height="auto"
+                style={{ fontSize: '14px', fontWeight: '400', lineHeight: 'normal' }}
+                marginTextBetweenLogo="4px"
+                textOptions={AddToWalletTextOptions.TEXT}
+                tokenAddress={tokenAddress}
+                tokenSymbol={earningToken.symbol}
+                tokenDecimals={earningToken.decimals}
+                tokenLogo={`https://tokens.pancakeswap.finance/images/${tokenAddress}.png`}
+              />
+            </Flex>
+          )}
+        </Flex>
       </Flex>
-      {!vaultKey && (
-        <Flex mb="2px" justifyContent={alignLinksToRight ? 'flex-end' : 'flex-start'}>
-          <LinkExternal href={earningToken.projectLink} bold={false} small>
-            {t('View Project Site')}
-          </LinkExternal>
-        </Flex>
-      )}
-      {vaultKey && (
-        <Flex mb="2px" justifyContent={alignLinksToRight ? 'flex-end' : 'flex-start'}>
-          <LinkExternal href="https://docs.pancakeswap.finance/products/syrup-pool/new-cake-pool" bold={false} small>
-            {t('View Tutorial')}
-          </LinkExternal>
-        </Flex>
-      )}
-      {poolContractAddress && (
-        <Flex mb="2px" justifyContent={alignLinksToRight ? 'flex-end' : 'flex-start'}>
-          <LinkExternal
-            href={`${bsc.blockExplorers.default.url}/address/${
-              vaultKey ? cakeVaultContractAddress : poolContractAddress
-            }`}
-            bold={false}
-            small
-          >
-            {t('View Contract')}
-          </LinkExternal>
-        </Flex>
-      )}
-      {account && tokenAddress && (
-        <Flex justifyContent={alignLinksToRight ? 'flex-end' : 'flex-start'}>
-          <AddToWalletButton
-            variant="text"
-            p="0"
-            height="auto"
-            style={{ fontSize: '14px', fontWeight: '400', lineHeight: 'normal' }}
-            marginTextBetweenLogo="4px"
-            textOptions={AddToWalletTextOptions.TEXT}
-            tokenAddress={tokenAddress}
-            tokenSymbol={earningToken.symbol}
-            tokenDecimals={earningToken.decimals}
-            tokenLogo={`https://tokens.pancakeswap.finance/images/${tokenAddress}.png`}
-          />
-        </Flex>
-      )}
     </>
   )
 }

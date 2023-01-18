@@ -19,7 +19,8 @@ const GlobalStyle = createGlobalStyle`
   
 @font-face {
   font-family: "AlienSolid";
-  src: url('/fonts/alien-encounters-solid/Alien-Encounters-Solid-Bold.ttf');
+  src: url('/fonts/alien-encounters-solid/Alien-Encounters-Solid-Regular.ttf');
+  font-display: fallback;
 }
 
 

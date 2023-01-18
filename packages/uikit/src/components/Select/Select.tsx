@@ -24,7 +24,7 @@ const DropDownListContainer = styled.div`
   height: 0;
   position: absolute;
   overflow: hidden;
-  backgound-color: #001d13;
+  background: #001d13;
   // background: ${({ theme }) => theme.colors.input};
   z-index: ${({ theme }) => theme.zIndices.dropdown};
   transition: transform 0.15s, opacity 0.15s;

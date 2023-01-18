@@ -37,13 +37,8 @@ const MaxStakeRow: React.FC<React.PropsWithChildren<MaxStakeRowProps>> = ({
         <Flex justifyContent="space-between" alignItems="center">
           <Text small={small}>{t('Max. stake limit ends in')}:</Text>
           <Link external href={getBlockExploreLink(stakingLimitEndBlock, 'countdown')}>
-            <Balance
-              small={small}
-              value={Math.max(stakingLimitEndBlock - currentBlock, 0)}
-              decimals={0}
-              color="primary"
-            />
-            <Text small={small} ml="4px" color="primary" textTransform="lowercase">
+            <Balance small={small} value={Math.max(stakingLimitEndBlock - currentBlock, 0)} decimals={0} />
+            <Text small={small} ml="4px" color="textSubtle" textTransform="lowercase">
               {t('Blocks')}
             </Text>
             <TimerIcon ml="4px" color="primary" />

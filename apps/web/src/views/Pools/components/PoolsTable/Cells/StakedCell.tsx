@@ -16,8 +16,6 @@ interface StakedCellProps {
 const StakedCell: React.FC<React.PropsWithChildren<StakedCellProps>> = ({ pool, account }) => {
   const { t } = useTranslation()
   const { isMobile } = useMatchBreakpoints()
-
-  // vault
   const vaultData = useVaultPoolByKey(pool.vaultKey)
   const {
     userData: {
@@ -97,9 +95,10 @@ const StakedCell: React.FC<React.PropsWithChildren<StakedCellProps>> = ({ pool, 
                     unit=" USD"
                   />
                 ) : (
-                  <Text mt="4px" fontSize="12px" color="textDisabled">
-                    0 USD
-                  </Text>
+                  // <Text mt="4px" fontSize="12px" color="textDisabled">
+                  //   0 USD
+                  // </Text>
+                  <></>
                 )}
               </Box>
             </Flex>

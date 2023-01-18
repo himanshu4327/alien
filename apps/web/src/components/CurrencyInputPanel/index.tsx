@@ -45,7 +45,6 @@ const LabelRow = styled.div`
   align-items: center;
   // color: ${({ theme }) => theme.colors.text};
   font-size: 0.75rem;
-  // border:2px solid red;
   font-family: 'AlienSolid';
   padding: 0.75rem 1rem 0 1rem;
 `

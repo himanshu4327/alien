@@ -23,6 +23,7 @@ const CardLayout = styled(FlexLayout)`
 const FinishedTextContainer = styled(Flex)`
   padding-bottom: 32px;
   flex-direction: column;
+  justify-content: center;
   ${({ theme }) => theme.mediaQueries.md} {
     flex-direction: row;
   }
@@ -32,6 +33,18 @@ const FinishedTextLink = styled(Link)`
   font-weight: 400;
   white-space: nowrap;
   text-decoration: underline;
+`
+
+const StyledHeading = styled(Heading)`
+  color: #ffffff;
+  text-align: center;
+  text-shadow: -1px 0px 12px #00f666;
+  font-family: 'Alien';
+`
+const StyledSubHeading = styled(Heading)`
+  color: #fff;
+  text-align: center;
+  opacity: 0.5;
 `
 
 const Pools: React.FC<React.PropsWithChildren> = () => {
@@ -46,15 +59,12 @@ const Pools: React.FC<React.PropsWithChildren> = () => {
       <PageHeader>
         <Flex justifyContent="space-between" flexDirection={['column', null, null, 'row']}>
           <Flex flex="1" flexDirection="column" mr={['8px', 0]}>
-            <Heading as="h1" scale="xxl" color="secondary" mb="24px">
-              {t('Syrup Pools')}
-            </Heading>
-            <Heading scale="md" color="text">
-              {t('Just stake some tokens to earn.')}
-            </Heading>
-            <Heading scale="md" color="text">
-              {t('High APR, low risk.')}
-            </Heading>
+            <StyledHeading as="h1" scale="xxl" color="secondary" mb="24px" textAlign="center">
+              {t('Pools')}
+            </StyledHeading>
+            <StyledSubHeading scale="md" color="text">
+              {t('stake LP tokens to earn.')}
+            </StyledSubHeading>
           </Flex>
         </Flex>
       </PageHeader>
@@ -64,10 +74,10 @@ const Pools: React.FC<React.PropsWithChildren> = () => {
             <>
               {showFinishedPools && (
                 <FinishedTextContainer>
-                  <Text fontSize={['16px', null, '20px']} color="failure" pr="4px">
-                    {t('Looking for v1 CAKE syrup pools?')}
+                  <Text fontSize={['16px', null, '20px']} pr="4px">
+                    {t('Looking for v1 Alien pools?')}
                   </Text>
-                  <FinishedTextLink href="/migration" fontSize={['16px', null, '20px']} color="failure">
+                  <FinishedTextLink href="/migration" fontSize={['16px', null, '20px']}>
                     {t('Go to migration page')}.
                   </FinishedTextLink>
                 </FinishedTextContainer>
@@ -134,14 +144,6 @@ const Pools: React.FC<React.PropsWithChildren> = () => {
                   )}
                 </Pool.PoolsTable>
               )}
-              <Image
-                mx="auto"
-                mt="12px"
-                src="/images/decorations/3d-syrup-bunnies.png"
-                alt="Pancake illustration"
-                width={192}
-                height={184.5}
-              />
             </>
           )}
         </PoolControls>

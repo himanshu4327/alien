@@ -10,7 +10,13 @@ import Apr from './Apr'
 
 const StatWrapper: FC<React.PropsWithChildren<{ label: ReactNode }>> = ({ children, label }) => {
   return (
-    <Flex mb="2px" justifyContent="space-between" alignItems="center" width="100%">
+    <Flex
+      mb="2px"
+      justifyContent="space-between"
+      alignItems="center"
+      width="100%"
+      flexDirection={['row', 'row', 'row', 'column', 'column']}
+    >
       {label}
       <Flex alignItems="center">{children}</Flex>
     </Flex>
@@ -36,7 +42,7 @@ export const PerformanceFee: FC<
   return (
     <StatWrapper
       label={
-        <TooltipText ref={targetRef} small>
+        <TooltipText ref={targetRef} small color="textSubtle">
           {t('Performance Fee')}
         </TooltipText>
       }
@@ -63,7 +69,13 @@ export const TotalLocked: FC<React.PropsWithChildren<{ totalLocked: BigNumber; l
   const { t } = useTranslation()
 
   return (
-    <StatWrapper label={<Text small>{t('Total locked')}:</Text>}>
+    <StatWrapper
+      label={
+        <Text small color="textSubtle">
+          {t('Total locked')}:
+        </Text>
+      }
+    >
       <TotalToken total={totalLocked} token={lockedToken} />
     </StatWrapper>
   )
@@ -81,8 +93,8 @@ export const DurationAvg = () => {
   return (
     <StatWrapper
       label={
-        <TooltipText ref={targetRef} small>
-          {t('Average lock duration')}:
+        <TooltipText ref={targetRef} small color="textSubtle">
+          {t('Average lock')}:
         </TooltipText>
       }
     >
@@ -110,7 +122,7 @@ export const TotalStaked: FC<React.PropsWithChildren<{ totalStaked: BigNumber; s
   return (
     <StatWrapper
       label={
-        <TooltipText ref={targetRef} small>
+        <TooltipText ref={targetRef} small color="textSubtle">
           {t('Total staked')}:
         </TooltipText>
       }
@@ -127,8 +139,10 @@ export const AprInfo: FC<React.PropsWithChildren<{ pool: Pool.DeserializedPool<T
 }) => {
   const { t } = useTranslation()
   return (
-    <Flex justifyContent="space-between" alignItems="center">
-      <Text small>{t('APR')}:</Text>
+    <Flex justifyContent="space-between" alignItems="center" flexDirection={['row', 'row', 'row', 'column', 'column']}>
+      <Text small color="textSubtle">
+        {t('APR')}:
+      </Text>
       <Apr pool={pool} showIcon stakedBalance={stakedBalance} performanceFee={0} fontSize="14px" />
     </Flex>
   )

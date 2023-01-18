@@ -45,14 +45,14 @@ const StyledActionPanel = styled.div<{ expanded: boolean }>`
           ${collapseAnimation} 300ms linear forwards
         `};
   overflow: hidden;
-  background: ${({ theme }) => theme.colors.dropdown};
+  //background: ${({ theme }) => theme.colors.dropdown};
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   justify-content: center;
   padding: 12px;
-
+  box-shadow: 1px 0px 1px #00f666, -1px 0px 1px #00f666;
+  margin-bottom: 10px;
   ${({ theme }) => theme.mediaQueries.lg} {
-    flex-direction: row;
     padding: 16px 32px;
   }
 `
@@ -62,15 +62,16 @@ const ActionContainer = styled.div<{ isAutoVault?: boolean; hasBalance?: boolean
   flex-direction: column;
   flex: 1;
   flex-wrap: wrap;
-
+  justify-content: space-between;
   ${({ theme }) => theme.mediaQueries.sm} {
     flex-direction: row;
   }
 
-  ${({ theme }) => theme.mediaQueries.sm} {
-    flex-direction: ${({ isAutoVault }) => (isAutoVault ? 'row' : null)};
-    align-items: ${({ isAutoVault, hasBalance }) => (isAutoVault ? (hasBalance ? 'flex-start' : 'stretch') : 'center')};
-  }
+  // ${({ theme }) => theme.mediaQueries.sm} {
+  //   flex-direction: ${({ isAutoVault }) => (isAutoVault ? 'row' : null)};
+  //   align-items: ${({ isAutoVault, hasBalance }) =>
+    isAutoVault ? (hasBalance ? 'flex-start' : 'stretch') : 'center'};
+  // }
 `
 
 type MediaBreakpoints = {
@@ -93,11 +94,9 @@ const InfoSection = styled(Box)`
   flex-grow: 0;
   flex-shrink: 0;
   flex-basis: auto;
-
   padding: 8px 8px;
   ${({ theme }) => theme.mediaQueries.lg} {
     padding: 0;
-    flex-basis: 230px;
     ${Text} {
       font-size: 14px;
     }
@@ -154,15 +153,6 @@ const ActionPanel: React.FC<React.PropsWithChildren<ActionPanelProps>> = ({ acco
         <Flex flexDirection="column" mb="8px">
           <PoolStatsInfo pool={pool} account={account} showTotalStaked={isMobile} alignLinksToRight={isMobile} />
         </Flex>
-        <Flex alignItems="center">
-          <PoolTypeTag vaultKey={vaultKey} isLocked={isLocked} account={account}>
-            {(tagTargetRef) => (
-              <Flex ref={tagTargetRef}>
-                <HelpIcon ml="4px" width="20px" height="20px" color="textSubtle" />
-              </Flex>
-            )}
-          </PoolTypeTag>
-        </Flex>
       </InfoSection>
       <ActionContainer>
         {isMobile && vaultKey === VaultKey.CakeVault && vaultPosition === VaultPosition.None && (
@@ -182,6 +172,15 @@ const ActionPanel: React.FC<React.PropsWithChildren<ActionPanelProps>> = ({ acco
           </ActionContainer>
         </Box>
       </ActionContainer>
+      <Flex my="20px">
+        <PoolTypeTag vaultKey={vaultKey} isLocked={isLocked} account={account}>
+          {(tagTargetRef) => (
+            <Flex ref={tagTargetRef}>
+              <HelpIcon ml="4px" width="20px" height="20px" color="textSubtle" />
+            </Flex>
+          )}
+        </PoolTypeTag>
+      </Flex>
     </StyledActionPanel>
   )
 }

@@ -86,9 +86,10 @@ const EarningsCell: React.FC<React.PropsWithChildren<EarningsCellProps>> = ({ po
                     )}
                   </>
                 ) : (
-                  <Text mt="4px" fontSize="12px" color="textDisabled">
-                    0 USD
-                  </Text>
+                  // <Text mt="4px" fontSize="12px" color="textDisabled">
+                  //   0 USD
+                  // </Text>
+                  <></>
                 )}
               </Box>
             </Flex>

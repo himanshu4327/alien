@@ -88,11 +88,10 @@ const InfoSection = styled(Box)`
   flex-grow: 0;
   flex-shrink: 0;
   flex-basis: auto;
-
   padding: 8px 8px;
   ${({ theme }) => theme.mediaQueries.lg} {
     padding: 0;
-    flex-basis: 230px;
+    flex-basis: 330px;
     ${Text} {
       font-size: 14px;
     }

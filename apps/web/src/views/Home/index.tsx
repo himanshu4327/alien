@@ -170,7 +170,7 @@ const Home: React.FC<React.PropsWithChildren> = () => {
           background-size: cover;
           backgroun-repeat: no-repeat;
           background-position: 0 -200px;
-          box-shadow: inset 0px -250px 50px #000;
+          box-shadow: inset 0px -200px 100px #000;
         }
 
         #home-2 .page-bg {
