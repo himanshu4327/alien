@@ -138,7 +138,7 @@ const CakeVaultCard: React.FC<React.PropsWithChildren<CakeVaultProps>> = ({
               title={vaultPoolConfig[pool.vaultKey].name}
               subTitle={vaultPoolConfig[pool.vaultKey].description}
             />
-            <TokenPairImage {...vaultPoolConfig[pool.vaultKey].tokenImage} width={64} height={64} />
+            <TokenPairImage {...vaultPoolConfig[pool.vaultKey].tokenImage} width={64} height={50} />
           </>
         ) : (
           <Flex width="100%" justifyContent="space-between">

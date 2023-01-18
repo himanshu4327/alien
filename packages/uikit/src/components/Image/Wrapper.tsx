@@ -10,6 +10,7 @@ const StyledWrapper = styled.div<{ $width: number; $height: number }>`
   width: 100%;
   display: flex;
   justify-content: space-around;
+  margin: 2px;
   &:after {
     content: "";
     display: block;

@@ -1,0 +1,142 @@
+import { Flex, Skeleton, Text, TooltipText, useTooltip, Balance, Pool } from '@pancakeswap/uikit'
+import BigNumber from 'bignumber.js'
+import { useTranslation } from '@pancakeswap/localization'
+import { FC, ReactNode } from 'react'
+import { getBalanceNumber } from '@pancakeswap/utils/formatBalance'
+import { isLocked, isStaked } from 'utils/cakePool'
+import { Token } from '@pancakeswap/sdk'
+import useAvgLockDuration from './LockedPool/hooks/useAvgLockDuration'
+import Apr from './Apr'
+
+const StatWrapper: FC<React.PropsWithChildren<{ label: ReactNode }>> = ({ children, label }) => {
+  return (
+    <Flex mb="2px" justifyContent="space-between" alignItems="center" width="100%">
+      {label}
+      <Flex alignItems="center">{children}</Flex>
+    </Flex>
+  )
+}
+
+export const CardViewPerformanceFee: FC<
+  React.PropsWithChildren<{ userData?: Pool.DeserializedVaultUser; performanceFeeAsDecimal?: number }>
+> = ({ userData, performanceFeeAsDecimal }) => {
+  const { t } = useTranslation()
+  const { targetRef, tooltip, tooltipVisible } = useTooltip(
+    t('Performance fee only applies to the flexible staking rewards.'),
+    { placement: 'bottom-start' },
+  )
+
+  const isLock = isLocked(userData)
+  const isStake = isStaked(userData)
+
+  if (!performanceFeeAsDecimal || isLock) {
+    return null
+  }
+
+  return (
+    <StatWrapper
+      label={
+        <TooltipText ref={targetRef} small color="textSubtle">
+          {t('Performance Fee')}
+        </TooltipText>
+      }
+    >
+      {tooltipVisible && tooltip}
+      <Text ml="4px" small>
+        {isStake ? `${performanceFeeAsDecimal}%` : `0~${performanceFeeAsDecimal}%`}
+      </Text>
+    </StatWrapper>
+  )
+}
+
+const TotalToken = ({ total, token }: { total: BigNumber; token: Token }) => {
+  if (total && total.gte(0)) {
+    return <Balance small value={getBalanceNumber(total, token.decimals)} decimals={0} unit={` ${token.symbol}`} />
+  }
+  return <Skeleton width="90px" height="21px" />
+}
+
+export const CardTotalLocked: FC<React.PropsWithChildren<{ totalLocked: BigNumber; lockedToken: Token }>> = ({
+  totalLocked,
+  lockedToken,
+}) => {
+  const { t } = useTranslation()
+
+  return (
+    <StatWrapper
+      label={
+        <Text small color="textSubtle">
+          {t('Total locked')}:
+        </Text>
+      }
+    >
+      <TotalToken total={totalLocked} token={lockedToken} />
+    </StatWrapper>
+  )
+}
+
+export const CardViewDurationAvg = () => {
+  const { t } = useTranslation()
+  const { targetRef, tooltip, tooltipVisible } = useTooltip(
+    t('The average lock duration of all the locked staking positions of other users'),
+    { placement: 'bottom-start' },
+  )
+
+  const { avgLockDurationsInWeeks } = useAvgLockDuration()
+
+  return (
+    <StatWrapper
+      label={
+        <TooltipText ref={targetRef} small color="textSubtle">
+          {t('Average lock')}:
+        </TooltipText>
+      }
+    >
+      {tooltipVisible && tooltip}
+      <Text ml="4px" small>
+        {avgLockDurationsInWeeks}
+      </Text>
+    </StatWrapper>
+  )
+}
+
+export const CardViewTotalStaked: FC<React.PropsWithChildren<{ totalStaked: BigNumber; stakingToken: Token }>> = ({
+  totalStaked,
+  stakingToken,
+}) => {
+  const { t } = useTranslation()
+
+  const { targetRef, tooltip, tooltipVisible } = useTooltip(
+    t('Total amount of %symbol% staked in this pool', { symbol: stakingToken.symbol }),
+    {
+      placement: 'bottom',
+    },
+  )
+
+  return (
+    <StatWrapper
+      label={
+        <TooltipText ref={targetRef} small color="textSubtle">
+          {t('Total staked')}:
+        </TooltipText>
+      }
+    >
+      {tooltipVisible && tooltip}
+      <TotalToken total={totalStaked} token={stakingToken} />
+    </StatWrapper>
+  )
+}
+
+export const CardViewAprInfo: FC<
+  React.PropsWithChildren<{ pool: Pool.DeserializedPool<Token>; stakedBalance: BigNumber }>
+> = ({ pool, stakedBalance }) => {
+  const { t } = useTranslation()
+  return (
+    <Flex justifyContent="space-between" alignItems="center" flexDirection="row">
+      <Text small color="textSubtle">
+        {t('APR')}:
+      </Text>
+      <Apr pool={pool} showIcon stakedBalance={stakedBalance} performanceFee={0} fontSize="14px" />
+    </Flex>
+  )
+}

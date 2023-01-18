@@ -32,8 +32,7 @@ export const StyledPrimaryImage = styled(TokenImage)<StyledImageProps>`
 `;
 
 export const StyledSecondaryImage = styled(TokenImage)<StyledImageProps>`
-  // position: absolute;
-  width: 50%;
+  //position: absolute;
 
   ${StyledSystemVariant({
     variants: {

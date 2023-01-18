@@ -13,6 +13,14 @@ import { getPoolBlockInfo } from 'views/Pools/helpers'
 import { Token } from '@pancakeswap/sdk'
 import MaxStakeRow from './MaxStakeRow'
 import { AprInfo, DurationAvg, PerformanceFee, TotalLocked, TotalStaked } from './Stat'
+import {
+  CardTotalLocked,
+  CardViewAprInfo,
+  CardViewDurationAvg,
+  CardViewPerformanceFee,
+  CardViewTotalStaked,
+} from './CardViewStats'
+import AddToWalletCardView from 'components/AddToWallet/AddToWalletCardView'
 
 interface ExpandedFooterProps {
   pool: Pool.DeserializedPool<Token>
@@ -21,7 +29,7 @@ interface ExpandedFooterProps {
   alignLinksToRight?: boolean
 }
 
-const PoolStatsInfo: React.FC<React.PropsWithChildren<ExpandedFooterProps>> = ({
+const PoolStatsCardView: React.FC<React.PropsWithChildren<ExpandedFooterProps>> = ({
   pool,
   account,
   showTotalStaked = true,
@@ -63,24 +71,16 @@ const PoolStatsInfo: React.FC<React.PropsWithChildren<ExpandedFooterProps>> = ({
 
   return (
     <>
-      <Flex
-        flexDirection={['column', 'column', 'row', 'column', 'row']}
-        justifyContent={['space-between', 'space-between', 'space-between', 'space-between', 'center']}
-      >
-        <Flex
-          flexDirection={['column', 'column', 'column', 'row']}
-          justifyContent="space-evenly"
-          width={['100%', '100%', '50%', '100%', '50%']}
-          border="1px solid"
-        >
-          {!vaultKey && <AprInfo pool={pool} stakedBalance={stakedBalance} />}
+      <Flex flexDirection="column" justifyContent="space-between">
+        <Flex flexDirection="column" justifyContent="space-evenly" width="100%">
+          {!vaultKey && <CardViewAprInfo pool={pool} stakedBalance={stakedBalance} />}
           {showTotalStaked && (
-            <TotalStaked totalStaked={vaultKey ? totalCakeInVault : totalStaked} stakingToken={stakingToken} />
+            <CardViewTotalStaked totalStaked={vaultKey ? totalCakeInVault : totalStaked} stakingToken={stakingToken} />
           )}
           {vaultKey === VaultKey.CakeVault && (
-            <TotalLocked totalLocked={totalLockedAmount} lockedToken={stakingToken} />
+            <CardTotalLocked totalLocked={totalLockedAmount} lockedToken={stakingToken} />
           )}
-          {vaultKey === VaultKey.CakeVault && <DurationAvg />}
+          {vaultKey === VaultKey.CakeVault && <CardViewDurationAvg />}
           {!isFinished && stakingLimit && stakingLimit.gt(0) && (
             <MaxStakeRow
               small
@@ -91,14 +91,9 @@ const PoolStatsInfo: React.FC<React.PropsWithChildren<ExpandedFooterProps>> = ({
               stakingToken={stakingToken}
             />
           )}
-          {vaultKey && <PerformanceFee userData={userData} performanceFeeAsDecimal={performanceFeeAsDecimal} />}
+          {vaultKey && <CardViewPerformanceFee userData={userData} performanceFeeAsDecimal={performanceFeeAsDecimal} />}
           {shouldShowBlockCountdown && (
-            <Flex
-              mb="2px"
-              justifyContent="space-between"
-              alignItems="center"
-              flexDirection={['row', 'row', 'row', 'column', 'column']}
-            >
+            <Flex mb="2px" justifyContent="space-between" alignItems="center">
               <Text small color="textSubtle">
                 {hasPoolStarted ? t('Ends in') : t('Starts in')}:
               </Text>
@@ -118,26 +113,21 @@ const PoolStatsInfo: React.FC<React.PropsWithChildren<ExpandedFooterProps>> = ({
             </Flex>
           )}
         </Flex>
-        <Flex
-          flexDirection={['column', 'column', 'column', 'row']}
-          justifyContent="space-evenly"
-          // width={['100%', '100%', '50%', '100%', '50%']}
-          // maxWidth="520px"
-        >
-          <Flex mb="2px" justifyContent="flex-start" mx={['0', '0', '0', '0', '5px']}>
+        <Flex flexDirection="column" justifyContent="space-evenly">
+          <Flex mb="2px" justifyContent="flex-start">
             <LinkExternal href={`/info/token/${earningToken.address}`} bold={false} small>
               {t('See Token Info')}
             </LinkExternal>
           </Flex>
           {!vaultKey && (
-            <Flex mb="2px" justifyContent="flex-start" mx={['0', '0', '0', '0', '5px']}>
+            <Flex mb="2px" justifyContent="flex-start">
               <LinkExternal href={earningToken.projectLink} bold={false} small>
                 {t('View Project Site')}
               </LinkExternal>
             </Flex>
           )}
           {vaultKey && (
-            <Flex mb="2px" justifyContent="flex-start" mx={['0', '0', '0', '0', '5px']}>
+            <Flex mb="2px" justifyContent="flex-start">
               <LinkExternal
                 href="https://docs.pancakeswap.finance/products/syrup-pool/new-cake-pool"
                 bold={false}
@@ -148,7 +138,7 @@ const PoolStatsInfo: React.FC<React.PropsWithChildren<ExpandedFooterProps>> = ({
             </Flex>
           )}
           {poolContractAddress && (
-            <Flex mb="2px" justifyContent="flex-start" mx={['0', '0', '0', '0', '5px']}>
+            <Flex mb="2px" justifyContent="flex-start">
               <LinkExternal
                 href={`${bsc.blockExplorers.default.url}/address/${
                   vaultKey ? cakeVaultContractAddress : poolContractAddress
@@ -161,8 +151,8 @@ const PoolStatsInfo: React.FC<React.PropsWithChildren<ExpandedFooterProps>> = ({
             </Flex>
           )}
           {account && tokenAddress && (
-            <Flex justifyContent="flex-start" mx={['0', '0', '0', '0', '5px']}>
-              <AddToWalletButton
+            <Flex justifyContent="flex-start">
+              <AddToWalletCardView
                 variant="text"
                 p="0"
                 height="auto"
@@ -182,4 +172,4 @@ const PoolStatsInfo: React.FC<React.PropsWithChildren<ExpandedFooterProps>> = ({
   )
 }
 
-export default memo(PoolStatsInfo)
+export default memo(PoolStatsCardView)

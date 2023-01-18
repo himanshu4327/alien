@@ -114,7 +114,7 @@ const Pools: React.FC<React.PropsWithChildren> = () => {
                             primaryToken={pool.earningToken}
                             secondaryToken={pool.stakingToken}
                             width={64}
-                            height={64}
+                            height={44}
                           />
                         }
                         cardFooter={<CardFooter pool={pool} account={account} />}

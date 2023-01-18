@@ -3,11 +3,7 @@ import styled from "styled-components";
 import getThemeValue from "../../util/getThemeValue";
 import { CardHeader, Flex, Heading, Text } from "../../components";
 
-const Wrapper = styled(CardHeader)<{ isFinished?: boolean; background: string }>`
-  background: ${({ isFinished, background, theme }) =>
-    isFinished ? theme.colors.backgroundDisabled : getThemeValue(theme, `colors.${background}`)};
-  border-radius: ${({ theme }) => `${theme.radii.card} ${theme.radii.card} 0 0`};
-`;
+const Wrapper = styled(CardHeader)<{ isFinished?: boolean }>``;
 
 export const PoolCardHeader: React.FC<
   React.PropsWithChildren<{
@@ -16,9 +12,8 @@ export const PoolCardHeader: React.FC<
   }>
 > = ({ isFinished = false, isStaking = false, children }) => {
   const background = isStaking ? "gradientBubblegum" : "gradientCardHeader";
-
   return (
-    <Wrapper isFinished={isFinished} background={background}>
+    <Wrapper isFinished={isFinished}>
       <Flex alignItems="center" justifyContent="space-between">
         {children}
       </Flex>
