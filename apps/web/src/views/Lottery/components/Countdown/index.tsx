@@ -20,18 +20,18 @@ const Countdown: React.FC<React.PropsWithChildren<CountdownProps>> = ({
   return (
     <>
       {secondsRemaining ? (
-        <Flex display="inline-flex" justifyContent="flex-end" alignItems="flex-end">
+        <Flex display="inline-flex" justifyContent="flex-end" alignItems="center">
           {preCountdownText && (
             <Heading mr="12px" color="#ffff">
               {preCountdownText}
             </Heading>
           )}
-          <Timer
-            minutes={minutes + 1} // We don't show seconds - so values from 0 - 59s should be shown as 1 min
-            hours={hours}
-            days={days}
-          />
-          {postCountdownText && <Heading color="#ffff">{postCountdownText}</Heading>}
+          <Timer minutes={minutes + 1} hours={hours} days={days} />
+          {postCountdownText && (
+            <Heading color="#ffff" maxWidth="150px">
+              {postCountdownText}
+            </Heading>
+          )}
         </Flex>
       ) : (
         <Skeleton height="41px" width="250px" />

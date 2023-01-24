@@ -36,7 +36,7 @@ export const styleVariants = {
   [variants.TERTIARY]: {
     backgroundColor: "tertiary",
     boxShadow: "none",
-    color: "primary",
+    color: "textSubtle",
   },
   [variants.SUBTLE]: {
     backgroundColor: "textSubtle",
@@ -74,6 +74,6 @@ export const styleVariants = {
   },
   [variants.ACTIVE]: {
     background: "linear-gradient(242.24deg, #00F666 -86.49%, rgba(0, 246, 102, 0) 96.54%)",
-    boxShadow: "0px 0px 11px -1px #00F666",
+    boxShadow: "inset 10px 0px 4px 1px #fff;",
   },
 };

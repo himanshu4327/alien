@@ -103,7 +103,7 @@ const TopTokenMovers: React.FC<React.PropsWithChildren> = () => {
 
   return (
     <Card my="16px">
-      <Text ml="16px" mt="8px">
+      <Text ml="16px" mt="8px" textAlign="center">
         {t('Top Movers')}
       </Text>
       <ScrollableRow ref={increaseRef}>

@@ -18,9 +18,9 @@ const StyledTimerFlex = styled(Flex)<{ showTooltip?: boolean }>`
 `
 
 const StyledTimerText = styled(Heading)`
-  background: ${({ theme }) => theme.colors.gradientGold};
+  //background: ${({ theme }) => theme.colors.gradientGold};
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: #00f666;
 `
 
 const Wrapper: React.FC<React.PropsWithChildren<TimerProps>> = ({
@@ -36,34 +36,34 @@ const Wrapper: React.FC<React.PropsWithChildren<TimerProps>> = ({
     <StyledTimerFlex alignItems="flex-end" className={wrapperClassName}>
       {Boolean(days) && (
         <>
-          <StyledTimerText mb="-4px" scale="xl" mr="4px">
-            {days}
+          <StyledTimerText scale="xl">{days}</StyledTimerText>
+          <StyledTimerText mr="12px" scale="xl">
+            {t('d')}
           </StyledTimerText>
-          <StyledTimerText mr="12px">{t('d')}</StyledTimerText>
         </>
       )}
       {Boolean(hours) && (
         <>
-          <StyledTimerText mb="-4px" scale="xl" mr="4px">
-            {hours}
+          <StyledTimerText scale="xl">{hours}</StyledTimerText>
+          <StyledTimerText scale="xl" mr="12px">
+            {t('h')}
           </StyledTimerText>
-          <StyledTimerText mr="12px">{t('h')}</StyledTimerText>
         </>
       )}
       {Boolean(minutes) && (
         <>
-          <StyledTimerText mb="-4px" scale="xl" mr="4px">
-            {minutes}
+          <StyledTimerText scale="xl">{minutes}</StyledTimerText>
+          <StyledTimerText mr="12px" scale="xl">
+            {t('m')}
           </StyledTimerText>
-          <StyledTimerText mr="12px">{t('m')}</StyledTimerText>
         </>
       )}
       {Boolean(seconds) && (
         <>
-          <StyledTimerText mb="-4px" scale="xl" mr="4px">
-            {seconds}
+          <StyledTimerText scale="xl">{seconds}</StyledTimerText>
+          <StyledTimerText mr="12px" scale="xl">
+            {t('s')}
           </StyledTimerText>
-          <StyledTimerText mr="12px">{t('s')}</StyledTimerText>
         </>
       )}
     </StyledTimerFlex>

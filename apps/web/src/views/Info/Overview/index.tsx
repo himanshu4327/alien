@@ -19,6 +19,13 @@ import TokenTable from 'views/Info/components/InfoTables/TokensTable'
 import TransactionTable from 'views/Info/components/InfoTables/TransactionsTable'
 import HoverableChart from '../components/InfoCharts/HoverableChart'
 
+const Styledheading = styled(Heading)`
+  font-family: Alien;
+  text-align: center;
+  text-shadow: -1px 0px 12px #00f666;
+  color: #fff;
+`
+
 export const ChartCardsContainer = styled(Flex)`
   justify-content: space-between;
   flex-direction: column;
@@ -34,7 +41,6 @@ export const ChartCardsContainer = styled(Flex)`
     flex-direction: row;
   } ;
 `
-
 const Overview: React.FC<React.PropsWithChildren> = () => {
   const {
     t,
@@ -74,16 +80,16 @@ const Overview: React.FC<React.PropsWithChildren> = () => {
   const chainName = useGetChainName()
   return (
     <Page>
-      {chainName === 'BSC' && !isStableSwap && (
+      {/* {chainName === 'BSC' && !isStableSwap && (
         <Message variant="warning" mb="10px">
           <MessageText fontSize={16}>
             {t('PancakeSwap Info is currently under maintenance. Data may not be accurate or up-to-date.')}
           </MessageText>
         </Message>
-      )}
-      <Heading scale="lg" mb="16px" id="info-overview-title">
-        {t('PancakeSwap Info & Analytics')}
-      </Heading>
+      )} */}
+      <Styledheading scale="xxl" mb="24px" id="info-overview-title">
+        <span style={{ fontFamily: 'Alien', color: '#00F666' }}>Alien</span> Info & ANALYSIS
+      </Styledheading>
       <ChartCardsContainer>
         <Card>
           <HoverableChart
@@ -106,15 +112,15 @@ const Overview: React.FC<React.PropsWithChildren> = () => {
           />
         </Card>
       </ChartCardsContainer>
-      <Heading scale="lg" mt="40px" mb="16px">
+      <Heading scale="lg" mt="40px" mb="16px" textAlign="center">
         {t('Top Tokens')}
       </Heading>
       <TokenTable tokenDatas={formattedTokens} />
-      <Heading scale="lg" mt="40px" mb="16px">
+      <Heading scale="lg" mt="40px" mb="16px" textAlign="center">
         {t('Top Pairs')}
       </Heading>
       <PoolTable poolDatas={poolDatas} loading={somePoolsAreLoading} />
-      <Heading scale="lg" mt="40px" mb="16px">
+      <Heading scale="lg" mt="40px" mb="16px" textAlign="center">
         {t('Transactions')}
       </Heading>
       <TransactionTable transactions={transactions} />

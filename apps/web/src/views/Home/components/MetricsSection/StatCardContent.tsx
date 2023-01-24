@@ -2,7 +2,7 @@ import { Heading, Flex, Text, useMatchBreakpoints } from '@pancakeswap/uikit'
 import styled from 'styled-components'
 
 const StyledText = styled(Text)`
-  opacity: 0.5;
+  opacity: 1;
 `
 const StatCardContent: React.FC<
   React.PropsWithChildren<{ headingText: string; bodyText: string; highlightColor: string }>

@@ -23,21 +23,21 @@ const TokensOverview: React.FC<React.PropsWithChildren> = () => {
 
   return (
     <Page>
-      <Heading scale="lg" mb="16px">
+      <Heading scale="lg" mb="16px" textAlign="center">
         {t('Your Watchlist')}
       </Heading>
       {watchListTokens.length > 0 ? (
         <TokenTable tokenDatas={watchListTokens} />
       ) : (
         <Card>
-          <Text py="16px" px="24px">
+          <Text py="16px" px="24px" textAlign="center">
             {t('Saved tokens will appear here')}
           </Text>
         </Card>
       )}
       <TopTokenMovers />
-      <Heading scale="lg" mt="40px" mb="16px" id="info-tokens-title">
-        {t('All Tokens')}
+      <Heading scale="lg" mt="40px" mb="16px" id="info-tokens-title" textAlign="center">
+        {t('Tokens')}
       </Heading>
       <TokenTable tokenDatas={formattedTokens} />
     </Page>

@@ -33,7 +33,7 @@ const Grid = styled.div`
   ${({ theme }) => theme.mediaQueries.md} {
     grid-column-gap: 72px;
     grid-row-gap: 36px;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto;
   }
 `
 
@@ -71,7 +71,7 @@ const PreviousRoundCardBody: React.FC<
 
   const totalTicketNumber = userDataForRound ? userDataForRound.totalTickets : 0
   const ticketRoundText =
-    totalTicketNumber > 1
+    (totalTicketNumber as number) > 1
       ? t('You had %amount% tickets this round', { amount: totalTicketNumber })
       : t('You had %amount% ticket this round', { amount: totalTicketNumber })
   const [youHadText, ticketsThisRoundText] = ticketRoundText.split(totalTicketNumber.toString())
@@ -104,7 +104,6 @@ const PreviousRoundCardBody: React.FC<
             <>
               <Flex flexDirection="column" alignItems="center" width={['240px', null, null, '480px']}>
                 <Text mb="8px">{t('Please specify Round')}</Text>
-                <BunnyPlaceholderIcon height="64px" width="64px" />
               </Flex>
             </>
           )}

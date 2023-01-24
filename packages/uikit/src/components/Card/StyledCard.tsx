@@ -42,7 +42,8 @@ const getBorderColor = ({ isActive, isSuccess, isWarning, borderBackground, them
 };
 
 export const StyledCard = styled.div<StyledCardProps>`
-  //background: ${getBorderColor};
+  background: radial-gradient(78.23% 34.54% at 49.89% 118.47%, #00f666 0%, rgba(2, 73, 32, 0.2) 100%);
+  backdrop-filter: blur(5.5px);
   border-radius: ${({ theme }) => theme.radii.card};
   color: ${({ theme, isDisabled }) => theme.colors[isDisabled ? "textDisabled" : "text"]};
   overflow: hidden;

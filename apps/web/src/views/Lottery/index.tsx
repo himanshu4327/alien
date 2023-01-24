@@ -25,9 +25,13 @@ import CheckPrizesSection from './components/CheckPrizesSection'
 import HowToPlay from './components/HowToPlay'
 import useShowMoreUserHistory from './hooks/useShowMoreUserRounds'
 import { PageMeta } from '../../components/Layout/Page'
+import LotteryHero from './components/LotteryHero'
 
 const LotteryPage = styled.div`
   min-height: calc(100vh - 64px);
+`
+const StyledHeading = styled(Heading)`
+  font-family: Alien;
 `
 
 const Lottery = () => {
@@ -48,21 +52,19 @@ const Lottery = () => {
       <PageMeta />
       <LotteryPage>
         <PageSection background={TITLE_BG} index={1} hasCurvedDivider={false}>
-          <Hero />
+          <LotteryHero />
         </PageSection>
         <PageSection
           containerProps={{ style: { marginTop: '-30px' } }}
           background={GET_TICKETS_BG}
           concaveDivider
-          clipFill={{ light: '#7645D9' }}
-          dividerPosition="top"
           index={2}
         >
           <Flex alignItems="center" justifyContent="center" flexDirection="column" pt="24px">
             {status === LotteryStatus.OPEN && (
-              <Heading scale="xl" color="#ffffff" mb="24px" textAlign="center">
-                {t('Get your tickets now!')}
-              </Heading>
+              <StyledHeading scale="xl" color="#ffffff" mb="24px" textAlign="center" textTransform="uppercase">
+                {t('Get Your Tickets')}
+              </StyledHeading>
             )}
             <Flex alignItems="center" justifyContent="center" mb="48px">
               {nextEventTime && (postCountdownText || preCountdownText) ? (
@@ -78,9 +80,6 @@ const Lottery = () => {
             <NextDrawCard />
           </Flex>
         </PageSection>
-        <PageSection background={CHECK_PRIZES_BG} hasCurvedDivider={false} index={2}>
-          <CheckPrizesSection />
-        </PageSection>
         <PageSection
           innerProps={{ style: { margin: '0', width: '100%' } }}
           background={isDark ? FINISHED_ROUNDS_BG_DARK : FINISHED_ROUNDS_BG}
@@ -88,9 +87,9 @@ const Lottery = () => {
           index={2}
         >
           <Flex width="100%" flexDirection="column" alignItems="center" justifyContent="center">
-            <Heading mb="24px" scale="xl">
+            <StyledHeading mb="24px" scale="xl" textTransform="uppercase">
               {t('Finished Rounds')}
-            </Heading>
+            </StyledHeading>
             <Box mb="24px">
               <HistoryTabMenu
                 activeIndex={historyTabMenuIndex}
@@ -107,12 +106,7 @@ const Lottery = () => {
             )}
           </Flex>
         </PageSection>
-        <PageSection
-          dividerPosition="top"
-          dividerFill={{ light: theme.colors.background }}
-          clipFill={{ light: '#9A9FD0', dark: '#66578D' }}
-          index={2}
-        >
+        <PageSection dividerPosition="top" dividerFill={{ light: theme.colors.background }} index={2}>
           <HowToPlay />
         </PageSection>
       </LotteryPage>

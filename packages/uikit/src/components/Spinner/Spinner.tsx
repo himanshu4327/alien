@@ -41,12 +41,23 @@ const FloatingPanIcon = styled(PanIcon)`
   animation: ${float} 6s ease-in-out infinite;
   transform: translate3d(0, 0, 0);
 `;
-
+const FloatingUfosTopRight = styled.div`
+  background-image: url("/images/alien/spaceRight.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  right: -3rem;
+  top: 3rem;
+  animation: ${rotate} 2s ease-in-out infinite;
+  width: 100px;
+  height: 100px;
+  display: block;
+  overflow: hidden;
+`;
 const Spinner: React.FC<React.PropsWithChildren<SpinnerProps>> = ({ size = 128 }) => {
   return (
     <Container>
-      <RotatingPancakeIcon width={`${size * 0.5}px`} />
-      <FloatingPanIcon width={`${size}px`} />
+      <FloatingUfosTopRight />
     </Container>
   );
 };

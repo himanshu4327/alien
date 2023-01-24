@@ -204,7 +204,7 @@ export const GreenBall: React.FC<React.PropsWithChildren<SvgProps>> = (props) =>
 export const YellowBall: React.FC<React.PropsWithChildren<SvgProps>> = (props) => {
   return (
     <Svg viewBox="0 0 32 32" {...props}>
-      <circle cx="16" cy="16" r="16" fill="#FFC43C" />
+      <circle cx="16" cy="16" r="16" fill="#00F666" />
       <g style={{ mixBlendMode: 'multiply' }} opacity="0.1">
         <path
           fillRule="evenodd"
@@ -241,6 +241,15 @@ export const YellowBall: React.FC<React.PropsWithChildren<SvgProps>> = (props) =
   )
 }
 
+const StyledBall = styled.div`
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  border-radius: 50%;
+  background: radial-gradient(52.44% 52.44% at 50.26% 115.85%, #00f666 0%, rgba(2, 73, 32, 0.2) 100%);
+  backdrop-filter: blur(5.5px);
+`
+
 export const BallTextWrapper = styled.div`
   top: 45%;
   left: 50%;
@@ -273,6 +282,7 @@ const ballsMap = {
   yellow: YellowBall,
 }
 
+const StyledBalls = styled.div``
 export const BallWithNumber: React.FC<React.PropsWithChildren<BallWithNumberProps>> = ({
   color,
   number,
@@ -282,13 +292,14 @@ export const BallWithNumber: React.FC<React.PropsWithChildren<BallWithNumberProp
 }) => {
   const BallComponent = ballsMap[color]
   return (
-    <Flex alignItems="center" justifyContent="center" position="relative" mx="2px">
-      <BallComponent width={size ?? '32px'} height={size ?? '32px'} />
+    <Flex alignItems="center" justifyContent="center" position="relative">
+      {/* <BallComponent width={size ?? '32px'} height={size ?? '32px'} color="#000" />
       <BallTextWrapper>
         <BallText rotationTransform={rotationTransform} bold fontSize={fontSize ?? '16px'}>
           {number}
         </BallText>
-      </BallTextWrapper>
+      </BallTextWrapper> */}
+      <StyledBall>{number}</StyledBall>
     </Flex>
   )
 }

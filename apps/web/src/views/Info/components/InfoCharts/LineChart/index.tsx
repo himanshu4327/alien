@@ -41,8 +41,8 @@ const LineChart = ({ data, setHoverValue, setHoverDate }: LineChartProps) => {
       >
         <defs>
           <linearGradient id="gradient" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="5%" stopColor={theme.colors.inputSecondary} stopOpacity={0.5} />
-            <stop offset="100%" stopColor={theme.colors.secondary} stopOpacity={0} />
+            <stop offset="5%" stopColor="#00F666" stopOpacity={0.8} />
+            <stop offset="100%" stopColor="#00F666" stopOpacity={0.3} />
           </linearGradient>
         </defs>
         <XAxis

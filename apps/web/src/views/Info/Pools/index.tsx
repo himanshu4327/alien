@@ -22,19 +22,19 @@ const PoolsOverview: React.FC<React.PropsWithChildren> = () => {
 
   return (
     <Page>
-      <Heading scale="lg" mb="16px">
+      <Heading scale="lg" mb="16px" textAlign="center">
         {t('Your Watchlist')}
       </Heading>
       <Card>
         {watchlistPools.length > 0 ? (
           <PoolTable poolDatas={watchlistPools} />
         ) : (
-          <Text px="24px" py="16px">
+          <Text px="24px" py="16px" textAlign="center">
             {t('Saved pairs will appear here')}
           </Text>
         )}
       </Card>
-      <Heading scale="lg" mt="40px" mb="16px" id="info-pools-title">
+      <Heading scale="lg" mt="40px" mb="16px" id="info-pools-title" textAlign="center">
         {t('All Pairs')}
       </Heading>
       <PoolTable poolDatas={poolDatas} />

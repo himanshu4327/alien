@@ -17,7 +17,7 @@ interface BalanceProps extends TextProps {
 
 const Balance: React.FC<React.PropsWithChildren<BalanceProps>> = ({
   value,
-  color = "text",
+  color = "primary",
   decimals = 3,
   isDisabled = false,
   unit,

@@ -12,25 +12,21 @@ const style = {
     fontSizeLg: "24px",
   },
   [scales.XL]: {
-    fontSize: "32px",
+    fontSize: "35px",
     fontSizeLg: "70px",
     lineHeight: "101.7%",
     textShadow: "-1px 0px 12px #00F666;",
-    fontWeight: '400',
+    fontWeight: "400",
     letterSpacing: "0.12em",
-    color: "#00F666"
-    
-   
-    
+    color: "#00F666",
   },
   [scales.XXL]: {
-    fontSize: "32px",
+    fontSize: "42px",
     fontSizeLg: "70px",
     lineHeight: "137.2%",
     textShadow: "-1px 0px 12px #00F666",
-    fontWeight: '400',
+    fontWeight: "400",
     letterSpacing: "0.12em",
-   
   },
 };
 
@@ -38,7 +34,7 @@ const Heading = styled(Text).attrs({ bold: true })<HeadingProps>`
   font-size: ${({ scale }) => style[scale || scales.MD].fontSize};
   font-weight: 600;
   line-height: 1.1;
-//  font-family:"AlienSolid";
+  //  font-family:"AlienSolid";
 
   ${({ theme }) => theme.mediaQueries.lg} {
     font-size: ${({ scale }) => style[scale || scales.MD].fontSizeLg};

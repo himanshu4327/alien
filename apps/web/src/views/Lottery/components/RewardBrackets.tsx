@@ -18,7 +18,7 @@ const RewardsInner = styled.div`
   row-gap: 16px;
 
   ${({ theme }) => theme.mediaQueries.sm} {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 `
 
@@ -84,7 +84,7 @@ const RewardBrackets: React.FC<React.PropsWithChildren<RewardMatchesProps>> = ({
 
   return (
     <Wrapper>
-      <Text fontSize="14px" mb="24px">
+      <Text fontSize="14px" mb="24px" textAlign="center">
         {t('Match the winning number in the same order to share prizes.')}{' '}
         {!isHistoricRound && t('Current prizes up for grabs:')}
       </Text>

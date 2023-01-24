@@ -3,6 +3,7 @@ import { ChainId } from '@pancakeswap/sdk'
 import {
   Box,
   Flex,
+  Heading,
   InjectedModalProps,
   Modal,
   PancakeToggle,
@@ -104,12 +105,12 @@ const SettingsModal: React.FC<React.PropsWithChildren<InjectedModalProps>> = ({ 
   }
 
   return (
-    <Modal title={t('Settings')} headerBackground="gradientCardHeader" onDismiss={onDismiss}>
+    <Modal headerBackground="gradientCardHeader" onDismiss={onDismiss}>
       <ScrollableContainer>
         {mode === SettingsMode.GLOBAL && (
           <>
             <Flex pb="24px" flexDirection="column">
-              <Text bold textTransform="uppercase" fontSize="18px" color="secondary" mb="24px">
+              <Text bold textTransform="uppercase" fontSize="16px" color="secondary" mb="24px">
                 {t('Global')}
               </Text>
               <Flex justifyContent="space-between" mb="24px">
@@ -160,8 +161,11 @@ const SettingsModal: React.FC<React.PropsWithChildren<InjectedModalProps>> = ({ 
         )}
         {mode === SettingsMode.SWAP_LIQUIDITY && (
           <>
-            <Flex pt="3px" flexDirection="column">
-              <Text bold textTransform="uppercase" fontSize="18px" color="secondary" mb="24px">
+            <Flex pt="3px" flexDirection="column" justifyContent="center">
+              <Heading textAlign="center" mb="10px" scale="lg" color="#fff">
+                Settings
+              </Heading>
+              <Text bold textTransform="uppercase" fontSize="16px" color="#fff" mb="24px" textAlign="center">
                 {t('Swaps & Liquidity')}
               </Text>
               <Flex justifyContent="space-between" alignItems="center" mb="24px">
@@ -176,12 +180,12 @@ const SettingsModal: React.FC<React.PropsWithChildren<InjectedModalProps>> = ({ 
                   <QuestionHelper
                     text={
                       <Box>
-                        <Text>
+                        <Text color="#fff">
                           {t(
                             'Zap enables simple liquidity provision. Add liquidity with one token and one click, without manual swapping or token balancing.',
                           )}
                         </Text>
-                        <Text>
+                        <Text color="#fff">
                           {t(
                             'If you experience any issue when adding or removing liquidity, please disable Zap and retry.',
                           )}
@@ -231,7 +235,7 @@ const SettingsModal: React.FC<React.PropsWithChildren<InjectedModalProps>> = ({ 
                 }}
               />
             </Flex>
-            <Flex justifyContent="space-between" alignItems="center" mb="24px">
+            {/* <Flex justifyContent="space-between" alignItems="center" mb="24px">
               <Flex alignItems="center">
                 <Text>{t('Flippy sounds')}</Text>
                 <QuestionHelper
@@ -241,14 +245,14 @@ const SettingsModal: React.FC<React.PropsWithChildren<InjectedModalProps>> = ({ 
                 />
               </Flex>
               <PancakeToggle checked={audioPlay} onChange={toggleSetAudioMode} scale="md" />
-            </Flex>
+            </Flex> */}
             <Flex justifyContent="space-between" alignItems="center" mb="24px">
               <Flex alignItems="center">
                 <Text>{t('Use StableSwap by default')}</Text>
                 <QuestionHelper
                   text={
                     <Flex>
-                      <Text mr="5px">
+                      <Text mr="5px" color="#fff">
                         {t(
                           'Stableswap will enable users to save fees on trades. Output cannot be edited for routes that include StableSwap',
                         )}

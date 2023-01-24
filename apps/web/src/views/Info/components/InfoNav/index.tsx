@@ -23,7 +23,7 @@ import { useAccount } from 'wagmi'
 import { bsc, mainnet } from '@pancakeswap/wagmi/chains'
 
 const NavWrapper = styled(Flex)`
-  background: ${({ theme }) => theme.colors.gradientCardHeader};
+  // background: ${({ theme }) => theme.colors.gradientCardHeader};
   justify-content: space-between;
   padding: 20px 16px;
   flex-direction: column;
@@ -52,9 +52,9 @@ const InfoNav: React.FC<{ isStableSwap: boolean }> = ({ isStableSwap }) => {
   }
   return (
     <NavWrapper>
-      <Flex>
+      <Flex m="0 auto">
         <Box>
-          <ButtonMenu activeIndex={activeIndex} scale="sm" variant="subtle">
+          <ButtonMenu activeIndex={activeIndex} scale="sm">
             <ButtonMenuItem as={NextLinkFromReactRouter} to={`/info${chainPath}${stableSwapQuery}`}>
               {t('Overview')}
             </ButtonMenuItem>
@@ -68,9 +68,9 @@ const InfoNav: React.FC<{ isStableSwap: boolean }> = ({ isStableSwap }) => {
         </Box>
         {!account && <NetworkSwitcher activeIndex={activeIndex} />}
       </Flex>
-      <Box width={['100%', '100%', '250px']}>
+      {/* <Box width={['100%', '100%', '250px']}>
         <Search />
-      </Box>
+      </Box> */}
     </NavWrapper>
   )
 }

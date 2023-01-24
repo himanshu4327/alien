@@ -9,7 +9,7 @@ const GasSettings = () => {
 
   return (
     <Flex flexDirection="column">
-      <Flex mb="12px" alignItems="center">
+      <Flex mb="12px" alignItems="center" justifyContent="center">
         <Text>{t('Default Transaction Speed (GWEI)')}</Text>
         <QuestionHelper
           text={t(
@@ -27,7 +27,7 @@ const GasSettings = () => {
           onClick={() => {
             setGasPrice(GAS_PRICE_GWEI.rpcDefault)
           }}
-          variant={gasPrice === GAS_PRICE_GWEI.rpcDefault ? 'primary' : 'tertiary'}
+          variant={gasPrice === GAS_PRICE_GWEI.rpcDefault ? 'Alien' : 'tertiary'}
         >
           {t('RPC Default')}
         </Button>
@@ -38,7 +38,7 @@ const GasSettings = () => {
           onClick={() => {
             setGasPrice(GAS_PRICE_GWEI.default)
           }}
-          variant={gasPrice === GAS_PRICE_GWEI.default ? 'primary' : 'tertiary'}
+          variant={gasPrice === GAS_PRICE_GWEI.default ? 'Alien' : 'tertiary'}
         >
           {t('Standard (%gasPrice%)', { gasPrice: GAS_PRICE.default })}
         </Button>
@@ -49,7 +49,7 @@ const GasSettings = () => {
           onClick={() => {
             setGasPrice(GAS_PRICE_GWEI.fast)
           }}
-          variant={gasPrice === GAS_PRICE_GWEI.fast ? 'primary' : 'tertiary'}
+          variant={gasPrice === GAS_PRICE_GWEI.fast ? 'Alien' : 'tertiary'}
         >
           {t('Fast (%gasPrice%)', { gasPrice: GAS_PRICE.fast })}
         </Button>
@@ -60,7 +60,7 @@ const GasSettings = () => {
           onClick={() => {
             setGasPrice(GAS_PRICE_GWEI.instant)
           }}
-          variant={gasPrice === GAS_PRICE_GWEI.instant ? 'primary' : 'tertiary'}
+          variant={gasPrice === GAS_PRICE_GWEI.instant ? 'Alien' : 'tertiary'}
         >
           {t('Instant (%gasPrice%)', { gasPrice: GAS_PRICE.instant })}
         </Button>

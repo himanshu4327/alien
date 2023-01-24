@@ -237,11 +237,11 @@ const TransactionTable: React.FC<
       </Flex>
       <TableWrapper>
         <ResponsiveGrid>
-          <Text color="secondary" fontSize="12px" bold textTransform="uppercase">
+          <Text color="textSubtle" fontSize="12px" bold textTransform="uppercase">
             {t('Action')}
           </Text>
           <ClickableColumnHeader
-            color="secondary"
+            color="textSubtle"
             fontSize="12px"
             bold
             onClick={() => handleSort(SORT_FIELD.amountUSD)}
@@ -250,7 +250,7 @@ const TransactionTable: React.FC<
             {t('Total Value')} {arrow(SORT_FIELD.amountUSD)}
           </ClickableColumnHeader>
           <ClickableColumnHeader
-            color="secondary"
+            color="textSubtle"
             fontSize="12px"
             bold
             onClick={() => handleSort(SORT_FIELD.amountToken0)}
@@ -259,7 +259,7 @@ const TransactionTable: React.FC<
             {t('Token Amount')} {arrow(SORT_FIELD.amountToken0)}
           </ClickableColumnHeader>
           <ClickableColumnHeader
-            color="secondary"
+            color="textSubtle"
             fontSize="12px"
             bold
             onClick={() => handleSort(SORT_FIELD.amountToken1)}
@@ -268,7 +268,7 @@ const TransactionTable: React.FC<
             {t('Token Amount')} {arrow(SORT_FIELD.amountToken1)}
           </ClickableColumnHeader>
           <ClickableColumnHeader
-            color="secondary"
+            color="textSubtle"
             fontSize="12px"
             bold
             onClick={() => handleSort(SORT_FIELD.sender)}
@@ -277,7 +277,7 @@ const TransactionTable: React.FC<
             {t('Account')} {arrow(SORT_FIELD.sender)}
           </ClickableColumnHeader>
           <ClickableColumnHeader
-            color="secondary"
+            color="textSubtle"
             fontSize="12px"
             bold
             onClick={() => handleSort(SORT_FIELD.timestamp)}

@@ -29,10 +29,9 @@ import RewardBrackets from './RewardBrackets'
 const Grid = styled.div`
   display: grid;
   grid-template-columns: auto;
-
   ${({ theme }) => theme.mediaQueries.md} {
     grid-column-gap: 32px;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto;
   }
 `
 
@@ -76,7 +75,7 @@ const NextDrawCard = () => {
   const getPrizeBalances = () => {
     if (status === LotteryStatus.CLOSE || status === LotteryStatus.CLAIMABLE) {
       return (
-        <Heading scale="xl" color="secondary" textAlign={['center', null, null, 'left']}>
+        <Heading scale="xl" color="secondary" textAlign={['center', null, null, 'center']}>
           {t('Calculating')}...
         </Heading>
       )
@@ -89,7 +88,7 @@ const NextDrawCard = () => {
           <Balance
             fontSize="40px"
             color="secondary"
-            textAlign={['center', null, null, 'left']}
+            textAlign={['center', null, null, 'center']}
             lineHeight="1"
             bold
             prefix="~$"
@@ -103,7 +102,7 @@ const NextDrawCard = () => {
           <Balance
             fontSize="14px"
             color="textSubtle"
-            textAlign={['center', null, null, 'left']}
+            textAlign={['center', null, null, 'center']}
             unit=" CAKE"
             value={getBalanceNumber(amountCollectedInCake)}
             decimals={0}
@@ -148,16 +147,13 @@ const NextDrawCard = () => {
       </CardHeader>
       <CardBody>
         <Grid>
-          <Flex justifyContent={['center', null, null, 'flex-start']}>
+          <Flex justifyContent={['center', null, null, 'center']}>
             <Heading>{t('Prize Pot')}</Heading>
           </Flex>
-          <Flex flexDirection="column" mb="18px">
+          <Flex flexDirection="column" mb="18px" justifyContent="center">
             {getPrizeBalances()}
           </Flex>
-          <Box display={['none', null, null, 'flex']}>
-            <Heading>{t('Your tickets')}</Heading>
-          </Box>
-          <Flex flexDirection={['column', null, null, 'row']} alignItems={['center', null, null, 'flex-start']}>
+          <Flex flexDirection="column" alignItems="center">
             {isLotteryOpen && (
               <Flex
                 flexDirection="column"
@@ -192,6 +188,13 @@ const NextDrawCard = () => {
             )}
             <BuyTicketsButton disabled={ticketBuyIsDisabled} maxWidth="280px" />
           </Flex>
+          {(status === LotteryStatus.OPEN || status === LotteryStatus.CLOSE) && (
+            <Flex p="8px 24px" alignItems="center" justifyContent="center">
+              <ExpandableLabel expanded={isExpanded} onClick={() => setIsExpanded(!isExpanded)}>
+                {isExpanded ? t('Hide') : t('Details')}
+              </ExpandableLabel>
+            </Flex>
+          )}
         </Grid>
       </CardBody>
       <CardFooter p="0">
@@ -199,13 +202,6 @@ const NextDrawCard = () => {
           <NextDrawWrapper>
             <RewardBrackets lotteryNodeData={currentRound} />
           </NextDrawWrapper>
-        )}
-        {(status === LotteryStatus.OPEN || status === LotteryStatus.CLOSE) && (
-          <Flex p="8px 24px" alignItems="center" justifyContent="center">
-            <ExpandableLabel expanded={isExpanded} onClick={() => setIsExpanded(!isExpanded)}>
-              {isExpanded ? t('Hide') : t('Details')}
-            </ExpandableLabel>
-          </Flex>
         )}
       </CardFooter>
     </StyledCard>

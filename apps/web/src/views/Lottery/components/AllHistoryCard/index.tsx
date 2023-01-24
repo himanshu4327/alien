@@ -13,7 +13,6 @@ import PreviousRoundCardFooter from '../PreviousRoundCard/Footer'
 
 const StyledCard = styled(Card)`
   width: 100%;
-
   ${({ theme }) => theme.mediaQueries.md} {
     width: 756px;
   }
