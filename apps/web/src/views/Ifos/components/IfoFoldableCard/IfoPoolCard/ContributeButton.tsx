@@ -32,7 +32,7 @@ const ContributeButton: React.FC<React.PropsWithChildren<Props>> = ({ poolId, if
     toastSuccess(
       t('Success!'),
       <ToastDescriptionWithTx txHash={txHash}>
-        {t('You have contributed %amount% CAKE to this IFO!', {
+        {t('You have contributed %amount% Alien to this IFO!', {
           amount: getBalanceNumber(amount),
         })}
       </ToastDescriptionWithTx>,

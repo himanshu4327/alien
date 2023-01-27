@@ -244,8 +244,10 @@ export const YellowBall: React.FC<React.PropsWithChildren<SvgProps>> = (props) =
 const StyledBall = styled.div`
   width: 40px;
   height: 40px;
-  padding: 10px;
+  padding: 12px;
   border-radius: 50%;
+  margin: 5px;
+  border: 1px solid #00f666;
   background: radial-gradient(52.44% 52.44% at 50.26% 115.85%, #00f666 0%, rgba(2, 73, 32, 0.2) 100%);
   backdrop-filter: blur(5.5px);
 `

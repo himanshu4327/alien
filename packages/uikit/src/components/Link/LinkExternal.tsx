@@ -7,7 +7,7 @@ const LinkExternal: React.FC<React.PropsWithChildren<LinkProps>> = ({ children, 
   return (
     <Link external {...props} textAlign="center" m="1px">
       {children}
-      {/* <OpenNewIcon color={props.color ? props.color : "primary"} ml="4px" /> */}
+      <OpenNewIcon color={props.color ? props.color : "primary"} ml="4px" />
     </Link>
   );
 };

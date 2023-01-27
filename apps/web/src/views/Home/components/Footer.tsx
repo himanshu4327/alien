@@ -77,8 +77,8 @@ const Footer = () => {
         </Container>
 
         <StyledText textAlign="center" color="white" mb="10px">
-          Alien token is at the heart of the PancakeSwap ecosystem. Buy it, win it, farm it, spend it, stake it... heck,
-          you can even vote with it!
+          Alien token is at the heart of the Alien ecosystem. Buy it, win it, farm it, spend it, stake it... heck, you
+          can even vote with it!
         </StyledText>
 
         {!account && <StyledConntectButton />}

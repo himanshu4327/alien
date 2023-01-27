@@ -459,22 +459,17 @@ const Farms: React.FC<React.PropsWithChildren> = ({ children }) => {
         </ControlContainer>
         {isInactive && (
           <FinishedTextContainer>
-            <Text fontSize={['16px', null, '20px']} color="failure" pr="4px">
+            <Text fontSize={['16px', null, '20px']} color="secondary" pr="4px">
               {t("Don't see the farm you are staking?")}
             </Text>
             <Flex>
-              <FinishedTextLink href="/migration" fontSize={['16px', null, '20px']} color="failure">
+              <FinishedTextLink href="/migration" fontSize={['16px', null, '20px']} color="secondary">
                 {t('Go to migration page')}
               </FinishedTextLink>
-              <Text fontSize={['16px', null, '20px']} color="failure" padding="0px 4px">
+              <Text fontSize={['16px', null, '20px']} color="secondary" padding="0px 4px">
                 or
               </Text>
-              <FinishedTextLink
-                external
-                color="failure"
-                fontSize={['16px', null, '20px']}
-                href="https://v1-farms.pancakeswap.finance/farms/history"
-              >
+              <FinishedTextLink external color="secondary" fontSize={['16px', null, '20px']} href="/#">
                 {t('check out v1 farms')}.
               </FinishedTextLink>
             </Flex>

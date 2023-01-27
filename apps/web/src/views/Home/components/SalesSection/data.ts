@@ -11,7 +11,7 @@ export const swapSectionData = (t: TranslateFunction): SalesSectionProps => ({
     external: false,
   },
   secondaryButton: {
-    to: 'https://docs.pancakeswap.finance/',
+    to: '#',
     text: t('Learn'),
     external: true,
   },
@@ -24,7 +24,7 @@ export const swapSectionData = (t: TranslateFunction): SalesSectionProps => ({
 
 export const earnSectionData = (t: TranslateFunction): SalesSectionProps => ({
   headingText: t('Earn passive income with crypto.'),
-  bodyText: t('PancakeSwap makes it easy to make your crypto work for you.'),
+  bodyText: t('Alien makes it easy to make your crypto work for you.'),
   reverse: true,
   primaryButton: {
     to: '/farms',
@@ -32,17 +32,13 @@ export const earnSectionData = (t: TranslateFunction): SalesSectionProps => ({
     external: false,
   },
   secondaryButton: {
-    to: 'https://docs.pancakeswap.finance/products/yield-farming',
+    to: '#',
     text: t('Learn'),
     external: true,
   },
   images: {
     path: '/images/alien/skull.gif',
-    attributes: [
-      { src: 'skull', alt: t('Pie chart') },
-      // { src: 'stonks', alt: t('Stocks chart') },
-      // { src: 'folder', alt: t('Folder with cake token') },
-    ],
+    attributes: [{ src: 'skull', alt: t('Pie chart') }],
   },
   firstWordlen: 3,
 })
@@ -52,10 +48,10 @@ export const cakeSectionData = (t: TranslateFunction): SalesSectionProps => ({
 
   images: {
     path: '/images/alien/skeleton.gif',
-    attributes: [{ src: 'skeleton', alt: t('Small 3d pancake') }],
+    attributes: [{ src: 'skeleton', alt: t('Small 3d Alien') }],
   },
   bodyText: t(
-    'Alien token is at the heart of the PancakeSwap ecosystem. Buy it, win it, farm it, spend it, stake it... heck, you can even vote with it.',
+    'Alien token is at the heart of the Alienswap ecosystem. Buy it, win it, farm it, spend it, stake it... heck, you can even vote with it.',
   ),
 
   reverse: false,
@@ -65,37 +61,9 @@ export const cakeSectionData = (t: TranslateFunction): SalesSectionProps => ({
     external: false,
   },
   secondaryButton: {
-    to: 'https://docs.pancakeswap.finance/tokenomics/cake',
+    to: '#',
     text: t('Learn'),
     external: true,
   },
   firstWordlen: 1,
 })
-// export const StartInSecondSectionData = (t: TranslateFunction): SalesSectionProps => ({
-
-//   headingText: t('START IN SECONDS'),
-
-//   images: {
-//     path: '/images/alien/space.svg',
-//     attributes: [
-//       { src: 'space', alt: t('Small 3d pancake') },
-
-//     ],
-//   },
-//   bodyText: t(
-//     'CAKE token is at the heart of the PancakeSwap ecosystem. Buy it, win it, farm it, spend it, stake it... heck, you can even vote with it',
-//   ),
-
-//   reverse: false,
-//   primaryButton: {
-//     to: '',
-//     text: t(''),
-//     external: false,
-//   },
-//   secondaryButton: {
-//     to: '',
-//     text: t(''),
-//     external:false,
-//   },
-
-// })

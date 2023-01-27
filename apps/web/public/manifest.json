@@ -1,7 +1,7 @@
 {
   "short_name": "Alien_swap",
   "name": "AlienSwap",
-  "description": "Farm CAKE with Pancake LP Tokens",
+  "description": "Farm Alien with Pancake LP Tokens",
   "homepage_url": "https://pancakeswap.finance",
   "start_url": ".",
   "display": "standalone",

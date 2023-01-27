@@ -67,7 +67,7 @@ const PancakeSquadHeader: React.FC<React.PropsWithChildren<PancakeSquadHeaderTyp
         </Link>
       </Flex>
       <StyledSquadTitle my="32px" color={lightColors.invertedContrast} bold textAlign="center">
-        {t('Pancake Squad')}
+        {t('Alien Squad')}
       </StyledSquadTitle>
       <Text color={lightColors.warning} textAlign="center" bold>
         {`${t('Presale:')} 04:00 UTC, Oct. 7`}
@@ -76,7 +76,7 @@ const PancakeSquadHeader: React.FC<React.PropsWithChildren<PancakeSquadHeaderTyp
         {`${t('Public Sale:')} 08:00 UTC, Oct. 7`}
       </Text>
       <Text color={lightColors.warning} textAlign="center" bold>
-        {t('Mint Cost: %minCost% CAKE each', {
+        {t('Mint Cost: %minCost% Alien each', {
           minCost: DEFAULT_CAKE_COST,
         })}
       </Text>

@@ -61,8 +61,8 @@ interface OverlayProps extends BoxProps {
 export const Overlay: FC<React.PropsWithChildren<OverlayProps>> = (props) => {
   return (
     <>
-      <BodyLock />
-      <StyledOverlay role="presentation" {...props} />
+      {/* <BodyLock /> */}
+      {/* <StyledOverlay role="presentation" {...props} /> */}
     </>
   );
 };

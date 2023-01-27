@@ -20,10 +20,6 @@ export interface SalesSectionProps {
   firstWordlen?: number
 }
 
-const StyledText = styled(Text)`
-  opacity: 0.5;
-`
-
 const SalesSection: React.FC<React.PropsWithChildren<SalesSectionProps>> = (props) => {
   const { headingText, bodyText, reverse, primaryButton, secondaryButton, images, firstWordlen } = props
 
@@ -48,9 +44,9 @@ const SalesSection: React.FC<React.PropsWithChildren<SalesSectionProps>> = (prop
           >
             <Image src={images.path} alt="gif" width={900} height={700} />
           </Flex>
-          <StyledText fontSize="16px" color="textSubtle" mb="24px" textAlign="center" width="80%" margin="0 auto">
+          <Text fontSize="16px" color="textSubtle" mb="24px" textAlign="center" width="80%" margin="0 auto">
             {bodyText}
-          </StyledText>
+          </Text>
           <Flex justifyContent="center" my="10px">
             <Button mr="16px">
               {primaryButton.external ? (

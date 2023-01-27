@@ -5,8 +5,7 @@ import { Button, ButtonProps, Flex } from '@pancakeswap/uikit'
 import { createWallets, getDocLink } from 'config/wallet'
 import { useActiveChainId } from 'hooks/useActiveChainId'
 import useAuth from 'hooks/useAuth'
-// @ts-ignore
-// eslint-disable-next-line import/extensions
+
 import { useActiveHandle } from 'hooks/useEagerConnect.bmp.ts'
 import { useMemo, useState } from 'react'
 import { useConnect } from 'wagmi'

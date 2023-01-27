@@ -81,7 +81,6 @@ const TabContainer = ({ children, docLink, docText }: PropsWithChildren<{ docLin
       <AtomBox position="absolute" style={{ top: '-50px' }}>
         <TabMenu activeIndex={index} onItemClick={setIndex} gap="0px" isColorInverse>
           <Tab>{t('Connect Wallet')}</Tab>
-          <Tab>{t('What’s a Web3 Wallet?')}</Tab>
         </TabMenu>
       </AtomBox>
       <AtomBox
@@ -97,7 +96,7 @@ const TabContainer = ({ children, docLink, docText }: PropsWithChildren<{ docLin
         width="full"
       >
         {index === 0 && children}
-        {index === 1 && <StepIntro docLink={docLink} docText={docText} />}
+        {/* {index === 1 && <StepIntro docLink={docLink} docText={docText} />} */}
       </AtomBox>
     </AtomBox>
   )

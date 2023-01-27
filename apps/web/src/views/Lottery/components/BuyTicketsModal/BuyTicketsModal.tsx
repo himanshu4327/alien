@@ -267,7 +267,7 @@ const BuyTicketsModal: React.FC<React.PropsWithChildren<BuyTicketsModalProps>> =
     })
 
   const getErrorMessage = () => {
-    if (userNotEnoughCake) return t('Insufficient CAKE balance')
+    if (userNotEnoughCake) return t('Insufficient Alien balance')
     return t('The maximum number of tickets you can buy in one transaction is %maxTickets%', {
       maxTickets: maxNumberTicketsPerBuyOrClaim.toString(),
     })
@@ -336,7 +336,7 @@ const BuyTicketsModal: React.FC<React.PropsWithChildren<BuyTicketsModalProps>> =
           {account && (
             <Flex justifyContent="flex-end">
               <Text fontSize="12px" color="textSubtle" mr="4px">
-                CAKE {t('Balance')}:
+                Alien {t('Balance')}:
               </Text>
               {hasFetchedBalance ? (
                 <Text fontSize="12px" color="textSubtle">
@@ -381,7 +381,7 @@ const BuyTicketsModal: React.FC<React.PropsWithChildren<BuyTicketsModalProps>> =
       <Flex flexDirection="column">
         <Flex mb="8px" justifyContent="space-between">
           <Text color="textSubtle" fontSize="14px">
-            {t('Cost')} (CAKE)
+            {t('Cost')} (Alien)
           </Text>
           <Text color="textSubtle" fontSize="14px">
             {priceTicketInCake && getFullDisplayBalance(priceTicketInCake.times(ticketsToBuy || 0))} CAKE

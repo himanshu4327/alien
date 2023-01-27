@@ -86,13 +86,7 @@ export function ChoosePair({
         {!account ? (
           <ConnectWalletButton width="100%" />
         ) : (
-          <CommitButton
-            data-test="choose-pair-next"
-            width="100%"
-            variant={!isValid ? 'danger' : 'primary'}
-            onClick={onNext}
-            disabled={!isValid}
-          >
+          <CommitButton data-test="choose-pair-next" width="100%" variant="Alien" onClick={onNext} disabled={!isValid}>
             {error ?? t('Add Liquidity')}
           </CommitButton>
         )}

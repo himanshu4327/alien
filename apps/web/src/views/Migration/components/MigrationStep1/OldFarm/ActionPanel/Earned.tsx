@@ -35,7 +35,7 @@ const Earned: React.FC<React.PropsWithChildren<EarnedProps>> = ({ earnings }) =>
           {Number(displayBalance) ? (
             <Balance fontSize="16px" value={Number(displayBalance)} />
           ) : (
-             <Text fontSize="16px">0</Text>
+            <Text fontSize="16px">0</Text>
           )}
         </Flex>
       </Flex>
@@ -46,7 +46,7 @@ const Earned: React.FC<React.PropsWithChildren<EarnedProps>> = ({ earnings }) =>
     <Container>
       <ActionTitles>
         <Text bold textTransform="uppercase" color="secondary" fontSize="12px" pr="4px">
-          {`CAKE ${t('Earned')}`}
+          {`Alien ${t('Earned')}`}
         </Text>
       </ActionTitles>
       <ActionContent>

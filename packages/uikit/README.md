@@ -1,4 +1,4 @@
-# 🥞 Pancake UIkit
+# UIkit
 
 [![Version](https://img.shields.io/npm/v/@pancakeswap/uikit)](https://www.npmjs.com/package/@pancakeswap/uikit) [![Size](https://img.shields.io/bundlephobia/min/@pancakeswap/uikit)](https://www.npmjs.com/package/@pancakeswap/uikit)
 
@@ -8,8 +8,7 @@ Pancake UIkit is a set of React components and hooks used to build pages on Panc
 
 `yarn add @pancakeswap/uikit`
 
-***Note**: In case you want to use the older version of the Pancake UIkit, you should install @pancakeswap-libs/uikit, instead, but we recommend using the latest version of the UIkit.*
-
+**\*Note**: In case you want to use the older version of the Pancake UIkit, you should install @pancakeswap-libs/uikit, instead, but we recommend using the latest version of the UIkit.\*
 
 ## Setup
 

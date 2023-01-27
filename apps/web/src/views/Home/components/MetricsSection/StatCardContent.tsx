@@ -1,9 +1,6 @@
 import { Heading, Flex, Text, useMatchBreakpoints } from '@pancakeswap/uikit'
 import styled from 'styled-components'
 
-const StyledText = styled(Text)`
-  opacity: 1;
-`
 const StatCardContent: React.FC<
   React.PropsWithChildren<{ headingText: string; bodyText: string; highlightColor: string }>
 > = ({ headingText, bodyText, highlightColor }) => {
@@ -56,9 +53,9 @@ const StatCardContent: React.FC<
         </Heading>
       )}
 
-      <StyledText color="textSubtle" textAlign="center">
+      <Text color="textSubtle" textAlign="center">
         {bodyText}
-      </StyledText>
+      </Text>
     </Flex>
   )
 }

@@ -45,7 +45,7 @@ const nftSaleConfigBuilder = ({ t, saleStatus, startTimestamp }: nftSaleType) =>
             startTimestamp,
           }),
           infoText: t(
-            'Public Sale: Any wallet with an active Pancake Profile can purchase up to 10 Squad Tickets, while stocks last.',
+            'Public Sale: Any wallet with an active Alien Profile can purchase up to 10 Squad Tickets, while stocks last.',
           ),
         },
         {
@@ -53,7 +53,7 @@ const nftSaleConfigBuilder = ({ t, saleStatus, startTimestamp }: nftSaleType) =>
           text: getEventText({ saleStatus, eventStatus: [SaleStatusEnum.Claim], t }),
           altText: getAltText({ t, saleStatus, eventStatus: [SaleStatusEnum.Claim] }),
           infoText: t(
-            'During this phase, any wallet holding a Squad Ticket can redeem their ticket to mint a Pancake Squad NFT.',
+            'During this phase, any wallet holding a Squad Ticket can redeem their ticket to mint a Alien Squad NFT.',
           ),
         },
       ]

@@ -57,13 +57,13 @@ const FAQ = () => {
             <Text fontSize="14px" color="textSubtle">
               -{' '}
               {t(
-                'Prizes to be distributed in CAKE and DAR in a distribution of 1:5 and shared by all members of each respective tier.',
+                'Prizes to be distributed in Alien and DAR in a distribution of 1:5 and shared by all members of each respective tier.',
               )}
             </Text>
             <Text fontSize="14px" color="textSubtle">
               -{' '}
               {t(
-                'The price of token prizes ($CAKE and $DAR) in USD will be determined as per their BUSD pair price during the tally period.',
+                'The price of token prizes ($Alien and $DAR) in USD will be determined as per their BUSD pair price during the tally period.',
               )}
             </Text>
             <Text fontSize="14px" color="textSubtle">
