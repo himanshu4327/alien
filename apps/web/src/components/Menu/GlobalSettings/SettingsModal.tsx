@@ -105,7 +105,7 @@ const SettingsModal: React.FC<React.PropsWithChildren<InjectedModalProps>> = ({ 
   }
 
   return (
-    <Modal headerBackground="gradientCardHeader" onDismiss={onDismiss}>
+    <Modal headerBackground="gradientCardHeader" onDismiss={onDismiss} title="modal">
       <ScrollableContainer>
         {mode === SettingsMode.GLOBAL && (
           <>

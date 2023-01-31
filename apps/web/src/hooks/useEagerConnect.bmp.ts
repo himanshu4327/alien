@@ -1,6 +1,5 @@
 /* eslint-disable no-console */
 import { useCallback } from 'react'
-
 import { useToast } from '@pancakeswap/uikit'
 import { useTranslation } from '@pancakeswap/localization'
 import { MiniProgramConnector } from '@pancakeswap/wagmi/connectors/miniProgram'

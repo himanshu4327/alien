@@ -1,5 +1,6 @@
 import { Flex, Link, LinkExternal, Skeleton, Text, TimerIcon, Balance, Pool } from '@pancakeswap/uikit'
 import AddToWalletButton, { AddToWalletTextOptions } from 'components/AddToWallet/AddToWalletButton'
+import AddToWalletCardView from 'components/AddToWallet/AddToWalletCardView'
 import { bsc } from '@pancakeswap/wagmi/chains'
 import { useTranslation } from '@pancakeswap/localization'
 import { memo } from 'react'
@@ -11,7 +12,7 @@ import { getAddress, getVaultPoolAddress } from 'utils/addressHelpers'
 import { BIG_ZERO } from '@pancakeswap/utils/bigNumber'
 import { getPoolBlockInfo } from 'views/Pools/helpers'
 import { Token } from '@pancakeswap/sdk'
-import MaxStakeRow from './MaxStakeRow'
+
 import { AprInfo, DurationAvg, PerformanceFee, TotalLocked, TotalStaked } from './Stat'
 import {
   CardTotalLocked,
@@ -20,7 +21,8 @@ import {
   CardViewPerformanceFee,
   CardViewTotalStaked,
 } from './CardViewStats'
-import AddToWalletCardView from 'components/AddToWallet/AddToWalletCardView'
+
+import MaxStakeRow from './MaxStakeRow'
 
 interface ExpandedFooterProps {
   pool: Pool.DeserializedPool<Token>

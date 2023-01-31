@@ -30,7 +30,7 @@ const LotteryCard = ({ prizeTotal }) => {
           d="M592.593 1H1V312.086H192.505L230.319 345H667V65.7654L592.593 1Z"
           fill="url(#paint0_radial_803_159)"
           stroke="#00F666"
-          stroke-width="2"
+          strokeWidth="2"
           id="mask"
           clipPathUnits="objectBoundingBox"
         />
@@ -43,8 +43,8 @@ const LotteryCard = ({ prizeTotal }) => {
           fill="white"
         />
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M583.431 127.024C577.259 89.9889 540.258 61.9941 505.306 71.6059C470.448 81.1918 442.885 129.343 464.084 195.44C481.463 249.628 520.568 271.404 544.59 275.224C551.478 276.037 567.749 272.415 575.415 250.114C580.293 235.924 583.868 214.534 585.434 191.947C586.999 169.37 586.547 145.718 583.431 127.024ZM504.593 69.012C541.378 58.896 579.703 88.2916 586.085 126.582C589.246 145.55 589.691 169.425 588.118 192.133C586.544 214.83 582.946 236.483 577.959 250.989C569.852 274.573 552.316 278.861 544.245 277.892L544.22 277.889L544.195 277.885C519.193 273.921 479.224 251.456 461.522 196.262C440.05 129.311 467.712 79.1539 504.593 69.012ZM524.186 197.783C520.63 204.411 506.163 203.571 491.874 195.905C477.584 188.24 468.882 176.652 472.438 170.024C475.994 163.396 490.46 164.236 504.75 171.902C519.04 179.567 527.741 191.154 524.186 197.783ZM558.255 173.763C548.958 180.476 544.197 189.761 547.621 194.503C551.044 199.244 561.356 197.647 570.653 190.934C579.95 184.222 584.711 174.936 581.287 170.195C577.864 165.453 567.552 167.051 558.255 173.763Z"
           fill="url(#paint1_linear_803_159)"
         />
@@ -57,8 +57,8 @@ const LotteryCard = ({ prizeTotal }) => {
             gradientUnits="userSpaceOnUse"
             gradientTransform="translate(334 377.5) rotate(-90) scale(219.5 427.447)"
           >
-            <stop stop-color="#00F666" stop-opacity="0.45" />
-            <stop offset="1" stop-color="#00F666" stop-opacity="0" />
+            <stop stopColor="#00F666" stopOpacity="0.45" />
+            <stop offset="1" stopColor="#00F666" stopOpacity="0" />
           </radialGradient>
           <linearGradient
             id="paint1_linear_803_159"
@@ -68,8 +68,8 @@ const LotteryCard = ({ prizeTotal }) => {
             y2="-20.5"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#00F666" />
-            <stop offset="1" stop-color="#00F666" stop-opacity="0" />
+            <stop stopColor="#00F666" />
+            <stop offset="1" stopColor="#00F666" stopOpacity="0" />
           </linearGradient>
         </defs>
       </Svg>

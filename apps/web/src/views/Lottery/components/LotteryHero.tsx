@@ -81,7 +81,11 @@ const StyledBuyTicketButton = styled(BuyTicketsButton)<{ disabled: boolean }>`
     width: 240px;
   }
 `
-
+const PrizeTotalBalance = styled(Balance)`
+  background: ${({ theme }) => theme.colors.gradientGold};
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+`
 const ButtonWrapper = styled.div`
   z-index: 1;
   position: absolute;

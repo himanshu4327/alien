@@ -18,7 +18,7 @@ interface TypeProps {
 const IwoContainer: React.FC<React.PropsWithChildren<TypeProps>> = ({ ifoSection, ifoSteps }) => {
   const { t } = useTranslation()
 
-  return <Flex width="100%" height="400px" border="1px solid"></Flex>
+  return <Flex width="100%" height="400px" border="1px solid" />
 }
 
 export default IwoContainer

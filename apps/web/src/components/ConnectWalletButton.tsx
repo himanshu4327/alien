@@ -6,7 +6,7 @@ import { createWallets, getDocLink } from 'config/wallet'
 import { useActiveChainId } from 'hooks/useActiveChainId'
 import useAuth from 'hooks/useAuth'
 
-import { useActiveHandle } from 'hooks/useEagerConnect.bmp.ts'
+import { useActiveHandle } from 'hooks/useEagerConnect.bmp'
 import { useMemo, useState } from 'react'
 import { useConnect } from 'wagmi'
 import Trans from './Trans'
