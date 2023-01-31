@@ -56,6 +56,8 @@ const config = {
   swcMinify: true,
 
   images: {
+    loader: 'akamai',
+    path: '',
     remotePatterns: [
       {
         protocol: 'https',
