@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { Text, Flex, AccountIcon, TeamBattleIcon, Box, useTooltip, LinkExternal } from '@pancakeswap/uikit'
-import { useAccount } from 'wagmi'
+import { useWeb3React } from '@pancakeswap/wagmi'
 import { useTranslation } from '@pancakeswap/localization'
 
 import OkNFTIcon from './Icons/OkNFT'
@@ -12,7 +12,7 @@ const NotOkNFT = ({ admissionProfile }) => {
 
   const keyword = '%Pancake Squad NFT%'
 
-  const rawText = t(`Set %Pancake Squad NFT% as Alien Profile avatar`)
+  const rawText = t(`Set %Pancake Squad NFT% as Pancake Profile avatar`)
 
   return (
     <TransWithElement
@@ -24,7 +24,7 @@ const NotOkNFT = ({ admissionProfile }) => {
             style={{ display: 'inline' }}
             href={`https://pancakeswap.finance/nfts/collections/${admissionProfile}`}
           >
-            {t('Alien Squad NFT')}
+            {t('Pancake Squad NFT')}
           </LinkExternal>
           <br />
         </>
@@ -34,7 +34,7 @@ const NotOkNFT = ({ admissionProfile }) => {
 }
 
 const NotOkProfilePoints = ({ pointThreshold }) => {
-  const { address: account } = useAccount()
+  const { account } = useWeb3React()
   const { t } = useTranslation()
 
   const keyword = '%Pancake Profile%'
@@ -52,7 +52,7 @@ const NotOkProfilePoints = ({ pointThreshold }) => {
             style={{ display: 'inline' }}
             href={`https://pancakeswap.finance/profile/${account}/achievements/`}
           >
-            {t('Alien Profile')}
+            {t('Pancake Profile')}
           </LinkExternal>
         </>
       }

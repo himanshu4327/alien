@@ -76,4 +76,9 @@ export const styleVariants = {
     background: "linear-gradient(242.24deg, #00F666 -86.49%, rgba(0, 246, 102, 0) 96.54%)",
     boxShadow: "inset 10px 0px 4px 1px #fff;",
   },
+  [variants.MODALACTIVE]: {
+    background: "linear-gradient(242.24deg, #00F666 -86.49%, rgba(0, 246, 102, 0) 96.54%)",
+    boxShadow: "0px 0px 10px 0px rgba(0, 246, 102, 0.5)",
+    border: "0.5px solid #00F666",
+  },
 };

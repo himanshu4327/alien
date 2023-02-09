@@ -15,7 +15,7 @@ import {
   ErrorIcon,
   BalanceWithLoading,
 } from '@pancakeswap/uikit'
-import { useAccount } from 'wagmi'
+import { useWeb3React } from '@pancakeswap/wagmi'
 import { Token } from '@pancakeswap/sdk'
 import { Ifo, PoolIds } from 'config/constants/types'
 import { bscTokens } from '@pancakeswap/tokens'
@@ -46,7 +46,7 @@ const TokenSection: React.FC<React.PropsWithChildren<TokenSectionProps>> = ({
 }) => {
   const renderTokenComponent = () => {
     if (!primaryToken) {
-      return <BunnyPlaceholderIcon width={32} mr="16px" />
+      // return <BunnyPlaceholderIcon width={32} mr="16px" />
     }
 
     if (primaryToken && secondaryToken) {
@@ -83,9 +83,15 @@ const CommitTokenSection: React.FC<React.PropsWithChildren<TokenSectionProps & {
   return <TokenSection primaryToken={commitToken} {...props} />
 }
 
-const Label = (props) => <Text bold fontSize="12px" color="secondary" textTransform="uppercase" {...props} />
+const Label = (props) => {
+  // console.log('labelprops', props)
+  return <Text bold fontSize="12px" color="secondary" textTransform="uppercase" {...props} />
+}
 
-const Value = (props) => <Text bold fontSize="20px" style={{ wordBreak: 'break-all' }} {...props} />
+const Value = (props) => {
+  // console.log('valueprops', props)
+  return <Text bold fontSize="20px" style={{ wordBreak: 'break-all' }} {...props} />
+}
 
 interface IfoCardTokensProps {
   poolId: PoolIds
@@ -131,16 +137,17 @@ const IfoCardTokens: React.FC<React.PropsWithChildren<IfoCardTokensProps>> = ({
   onApprove,
   enableStatus,
 }) => {
-  const { address: account } = useAccount()
+  const { account } = useWeb3React()
   const { t } = useTranslation()
   const { targetRef, tooltip, tooltipVisible } = useTooltip(
     t(
-      'Sorry, you didn’t contribute enough Alien to meet the minimum threshold. You didn’t buy anything in this sale, but you can still reclaim your CAKE.',
+      'Sorry, you didn’t contribute enough CAKE to meet the minimum threshold. You didn’t buy anything in this sale, but you can still reclaim your CAKE.',
     ),
     { placement: 'bottom' },
   )
 
   const publicPoolCharacteristics = publicIfoData[poolId]
+
   const userPoolCharacteristics = walletIfoData[poolId]
   const { offeringAmountInToken, amountTokenCommittedInLP, refundingAmountInLP } = userPoolCharacteristics
   const spentAmount = amountTokenCommittedInLP.minus(refundingAmountInLP)
@@ -172,9 +179,11 @@ const IfoCardTokens: React.FC<React.PropsWithChildren<IfoCardTokensProps>> = ({
   }, [criterias])
 
   const renderTokenSection = () => {
+
     if (isLoading) {
       return <SkeletonCardTokens />
     }
+
     if (!account) {
       return (
         <OnSaleInfo
@@ -184,25 +193,29 @@ const IfoCardTokens: React.FC<React.PropsWithChildren<IfoCardTokensProps>> = ({
         />
       )
     }
+    
 
     let message
+    // commented profile section
+    // if (account && !hasProfile) {
+    //   message = (
+    //     <Message my="24px" p="8px" variant="warning">
+    //       <Box>
+    //         <MessageText display="inline">
+    //           {publicIfoData.status === 'finished'
+    //             ? t('Activate PancakeSwap Profile to take part in next IFO‘s!')
+    //             : t('You need an active PancakeSwap Profile to take part in an IFO!')}
+    //         </MessageText>{' '}
+    //         <MessageTextLink href="/ifo#ifo-how-to" color="#D67E0A" display="inline">
+    //           {t('How does it work?')} »
+    //         </MessageTextLink>
+    //       </Box>
+    //     </Message>
+    //   )
+    // }
 
-    if (account && !hasProfile) {
-      message = (
-        <Message my="24px" p="8px" variant="warning">
-          <Box>
-            <MessageText display="inline">
-              {publicIfoData.status === 'finished'
-                ? t('Activate PancakeSwap Profile to take part in next IFO‘s!')
-                : t('You need an active PancakeSwap Profile to take part in an IFO!')}
-            </MessageText>{' '}
-            <MessageTextLink href="/ifo#ifo-how-to" color="#D67E0A" display="inline">
-              {t('How does it work?')} »
-            </MessageTextLink>
-          </Box>
-        </Message>
-      )
-    }
+
+
 
     const ifov31Msg =
       ifo.version >= 3.1 && poolId === PoolIds.poolBasic && criterias?.length > 0 ? (
@@ -238,7 +251,7 @@ const IfoCardTokens: React.FC<React.PropsWithChildren<IfoCardTokensProps>> = ({
       message = (
         <Message my="24px" p="8px" variant="danger">
           <Box>
-            <MessageText display="inline">{t('You don’t have any Alien available for IFO public sale.')}</MessageText>{' '}
+            <MessageText display="inline">{t('You don’t have any iCAKE available for IFO public sale.')}</MessageText>{' '}
             <MessageTextLink display="inline" fontWeight={700} href="/ifo#ifo-how-to" color="failure">
               {t('How does it work?')} »
             </MessageTextLink>
@@ -247,23 +260,25 @@ const IfoCardTokens: React.FC<React.PropsWithChildren<IfoCardTokensProps>> = ({
       )
     }
 
-    if (account && !hasProfile) {
-      return (
-        <>
-          <OnSaleInfo
-            token={token}
-            distributionRatio={distributionRatio}
-            saleAmount={ifo.version >= 3 ? publicIfoData[poolId].offeringAmountPool : ifo[poolId].saleAmount}
-          />
-          {message}
-        </>
-      )
-    }
+
+    // if (account && !hasProfile) {
+    //   return (
+    //     <>
+    //       <OnSaleInfo
+    //         token={token}
+    //         distributionRatio={distributionRatio}
+    //         saleAmount={ifo.version >= 3 ? publicIfoData[poolId].offeringAmountPool : ifo[poolId].saleAmount}
+    //       />
+    //       {message}
+    //     </>
+    //   )
+    // }
 
     message = ifov31Msg || message
 
     if (publicIfoData.status === 'coming_soon') {
       return (
+
         <>
           <TokenSection primaryToken={ifo.token}>
             <Label>{t('On sale')}</Label>
@@ -275,7 +290,7 @@ const IfoCardTokens: React.FC<React.PropsWithChildren<IfoCardTokensProps>> = ({
             {t('%ratio%% of total sale', { ratio: distributionRatio })}
           </Text>
           {message}
-          {enableStatus !== EnableStatus.ENABLED && account && (
+          {/* {enableStatus !== EnableStatus.ENABLED && account && (
             <Button
               width="100%"
               mt="16px"
@@ -285,14 +300,25 @@ const IfoCardTokens: React.FC<React.PropsWithChildren<IfoCardTokensProps>> = ({
             >
               {t('Enable')}
             </Button>
-          )}
+          )} */}
         </>
       )
     }
     if (publicIfoData.status === 'live') {
       return (
         <>
-          <CommitTokenSection commitToken={ifo.currency} mb="24px">
+
+        <TokenSection primaryToken={ifo.token}>
+            <Label>{t('On sale')}</Label>
+            <Value>{`${formatNumber(getBalanceNumber(publicIfoData[poolId].offeringAmountPool), 0, 0)} ${
+              token.symbol
+            }`}</Value>
+          </TokenSection>
+          <Text fontSize="14px" color="textSubtle" pl="48px">
+            {t('%ratio%% of total sale', { ratio: distributionRatio })}
+          </Text>
+    
+          <CommitTokenSection commitToken={ifo.currency} my="24px">
             <Label>{t('Your %symbol% committed', { symbol: currency.symbol })}</Label>
             <Value>{getBalanceNumber(amountTokenCommittedInLP, currency.decimals)}</Value>
             <PercentageOfTotal
@@ -336,17 +362,17 @@ const IfoCardTokens: React.FC<React.PropsWithChildren<IfoCardTokensProps>> = ({
     if (publicIfoData.status === 'finished') {
       return amountTokenCommittedInLP.isEqualTo(0) ? (
         <Flex flexDirection="column" alignItems="center">
-          <BunnyPlaceholderIcon width={80} mb="16px" />
+          {/* <BunnyPlaceholderIcon width={80} mb="16px" /> */}
           <Text fontWeight={600}>{t('You didn’t participate in this sale!')}</Text>
           {ifov31Msg || (
             <>
-              <Text textAlign="center" fontSize="14px">
-                {t('To participate in the next IFO, lock some Alien in the fixed-term staking Alien pool!')}
-              </Text>
-              <MessageTextLink href="/ifo#ifo-how-to" textAlign="center">
+              {/* <Text textAlign="center" fontSize="14px">
+                {t('To participate in the next IFO, lock some CAKE in the fixed-term staking CAKE pool!')}
+              </Text> */}
+              {/* <MessageTextLink href="/ifo#ifo-how-to" textAlign="center">
                 {t('How does it work?')} »
-              </MessageTextLink>
-              <StakeVaultButton mt="24px" />
+              </MessageTextLink> */}
+              {/* <StakeVaultButton mt="24px" /> */}
             </>
           )}
         </Flex>

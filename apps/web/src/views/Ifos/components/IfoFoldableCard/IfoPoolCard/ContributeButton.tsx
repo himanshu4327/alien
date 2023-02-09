@@ -3,7 +3,8 @@ import { Button, useModal, useToast } from '@pancakeswap/uikit'
 import BigNumber from 'bignumber.js'
 import { ToastDescriptionWithTx } from 'components/Toast'
 import { Ifo, PoolIds } from 'config/constants/types'
-import useTokenBalance from 'hooks/useTokenBalance'
+import useTokenBalance, {useGetNativeBalance} from 'hooks/useTokenBalance'
+
 import { useCurrentBlock } from 'state/block/hooks'
 import { getBalanceNumber } from '@pancakeswap/utils/formatBalance'
 import { PublicIfoData, WalletIfoData } from 'views/Ifos/types'
@@ -24,7 +25,9 @@ const ContributeButton: React.FC<React.PropsWithChildren<Props>> = ({ poolId, if
   const { t } = useTranslation()
   const { toastSuccess } = useToast()
   const currentBlock = useCurrentBlock()
-  const { balance: userCurrencyBalance } = useTokenBalance(ifo.currency.address)
+  // const { balance: userCurrencyBalance } = useTokenBalance(ifo.currency.address)
+  const { balance: userCurrencyBalance } = useGetNativeBalance()
+  
 
   // Refetch all the data, and display a message when fetching is done
   const handleContributeSuccess = async (amount: BigNumber, txHash: string) => {
@@ -32,7 +35,7 @@ const ContributeButton: React.FC<React.PropsWithChildren<Props>> = ({ poolId, if
     toastSuccess(
       t('Success!'),
       <ToastDescriptionWithTx txHash={txHash}>
-        {t('You have contributed %amount% Alien to this IFO!', {
+        {t('You have contributed %amount% CAKE to this IFO!', {
           amount: getBalanceNumber(amount),
         })}
       </ToastDescriptionWithTx>,
@@ -70,7 +73,7 @@ const ContributeButton: React.FC<React.PropsWithChildren<Props>> = ({ poolId, if
       width="100%"
       disabled={isDisabled}
     >
-      {isMaxCommitted && publicIfoData.status === 'live' ? t('Max. Committed') : t('Commit CAKE')}
+      {isMaxCommitted && publicIfoData.status === 'live' ? t('Max. Committed') : t('Contribute')}
     </Button>
   )
 }

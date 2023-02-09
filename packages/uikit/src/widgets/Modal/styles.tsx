@@ -14,7 +14,6 @@ export const ModalHeader = styled.div<{ background?: string }>`
   //border-bottom: 1px solid ${({ theme }) => theme.colors.cardBorder};
   display: flex;
   padding: 12px 24px;
-
   ${({ theme }) => theme.mediaQueries.md} {
     background: ${({ background }) => background || "transparent"};
   }
@@ -43,7 +42,7 @@ export const ModalCloseButton: React.FC<React.PropsWithChildren<{ onDismiss: Mod
 }) => {
   return (
     <IconButton variant="text" onClick={onDismiss} aria-label="Close the dialog">
-      <CloseIcon color="primary" />
+      <CloseIcon color="#fff" />
     </IconButton>
   );
 };
@@ -58,10 +57,11 @@ export const ModalBackButton: React.FC<React.PropsWithChildren<{ onBack: ModalPr
 
 export const ModalContainer = styled(MotionBox)<{ $minWidth: string }>`
   overflow: hidden;
-  background: #1e1e1e;
-  box-shadow: 0px 20px 36px -8px rgba(14, 14, 44, 0.1), 0px 1px 1px rgba(0, 0, 0, 0.05);
+  background: radial-gradient(78.23% 34.54% at 49.89% 118.47%, #00f666 0%, rgba(2, 73, 32, 0.2) 100%);
+  backdrop-filter: blur(5.5px);
+  box-shadow: -1px -1px 1px 0px rgba(0, 246, 102, 0.5), 0px 1px 1px #00f666;
   //border: 1px solid ${({ theme }) => theme.colors.cardBorder};
-  border-radius: 32px 32px 0px 0px;
+  // border-radius: 32px 32px 0px 0px;
   width: 100%;
   max-height: calc(var(--vh, 1vh) * 100);
   z-index: ${({ theme }) => theme.zIndices.modal};
@@ -73,7 +73,6 @@ export const ModalContainer = styled(MotionBox)<{ $minWidth: string }>`
     width: auto;
     position: auto;
     bottom: auto;
-    border-radius: 32px;
     max-height: 100vh;
   }
 `;

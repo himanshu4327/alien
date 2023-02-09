@@ -55,6 +55,7 @@ import erc721Abi from 'config/abi/erc721.json'
 import lpTokenAbi from 'config/abi/lpToken.json'
 import cakeAbi from 'config/abi/cake.json'
 import ifoV1Abi from 'config/abi/ifoV1.json'
+import ifoV1AbiNative from 'config/abi/ifoV1Native.json'
 import ifoV2Abi from 'config/abi/ifoV2.json'
 import pointCenterIfo from 'config/abi/pointCenterIfo.json'
 import lotteryV2Abi from 'config/abi/lotteryV2.json'
@@ -176,6 +177,9 @@ export const getLpContract = (address: string, chainId?: number, signer?: Signer
 }
 export const getIfoV1Contract = (address: string, signer?: Signer | Provider) => {
   return getContract({ abi: ifoV1Abi, address, signer }) as IfoV1
+}
+export const getIfoV1NativeContract = (address: string, signer?: Signer | Provider) => {
+  return getContract({ abi: ifoV1AbiNative, address, signer }) as IfoV1
 }
 export const getIfoV2Contract = (address: string, signer?: Signer | Provider) => {
   return getContract({ abi: ifoV2Abi, address, signer }) as IfoV2

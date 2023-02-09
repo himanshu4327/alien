@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Flex } from "../../../../components";
 
 const Label = styled.div`
   font-size: 12px;
@@ -11,9 +12,11 @@ const Label = styled.div`
 
 const ContentContainer = styled.div`
   min-height: 24px;
-
   display: flex;
   align-items: center;
+  width: 100%;
+  justify-content: space-evenly;
+  color: #fff;
 `;
 
 interface CellLayoutProps {
@@ -22,10 +25,10 @@ interface CellLayoutProps {
 
 const CellLayout: React.FC<React.PropsWithChildren<CellLayoutProps>> = ({ label = "", children }) => {
   return (
-    <div>
+    <Flex flexDirection="column" justifyContent="center">
       {label && <Label>{label}</Label>}
       <ContentContainer>{children}</ContentContainer>
-    </div>
+    </Flex>
   );
 };
 

@@ -43,7 +43,9 @@ const AppHeader: React.FC<React.PropsWithChildren<Props>> = ({ title, subtitle, 
         <Flex flexDirection="column" width="100%">
           <Flex mb="8px" alignItems="center" justifyContent="center">
             <Flex alignItems="center">
-              <Heading as="h2">{title}</Heading>
+              <Heading as="h2" color="#fff">
+                {title}
+              </Heading>
               {/* {helper && <QuestionHelper text={helper} ml="4px" placement="top-start" />} */}
             </Flex>
             {!noConfig && (
@@ -56,7 +58,7 @@ const AppHeader: React.FC<React.PropsWithChildren<Props>> = ({ title, subtitle, 
             )}
           </Flex>
           <Flex alignItems="center">
-            <Text style={{ opacity: '0.5' }} color="textSubtle" fontSize="14px">
+            <Text color="textSubtle" fontSize="14px">
               {subtitle}
             </Text>
           </Flex>

@@ -10,7 +10,7 @@ interface Props extends BoxProps {
 const QuestionWrapper = styled.div`
   :hover,
   :focus {
-    opacity: 0.7;
+    opacity: 0.3;
   }
 `;
 
@@ -26,7 +26,7 @@ export const QuestionHelper: React.FC<React.PropsWithChildren<Props>> = ({
     <Box {...props}>
       {tooltipVisible && tooltip}
       <QuestionWrapper ref={targetRef}>
-        <HelpIcon color="#fff" width={size} />
+        <HelpIcon color="#ccc" width={size} />
       </QuestionWrapper>
     </Box>
   );

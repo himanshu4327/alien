@@ -36,6 +36,7 @@ import {
   getErc721Contract,
   getFarmAuctionContract,
   getIfoV1Contract,
+  getIfoV1NativeContract,
   getIfoV2Contract,
   getIfoV3Contract,
   getLotteryV2Contract,
@@ -83,6 +84,11 @@ import { useActiveChainId } from './useActiveChainId'
 export const useIfoV1Contract = (address: string) => {
   const { data: signer } = useSigner()
   return useMemo(() => getIfoV1Contract(address, signer), [address, signer])
+}
+
+export const useIfoV1NativeContract = (address: string) => {
+  const { data: signer } = useSigner()
+  return useMemo(() => getIfoV1NativeContract(address, signer), [address, signer])
 }
 
 export const useIfoV2Contract = (address: string) => {

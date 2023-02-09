@@ -2,7 +2,11 @@ import { Flex, Button, Text, QuestionHelper } from '@pancakeswap/uikit'
 import { useTranslation } from '@pancakeswap/localization'
 import { useGasPriceManager } from 'state/user/hooks'
 import { GAS_PRICE_GWEI, GAS_PRICE } from 'state/types'
+import styled from 'styled-components'
 
+const StyledFlex = styled(Flex)`
+  box-shadow: 0px 0px 2px 0.5px #00f666;
+`
 const GasSettings = () => {
   const { t } = useTranslation()
   const [gasPrice, setGasPrice] = useGasPriceManager()
@@ -19,52 +23,44 @@ const GasSettings = () => {
           ml="4px"
         />
       </Flex>
-      <Flex flexWrap="wrap">
+      <StyledFlex flexWrap="wrap">
         <Button
-          mt="4px"
-          mr="4px"
           scale="sm"
           onClick={() => {
             setGasPrice(GAS_PRICE_GWEI.rpcDefault)
           }}
-          variant={gasPrice === GAS_PRICE_GWEI.rpcDefault ? 'Alien' : 'tertiary'}
+          variant={gasPrice === GAS_PRICE_GWEI.rpcDefault ? 'ModalActive' : 'tertiary'}
         >
           {t('RPC Default')}
         </Button>
         <Button
-          mt="4px"
-          mr="4px"
           scale="sm"
           onClick={() => {
             setGasPrice(GAS_PRICE_GWEI.default)
           }}
-          variant={gasPrice === GAS_PRICE_GWEI.default ? 'Alien' : 'tertiary'}
+          variant={gasPrice === GAS_PRICE_GWEI.default ? 'ModalActive' : 'tertiary'}
         >
           {t('Standard (%gasPrice%)', { gasPrice: GAS_PRICE.default })}
         </Button>
         <Button
-          mt="4px"
-          mr="4px"
           scale="sm"
           onClick={() => {
             setGasPrice(GAS_PRICE_GWEI.fast)
           }}
-          variant={gasPrice === GAS_PRICE_GWEI.fast ? 'Alien' : 'tertiary'}
+          variant={gasPrice === GAS_PRICE_GWEI.fast ? 'ModalActive' : 'tertiary'}
         >
           {t('Fast (%gasPrice%)', { gasPrice: GAS_PRICE.fast })}
         </Button>
         <Button
-          mr="4px"
-          mt="4px"
           scale="sm"
           onClick={() => {
             setGasPrice(GAS_PRICE_GWEI.instant)
           }}
-          variant={gasPrice === GAS_PRICE_GWEI.instant ? 'Alien' : 'tertiary'}
+          variant={gasPrice === GAS_PRICE_GWEI.instant ? 'ModalActive' : 'tertiary'}
         >
           {t('Instant (%gasPrice%)', { gasPrice: GAS_PRICE.instant })}
         </Button>
-      </Flex>
+      </StyledFlex>
     </Flex>
   )
 }

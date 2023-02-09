@@ -7,7 +7,7 @@ import IfoCardV3Data from './components/IfoCardV3Data'
 import IfoLayout from './components/IfoLayout'
 
 const inactiveIfo: Ifo[] = ifosConfig.filter((ifo) => !ifo.isActive)
-
+ 
 const PastIfo = () => {
   return (
     <Container>

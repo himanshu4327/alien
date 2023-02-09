@@ -161,7 +161,7 @@ const config: (
           href: '/info',
         },
         {
-          label: t('IWO'),
+          label: t('ILO'),
           href: '/iwo',
           supportChainIds: SUPPORT_ONLY_BSC,
           image: '/images/ifos/ifo-bunny.png',

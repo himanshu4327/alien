@@ -42,7 +42,7 @@ const getBorderColor = ({ isActive, isSuccess, isWarning, borderBackground, them
 };
 
 export const StyledCard = styled.div<StyledCardProps>`
-  background: radial-gradient(78.23% 34.54% at 49.89% 118.47%, #00f666 0%, rgba(2, 73, 32, 0.2) 100%);
+  background: radial-gradient(78.23% 23.54% at 49.89% 118.47%, #00f666 0%, rgba(2, 73, 32, 0.2) 100%);
   backdrop-filter: blur(5.5px);
   border-radius: ${({ theme }) => theme.radii.card};
   color: ${({ theme, isDisabled }) => theme.colors[isDisabled ? "textDisabled" : "text"]};
@@ -50,7 +50,7 @@ export const StyledCard = styled.div<StyledCardProps>`
   position: relative;
   border-radius: 0;
   // max-width: 320px;
-  box-shadow: 1px 0px 1px #00f666, 0px -1px 1px #00f666;
+  box-shadow: -1px 1px 1px #00f666, -1px -1px 1px #00f666;
   ${({ isActive }) =>
     isActive &&
     css`
@@ -66,7 +66,7 @@ export const StyledCardInner = styled(Box)<{ background?: string; hasCustomBorde
   // width: 100%;
   height: 100%;
   overflow: ${({ hasCustomBorder }) => (hasCustomBorder ? "initial" : "inherit")};
-  background: radial-gradient(50.44% 30.44% at 50.26% 117.85%, #00f666 0%, rgba(0, 0, 0, 0.2) 100%);
+  // background: radial-gradient(50.44% 30.44% at 50.26% 117.85%, #00f666 0%, rgba(0, 0, 0, 0.2) 100%);
   backdrop-filter: blur(7.5px);
   //background: #00190a;
   border-radius: 0px;

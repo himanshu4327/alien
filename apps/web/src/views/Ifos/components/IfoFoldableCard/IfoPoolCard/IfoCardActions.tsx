@@ -1,6 +1,6 @@
 import { useTranslation } from '@pancakeswap/localization'
 import { Button, NextLinkFromReactRouter } from '@pancakeswap/uikit'
-import { useAccount } from 'wagmi'
+import { useWeb3React } from '@pancakeswap/wagmi'
 import { Ifo, PoolIds } from 'config/constants/types'
 import { WalletIfoData, PublicIfoData } from 'views/Ifos/types'
 import ConnectWalletButton from 'components/ConnectWalletButton'
@@ -31,7 +31,7 @@ const IfoCardActions: React.FC<React.PropsWithChildren<Props>> = ({
   enableStatus,
 }) => {
   const { t } = useTranslation()
-  const { address: account } = useAccount()
+  const { account } = useWeb3React()
   const userPoolCharacteristics = walletIfoData[poolId]
 
   if (isLoading) {
@@ -42,13 +42,13 @@ const IfoCardActions: React.FC<React.PropsWithChildren<Props>> = ({
     return <ConnectWalletButton width="100%" />
   }
 
-  if (!hasProfile) {
-    return (
-      <Button as={NextLinkFromReactRouter} to={`/profile/${account.toLowerCase()}`} width="100%">
-        {t('Activate your Profile')}
-      </Button>
-    )
-  }
+  // if (!hasProfile) {
+  //   return (
+  //     <Button as={NextLinkFromReactRouter} to={`/profile/${account.toLowerCase()}`} width="100%">
+  //       {t('Activate your Profile')}
+  //     </Button>
+  //   )
+  // }
 
   const needClaim =
     publicIfoData.status === 'finished' &&

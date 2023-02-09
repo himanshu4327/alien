@@ -14,7 +14,7 @@ const BoostedTag: React.FC<BoostedTag> = (props) => {
       variant="success"
       style={{ background: 'none' }}
       outline
-      startIcon={<RocketIcon width="18px" color="success" mr="4px" />}
+      startIcon={<RocketIcon width="18px" color="#00F666" mr="4px" />}
       {...props}
     >
       {t('Boosted')}

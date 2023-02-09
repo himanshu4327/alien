@@ -25,7 +25,6 @@ const MultiplierWrapper = styled.div`
   margin-right: 6px;
   align-self: center;
   text-align: right;
-
   ${({ theme }) => theme.mediaQueries.lg} {
     margin-right: 0;
   }

@@ -9,7 +9,7 @@ import IfoProvider from './contexts/IfoContext'
 export const IfoPageLayout = ({ children }) => {
   const { t } = useTranslation()
   const router = useRouter()
-  const isExact = router.route === '/iwo'
+  const isExact = router.route === '/ifo'
   useFetchIfo()
 
   return (
@@ -19,14 +19,14 @@ export const IfoPageLayout = ({ children }) => {
         items={[
           {
             label: t('Latest'),
-            href: '/iwo',
+            href: '/ilo',
           },
           {
-            label: t('Inactive'),
-            href: '/iwo/history',
+            label: t('Finished'),
+            href: '/ilo/history',
           },
         ]}
-        activeItem={isExact ? '/iwo' : '/iwo/history'}
+        activeItem={isExact ? '/ilo' : '/ilo/history'}
       />
       <Hero />
       {children}

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { useAccount } from 'wagmi'
+import { useWeb3React } from '@pancakeswap/wagmi'
 import {
   Box,
   Card,
@@ -9,16 +9,14 @@ import {
   Text,
   TokenPairImage as UITokenPairImage,
   Balance,
-  Pool,
 } from '@pancakeswap/uikit'
 import { useVaultPoolByKey, useIfoCredit } from 'state/pools/hooks'
 import { useTranslation } from '@pancakeswap/localization'
 import { vaultPoolConfig } from 'config/constants/pools'
-import { VaultKey } from 'state/types'
+import { DeserializedPool, VaultKey } from 'state/types'
 import { getBalanceNumber } from '@pancakeswap/utils/formatBalance'
 import { useConfig } from 'views/Ifos/contexts/IfoContext'
 import { CakeVaultDetail } from 'views/Pools/components/CakeVaultCard'
-import { Token } from '@pancakeswap/sdk'
 
 const StyledCardMobile = styled(Card)`
   max-width: 400px;
@@ -33,12 +31,12 @@ const StyledTokenContent = styled(Flex)`
 `
 
 interface IfoPoolVaultCardMobileProps {
-  pool: Pool.DeserializedPool<Token>
+  pool: DeserializedPool
 }
 
 const IfoPoolVaultCardMobile: React.FC<React.PropsWithChildren<IfoPoolVaultCardMobileProps>> = ({ pool }) => {
   const { t } = useTranslation()
-  const { address: account } = useAccount()
+  const { account } = useWeb3React()
   const credit = useIfoCredit()
   const { isExpanded, setIsExpanded } = useConfig()
   const cakeAsNumberBalance = getBalanceNumber(credit)

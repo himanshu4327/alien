@@ -21,7 +21,7 @@ const CoreTag: React.FC<React.PropsWithChildren<TagProps>> = (props) => {
       variant="secondary"
       style={{ background: "none" }}
       outline
-      startIcon={<VerifiedIcon width="18px" color="secondary" mr="4px" />}
+      startIcon={<VerifiedIcon width="18px" color="#00F666" mr="4px" />}
       {...props}
     >
       {t("Verified")}

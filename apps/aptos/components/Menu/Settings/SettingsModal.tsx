@@ -160,7 +160,12 @@ const SlippageSetting = () => {
         </Flex>
       </Flex>
       {!!slippageError && (
-        <Text fontSize="14px" color={slippageError === SlippageError.InvalidInput ? 'red' : '#F3841E'} mt="8px">
+        <Text
+          fontSize="14px"
+          color={slippageError === SlippageError.InvalidInput ? 'red' : '#F3841E'}
+          mt="8px"
+          textAlign="center"
+        >
           {slippageError === SlippageError.InvalidInput
             ? t('Enter a valid slippage percentage')
             : slippageError === SlippageError.RiskyLow

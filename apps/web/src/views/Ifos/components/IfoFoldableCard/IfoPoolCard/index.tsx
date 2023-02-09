@@ -1,19 +1,8 @@
 import { ContextApi, useTranslation } from '@pancakeswap/localization'
-import {
-  Box,
-  Card,
-  CardBody,
-  CardHeader,
-  Flex,
-  HelpIcon,
-  Text,
-  useTooltip,
-  ExpandableLabel,
-  CardFooter,
-} from '@pancakeswap/uikit'
-import { useAccount } from 'wagmi'
+import { Box, Card, CardBody, CardHeader, Flex, HelpIcon, Text, useTooltip } from '@pancakeswap/uikit'
+import { useWeb3React } from '@pancakeswap/wagmi'
 import { Ifo, PoolIds } from 'config/constants/types'
-import { useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import { useProfile } from 'state/profile/hooks'
 import styled from 'styled-components'
 import useCriterias from 'views/Ifos/hooks/v3/useCriterias'
@@ -29,12 +18,7 @@ const StyledCard = styled(Card)`
   margin: 0 auto;
   padding: 0 0 3px 0;
   height: fit-content;
-`
-const StyledCardFooter = styled(CardFooter)`
-  padding: 16px;
-  margin: 0 -12px -12px;
-  background: ${({ theme }) => theme.colors.background};
-  text-align: center;
+  background: black;
 `
 
 interface IfoCardProps {
@@ -116,7 +100,7 @@ const SmallCard: React.FC<React.PropsWithChildren<IfoCardProps>> = ({
   enableStatus,
 }) => {
   const { t } = useTranslation()
-  const { address: account } = useAccount()
+  const { account } = useWeb3React()
 
   const { admissionProfile, pointThreshold, vestingInformation } = publicIfoData[poolId]
 
@@ -137,9 +121,7 @@ const SmallCard: React.FC<React.PropsWithChildren<IfoCardProps>> = ({
 
   const { hasActiveProfile, isLoading: isProfileLoading } = useProfile()
   const { targetRef, tooltip, tooltipVisible } = useTooltip(config.tooltip, { placement: 'bottom' })
-
   const isLoading = isProfileLoading || publicIfoData.status === 'idle'
-
   const { isEligible, criterias } = useCriterias(walletIfoData[poolId], {
     needQualifiedNFT,
     needQualifiedPoints,
@@ -157,8 +139,6 @@ const SmallCard: React.FC<React.PropsWithChildren<IfoCardProps>> = ({
 
   const cardTitle = ifo.cIFO ? `${config.title} (cIFO)` : config.title
 
-  const [isExpanded, setIsExpanded] = useState(false)
-
   return (
     <>
       {tooltipVisible && tooltip}
@@ -175,23 +155,7 @@ const SmallCard: React.FC<React.PropsWithChildren<IfoCardProps>> = ({
         </CardHeader>
         <CardBody p="12px">
           {isVesting ? (
-            <>
-              <IfoVestingCard ifo={ifo} poolId={poolId} publicIfoData={publicIfoData} walletIfoData={walletIfoData} />
-              <StyledCardFooter>
-                <ExpandableLabel expanded={isExpanded} onClick={() => setIsExpanded((prev) => !prev)}>
-                  {isExpanded ? t('Hide') : t('Details')}
-                </ExpandableLabel>
-                {isExpanded && (
-                  <IfoCardDetails
-                    isEligible={isEligible}
-                    poolId={poolId}
-                    ifo={ifo}
-                    publicIfoData={publicIfoData}
-                    walletIfoData={walletIfoData}
-                  />
-                )}
-              </StyledCardFooter>
-            </>
+            <IfoVestingCard ifo={ifo} poolId={poolId} publicIfoData={publicIfoData} walletIfoData={walletIfoData} />
           ) : (
             <>
               <IfoCardTokens
@@ -218,15 +182,13 @@ const SmallCard: React.FC<React.PropsWithChildren<IfoCardProps>> = ({
                   enableStatus={enableStatus}
                 />
               </Box>
-              <Box pt="24px">
-                <IfoCardDetails
-                  isEligible={isEligible}
-                  poolId={poolId}
-                  ifo={ifo}
-                  publicIfoData={publicIfoData}
-                  walletIfoData={walletIfoData}
-                />
-              </Box>
+              <IfoCardDetails
+                isEligible={isEligible}
+                poolId={poolId}
+                ifo={ifo}
+                publicIfoData={publicIfoData}
+                walletIfoData={walletIfoData}
+              />
             </>
           )}
         </CardBody>

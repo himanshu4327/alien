@@ -4,7 +4,7 @@ import { Box, Button, Container, Flex, Heading, Text, useMatchBreakpoints } from
 import { useRouter } from 'next/router'
 
 const StyledHero = styled(Box)`
-  //background-image: url('/images/ifos/assets/ifo-banner-${({ theme }) => (theme.isDark ? 'dark' : 'light')}.png');
+  // background-image: url('/images/ifos/assets/ifo-banner-${({ theme }) => (theme.isDark ? 'dark' : 'light')}.png');
   background-position: top, center;
   background-repeat: no-repeat;
   background-size: auto 100%;
@@ -12,10 +12,7 @@ const StyledHero = styled(Box)`
 
 const StyledHeading = styled(Heading)`
   font-size: 40px;
-  font-family: Alien;
-  color: #fff;
-  text-align: center;
-  text-shadow: -1px 0px 12px #00f666;
+  font-family: 'Alien';
   ${({ theme }) => theme.mediaQueries.md} {
     font-size: 64px;
   }
@@ -69,15 +66,20 @@ const Hero = () => {
             flexDirection={['column', 'column', 'column', 'row']}
             style={{ gap: '4px' }}
           >
-            <Box m="0 auto">
-              <StyledHeading as="h1" mb={['12px', '12px', '16px']}>
-                <span style={{ fontFamily: 'Alien', color: '#00F666' }}>ILO:</span> initial LOREM offering
+            <Box margin="0 auto">
+              <StyledHeading as="h1" mb={['12px', '12px', '16px']} textAlign="center">
+                {t('IFO: Initial Lorem Offerings')}
               </StyledHeading>
               <StyledSubTitle bold textAlign="center">
-                {t('Buy new tokens launching on BNB Smart Chain')}
-                {/* {isMobile && <StyledButton onClick={handleClick}>{t('How does it work?')}</StyledButton>} */}
+                {t('Buy new tokens launching on Ethereum Chain')}
+                {isMobile && <StyledButton onClick={handleClick}>{t('How does it work?')}</StyledButton>}
               </StyledSubTitle>
             </Box>
+            {/* {!isMobile && (
+              <DesktopButton onClick={handleClick} variant="subtle">
+                {t('How does it work?')}
+              </DesktopButton>
+            )} */}
           </Flex>
         </Container>
       </StyledHero>

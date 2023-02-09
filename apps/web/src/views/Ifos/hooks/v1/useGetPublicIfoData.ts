@@ -5,16 +5,20 @@ import { Ifo, IfoStatus, PoolIds } from 'config/constants/types'
 import { useLpTokenPrice } from 'state/farms/hooks'
 import { BIG_ZERO } from '@pancakeswap/utils/bigNumber'
 import { multicallv2 } from 'utils/multicall'
-import ifoV1Abi from 'config/abi/ifoV1.json'
+import ifoV1AbiNative from 'config/abi/ifoV1Native.json'
 import { PublicIfoData } from '../../types'
 import { getStatus } from '../helpers'
+
 
 /**
  * Gets all public data of an IFO
  */
 const useGetPublicIfoData = (ifo: Ifo): PublicIfoData => {
-  const { address } = ifo
-  const lpTokenPriceInUsd = useLpTokenPrice(ifo.currency.symbol)
+  const { address, releaseBlockNumber } = ifo
+  
+  // const lpTokenPriceInUsd = useLpTokenPrice(ifo.currency.symbol)
+  const lpTokenPriceInUsd = BigNumber(1)
+
   const [state, setState] = useState({
     isInitialized: false,
     status: 'idle' as IfoStatus,
@@ -36,23 +40,50 @@ const useGetPublicIfoData = (ifo: Ifo): PublicIfoData => {
     },
   })
   const fetchIfoData = useCallback(
+    
+   
+    
     async (currentBlock: number) => {
-      const ifoCalls = ['startBlock', 'endBlock', 'raisingAmount', 'totalAmount'].map((method) => ({
+      const ifoCalls = ['startBlock', 'endBlock', 'raisingAmount', 'totalAmount', 'offeringAmount'].map((method) => ({
         address,
         name: method,
       }))
 
-      const [startBlock, endBlock, raisingAmount, totalAmount] = await multicallv2({ abi: ifoV1Abi, calls: ifoCalls })
+      const [startBlock, endBlock, raisingAmount, totalAmount, offeringAmount] = await multicallv2({ abi: ifoV1AbiNative, calls: ifoCalls })
 
+      // console.log("startBlock", startBlock);
+      // console.log("endBlock", endBlock);
+      // console.log("raisingAmount", raisingAmount.toString());
+      // console.log("totalAmount", totalAmount);
+      
       const startBlockNum = startBlock ? startBlock[0].toNumber() : 0
       const endBlockNum = endBlock ? endBlock[0].toNumber() : 0
 
+      // console.log("startBlockNum", startBlockNum.toString());
+      // console.log("endBlockNum", endBlockNum.toString());
+          
+
       const status = getStatus(currentBlock, startBlockNum, endBlockNum)
+      
+
+      // console.log("status", status);
+      
+
       const totalBlocks = endBlockNum - startBlockNum
       const blocksRemaining = endBlockNum - currentBlock
 
+      // console.log("ifoblocksRemaining", blocksRemaining);
+      
+
       // Calculate the total progress until finished or until start
-      const progress = status === 'live' ? ((currentBlock - startBlockNum) / totalBlocks) * 100 : null
+      const progress =
+        currentBlock > startBlockNum
+          ? ((currentBlock - startBlockNum) / totalBlocks) * 100
+          : ((currentBlock - releaseBlockNumber) / (startBlockNum - releaseBlockNumber)) * 100
+
+
+          // console.log("ifoprogress", progress);
+          
 
       setState((prev) => ({
         ...prev,
@@ -66,13 +97,14 @@ const useGetPublicIfoData = (ifo: Ifo): PublicIfoData => {
         endBlockNum,
         [PoolIds.poolUnlimited]: {
           ...prev.poolUnlimited,
+          offeringAmountPool: offeringAmount ? new BigNumber(offeringAmount[0].toString()) : BIG_ZERO,
           raisingAmountPool: raisingAmount ? new BigNumber(raisingAmount[0].toString()) : BIG_ZERO,
           totalAmountPool: totalAmount ? new BigNumber(totalAmount[0].toString()) : BIG_ZERO,
         },
-      }))
+      })) 
     },
-    [address],
-  )
+    [address, releaseBlockNumber],
+  )  
 
   return { ...state, currencyPriceInUSD: lpTokenPriceInUsd, fetchIfoData }
 }

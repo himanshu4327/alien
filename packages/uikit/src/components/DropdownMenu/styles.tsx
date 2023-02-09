@@ -46,6 +46,7 @@ export const DropdownMenuItem = styled.button<StyledDropdownMenuItemProps & { $i
 `;
 
 export const StyledDropdownMenuItemContainer = styled.div`
+  letter-spacing: 3px;
   &:first-child ${DropdownMenuItem} {
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;

@@ -1,10 +1,10 @@
 import { useState, useCallback } from 'react'
-import { useAccount } from 'wagmi'
+import { useWeb3React } from '@pancakeswap/wagmi'
 import BigNumber from 'bignumber.js'
 import { Ifo, PoolIds } from 'config/constants/types'
-import { useERC20, useIfoV1Contract } from 'hooks/useContract'
+import { useERC20, useIfoV1Contract, useIfoV1NativeContract } from 'hooks/useContract'
 import { multicallv2 } from 'utils/multicall'
-import ifoV1Abi from 'config/abi/ifoV1.json'
+import ifoV1AbiNative from 'config/abi/ifoV1Native.json'
 import { BIG_ZERO } from '@pancakeswap/utils/bigNumber'
 import useIfoAllowance from '../useIfoAllowance'
 import { WalletIfoState, WalletIfoData } from '../../types'
@@ -35,8 +35,9 @@ const useGetWalletIfoData = (ifo: Ifo): WalletIfoData => {
   const { address, currency } = ifo
   const { poolUnlimited } = state
 
-  const { address: account } = useAccount()
-  const contract = useIfoV1Contract(address)
+  const { account } = useWeb3React()
+  const contract = useIfoV1NativeContract(address)
+
   const currencyContract = useERC20(currency.address, false)
   const allowance = useIfoAllowance(currencyContract, address, poolUnlimited.isPendingTx)
 
@@ -66,7 +67,11 @@ const useGetWalletIfoData = (ifo: Ifo): WalletIfoData => {
       params: [account],
     }))
 
-    const [offeringAmount, userInfoResponse, refundingAmount] = await multicallv2({ abi: ifoV1Abi, calls: ifoCalls })
+    const [offeringAmount, userInfoResponse, refundingAmount] = await multicallv2({
+      abi: ifoV1AbiNative,
+      calls: ifoCalls,
+    })
+
     const parsedUserInfo: UserInfo = userInfoResponse
       ? {
           amount: new BigNumber(userInfoResponse.amount.toString()),

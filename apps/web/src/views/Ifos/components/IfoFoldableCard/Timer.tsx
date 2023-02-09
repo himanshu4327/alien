@@ -1,22 +1,22 @@
 import { useTranslation } from '@pancakeswap/localization'
 import styled from 'styled-components'
 import { Flex, Heading, PocketWatchIcon, Text, Skeleton, Link, TimerIcon } from '@pancakeswap/uikit'
-import getTimePeriods from '@pancakeswap/utils/getTimePeriods'
+import getTimePeriods from 'utils/getTimePeriods'
+import useActiveWeb3React from 'hooks/useActiveWeb3React'
 import useCurrentBlockTimestamp from 'hooks/useCurrentBlockTimestamp'
 import { getBlockExploreLink } from 'utils'
 import { PublicIfoData } from 'views/Ifos/types'
-import { useActiveChainId } from 'hooks/useActiveChainId'
 
 interface Props {
   publicIfoData: PublicIfoData
 }
 
 const GradientText = styled(Heading)`
-  background: -webkit-linear-gradient(#ffd800, #eb8c00);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 1px rgba(0, 0, 0, 0.5);
+  background: #fff;
+  // background-clip: text;
+  // -webkit-background-clip: text;
+  // -webkit-text-fill-color: transparent;
+  // -webkit-text-stroke: 1px rgba(0, 0, 0, 0.5);
 `
 
 const FlexGap = styled(Flex)<{ gap: string }>`
@@ -26,14 +26,16 @@ const FlexGap = styled(Flex)<{ gap: string }>`
 const USE_BLOCK_TIMESTAMP_UNTIL = 3
 
 export const SoonTimer: React.FC<React.PropsWithChildren<Props>> = ({ publicIfoData }) => {
-  const { chainId } = useActiveChainId()
+  const { chainId } = useActiveWeb3React()
   const { t } = useTranslation()
   const { status, secondsUntilStart, startBlockNum } = publicIfoData
   const currentBlockTimestamp = useCurrentBlockTimestamp()
+
   const hoursLeft =
     publicIfoData.plannedStartTime && currentBlockTimestamp
       ? (publicIfoData.plannedStartTime - currentBlockTimestamp.toNumber()) / 3600
       : 0
+
   const fallbackToBlockTimestamp = hoursLeft > USE_BLOCK_TIMESTAMP_UNTIL
   let timeUntil
   if (fallbackToBlockTimestamp) {
@@ -97,17 +99,10 @@ const EndInHeading = styled(Heading)`
 
 const LiveNowHeading = styled(EndInHeading)`
   color: white;
-  ${({ theme }) => theme.mediaQueries.md} {
-    background: -webkit-linear-gradient(#ffd800, #eb8c00);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.5);
-  }
 `
 
 const LiveTimer: React.FC<React.PropsWithChildren<Props>> = ({ publicIfoData }) => {
-  const { chainId } = useActiveChainId()
+  const { chainId } = useActiveWeb3React()
   const { t } = useTranslation()
   const { status, secondsUntilEnd, endBlockNum } = publicIfoData
   const timeUntil = getTimePeriods(secondsUntilEnd)
@@ -126,20 +121,20 @@ const LiveTimer: React.FC<React.PropsWithChildren<Props>> = ({ publicIfoData }) 
             <FlexGap gap="4px" alignItems="baseline">
               {timeUntil.days ? (
                 <>
-                  <GradientText scale="lg">{timeUntil.days}</GradientText>
+                  <Heading scale="lg">{timeUntil.days}</Heading>
                   <Text color="white">{t('d')}</Text>
                 </>
               ) : null}
               {timeUntil.days || timeUntil.hours ? (
                 <>
-                  <GradientText scale="lg">{timeUntil.hours}</GradientText>
+                  <Heading scale="lg">{timeUntil.hours}</Heading>
                   <Text color="white">{t('h')}</Text>
                 </>
               ) : null}
               <>
-                <GradientText scale="lg">
+                <Heading scale="lg">
                   {!timeUntil.days && !timeUntil.hours && timeUntil.minutes === 0 ? '< 1' : timeUntil.minutes}
-                </GradientText>
+                </Heading>
                 <Text color="white">{t('m')}</Text>
               </>
             </FlexGap>

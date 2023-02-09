@@ -95,7 +95,7 @@ const IfoAchievement: React.FC<React.PropsWithChildren<Props>> = ({ ifo, publicI
 
   return (
     <Container p="16px" pb="32px">
-      <AchievementFlex isFinished={publicIfoData.status === 'finished'} alignItems="flex-start" flex={1}>
+      {/* <AchievementFlex isFinished={publicIfoData.status === 'finished'} alignItems="flex-start" flex={1}>
         <Image
           src={`/images/achievements/ifo-${tokenName}.svg`}
           fallbackSrc="/images/achievements/ifo-placeholder-bun.png"
@@ -122,7 +122,7 @@ const IfoAchievement: React.FC<React.PropsWithChildren<Props>> = ({ ifo, publicI
             <Text color="textSubtle" fontSize="12px">
               {t('Commit ~%amount% %symbol% in total to earn!', {
                 amount: minLpForAchievement,
-                symbol: ifo.currency === bscTokens.cake ? 'Alien' : 'LP',
+                symbol: ifo.currency === bscTokens.cake ? 'CAKE' : 'LP',
               })}
             </Text>
           ) : (
@@ -150,10 +150,10 @@ const IfoAchievement: React.FC<React.PropsWithChildren<Props>> = ({ ifo, publicI
             )}
           </FlexGap>
         </Flex>
-      </AchievementFlex>
+      </AchievementFlex> */}
       {ifo.description && (
-        <Flex alignItems="flex-end" flexDirection="column" flex={1}>
-          <Text fontSize="14px" lineHeight={1.2} style={{ whiteSpace: 'pre-line' }}>
+        <Flex alignItems="center" flexDirection="column" flex={1}>
+          <Text fontSize="14px" lineHeight={1.2} style={{ whiteSpace: 'pre-line' }} textAlign="center">
             {ifo.description}
           </Text>
         </Flex>

@@ -58,7 +58,7 @@ export const IfoRibbon = ({ publicIfoData }: { publicIfoData: PublicIfoData }) =
         <Progress variant="flat">
           <ProgressBar
             $useDark
-            $background="linear-gradient(273deg, #ffd800 -2.87%, #eb8c00 113.73%)"
+            $background="#1BE0AA"
             style={{ width: `${Math.min(Math.max(publicIfoData.progress, 0), 100)}%` }}
           />
         </Progress>
@@ -94,7 +94,7 @@ const IfoRibbonEnd = () => {
 const IfoRibbonSoon = ({ publicIfoData }: { publicIfoData: PublicIfoData }) => {
   return (
     <>
-      <BigCurve $status="coming_soon" />
+      {/* <BigCurve $status="coming_soon" /> */}
       <Box position="relative">
         <Heading as="h3" scale="lg" color="secondary">
           <SoonTimer publicIfoData={publicIfoData} />
@@ -107,7 +107,7 @@ const IfoRibbonSoon = ({ publicIfoData }: { publicIfoData: PublicIfoData }) => {
 const IfoRibbonLive = ({ publicIfoData }: { publicIfoData: PublicIfoData }) => {
   return (
     <>
-      <BigCurve $status="live" />
+      {/* <BigCurve $status="live" /> */}
       <Box position="relative">
         <LiveTimer publicIfoData={publicIfoData} />
       </Box>

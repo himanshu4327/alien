@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { ThemeConsumer } from "styled-components";
 import { ToggleProps, HandleProps, InputProps, ScaleKeys, scales, StyleToggleProps } from "./types";
 
 const scaleKeyValues = {
@@ -62,29 +62,30 @@ export const Input = styled.input<InputProps>`
   z-index: 3;
   &:checked + ${Handle} {
     left: ${getScale("checkedLeft")};
-    background: #013120;
+    box-shadow: 0px 0px 5px #00f666, 0px 0px 7px #00f666, 0px 0px 9px #00f666;
   }
   &:focus + ${Handle} {
-    box-shadow: 2px 0px 3px 1px #00f666;
+    // box-shadow: 2px 0px 3px 1px #00f666;
   }
   &:hover + ${Handle}:not(:disabled):not(:checked) {
-    box-shadow: 2px 0px 3px 1px #00f666;
+    // box-shadow: 2px 0px 3px 1px #00f666;
   }
 `;
 
 const StyledToggle = styled.div<StyleToggleProps>`
   align-items: center;
-  background-color: ${({ theme, $checked, $checkedColor, $defaultColor }) =>
+  // background-color: ${({ theme, $checked, $checkedColor, $defaultColor }) =>
     theme.colors[$checked ? $checkedColor : $defaultColor]};
-  box-shadow: 2px 0px 3px 1px #00f666;
-  // border-radius: 24px;
-  //  border: 2px solid #00F666;
+  //box-shadow: 0px 0px 0px 1px #00f666;
+  //border-radius: 24px;
+  //border: 2px solid #00F666;
   cursor: pointer;
   display: inline-flex;
   height: ${getScale("toggleHeight")};
   position: relative;
   transition: background-color 200ms;
   width: ${getScale("toggleWidth")};
+  box-shadow: 0px 0px 2px 0px #00f666, 0px 0px 1px 0px #00f666;
 `;
 
 export default StyledToggle;

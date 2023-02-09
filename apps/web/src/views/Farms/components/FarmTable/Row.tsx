@@ -52,10 +52,11 @@ const cells = {
 const CellInner = styled.div`
   padding: 24px 0px;
   display: flex;
+  justify-content: space-evenly;
   width: 100%;
   align-items: center;
-  // padding-right: 8px;
   color: white;
+
   ${({ theme }) => theme.mediaQueries.xl} {
     // padding-right: 32px;
   }
@@ -129,7 +130,7 @@ const Row: React.FunctionComponent<React.PropsWithChildren<RowPropsWithLoading>>
                 return (
                   <td key={key}>
                     {userDataReady ? (
-                      <CellInner style={{ width: '120px' }}>
+                      <CellInner>
                         {props[key] === 'community' ? <FarmAuctionTag scale="sm" /> : <CoreTag scale="sm" />}
                         {props?.details?.boosted ? <BoostedTag scale="sm" ml="12px" /> : null}
                       </CellInner>
@@ -181,7 +182,7 @@ const Row: React.FunctionComponent<React.PropsWithChildren<RowPropsWithLoading>>
 
               default:
                 return (
-                  <td key={key}>
+                  <td key={key} style={{ maxWidth: '150px' }}>
                     <CellInner>
                       <CellLayout label={t(tableSchema[columnIndex].label)}>
                         {createElement(cells[key], { ...props[key], userDataReady })}

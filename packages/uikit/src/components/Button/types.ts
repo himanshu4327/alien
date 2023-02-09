@@ -20,6 +20,7 @@ export const variants = {
   ALIEN: "Alien",
   TRANSPARENT: "Transparent",
   ACTIVE: "Active",
+  MODALACTIVE: "ModalActive",
 } as const;
 
 export type Scale = typeof scales[keyof typeof scales];

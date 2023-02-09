@@ -11,9 +11,10 @@ export const IfoLayoutWrapper = styled(IfoLayout)`
   display: grid;
   grid-template-columns: 1fr;
   align-items: flex-start;
-
+  max-width: 700px;
+  margin: 0 auto;
   ${({ theme }) => theme.mediaQueries.xl} {
-    grid-template-columns: minmax(300px, 1fr) minmax(462px, 2fr);
+    grid-template-columns: minmax(300px);
   }
 
   > div {

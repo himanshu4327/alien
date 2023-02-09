@@ -39,7 +39,6 @@ const StyledInput = styled(Input)`
   margin: 0 8px;
   padding: 0 8px;
   border: none;
-
   ${({ theme }) => theme.mediaQueries.xs} {
     width: 120px;
   }

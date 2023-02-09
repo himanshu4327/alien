@@ -17,14 +17,14 @@ import {
   useToast,
   useTooltip,
 } from '@pancakeswap/uikit'
-import { useAccount } from 'wagmi'
+import { useWeb3React } from '@pancakeswap/wagmi'
 import BigNumber from 'bignumber.js'
-import ApproveConfirmButtons from 'components/ApproveConfirmButtons'
+import ConfirmButton from 'components/ConfirmButton'
 import { ToastDescriptionWithTx } from 'components/Toast'
 import { DEFAULT_TOKEN_DECIMAL } from 'config'
 import { Ifo, PoolIds } from 'config/constants/types'
 import useApproveConfirmTransaction from 'hooks/useApproveConfirmTransaction'
-import { useCallWithGasPrice } from 'hooks/useCallWithGasPrice'
+import { useCallWithMarketGasPrice } from 'hooks/useCallWithMarketGasPrice'
 import { useERC20 } from 'hooks/useContract'
 import { useMemo, useState } from 'react'
 import styled from 'styled-components'
@@ -53,7 +53,7 @@ interface Props {
 const multiplierValues = [0.1, 0.25, 0.5, 0.75, 1]
 
 // Default value for transaction setting, tweak based on BSC network congestion.
-const gasPrice = parseUnits('10', 'gwei').toString()
+const gasPrice = parseUnits('90', 'gwei').toString()
 
 const HasVestingNotice: React.FC<React.PropsWithChildren<{ url: string }>> = ({ url }) => {
   const { t } = useTranslation()
@@ -93,13 +93,13 @@ const ContributeModal: React.FC<React.PropsWithChildren<Props>> = ({
   const { amountTokenCommittedInLP } = userPoolCharacteristics
   const { contract } = walletIfoData
   const [value, setValue] = useState('')
-  const { address: account } = useAccount()
-  const { callWithGasPrice } = useCallWithGasPrice()
+  const { account } = useWeb3React()
+  const { callWithMarketGasPrice } = useCallWithMarketGasPrice()
   const raisingTokenContractReader = useERC20(currency.address, false)
   const raisingTokenContractApprover = useERC20(currency.address)
   const { t } = useTranslation()
   const valueWithTokenDecimals = new BigNumber(value).times(DEFAULT_TOKEN_DECIMAL)
-  const label = currency === bscTokens.cake ? t('Max. Alien entry') : t('Max. token entry')
+  const label = currency === bscTokens.cake ? t('Max. CAKE entry') : t('Max. token entry')
 
   const { isApproving, isApproved, isConfirmed, isConfirming, handleApprove, handleConfirm } =
     useApproveConfirmTransaction({
@@ -107,7 +107,7 @@ const ContributeModal: React.FC<React.PropsWithChildren<Props>> = ({
         return requiresApproval(raisingTokenContractReader, account, contract.address)
       },
       onApprove: () => {
-        return callWithGasPrice(raisingTokenContractApprover, 'approve', [contract.address, MaxUint256], {
+        return callWithMarketGasPrice(raisingTokenContractApprover, 'approve', [contract.address, MaxUint256], {
           gasPrice,
         })
       },
@@ -120,14 +120,10 @@ const ContributeModal: React.FC<React.PropsWithChildren<Props>> = ({
         )
       },
       onConfirm: () => {
-        return callWithGasPrice(
-          contract,
-          'depositPool',
-          [valueWithTokenDecimals.toString(), poolId === PoolIds.poolBasic ? 0 : 1],
-          {
-            gasPrice,
-          },
-        )
+        return callWithMarketGasPrice(contract, 'deposit', [valueWithTokenDecimals.toString()], {
+          gasPrice,
+          value: parseUnits(valueWithTokenDecimals.toString(), 'wei').toString(),
+        })
       },
       onSuccess: async ({ receipt }) => {
         await onSuccess(valueWithTokenDecimals, receipt.transactionHash)
@@ -156,17 +152,17 @@ const ContributeModal: React.FC<React.PropsWithChildren<Props>> = ({
   }, [maximumTokenEntry, userCurrencyBalance])
 
   const basicTooltipContent = t(
-    'For the private sale, each eligible participant will be able to commit any amount of Alien up to the maximum commit limit, which is published along with the IFO voting proposal.',
+    'For the private sale, each eligible participant will be able to commit any amount of CAKE up to the maximum commit limit, which is published along with the IFO voting proposal.',
   )
 
   const unlimitedToolipContent = (
     <Box>
-      <Text display="inline">{t('For the public sale, Max Alien entry is capped by')} </Text>
+      <Text display="inline">{t('For the public sale, Max CAKE entry is capped by')} </Text>
       <Text bold display="inline">
-        {t('the number of iAlien.')}{' '}
+        {t('the number of iCAKE.')}{' '}
       </Text>
       <Text display="inline">
-        {t('Lock more Alien for longer durations to increase the maximum number of Alien you can commit to the sale.')}
+        {t('Lock more CAKE for longer durations to increase the maximum number of CAKE you can commit to the sale.')}
       </Text>
     </Box>
   )
@@ -176,8 +172,10 @@ const ContributeModal: React.FC<React.PropsWithChildren<Props>> = ({
     {},
   )
 
-  const isWarning =
-    valueWithTokenDecimals.isGreaterThan(userCurrencyBalance) || valueWithTokenDecimals.isGreaterThan(maximumTokenEntry)
+  // const isWarning =
+  //   valueWithTokenDecimals.isGreaterThan(userCurrencyBalance) || valueWithTokenDecimals.isGreaterThan(maximumTokenEntry)
+
+  const isWarning = false
 
   return (
     <Modal title={t('Contribute %symbol%', { symbol: currency.symbol })} onDismiss={onDismiss}>
@@ -185,23 +183,23 @@ const ContributeModal: React.FC<React.PropsWithChildren<Props>> = ({
         <Box p="2px">
           <Flex justifyContent="space-between" mb="16px">
             {tooltipVisible && tooltip}
-            <TooltipText ref={targetRef}>{label}:</TooltipText>
+            {/* <TooltipText ref={targetRef}>{label}:</TooltipText>
             <Text>{`${formatNumber(getBalanceAmount(maximumTokenEntry, currency.decimals).toNumber(), 3, 3)} ${
               ifo.currency.symbol
-            }`}</Text>
+            }`}</Text> */}
           </Flex>
           <Flex justifyContent="space-between" mb="8px">
             <Text>{t('Commit')}:</Text>
             <Flex flexGrow={1} justifyContent="flex-end">
-              <Image
+              {/* <Image
                 src={
                   ifo.currency.symbol === 'CAKE'
                     ? '/images/cake.svg'
                     : `/images/farms/${currency.symbol.split(' ')[0].toLowerCase()}.svg`
-                }
+                } 
                 width={24}
                 height={24}
-              />
+              /> */}
               <Text ml="4px">{currency.symbol}</Text>
             </Flex>
           </Flex>
@@ -211,15 +209,15 @@ const ContributeModal: React.FC<React.PropsWithChildren<Props>> = ({
             onUserInput={setValue}
             isWarning={isWarning}
             decimals={currency.decimals}
-            onBlur={() => {
-              if (isWarning) {
-                // auto adjust to max value
-                setValue(getBalanceAmount(maximumTokenCommittable).toString())
-              }
-            }}
+            // onBlur={() => {
+            //   if (isWarning) {
+            //     // auto adjust to max value
+            //     setValue(getBalanceAmount(maximumTokenCommittable).toString())
+            //   }
+            // }}
             mb="8px"
           />
-          {isWarning && (
+          {/* {isWarning && (
             <Text
               color={valueWithTokenDecimals.isGreaterThan(userCurrencyBalance) ? 'failure' : 'warning'}
               textAlign="right"
@@ -228,9 +226,9 @@ const ContributeModal: React.FC<React.PropsWithChildren<Props>> = ({
             >
               {valueWithTokenDecimals.isGreaterThan(userCurrencyBalance)
                 ? t('Insufficient Balance')
-                : t('Exceeded max Alien entry')}
+                : t('Exceeded max CAKE entry')}
             </Text>
-          )}
+          )} */}
           <Text color="textSubtle" textAlign="right" fontSize="12px" mb="16px">
             {t('Balance: %balance%', {
               balance: getBalanceAmount(userCurrencyBalance, currency.decimals).toString(),
@@ -242,30 +240,32 @@ const ContributeModal: React.FC<React.PropsWithChildren<Props>> = ({
                 key={multiplierValue}
                 scale="xs"
                 variant="tertiary"
-                onClick={() => setValue(getBalanceAmount(maximumTokenCommittable.times(multiplierValue)).toString())}
+                onClick={() => setValue(getBalanceAmount(userCurrencyBalance.times(multiplierValue)).toString())}
                 mr={index < multiplierValues.length - 1 ? '8px' : 0}
               >
                 {multiplierValue * 100}%
               </Button>
             ))}
           </Flex>
-          {vestingInformation.percentage > 0 && <HasVestingNotice url={articleUrl} />}
-          <Text color="textSubtle" fontSize="12px" mb="24px">
+          {vestingInformation?.percentage > 0 && <HasVestingNotice url={articleUrl} />}
+          {/* <Text color="textSubtle" fontSize="12px" mb="24px">
             {t(
-              'If you don’t commit enough Alien, you may not receive a meaningful amount of IFO tokens, or you may not receive any IFO tokens at all.',
+              'If you don’t commit enough CAKE, you may not receive a meaningful amount of IFO tokens, or you may not receive any IFO tokens at all.',
             )}
-            <Link fontSize="12px" display="inline" href="/#" external>
+            <Link
+              fontSize="12px"
+              display="inline"
+              href="https://docs.pancakeswap.finance/products/ifo-initial-farm-offering"
+              external
+            >
               {t('Read more')}
             </Link>
-          </Text>
-          <ApproveConfirmButtons
-            isApproveDisabled={isConfirmed || isConfirming || isApproved}
-            isApproving={isApproving}
+          </Text> */}
+          <ConfirmButton
             isConfirmDisabled={
-              !isApproved || isConfirmed || valueWithTokenDecimals.isNaN() || valueWithTokenDecimals.eq(0) || isWarning
+              isConfirmed || valueWithTokenDecimals.isNaN() || valueWithTokenDecimals.eq(0) || isWarning
             }
             isConfirming={isConfirming}
-            onApprove={handleApprove}
             onConfirm={handleConfirm}
           />
         </Box>

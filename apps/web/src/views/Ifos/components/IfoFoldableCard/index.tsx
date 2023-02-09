@@ -7,10 +7,11 @@ import {
   CardHeader,
   ExpandableButton,
   ExpandableLabel,
+  Logo,
   useMatchBreakpoints,
   useToast,
 } from '@pancakeswap/uikit'
-import { useAccount } from 'wagmi'
+import { useWeb3React } from '@pancakeswap/wagmi'
 import { ToastDescriptionWithTx } from 'components/Toast'
 import { Ifo, PoolIds } from 'config/constants/types'
 import useCatchTxError from 'hooks/useCatchTxError'
@@ -30,6 +31,7 @@ import IfoAchievement from './Achievement'
 import IfoPoolCard from './IfoPoolCard'
 import { IfoRibbon } from './IfoRibbon'
 import { EnableStatus } from './types'
+import AlienLogo from '../../../../../public/images/AlienLogo.png'
 
 interface IfoFoldableCardProps {
   ifo: Ifo
@@ -40,9 +42,8 @@ interface IfoFoldableCardProps {
 const StyledCard = styled(Card)<{ $isCurrent?: boolean }>`
   width: 100%;
   margin: auto;
-  border-top-left-radius: 32px;
-  border-top-right-radius: 32px;
-
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
   ${({ $isCurrent }) =>
     $isCurrent &&
     `
@@ -55,16 +56,16 @@ const StyledCard = styled(Card)<{ $isCurrent?: boolean }>`
   `}
 
   > div {
-    background: ${({ theme, $isCurrent }) => ($isCurrent ? theme.colors.gradientBubblegum : theme.colors.dropdown)};
+    // background: ${({ theme, $isCurrent }) => ($isCurrent ? theme.colors.gradientBubblegum : theme.colors.dropdown)};
   }
 
   ${({ theme }) => theme.mediaQueries.sm} {
-    border-top-left-radius: 32px;
-    border-top-right-radius: 32px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
 
     > div {
-      border-top-left-radius: 32px;
-      border-top-right-radius: 32px;
+      border-top-left-radius: 0px;
+      border-top-right-radius: 0px;
     }
   }
 `
@@ -77,10 +78,8 @@ const Header = styled(CardHeader)<{ ifoId: string; $isCurrent?: boolean }>`
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  border-top-left-radius: 32px;
-  border-top-right-radius: 32px;
-  background-color: ${({ theme }) => theme.colors.dropdown};
-  background-image: ${({ ifoId }) => `url('/images/ifos/${ifoId}-bg.png')`};
+  background-color: black;
+  //background-image: ${({ ifoId }) => `url('/images/ifos/${ifoId}-bg.png')`};
   ${({ theme }) => theme.mediaQueries.md} {
     height: 112px;
   }
@@ -155,7 +154,6 @@ export const IfoCurrentCard = ({
   const [isExpanded, setIsExpanded] = useState(false)
   const { t } = useTranslation()
   const { isMobile } = useMatchBreakpoints()
-
   const shouldShowBunny = publicIfoData.status === 'live' || publicIfoData.status === 'coming_soon'
 
   return (
@@ -175,11 +173,13 @@ export const IfoCurrentCard = ({
         </Box>
       )}
       <Box position="relative" width="100%" maxWidth={['400px', '400px', '400px', '400px', '400px', '100%']}>
-        {!isMobile && shouldShowBunny && <NoHatBunny isCurrent isLive={publicIfoData.status === 'live'} />}
+        {/* {!isMobile && shouldShowBunny && <NoHatBunny isCurrent isLive={publicIfoData.status === 'live'} />} */}
         <StyledCard $isCurrent>
           {!isMobile && (
             <>
-              <Header $isCurrent ifoId={ifo.id} />
+              <Header $isCurrent ifoId={ifo.id}>
+                <img src={AlienLogo.src} style={{ margin: '0 auto' }} />
+              </Header>
               <IfoRibbon publicIfoData={publicIfoData} />
             </>
           )}
@@ -225,7 +225,7 @@ const IfoFoldableCard = ({
 
   return (
     <Box id={ifo.id} ref={wrapperEl} position="relative">
-      {isExpanded && isDesktop && <NoHatBunny isLive={false} />}
+      {/* {isExpanded && isDesktop && <NoHatBunny isLive={false} />} */}
       <Box as={StyledCard} borderRadius="32px">
         <Box position="relative">
           <Header ifoId={ifo.id}>
@@ -257,7 +257,7 @@ const IfoCard: React.FC<React.PropsWithChildren<IfoFoldableCardProps>> = ({ ifo,
   } = walletIfoData
   const [enableStatus, setEnableStatus] = useState(EnableStatus.DISABLED)
   const { t } = useTranslation()
-  const { address: account } = useAccount()
+  const { account } = useWeb3React()
   const raisingTokenContract = useERC20(ifo.currency.address, false)
   // Continue to fetch 2 more minutes / is vesting need get latest data
   const isRecentlyActive =

@@ -33,6 +33,7 @@ export const StyledModalWrapper = styled(m.div)`
   right: 0;
   bottom: 0;
   left: 0;
+  background: rgba(0, 0, 0, 0.8);
   z-index: ${({ theme }) => theme.zIndices.modal - 1};
   will-change: opacity;
   opacity: 0;
