@@ -205,7 +205,7 @@ const ContributeModal: React.FC<React.PropsWithChildren<Props>> = ({
           </Flex>
           <BalanceInput
             value={value}
-            currencyValue={`${publicIfoData.currencyPriceInUSD.times(value || 0).toFixed(2)} USD`}
+            // currencyValue={`${publicIfoData.currencyPriceInUSD.times(value || 0).toFixed(2)} USD`}
             onUserInput={setValue}
             isWarning={isWarning}
             decimals={currency.decimals}
