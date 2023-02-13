@@ -6,7 +6,9 @@ import styled from 'styled-components'
 import useSWRImmutable from 'swr/immutable'
 import IconCard, { IconCardData } from '../IconCard'
 import StatCardContent from './StatCardContent'
-import GradientLogo from '../GradientLogoSvg'
+// import GradientLogo from '../GradientLogoSvg'
+import Image from 'next/image'
+import GradientLogo from '../../../../../public/images/GradientLogo.png'
 
 const StyledHeading = styled(Heading)`
   text-shadow: -1px 0px 12px #00f666;
@@ -48,7 +50,7 @@ const Stats = () => {
 
   return (
     <Flex justifyContent="center" alignItems="center" flexDirection="column">
-      <GradientLogo height="48px" width="48px" mb="24px" />
+      <img src={GradientLogo.src} height={100} width={100} />
       <StyledHeading textAlign="center" scale="xl" textTransform="uppercase">
         {t('Used by')} <StyledSpan>millions</StyledSpan>,
       </StyledHeading>

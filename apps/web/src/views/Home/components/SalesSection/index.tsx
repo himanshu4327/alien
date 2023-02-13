@@ -22,7 +22,6 @@ export interface SalesSectionProps {
 
 const SalesSection: React.FC<React.PropsWithChildren<SalesSectionProps>> = (props) => {
   const { headingText, bodyText, reverse, primaryButton, secondaryButton, images, firstWordlen } = props
-
   return (
     <Flex flexDirection="column">
       <Flex flexDirection="column" alignItems={['flex-end', null, null, 'center']}>

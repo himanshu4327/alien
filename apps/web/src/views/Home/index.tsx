@@ -24,6 +24,9 @@ import MultipleBanner from './components/Banners/MultipleBanner'
 
 import { swapStartInSecondData } from './components/StartInSecondSectionData/data'
 import StartInSecondSectionData from './components/StartInSecondSectionData'
+import SwapSection from './components/SwapSection'
+import EarnSectionData from './components/EarnSection'
+import AlienSectionData from './components/AlienSection'
 
 const StyledHeroSection = styled(PageSection)`
   padding-top: 16px;
@@ -119,7 +122,7 @@ const FloatingUfosTopRight = styled.div`
 const UserBannerWrapper = styled.div`
   margin-top: 52px;
   padding: 24px;
-  background: radial-gradient(52.44% 52.44% at 50.26% 115.85%, #00f666 0%, rgba(2, 73, 32, 0.2) 100%);
+  background: radial-gradient(52.44% 32.44% at 50.26% 115.85%, #00f666 0%, rgba(2, 73, 32, 0.2) 100%);
   backdrop-filter: blur(5.5px);
   box-shadow: 0px 0px 2px #00f666, 1px -1px 0px #00f666;
   padding-bottom: 100px;
@@ -227,15 +230,13 @@ const Home: React.FC<React.PropsWithChildren> = () => {
         hasCurvedDivider={false}
       >
         <div style={{ display: 'flex', justifyContent: 'end', position: 'relative' }}>
-          <FloatingUfosTopRight />
+          {/* <FloatingUfosTopRight /> */}
         </div>
 
-        <FloatingUfos />
+        {/* <FloatingUfos /> */}
         <MetricsSection />
         <div className="circle">
-          <div style={{ display: 'flex', justifyContent: 'end' }}>
-            <FloatingUfosRight />
-          </div>
+          <div style={{ display: 'flex', justifyContent: 'end' }}>{/* <FloatingUfosRight /> */}</div>
         </div>
       </PageSection>
       <PageSection
@@ -247,7 +248,8 @@ const Home: React.FC<React.PropsWithChildren> = () => {
         index={2}
         hasCurvedDivider={false}
       >
-        <SalesSection {...swapSectionData(t)} />
+        {/* <SalesSection {...swapSectionData(t)} /> */}
+        <SwapSection />
       </PageSection>
       <PageSection
         innerProps={{ style: HomeSectionContainerStyles }}
@@ -255,7 +257,7 @@ const Home: React.FC<React.PropsWithChildren> = () => {
         index={2}
         hasCurvedDivider={false}
       >
-        <SalesSection {...earnSectionData(t)} />
+        <EarnSectionData />
         {/* TODO: until we are enable fetch multi-chain farms */}
 
         <UserBannerWrapper>{chainId === ChainId.BSC && <FarmsPoolsRow />}</UserBannerWrapper>
@@ -267,7 +269,7 @@ const Home: React.FC<React.PropsWithChildren> = () => {
         index={2}
         hasCurvedDivider={false}
       >
-        <SalesSection {...cakeSectionData(t)} />
+        <AlienSectionData />
         <CakeDataRow />
       </PageSection>
       <PageSection

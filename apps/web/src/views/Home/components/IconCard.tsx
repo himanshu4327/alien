@@ -6,10 +6,15 @@ const StyledCard = styled(Card)<{ background: string; rotation?: string }>`
   height: fit-content;
   padding: 1px 1px 4px 1px;
   box-sizing: border-box;
-  background: transparent;
+  background: radial-gradient(52.44% 32.44% at 50.26% 115.85%, #00f666 -10%, rgba(0, 0, 0, 0.2) 100%);
+  backdrop-filter: blur(7.5px);
   margin: 10px;
+  box-shadow: 0px 1px 1px #00f666, 1px -1px 1px #00f666;
   ${({ theme }) => theme.mediaQueries.md} {
     ${({ rotation }) => (rotation ? `transform: rotate(${rotation});` : '')}
+  }
+  ${({ theme }) => theme.mediaQueries.xl} {
+    height: 370px;
   }
 `
 

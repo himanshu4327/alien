@@ -34,25 +34,8 @@ const FarmsPoolsRow = () => {
   const { topFarms, fetched } = useGetTopFarmsByApr(isIntersecting)
   const { topPools } = useGetTopPoolsByApr(fetched && isIntersecting)
   const { lockedApy } = useVaultApy()
-
   const timer = useRef<ReturnType<typeof setTimeout>>(null)
   const isLoaded = topFarms[0] && topPools[0]
-
-  // const startTimer = useCallback(() => {
-  //   timer.current = setInterval(() => {
-  //     setShowFarms((prev) => !prev)
-  //   }, 6000)
-  // }, [timer])
-
-  // useEffect(() => {
-  //   if (isLoaded) {
-  //     startTimer()
-  //   }
-
-  //   return () => {
-  //     clearInterval(timer.current)
-  //   }
-  // }, [timer, isLoaded, startTimer])
 
   const getPoolText = (pool: Pool.DeserializedPool<Token>) => {
     if (pool.vaultKey) {
@@ -99,20 +82,20 @@ const FarmsPoolsRow = () => {
               />
             ))}
           </Grid>
-          {/* {chainId === ChainId.BSC && (
-              <Grid>
-                {topPools.map((topPool, index) => (
-                  <TopFarmPool
-                    // eslint-disable-next-line react/no-array-index-key
-                    key={index}
-                    title={topPool && getPoolText(topPool)}
-                    percentage={topPool?.sousId === 0 ? +lockedApy : topPool?.apr}
-                    index={index}
-                    visible={!showFarms}
-                  />
-                ))}
-              </Grid>
-            )} */}
+          {chainId === ChainId.BSC && (
+            <Grid>
+              {topPools.map((topPool, index) => (
+                <TopFarmPool
+                  // eslint-disable-next-line react/no-array-index-key
+                  key={index}
+                  title={topPool && getPoolText(topPool)}
+                  percentage={topPool?.sousId === 0 ? +lockedApy : topPool?.apr}
+                  index={index}
+                  visible={!showFarms}
+                />
+              ))}
+            </Grid>
+          )}
         </Box>
       </Flex>
     </div>

@@ -17,8 +17,8 @@ const StyledText = styled(Text)`
   opacity: 0.5;
 `
 const AbsoluteWrapper = styled(Flex)<{ visible: boolean; index: number; topOffset: string }>`
-  // position: absolute;
-  //top: ${({ topOffset }) => topOffset};
+  position: absolute;
+  top: ${({ topOffset }) => topOffset};
   opacity: ${({ visible }) => (visible ? 1 : 0)};
   margin-top: ${({ visible }) => (visible ? 0 : `50%`)};
   transition: opacity, margin-top, 0.4s ease-out;
@@ -63,14 +63,14 @@ const TopFarmPool: React.FC<React.PropsWithChildren<TopFarmPoolProps>> = ({ titl
           <Skeleton width={80} height={12} mb="8px" />
         )}
         {percentage ? (
-          <FlexGap gap="4px">
+          <FlexGap gap="4px" margin="0 auto">
             <Balance lineHeight="1.5" fontSize="16px" bold unit="%" value={percentage} />
           </FlexGap>
         ) : (
           <Skeleton width={60} height={16} />
         )}
         {percentage ? (
-          <Text fontSize="15px" color="textSubtle">
+          <Text fontSize="15px" color="textSubtle" textAlign="center">
             {t('APR')}
           </Text>
         ) : (
