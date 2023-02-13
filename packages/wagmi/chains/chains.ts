@@ -17,6 +17,7 @@ export const avalandche: Chain = {
   },
 }
 
+
 export const avalandcheFuji: Chain = {
   id: 43113,
   name: 'Avalanche Fuji',
@@ -92,6 +93,53 @@ export const bsc: Chain = {
   },
 }
 
+
+export const arbitrum: Chain = {
+  id: 42161,
+  name: 'Arbitrum One',
+  network: 'arbitrum',
+  rpcUrls: {
+    public: 'https://rpc.ankr.com/arbitrum',
+    default: 'https://arbitrum-mainnet.infura.io',
+  },
+  nativeCurrency: { name: 'Arbitrum One', symbol: 'ETH', decimals: 18 },
+  blockExplorers: {
+    default: {
+      name: 'Arbiscan',
+      url: 'https://arbiscan.io/',
+    },
+  },
+  multicall: {
+    address: '0xcA11bde05977b3631167028862bE2a173976CA11',
+    blockCreated: 7654707,
+  },
+}
+
+
+export const matic: Chain = {
+  id: 137,
+  name: 'Matic Mainnet',
+  network: 'matic',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'MATIC',
+    symbol: 'MATIC',
+  },
+  rpcUrls: {
+    public: 'https://polygon-rpc.com',
+    default: 'https://polygon-rpc.com',
+  },
+  blockExplorers: {
+    default: { name: 'Polygonscan', url: 'https://polygonscan.com/' },
+  },
+  multicall: {
+    address: '0x2FFd4c4ff5Ea683d68515e2FebCa0FB503E9F7b7',
+    blockCreated: 35709658,
+  },
+}
+
+
+
 export const bscTest: Chain = {
   id: 97,
   name: 'BNB Smart Chain Testnet',
@@ -114,5 +162,7 @@ export const bscTest: Chain = {
   },
   testnet: true,
 }
+
+
 
 export { rinkeby, mainnet, goerli }
