@@ -8,6 +8,7 @@ import { multicallv2 } from 'utils/multicall'
 import ifoV1AbiNative from 'config/abi/ifoV1Native.json'
 import { PublicIfoData } from '../../types'
 import { getStatus } from '../helpers'
+import { ChainId } from '@pancakeswap/sdk'
 
 
 /**
@@ -49,7 +50,7 @@ const useGetPublicIfoData = (ifo: Ifo): PublicIfoData => {
         name: method,
       }))
 
-      const [startBlock, endBlock, raisingAmount, totalAmount, offeringAmount] = await multicallv2({ abi: ifoV1AbiNative, calls: ifoCalls })
+      const [startBlock, endBlock, raisingAmount, totalAmount, offeringAmount] = await multicallv2({ abi: ifoV1AbiNative, chainId:ChainId.BSC_TESTNET, calls: ifoCalls })
 
       // console.log("startBlock", startBlock);
       // console.log("endBlock", endBlock);

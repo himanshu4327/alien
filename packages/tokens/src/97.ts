@@ -38,4 +38,15 @@ export const bscTestnetTokens = {
     'BUSD',
     'Binance USD',
   ),
+  
+  dttoken: new ERC20Token(
+    ChainId.BSC_TESTNET,
+    '0xb73dAD808964D1ce864F326b44842ee7c0DCdb21',
+    18,
+    'DT',
+    'DT',
+    'https://www.binance.com/',
+    
+  ),
+
 }

@@ -1,8 +1,8 @@
-import type { FarmConfigBaseProps, SerializedFarmConfig } from '@pancakeswap/farms'
-import { ChainId, Currency, Token, Trade, TradeType } from '@pancakeswap/sdk'
-import { TradeWithStableSwap } from '@pancakeswap/smart-router/evm'
 import BigNumber from 'bignumber.js'
-import { StableTrade } from 'views/Swap/StableSwap/hooks/useStableTradeExactIn'
+import { Token, ChainId } from '@pancakeswap/sdk'
+import { SerializedWrappedToken } from '@pancakeswap/token-lists'
+import type { SerializedFarmConfig, FarmConfigBaseProps } from '@pancakeswap/farms'
+
 // a list of tokens by chain
 export type ChainMap<T> = {
   readonly [chainId in ChainId]: T
@@ -28,7 +28,6 @@ export enum PoolIds {
   poolBasic = 'poolBasic',
   poolUnlimited = 'poolUnlimited',
 }
-
 export type IfoStatus = 'idle' | 'coming_soon' | 'live' | 'finished'
 
 interface IfoPoolInfo {
@@ -45,6 +44,7 @@ export interface Ifo {
   name: string
   currency: Token
   token: Token
+  releaseBlockNumber: number
   articleUrl: string
   campaignId: string
   tokenOfferingPrice: number
@@ -55,9 +55,52 @@ export interface Ifo {
   vestingTitle?: string
   cIFO?: boolean
   plannedStartTime?: number
+  plannedEndTime?: number
   [PoolIds.poolBasic]?: IfoPoolInfo
   [PoolIds.poolUnlimited]: IfoPoolInfo
 }
+
+export interface Iwo {
+  id: string
+  isActive: boolean
+  address: string
+  name: string
+  currency: Token
+  token: Token
+  releaseBlockNumber: number
+  articleUrl: string
+  campaignId: string
+  tokenOfferingPrice: number
+  description?: string
+  twitterUrl?: string
+  telegramUrl?: string
+  version: number
+  vestingTitle?: string
+  cIFO?: boolean
+  plannedStartTime?: number
+  plannedEndTime?: number
+  [PoolIds.poolBasic]?: IfoPoolInfo
+  [PoolIds.poolUnlimited]: IfoPoolInfo
+}
+
+// export interface Iwo {
+//   id: string
+//   isActive: boolean
+//   address: string
+//   name: string
+//   subTitle?: string
+//   description?: string
+//   launchDate: string
+//   launchTime: string
+//   saleAmount: string
+//   raiseAmount: string
+//   cakeToBurn: string
+//   projectSiteUrl: string
+//   currency: string
+//   currencyAddress: string
+//   tokenDecimals: number
+//   releaseBlockNumber: number
+// }
 
 export enum PoolCategory {
   'COMMUNITY' = 'Community',
@@ -67,6 +110,31 @@ export enum PoolCategory {
 }
 
 export type { SerializedFarmConfig, FarmConfigBaseProps }
+
+export interface DeserializedFarmConfig extends FarmConfigBaseProps {
+  token: Token
+  quoteToken: Token
+}
+
+interface PoolConfigBaseProps {
+  sousId: number
+  contractAddress: Address
+  poolCategory: PoolCategory
+  tokenPerBlock: string
+  isFinished?: boolean
+  enableEmergencyWithdraw?: boolean
+  version?: number
+}
+
+export interface SerializedPoolConfig extends PoolConfigBaseProps {
+  earningToken: SerializedWrappedToken
+  stakingToken: SerializedWrappedToken
+}
+
+export interface DeserializedPoolConfig extends PoolConfigBaseProps {
+  earningToken: Token
+  stakingToken: Token
+}
 
 export type Images = {
   lg: string
@@ -189,30 +257,3 @@ export enum FetchStatus {
   Fetched = 'FETCHED',
   Failed = 'FAILED',
 }
-
-export const isV2SwapOrStableSwap = (trade: ITrade): trade is V2TradeAndStableSwap => {
-  return Boolean((trade as V2TradeAndStableSwap)?.maximumAmountIn)
-}
-
-export const isStableSwap = (trade: ITrade): trade is StableTrade => {
-  return (
-    Boolean((trade as StableTrade)?.maximumAmountIn) &&
-    !(trade as Trade<Currency, Currency, TradeType> | TradeWithStableSwap<Currency, Currency, TradeType>)?.route
-  )
-}
-
-export const isV2SwapOrMixSwap = (
-  trade: ITrade,
-): trade is Trade<Currency, Currency, TradeType> | TradeWithStableSwap<Currency, Currency, TradeType> => {
-  return Boolean(
-    (trade as Trade<Currency, Currency, TradeType> | TradeWithStableSwap<Currency, Currency, TradeType>)?.route,
-  )
-}
-
-export type ITrade =
-  | Trade<Currency, Currency, TradeType>
-  | StableTrade
-  | TradeWithStableSwap<Currency, Currency, TradeType>
-  | undefined
-
-export type V2TradeAndStableSwap = Trade<Currency, Currency, TradeType> | StableTrade | undefined

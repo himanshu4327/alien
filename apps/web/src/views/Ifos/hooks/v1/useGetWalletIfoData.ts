@@ -8,6 +8,8 @@ import ifoV1AbiNative from 'config/abi/ifoV1Native.json'
 import { BIG_ZERO } from '@pancakeswap/utils/bigNumber'
 import useIfoAllowance from '../useIfoAllowance'
 import { WalletIfoState, WalletIfoData } from '../../types'
+import { ChainId } from '@pancakeswap/sdk'
+
 
 interface UserInfo {
   amount: BigNumber
@@ -69,6 +71,7 @@ const useGetWalletIfoData = (ifo: Ifo): WalletIfoData => {
 
     const [offeringAmount, userInfoResponse, refundingAmount] = await multicallv2({
       abi: ifoV1AbiNative,
+      chainId: ChainId.BSC_TESTNET,
       calls: ifoCalls,
     })
 
