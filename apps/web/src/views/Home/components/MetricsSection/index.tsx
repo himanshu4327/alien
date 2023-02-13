@@ -8,7 +8,7 @@ import IconCard, { IconCardData } from '../IconCard'
 import StatCardContent from './StatCardContent'
 // import GradientLogo from '../GradientLogoSvg'
 import Image from 'next/image'
-import GradientLogo from '../../../../../public/images/GradientLogo.png'
+import GradientLogo from '../../../../../public/images/Gradient-logo.png'
 
 const StyledHeading = styled(Heading)`
   text-shadow: -1px 0px 12px #00f666;

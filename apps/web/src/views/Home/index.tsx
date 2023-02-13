@@ -230,13 +230,15 @@ const Home: React.FC<React.PropsWithChildren> = () => {
         hasCurvedDivider={false}
       >
         <div style={{ display: 'flex', justifyContent: 'end', position: 'relative' }}>
-          {/* <FloatingUfosTopRight /> */}
+          <FloatingUfosTopRight />
         </div>
 
-        {/* <FloatingUfos /> */}
+        <FloatingUfos />
         <MetricsSection />
         <div className="circle">
-          <div style={{ display: 'flex', justifyContent: 'end' }}>{/* <FloatingUfosRight /> */}</div>
+          <div style={{ display: 'flex', justifyContent: 'end' }}>
+            <FloatingUfosRight />
+          </div>
         </div>
       </PageSection>
       <PageSection

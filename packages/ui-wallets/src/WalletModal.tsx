@@ -20,6 +20,7 @@ import { atom, useAtom } from 'jotai'
 import { FC, lazy, PropsWithChildren, Suspense, useMemo, useState } from 'react'
 import { isMobile } from 'react-device-detect'
 import { StepIntro } from './components/Intro'
+
 import {
   desktopWalletSelectionClass,
   modalWrapperClass,
@@ -80,15 +81,15 @@ const TabContainer = ({ children, docLink, docText }: PropsWithChildren<{ docLin
     <AtomBox position="relative" zIndex="modal" className={modalWrapperClass}>
       <AtomBox position="absolute" style={{ top: '-50px' }}>
         <TabMenu activeIndex={index} onItemClick={setIndex} gap="0px" isColorInverse>
-          <Tab>{t('Connect Wallet')}</Tab>
-          <Tab>{t('What’s a Web3 Wallet?')}</Tab>
+          {/* <Tab>{t('Connect Wallet')}</Tab> */}
+          <></>
+          <></>
+          {/* <Tab>{t('What’s a Web3 Wallet?')}</Tab> */}
         </TabMenu>
       </AtomBox>
       <AtomBox
         display="flex"
         position="relative"
-        background="gradientCardHeader"
-        borderRadius="card"
         borderBottomRadius={{
           xs: '0',
           md: 'card',
@@ -297,7 +298,6 @@ function DesktopModal<T>({
   const wallets: WalletConfigV2<T>[] = wallets_.filter((w) => {
     return w.installed !== false || (!w.installed && (w.guide || w.downloadLink || w.qrCode))
   })
-
   const [selected] = useSelectedWallet<T>()
   const [error] = useAtom(errorAtom)
   const [qrCode, setQrCode] = useState<string | undefined>(undefined)
@@ -312,7 +312,7 @@ function DesktopModal<T>({
       <AtomBox
         display="flex"
         flexDirection="column"
-        bg="backgroundAlt"
+        // bg="backgroundAlt"
         py="32px"
         zIndex="modal"
         borderRadius="card"
@@ -441,7 +441,7 @@ const Intro = ({ docLink, docText }: { docLink: string; docText: string }) => {
       <Heading as="h1" fontSize="20px" color="secondary">
         {t('Haven’t got a wallet yet?')}
       </Heading>
-      <Image src="https://cdn.pancakeswap.com/wallets/wallet_intro.png" width={198} height={178} />
+      <Image src="/images/Gradient-logo.png" width={58} height={58} />
       <Button as={LinkExternal} color="backgroundAlt" variant="subtle" href={docLink}>
         {docText}
       </Button>

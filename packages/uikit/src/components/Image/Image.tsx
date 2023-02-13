@@ -46,13 +46,11 @@ const Image: React.FC<React.PropsWithChildren<ImageProps>> = ({ src, alt, width,
 
   return (
     <Wrapper key={src} ref={imgRef} height={height} width={width} {...props}>
-      {/* {isLoaded ? (
+      {isLoaded ? (
         <StyledImage src={error && fallbackSrc ? fallbackSrc : src} alt={alt} onError={() => setError(true)} />
-        <></>
       ) : (
         <Placeholder />
-        <></>
-      )} */}
+      )}
     </Wrapper>
   );
 };
