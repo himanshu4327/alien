@@ -21,10 +21,10 @@ export const IfoPageLayout = ({ children }) => {
             label: t('Latest'),
             href: '/ilo',
           },
-          {
-            label: t('Finished'),
-            href: '/ilo/history',
-          },
+          // {
+          //   label: t('Finished'),
+          //   href: '/ilo/history',
+          // },
         ]}
         activeItem={isExact ? '/ilo' : '/ilo/history'}
       />

@@ -151,8 +151,8 @@ const config: (
     //   ],
     // },
     {
-      label: 'ILO',
-      href: '/iwo',
+      label: 'IAO',
+      href: '/iao',
       icon: MoreIcon,
       hideSubNav: true,
       supportChainIds: SUPPORT_ONLY_IAO,
