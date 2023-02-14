@@ -73,7 +73,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           content="The most popular AMM on Ethereum! Earn Alien through yield farming or win it in the Lottery, then stake it in Syrup Pools to earn more tokens! Initial Farm Offerings (new token launch model pioneered by AlienSwap), NFTs, and more, on a platform you can trust."
         />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="🥞 Alien - A next evolution DeFi exchange on  Ethereum" />
+        <meta name="twitter:title" content=" Alien - A next evolution DeFi exchange on  Ethereum" />
         <title>PancakeSwap Bridge</title>
       </Head>
       <NextThemeProvider>

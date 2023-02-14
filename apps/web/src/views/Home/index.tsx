@@ -168,16 +168,16 @@ const Home: React.FC<React.PropsWithChildren> = () => {
           background: linear-gradient(139.73deg, #e6fdff 0%, #f3efff 100%);
         }
         [data-theme='dark'] #home-1 .page-bg {
-          background: url('/images/bg-hero.png') rgba(0, 0, 0, 0.6);
+          background: url('/images/bg-hero.png'), rgba(0, 0, 0, 0.6);
           background-blend-mode: multiply;
           background-size: cover;
-          backgroun-repeat: no-repeat;
-          background-position: 0 -200px;
-          box-shadow: inset 0px -200px 100px #000;
+          background-repeat: no-repeat;
+          background-position: 0 -150px;
         }
 
         #home-2 .page-bg {
           background: linear-gradient(180deg, #ffffff 22%, #d7caec 100%);
+          box-shadow: 0px -10px 100px 50px #000;
         }
         [data-theme='dark'] #home-2 .page-bg {
           background: #000;
@@ -215,8 +215,8 @@ const Home: React.FC<React.PropsWithChildren> = () => {
         </Box>
         <Flex marginTop="120px" justifyContent="center">
           {!account && <StyledButton mr="8px" />}
-          <NextLinkFromReactRouter to="/swap">
-            <Button>{t('Trade Now')}</Button>
+          <NextLinkFromReactRouter to="/iao">
+            <Button>{t('Buy Now')}</Button>
           </NextLinkFromReactRouter>
         </Flex>
         <Hero />
@@ -262,7 +262,7 @@ const Home: React.FC<React.PropsWithChildren> = () => {
         <EarnSectionData />
         {/* TODO: until we are enable fetch multi-chain farms */}
 
-        <UserBannerWrapper>{chainId === ChainId.BSC && <FarmsPoolsRow />}</UserBannerWrapper>
+        {/* <UserBannerWrapper>{chainId === ChainId.BSC && <FarmsPoolsRow />}</UserBannerWrapper> */}
       </PageSection>
 
       <PageSection
@@ -272,7 +272,7 @@ const Home: React.FC<React.PropsWithChildren> = () => {
         hasCurvedDivider={false}
       >
         <AlienSectionData />
-        <CakeDataRow />
+        {/* <CakeDataRow /> */}
       </PageSection>
       <PageSection
         innerProps={{ style: HomeSectionContainerStyles }}

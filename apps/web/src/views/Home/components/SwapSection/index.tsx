@@ -72,9 +72,9 @@ const SwapSection = () => {
           </Text>
           <Flex justifyContent="center" my="10px">
             <Button mr="16px">
-              <Link external href="/swap">
+              <Link external href="/iao">
                 <Text style={{ fontSize: '16px' }} color="card" bold fontSize="16px">
-                  Trade Now
+                  Buy Now
                 </Text>
               </Link>
             </Button>

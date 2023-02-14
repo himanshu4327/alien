@@ -7,7 +7,6 @@ import CompositeImage, { CompositeImageProps } from '../CompositeImage'
 import ColoredWordHeading from '../ColoredWordHeading'
 import skelton from '../../../../../public/images/alien/skeleton.gif'
 
-
 const StyledHeading = styled(Heading)`
   letter-spacing: 0.1em;
   color: #00f666;
@@ -57,7 +56,7 @@ const AlienSectionData = () => {
           </Text>
           <Flex justifyContent="center" my="10px">
             <Button mr="16px">
-              <Link external href="/farms">
+              <Link external href="/iao">
                 <Text style={{ fontSize: '16px' }} color="card" bold fontSize="16px">
                   Trade Now
                 </Text>

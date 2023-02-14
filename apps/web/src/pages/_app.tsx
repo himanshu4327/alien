@@ -74,10 +74,10 @@ function MyApp(props: AppProps<{ initialReduxState: any }>) {
         <meta name="twitter:image" content="/#" />
         <meta
           name="twitter:description"
-          content="The most popular AMM on BSC! Earn Alien through yield farming or win it in the Lottery, then stake it in Syrup Pools to earn more tokens! Initial Farm Offerings (new token launch model pioneered by Alien), NFTs, and more, on a platform you can trust."
+          content="The most popular AMM on Arbitrum! Earn Alien through yield farming or win it in the Lottery, then stake it in Syrup Pools to earn more tokens! Initial Farm Offerings (new token launch model pioneered by Alien), NFTs, and more, on a platform you can trust."
         />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="🥞 Alien - A next evolution DeFi exchange on Ethereum" />
+        <meta name="twitter:title" content="Alien - A next evolution DeFi exchange on Arbitrum" />
 
         <title>AlienFi</title>
         {(Component as NextPageWithLayout).mp && (
@@ -122,7 +122,7 @@ type NextPageWithLayout = NextPage & {
   mp?: boolean
   /**
    * allow chain per page, empty array bypass chain block modal
-   * @default [ChainId.BSC]
+   * @default [ChainId.Ethereum]
    * */
   chains?: number[]
   isShowScrollToTopButton?: true
