@@ -19,7 +19,7 @@ export const IfoPageLayout = ({ children }) => {
         items={[
           {
             label: t('Latest'),
-            href: '/ilo',
+            href: '/iao',
           },
           // {
           //   label: t('Finished'),

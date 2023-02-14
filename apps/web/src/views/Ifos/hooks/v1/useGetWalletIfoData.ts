@@ -71,7 +71,7 @@ const useGetWalletIfoData = (ifo: Ifo): WalletIfoData => {
 
     const [offeringAmount, userInfoResponse, refundingAmount] = await multicallv2({
       abi: ifoV1AbiNative,
-      chainId: ChainId.BSC_TESTNET,
+      chainId: ChainId.ETHEREUM,
       calls: ifoCalls,
     })
 

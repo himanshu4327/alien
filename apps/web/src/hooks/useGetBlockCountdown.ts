@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { BSC_BLOCK_TIME } from 'config'
+import { BSC_BLOCK_TIME, ETHER_BLOCK_TIME } from 'config'
 import { bscRpcProvider } from 'utils/providers'
 
 /**
@@ -14,7 +14,7 @@ const useBlockCountdown = (blockNumber: number) => {
       const currentBlock = await bscRpcProvider.getBlockNumber()
 
       if (blockNumber > currentBlock) {
-        setSecondsRemaining((blockNumber - currentBlock) * BSC_BLOCK_TIME)
+        setSecondsRemaining((blockNumber - currentBlock) * ETHER_BLOCK_TIME)
 
         // Clear previous interval
         if (timer.current) {

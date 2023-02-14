@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react'
 import BigNumber from 'bignumber.js'
-import { BSC_BLOCK_TIME } from 'config'
+import { BSC_BLOCK_TIME, ETHER_BLOCK_TIME } from 'config'
 import { Ifo, IfoStatus, PoolIds } from 'config/constants/types'
 import { useLpTokenPrice } from 'state/farms/hooks'
 import { BIG_ZERO } from '@pancakeswap/utils/bigNumber'
@@ -56,9 +56,9 @@ const useGetPublicIfoData = (ifo: Ifo): PublicIfoData => {
         name: method,
       }))
 
-      const [startBlock, endBlock, raisingAmount, totalAmount, offeringAmount] = await multicallv2({ abi: ifoV1AbiNative, chainId:ChainId.BSC_TESTNET, calls: ifoCalls })
+      const [startBlock, endBlock, raisingAmount, totalAmount, offeringAmount] = await multicallv2({ abi: ifoV1AbiNative, chainId:ChainId.ETHEREUM, calls: ifoCalls })
 
-      // console.log("startBlock", startBlock);
+      console.log("startBlock", startBlock);
       // console.log("endBlock", endBlock);
       // console.log("raisingAmount", raisingAmount.toString());
       // console.log("totalAmount", totalAmount);
@@ -97,9 +97,9 @@ const useGetPublicIfoData = (ifo: Ifo): PublicIfoData => {
         isInitialized: true,
         status,
         blocksRemaining,
-        secondsUntilStart: (startBlockNum - currentBlock) * BSC_BLOCK_TIME,
+        secondsUntilStart: (startBlockNum - currentBlock) * ETHER_BLOCK_TIME,
         progress,
-        secondsUntilEnd: blocksRemaining * BSC_BLOCK_TIME,
+        secondsUntilEnd: blocksRemaining * ETHER_BLOCK_TIME,
         startBlockNum,
         endBlockNum,
         [PoolIds.poolUnlimited]: {

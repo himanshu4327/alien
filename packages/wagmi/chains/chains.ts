@@ -1,4 +1,4 @@
-import { rinkeby, mainnet, goerli } from 'wagmi/chains'
+import { rinkeby, goerli } from 'wagmi/chains'
 import { Chain } from 'wagmi'
 
 export const avalandche: Chain = {
@@ -69,6 +69,7 @@ export const fantomTestnet: Chain = {
 }
 
 const bscExplorer = { name: 'BscScan', url: 'https://bscscan.com' }
+const ethExplorer = { name: 'EtherScan', url: 'https://etherscan.io/' }
 
 export const bsc: Chain = {
   id: 56,
@@ -90,6 +91,29 @@ export const bsc: Chain = {
   multicall: {
     address: '0xcA11bde05977b3631167028862bE2a173976CA11',
     blockCreated: 15921452,
+  },
+}
+
+export const mainnet: Chain = {
+  id: 1,
+  name: 'Ethereum Mainnet',
+  network: 'mainnet',
+  rpcUrls: {
+    public: 'https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161',
+    default: 'https://rpc.ankr.com/eth',
+  },
+  blockExplorers: {
+    default: ethExplorer,
+    etherscan: ethExplorer,
+  },
+  nativeCurrency: {
+    name: 'Ethereum Mainnet',
+    symbol: 'ETH',
+    decimals: 18,
+  },
+  multicall: {
+    address: '0xcA11bde05977b3631167028862bE2a173976CA11',
+    blockCreated: 14353601,
   },
 }
 
@@ -165,4 +189,4 @@ export const bscTest: Chain = {
 
 
 
-export { rinkeby, mainnet, goerli }
+export { rinkeby, goerli }

@@ -1,5 +1,5 @@
 import { ERC20Token, ChainId } from '@pancakeswap/sdk'
-import { bscTokens, bscTestnetTokens } from '@pancakeswap/tokens'
+import { bscTokens, bscTestnetTokens, ethereumTokens } from '@pancakeswap/tokens'
 import { CAKE_BNB_LP_MAINNET } from './lp'
 import { Ifo } from './types'
 
@@ -95,28 +95,58 @@ const ifos: Ifo[] = [
   //     '',
   // },
 
+  // {
+  //   id: 'k4',
+  //   address: '0x9734F37acB638992719Fb03df20A02DD14F3c965',
+  //   isActive: true,
+  //   name: 'TEST IWO 3',
+  //   plannedStartTime: 1675141181,
+  //   plannedEndTime: 1675152281,
+  //   // poolBasic: {
+  //   //   raiseAmount: '$500,000',
+  //   //   distributionRatio: 1,
+  //   // },
+  //   poolUnlimited: {
+  //     saleAmount: '10,000 AlienFi',
+  //     raiseAmount: '5 BNB',
+  //     distributionRatio: 0.7,
+  //   },
+  //   currency: bscTestnetTokens.bnb,
+  //   token: bscTestnetTokens.dttoken,
+  //   releaseBlockNumber: 38735309,
+  //   campaignId: '51190050010',
+  //   articleUrl: '#',
+  //   tokenOfferingPrice: 0.0005,
+  //   version: 1,
+  //   twitterUrl: '#',
+  //   description:
+  //     ' Test Sale 2',
+  //   vestingTitle:
+  //     '',
+  // },
+
   {
-    id: 'k4',
-    address: '0x9734F37acB638992719Fb03df20A02DD14F3c965',
+    id: 'k1',
+    address: '0x6740Acb82ac5C63A7ad2397ee1faed7c788F5f8c',
     isActive: true,
-    name: 'TEST IWO 3',
+    name: 'AlienFi PreSale',
     plannedStartTime: 1675141181,
     plannedEndTime: 1675152281,
     // poolBasic: {
     //   raiseAmount: '$500,000',
     //   distributionRatio: 1,
-    // },
+    // }, 
     poolUnlimited: {
-      saleAmount: '10,000 AlienFi',
-      raiseAmount: '5 BNB',
+      saleAmount: '1,380,000 AlienFi',
+      raiseAmount: '230 ETH ',
       distributionRatio: 0.7,
     },
-    currency: bscTestnetTokens.bnb,
-    token: bscTestnetTokens.dttoken,
+    currency: ethereumTokens.ether,
+    token: ethereumTokens.alien,
     releaseBlockNumber: 38735309,
     campaignId: '51190050010',
     articleUrl: '#',
-    tokenOfferingPrice: 0.0005,
+    tokenOfferingPrice: 0.000166,
     version: 1,
     twitterUrl: '#',
     description:
