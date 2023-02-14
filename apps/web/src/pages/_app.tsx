@@ -68,7 +68,7 @@ function MyApp(props: AppProps<{ initialReduxState: any }>) {
         />
         <meta
           name="description"
-          content="Cheaper and faster than Uniswap? Discover AlienSwap, the leading DEX on Ethereum with the best farms in DeFi and a lottery for Alien."
+          content="Cheaper and faster than Uniswap? Discover AlienFi, the leading DEX on Arbitrum with the best farms in DeFi and a lottery for Alien."
         />
         <meta name="theme-color" content="#1FC7D4" />
         <meta name="twitter:image" content="/#" />

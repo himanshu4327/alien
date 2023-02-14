@@ -58,7 +58,7 @@ const useGetPublicIfoData = (ifo: Ifo): PublicIfoData => {
 
       const [startBlock, endBlock, raisingAmount, totalAmount, offeringAmount] = await multicallv2({ abi: ifoV1AbiNative, chainId:ChainId.ETHEREUM, calls: ifoCalls })
 
-      console.log("startBlock", startBlock);
+      // console.log("startBlock", startBlock);
       // console.log("endBlock", endBlock);
       // console.log("raisingAmount", raisingAmount.toString());
       // console.log("totalAmount", totalAmount);
