@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
-import { Heading, Flex, Text, Skeleton, ChartIcon, CommunityIcon, SwapIcon } from '@pancakeswap/uikit'
+import { Heading, Flex, Text, Skeleton, ChartIcon, CommunityIcon, SwapIcon, Card } from '@pancakeswap/uikit'
 import { useTranslation } from '@pancakeswap/localization'
 import useTheme from 'hooks/useTheme'
 import { formatLocalisedCompactNumber } from '@pancakeswap/utils/formatBalance'
@@ -59,29 +59,53 @@ const Stats = () => {
         {t('Trusted with ')}
         <StyledSpan>billions</StyledSpan>.
       </StyledHeading>
-      {/* <Flex flexDirection={['column', null, null, 'row']}>
+      <Flex flexDirection={['column', null, null, 'row']}>
         <IconCard {...UsersCardData} mr={[null, null, null, '16px']} mb={['16px', null, null, '0']}>
-          <StatCardContent
+          {/* <StatCardContent
             headingText={t('%users% users', { users })}
             bodyText={t('in the last 30 days')}
             highlightColor={theme.colors.primary}
-          />
+          /> */}
+          <Flex flexDirection="column" alignItems="center" minWidth="250px">
+            <Heading scale="xl" fontFamily="Alien" my="20px">
+              Users
+            </Heading>
+            <Heading scale="lg" color="#ccc" fontWeight="400">
+              N/A
+            </Heading>
+          </Flex>
         </IconCard>
         <IconCard {...TradesCardData} mr={[null, null, null, '16px']} mb={['16px', null, null, '0']}>
-          <StatCardContent
+          {/* <StatCardContent
             headingText={t('%trades% trades', { trades })}
             bodyText={t('made in the last 30 days')}
             highlightColor={theme.colors.primary}
-          />
+          /> */}
+          <Flex flexDirection="column" alignItems="center" minWidth="250px">
+            <Heading scale="xl" fontFamily="Alien" my="20px">
+              Trades
+            </Heading>
+            <Heading scale="lg" color="#ccc" fontWeight="400">
+              N/A
+            </Heading>
+          </Flex>
         </IconCard>
         <IconCard {...StakedCardData}>
-          <StatCardContent
+          {/* <StatCardContent
             headingText={t('$%tvl% staked', { tvl: tvlString })}
             bodyText={t('Total Value Locked')}
             highlightColor={theme.colors.primary}
-          />
+          /> */}
+          <Flex flexDirection="column" alignItems="center" minWidth="250px">
+            <Heading scale="xl" fontFamily="Alien" my="20px">
+              Staked
+            </Heading>
+            <Heading scale="lg" color="#ccc" fontWeight="400">
+              N/A
+            </Heading>
+          </Flex>
         </IconCard>
-      </Flex> */}
+      </Flex>
     </Flex>
   )
 }

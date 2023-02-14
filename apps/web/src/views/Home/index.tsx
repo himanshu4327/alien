@@ -151,6 +151,7 @@ const StyledButton = styled(ConnectWalletButton)`
 const StyledSubHeading = styled(Heading)`
   opacity: 0.5;
 `
+
 const Home: React.FC<React.PropsWithChildren> = () => {
   const { theme } = useTheme()
   const { address: account } = useAccount()
@@ -172,9 +173,41 @@ const Home: React.FC<React.PropsWithChildren> = () => {
           background-blend-mode: multiply;
           background-size: cover;
           background-repeat: no-repeat;
-          background-position: 0 -150px;
+          background-position: 0 -250px;
+        }
+        @media only screen and (max-width: 480px) {
+          [data-theme='dark'] #home-1 .page-bg {
+            background-position: 0 0px;
+          }
+          #home-2 .page-bg {
+            box-shadow: 0px -10px 100px 10px #000;
+          }
+        }
+        @media only screen and (min-width: 481px) and (max-width: 767px) {
+          [data-theme='dark'] #home-1 .page-bg {
+            background-position: 0 0px;
+          }
+          #home-2 .page-bg {
+            box-shadow: 0px -10px 100px 20px #000;
+          }
+        }
+        @media only screen and (min-width: 768px) and (max-width: 1280px) {
+          [data-theme='dark'] #home-1 .page-bg {
+            background-position: 0 0px;
+          }
+          #home-2 .page-bg {
+            box-shadow: 0px -10px 100px 50px #000;
+          }
         }
 
+        @media only screen and (min-width: 1281px) and (max-width: 1540px) {
+          [data-theme='dark'] #home-1 .page-bg {
+            background-position: 0 0px;
+          }
+          #home-2 .page-bg {
+            box-shadow: 0px -10px 100px 10px #000;
+          }
+        }
         #home-2 .page-bg {
           background: linear-gradient(180deg, #ffffff 22%, #d7caec 100%);
           box-shadow: 0px -10px 100px 50px #000;

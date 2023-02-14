@@ -34,7 +34,7 @@ const StyledNav = styled.nav`
   background-color: ${({ theme }) => theme.nav.background};
   //border-bottom: 1px solid ${({ theme }) => theme.colors.cardBorder};
   transform: translate3d(0, 0, 0);
-
+  // box-shadow: -50px 10px 100px 10px #000;
   padding-left: 16px;
   padding-right: 16px;
 `;
