@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js'
-import { Token, ChainId } from '@pancakeswap/sdk'
+import { Token, ChainId, Trade, Currency, TradeType } from '@pancakeswap/sdk'
 import { SerializedWrappedToken } from '@pancakeswap/token-lists'
 import type { SerializedFarmConfig, FarmConfigBaseProps } from '@pancakeswap/farms'
 
@@ -257,3 +257,31 @@ export enum FetchStatus {
   Fetched = 'FETCHED',
   Failed = 'FAILED',
 }
+
+
+export const isV2SwapOrStableSwap = (trade: ITrade): trade is V2TradeAndStableSwap => {
+  return Boolean((trade as V2TradeAndStableSwap)?.maximumAmountIn)
+}
+
+// export const isStableSwap = (trade: ITrade): trade is StableTrade => {
+//   return (
+//     Boolean((trade as StableTrade)?.maximumAmountIn) &&
+//     !(trade as Trade<Currency, Currency, TradeType> | TradeWithStableSwap<Currency, Currency, TradeType>)?.route
+//   )
+// }
+
+// export const isV2SwapOrMixSwap = (
+//   trade: ITrade,
+// ): trade is Trade<Currency, Currency, TradeType> | TradeWithStableSwap<Currency, Currency, TradeType> => {
+//   return Boolean(
+//     (trade as Trade<Currency, Currency, TradeType> | TradeWithStableSwap<Currency, Currency, TradeType>)?.route,
+//   )
+// }
+
+export type ITrade =
+  | Trade<Currency, Currency, TradeType>
+  // | StableTrade
+  // | TradeWithStableSwap<Currency, Currency, TradeType>
+  | undefined
+
+export type V2TradeAndStableSwap = Trade<Currency, Currency, TradeType> | undefined

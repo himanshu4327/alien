@@ -6,7 +6,7 @@ import isZero from '@pancakeswap/utils/isZero'
 import truncateHash from '@pancakeswap/utils/truncateHash'
 import { V2TradeAndStableSwap } from 'config/constants/types'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
-import { useMemo } from 'react'
+import { useMemo } from 'react' 
 import { useGasPrice } from 'state/user/hooks'
 import { logSwap, logTx } from 'utils/log'
 
