@@ -26,8 +26,8 @@ const StyledOverlay = styled(Box)<{ isUnmounting?: boolean }>`
   left: 0px;
   width: 100%;
   height: 100%;
-  background-color: ${({ theme }) => `${theme.colors.text99}`};
-  z-index: 20;
+  // background-color: ${({ theme }) => `${theme.colors.text99}`};
+  // z-index: 20;
   will-change: opacity;
   animation: ${mountAnimation} 350ms ease forwards;
   ${({ isUnmounting }) =>
@@ -61,8 +61,8 @@ interface OverlayProps extends BoxProps {
 export const Overlay: FC<React.PropsWithChildren<OverlayProps>> = (props) => {
   return (
     <>
-      {/* <BodyLock /> */}
-      {/* <StyledOverlay role="presentation" {...props} /> */}
+      <BodyLock />
+      <StyledOverlay role="presentation" {...props} />
     </>
   );
 };

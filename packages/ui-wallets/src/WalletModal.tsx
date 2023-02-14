@@ -81,10 +81,10 @@ const TabContainer = ({ children, docLink, docText }: PropsWithChildren<{ docLin
     <AtomBox position="relative" zIndex="modal" className={modalWrapperClass}>
       <AtomBox position="absolute" style={{ top: '-50px' }}>
         <TabMenu activeIndex={index} onItemClick={setIndex} gap="0px" isColorInverse>
-          {/* <Tab>{t('Connect Wallet')}</Tab> */}
+          {/* <Tab>{t('Connect Wallet')}</Tab>
+          <Tab>{t('What’s a Web3 Wallet?')}</Tab> */}
           <></>
           <></>
-          {/* <Tab>{t('What’s a Web3 Wallet?')}</Tab> */}
         </TabMenu>
       </AtomBox>
       <AtomBox
@@ -98,7 +98,7 @@ const TabContainer = ({ children, docLink, docText }: PropsWithChildren<{ docLin
         width="full"
       >
         {index === 0 && children}
-        {/* {index === 1 && <StepIntro docLink={docLink} docText={docText} />} */}
+        {index === 1 && <StepIntro docLink={docLink} docText={docText} />}
       </AtomBox>
     </AtomBox>
   )
@@ -356,7 +356,7 @@ function DesktopModal<T>({
           {!selected && <Intro docLink={docLink} docText={docText} />}
           {selected && selected.installed !== false && (
             <>
-              {typeof selected.icon === 'string' && <Image src={selected.icon} width={108} height={108} />}
+              {typeof selected.icon === 'string' && <Image src={selected.icon} width={300} height={300} />}
               <Heading as="h1" fontSize="20px" color="secondary">
                 {t('Opening')} {selected.title}
               </Heading>
@@ -441,7 +441,7 @@ const Intro = ({ docLink, docText }: { docLink: string; docText: string }) => {
       <Heading as="h1" fontSize="20px" color="secondary">
         {t('Haven’t got a wallet yet?')}
       </Heading>
-      <Image src="/images/Gradient-logo.png" width={58} height={58} />
+      <Image src="/images/alien/fireBurner.gif" width={200} height={200} />
       <Button as={LinkExternal} color="backgroundAlt" variant="subtle" href={docLink}>
         {docText}
       </Button>

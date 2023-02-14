@@ -117,9 +117,9 @@ const OnSaleInfo = ({ token, saleAmount, distributionRatio }) => {
             ? saleAmount
             : `${formatNumber(getBalanceNumber(saleAmount), 0, 0)} ${token.symbol}`}
         </Value>
-        <Text fontSize="14px" color="textSubtle">
+        {/* <Text fontSize="14px" color="textSubtle">
           {t('%ratio%% of total sale', { ratio: distributionRatio })}
-        </Text>
+        </Text> */}
       </Flex>
     </TokenSection>
   )
@@ -179,7 +179,6 @@ const IfoCardTokens: React.FC<React.PropsWithChildren<IfoCardTokensProps>> = ({
   }, [criterias])
 
   const renderTokenSection = () => {
-
     if (isLoading) {
       return <SkeletonCardTokens />
     }
@@ -193,7 +192,6 @@ const IfoCardTokens: React.FC<React.PropsWithChildren<IfoCardTokensProps>> = ({
         />
       )
     }
-    
 
     let message
     // commented profile section
@@ -213,9 +211,6 @@ const IfoCardTokens: React.FC<React.PropsWithChildren<IfoCardTokensProps>> = ({
     //     </Message>
     //   )
     // }
-
-
-
 
     const ifov31Msg =
       ifo.version >= 3.1 && poolId === PoolIds.poolBasic && criterias?.length > 0 ? (
@@ -260,7 +255,6 @@ const IfoCardTokens: React.FC<React.PropsWithChildren<IfoCardTokensProps>> = ({
       )
     }
 
-
     // if (account && !hasProfile) {
     //   return (
     //     <>
@@ -278,7 +272,6 @@ const IfoCardTokens: React.FC<React.PropsWithChildren<IfoCardTokensProps>> = ({
 
     if (publicIfoData.status === 'coming_soon') {
       return (
-
         <>
           <TokenSection primaryToken={ifo.token}>
             <Label>{t('On sale')}</Label>
@@ -286,9 +279,9 @@ const IfoCardTokens: React.FC<React.PropsWithChildren<IfoCardTokensProps>> = ({
               token.symbol
             }`}</Value>
           </TokenSection>
-          <Text fontSize="14px" color="textSubtle" pl="48px">
+          {/* <Text fontSize="14px" color="textSubtle" pl="48px">
             {t('%ratio%% of total sale', { ratio: distributionRatio })}
-          </Text>
+          </Text> */}
           {message}
           {/* {enableStatus !== EnableStatus.ENABLED && account && (
             <Button
@@ -307,17 +300,16 @@ const IfoCardTokens: React.FC<React.PropsWithChildren<IfoCardTokensProps>> = ({
     if (publicIfoData.status === 'live') {
       return (
         <>
-
-        <TokenSection primaryToken={ifo.token}>
+          <TokenSection primaryToken={ifo.token}>
             <Label>{t('On sale')}</Label>
             <Value>{`${formatNumber(getBalanceNumber(publicIfoData[poolId].offeringAmountPool), 0, 0)} ${
               token.symbol
             }`}</Value>
           </TokenSection>
-          <Text fontSize="14px" color="textSubtle" pl="48px">
+          {/* <Text fontSize="14px" color="textSubtle" pl="48px">
             {t('%ratio%% of total sale', { ratio: distributionRatio })}
-          </Text>
-    
+          </Text> */}
+
           <CommitTokenSection commitToken={ifo.currency} my="24px">
             <Label>{t('Your %symbol% committed', { symbol: currency.symbol })}</Label>
             <Value>{getBalanceNumber(amountTokenCommittedInLP, currency.decimals)}</Value>
