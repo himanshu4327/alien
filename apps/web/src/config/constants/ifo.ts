@@ -9,7 +9,7 @@ const ifos: Ifo[] = [
   // {
   //   id: 'mgp',
   //   address: '0xa8b6d16c3Df83Fb6a6157082F3EE9f4ed3c66420',
-  //   isActive: false, 
+  //   isActive: false,
   //   name: 'MGP',
   //   plannedStartTime: 1666872000,
   //   poolBasic: {
@@ -64,7 +64,7 @@ const ifos: Ifo[] = [
   //   vestingTitle:
   //     'Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum ',
   // },
-  
+
   // {
   //   id: 'k3',
   //   address: '0x5BB413571A8fe7f1783D46526D5bB441f92b5557',
@@ -135,7 +135,7 @@ const ifos: Ifo[] = [
     // poolBasic: {
     //   raiseAmount: '$500,000',
     //   distributionRatio: 1,
-    // }, 
+    // },
     poolUnlimited: {
       saleAmount: '1,380,000 AlienFi',
       raiseAmount: '230 ETH ',
@@ -150,11 +150,9 @@ const ifos: Ifo[] = [
     version: 1,
     twitterUrl: '#',
     description:
-      ' AlienFi PreSale',
-    vestingTitle:
-      '',
+      'ALIEN token on the ETH Network works like a placeholder token. As AlienFi is on Arbitrum Network, so you’ll be airdropped with the real $ALIEN tokens on Arbitrum at 1:1 ratio',
+    vestingTitle: '',
   },
-
 
   // {
   //   id: 'mgp',

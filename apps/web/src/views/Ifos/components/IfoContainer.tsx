@@ -29,12 +29,12 @@ const IfoContainer: React.FC<React.PropsWithChildren<TypeProps>> = ({ ifoSection
       {/* <IfoStepBackground>
         <Container>{ifoSteps}</Container>
       </IfoStepBackground> */}
-      <Flex justifyContent="center">
-        {/* <IfoQuestions /> */}
+      {/* <Flex justifyContent="center">
+        <IfoQuestions />
         <LinkExternal href="/#" mx="auto" mt="16px">
           {t('Apply to run an IFO!')}
         </LinkExternal>
-      </Flex>
+      </Flex> */}
     </IfoLayout>
   )
 }
