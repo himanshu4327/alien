@@ -30,8 +30,8 @@ const EarnSectionData = () => {
         <Flex
           flexDirection="column"
           flex="1"
-          ml={[null, null, null, reverse && '64px']}
-          mr={[null, null, null, !reverse && '64px']}
+          ml={[null, null, null, '64px']}
+          mr={[null, null, null, '64px']}
           alignSelf={['flex-start', null, null, 'center']}
         >
           <StyledHeading scale="xl" textTransform="uppercase" textAlign="center">
