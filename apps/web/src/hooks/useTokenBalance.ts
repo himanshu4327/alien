@@ -8,7 +8,7 @@ import { ChainId } from '@pancakeswap/sdk'
 import { useMemo } from 'react'
 import useSWR from 'swr'
 import { BIG_ZERO } from '@pancakeswap/utils/bigNumber'
-import { bscRpcProvider, testbscRpcProvider  } from 'utils/providers'
+import { bscRpcProvider, testbscRpcProvider, ethereumRpcProvider  } from 'utils/providers'
 import { useWeb3React } from '@pancakeswap/wagmi'
 import { useTokenContract } from './useContract'
 import { useSWRContract } from './useSWRContract'
@@ -53,7 +53,7 @@ export const useGetBnbBalance = () => {
 export const useGetNativeBalance = () => {
   const { account } = useWeb3React()
   const { status, data, mutate } = useSWR([account, 'bnbBalance'], async () => {
-    return testbscRpcProvider.getBalance(account)
+    return ethereumRpcProvider.getBalance(account)
   })
   return { balance: data ? new BigNumber(data.toString()) : BIG_ZERO, fetchStatus: status, refresh: mutate }
 }

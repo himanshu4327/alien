@@ -150,7 +150,7 @@ const ifos: Ifo[] = [
     version: 1,
     twitterUrl: '#',
     description:
-      ' Test Sale 2',
+      ' AlienFi PreSale',
     vestingTitle:
       '',
   },

@@ -68,7 +68,7 @@ const SwapSection = () => {
             <img src={BurningGif.src} alt="gif" width={900} height={700} />
           </Flex>
           <Text fontSize="16px" color="textSubtle" mb="24px" textAlign="center" width="80%" margin="0 auto">
-            Trade any token on BNB Smart Chain in seconds, just by connecting your wallet.
+            Trade any token on Arbitrum in seconds, just by connecting your wallet.
           </Text>
           <Flex justifyContent="center" my="10px">
             <Button mr="16px">

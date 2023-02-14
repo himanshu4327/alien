@@ -195,7 +195,7 @@ const IfoCardDetails: React.FC<React.PropsWithChildren<IfoCardDetailsProps>> = (
           {raisingTokenToBurn && <FooterEntry label={t('CAKE to burn:')} value={raisingTokenToBurn} />}
           <FooterEntry
             label={t('Price per %symbol%:', { symbol: ifo.token.symbol })}
-            value={`$${ifo.tokenOfferingPrice}`}
+            value={`${ifo.tokenOfferingPrice}`}
           />
         </>
       )
@@ -207,7 +207,7 @@ const IfoCardDetails: React.FC<React.PropsWithChildren<IfoCardDetailsProps>> = (
           {poolId === PoolIds.poolBasic && (
             <FooterEntry
               label={t('Price per %symbol%:', { symbol: ifo.token.symbol })}
-              value={`$${ifo.tokenOfferingPrice}`}
+              value={`${ifo.tokenOfferingPrice}`}
             />
           )}
           {/* {poolId === PoolIds.poolUnlimited && <FooterEntry label={t('Additional fee:')} value={taxRate} />} */}
@@ -220,7 +220,7 @@ const IfoCardDetails: React.FC<React.PropsWithChildren<IfoCardDetailsProps>> = (
           {poolId === PoolIds.poolUnlimited && (
             <FooterEntry
               label={t('Price per %symbol%:', { symbol: ifo.token.symbol })}
-              value={`$${ifo.tokenOfferingPrice}`}
+              value={`${ifo.tokenOfferingPrice}`}
             />
           )}
           <FooterEntry label={t('Total committed:')} value={currencyPriceInUSD.gt(0) ? totalCommitted : null} />
