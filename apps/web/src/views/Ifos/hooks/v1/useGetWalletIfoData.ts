@@ -6,9 +6,9 @@ import { useERC20, useIfoV1Contract, useIfoV1NativeContract } from 'hooks/useCon
 import { multicallv2 } from 'utils/multicall'
 import ifoV1AbiNative from 'config/abi/ifoV1Native.json'
 import { BIG_ZERO } from '@pancakeswap/utils/bigNumber'
+import { ChainId } from '@pancakeswap/sdk'
 import useIfoAllowance from '../useIfoAllowance'
 import { WalletIfoState, WalletIfoData } from '../../types'
-import { ChainId } from '@pancakeswap/sdk'
 
 
 interface UserInfo {

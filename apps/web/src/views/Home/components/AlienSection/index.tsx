@@ -1,10 +1,12 @@
 import styled from 'styled-components'
 import { Flex, Text, Button, Link, NextLinkFromReactRouter as RouterLink, Heading } from '@pancakeswap/uikit'
 import Image from 'next/image'
+// eslint-disable-next-line lodash/import-scope
+import { reverse } from 'lodash'
 import CompositeImage, { CompositeImageProps } from '../CompositeImage'
 import ColoredWordHeading from '../ColoredWordHeading'
 import skelton from '../../../../../public/images/alien/skeleton.gif'
-import { reverse } from 'lodash'
+
 
 const StyledHeading = styled(Heading)`
   letter-spacing: 0.1em;

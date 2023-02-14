@@ -6,9 +6,11 @@ import { useLpTokenPrice } from 'state/farms/hooks'
 import { BIG_ZERO } from '@pancakeswap/utils/bigNumber'
 import { multicallv2 } from 'utils/multicall'
 import ifoV1AbiNative from 'config/abi/ifoV1Native.json'
+import { useBNBBusdPrice } from 'hooks/useBUSDPrice'
+import { ChainId } from '@pancakeswap/sdk'
 import { PublicIfoData } from '../../types'
 import { getStatus } from '../helpers'
-import { ChainId } from '@pancakeswap/sdk'
+
 
 
 /**
@@ -16,9 +18,13 @@ import { ChainId } from '@pancakeswap/sdk'
  */
 const useGetPublicIfoData = (ifo: Ifo): PublicIfoData => {
   const { address, releaseBlockNumber } = ifo
+
+  // const bnbPrice = useBNBBusdPrice()
   
   // const lpTokenPriceInUsd = useLpTokenPrice(ifo.currency.symbol)
-  const lpTokenPriceInUsd = BigNumber(1)
+  // const bnbprice = useBNBBusdPrice();
+  // console.log("bnbprice",bnbprice);
+  const lpTokenPriceInUsd = new BigNumber(1)
 
   const [state, setState] = useState({
     isInitialized: false,

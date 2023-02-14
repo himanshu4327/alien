@@ -178,7 +178,7 @@ export const IfoCurrentCard = ({
           {!isMobile && (
             <>
               <Header $isCurrent ifoId={ifo.id}>
-                <img src={AlienLogo.src} style={{ margin: '0 auto' }} />
+                <img src={AlienLogo.src} alt="" style={{ margin: '0 auto' }} />
               </Header>
               <IfoRibbon publicIfoData={publicIfoData} />
             </>

@@ -13,7 +13,7 @@ import {
 import { useVaultPoolByKey, useIfoCredit } from 'state/pools/hooks'
 import { useTranslation } from '@pancakeswap/localization'
 import { vaultPoolConfig } from 'config/constants/pools'
-import { DeserializedPool, VaultKey } from 'state/types'
+import { VaultKey } from 'state/types'
 import { getBalanceNumber } from '@pancakeswap/utils/formatBalance'
 import { useConfig } from 'views/Ifos/contexts/IfoContext'
 import { CakeVaultDetail } from 'views/Pools/components/CakeVaultCard'

@@ -111,7 +111,7 @@ const ifos: Ifo[] = [
       raiseAmount: '5 BNB',
       distributionRatio: 0.7,
     },
-    currency: bscTestnetTokens.wbnb,
+    currency: bscTestnetTokens.bnb,
     token: bscTestnetTokens.dttoken,
     releaseBlockNumber: 38735309,
     campaignId: '51190050010',

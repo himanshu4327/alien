@@ -3,6 +3,14 @@ import { BUSD_TESTNET, CAKE_TESTNET } from './common'
 
 export const bscTestnetTokens = {
   wbnb: WBNB[ChainId.BSC_TESTNET],
+  bnb: new ERC20Token(
+    ChainId.BSC,
+    '0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd',
+    18,
+    'BNB',
+    'BNB',
+    'https://www.binance.com/',
+  ),
   cake: CAKE_TESTNET,
   busd: BUSD_TESTNET,
   syrup: new ERC20Token(

@@ -1,13 +1,14 @@
+/* eslint-disable react/jsx-no-comment-textnodes */
 import { Heading, Flex, Text, Skeleton, ChartIcon, CommunityIcon, SwapIcon } from '@pancakeswap/uikit'
 import { useTranslation } from '@pancakeswap/localization'
 import useTheme from 'hooks/useTheme'
 import { formatLocalisedCompactNumber } from '@pancakeswap/utils/formatBalance'
 import styled from 'styled-components'
 import useSWRImmutable from 'swr/immutable'
+import Image from 'next/image'
 import IconCard, { IconCardData } from '../IconCard'
 import StatCardContent from './StatCardContent'
 // import GradientLogo from '../GradientLogoSvg'
-import Image from 'next/image'
 import GradientLogo from '../../../../../public/images/Gradient-logo.png'
 
 const StyledHeading = styled(Heading)`
@@ -50,7 +51,8 @@ const Stats = () => {
 
   return (
     <Flex justifyContent="center" alignItems="center" flexDirection="column">
-      <img src={GradientLogo.src} height={100} width={100} />
+      // eslint-disable-next-line jsx-a11y/alt-text
+      <img src={GradientLogo.src} alt="" height={100} width={100} />
       <StyledHeading textAlign="center" scale="xl" textTransform="uppercase">
         {t('Used by')} <StyledSpan>millions</StyledSpan>,
       </StyledHeading>
