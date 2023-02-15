@@ -38,7 +38,7 @@ const EarnSectionData = () => {
             Earn passive income
           </StyledHeading>
           <StyledSubHeading scale="xl" textTransform="uppercase" textAlign="center">
-            with crypto.
+            with crypto
           </StyledSubHeading>
 
           <Flex
@@ -51,7 +51,7 @@ const EarnSectionData = () => {
             <img src={skull.src} alt="gif" width={900} height={700} />
           </Flex>
           <Text fontSize="16px" color="textSubtle" mb="24px" textAlign="center" width="80%" margin="0 auto">
-            Trade any token on Arbitrum in seconds, just by connecting your wallet.
+            Alien makes it easy to make your crypto work for you
           </Text>
           {/* <Flex justifyContent="center" my="10px">
             <Button mr="16px">

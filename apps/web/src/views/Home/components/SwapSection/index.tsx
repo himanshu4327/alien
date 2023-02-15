@@ -63,7 +63,7 @@ const SwapSection = () => {
             Trade anything <StyledSpan>No</StyledSpan>
           </StyledHeading>
           <StyledSubHeading scale="xl" textTransform="uppercase" textAlign="center">
-            registration,no hassle.
+            registration,no hassle
           </StyledSubHeading>
 
           <Flex
@@ -76,7 +76,7 @@ const SwapSection = () => {
             <img src={BurningGif.src} alt="gif" width={900} height={700} />
           </Flex>
           <Text fontSize="16px" color="textSubtle" mb="24px" textAlign="center" width="80%" margin="0 auto">
-            Trade any token on Arbitrum in seconds, just by connecting your wallet.
+            Join AlienFi in launching new projects on Arbitrum Network.
           </Text>
           <Flex justifyContent="center" my="10px">
             <NextLinkFromReactRouter to="/iao">

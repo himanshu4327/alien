@@ -46,7 +46,7 @@ export const cardConfig = (
       return {
         title: meta?.version >= 3.1 ? t('Public Sale') : t('Unlimited Sale'),
         variant: 'violet',
-        tooltip: t('No limits on the amount you can commit. Additional fee applies when claiming.'),
+        tooltip: t('No limits on the amount you can commit. Gas fee applies when claiming.'),
       }
 
     default:

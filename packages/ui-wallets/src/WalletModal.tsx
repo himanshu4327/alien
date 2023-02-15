@@ -442,8 +442,8 @@ const Intro = ({ docLink, docText }: { docLink: string; docText: string }) => {
         {t('Haven’t got a wallet yet?')}
       </Heading>
       <Image src="/images/alien/fireBurner.gif" width={200} height={200} />
-      <Button as={LinkExternal} color="backgroundAlt" variant="subtle" href={docLink}>
-        {docText}
+      <Button as={LinkExternal} color="backgroundAlt" variant="secondary" href={docLink}>
+        Get your First wallet
       </Button>
     </>
   )

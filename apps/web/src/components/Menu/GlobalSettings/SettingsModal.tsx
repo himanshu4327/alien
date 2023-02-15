@@ -105,7 +105,7 @@ const SettingsModal: React.FC<React.PropsWithChildren<InjectedModalProps>> = ({ 
   }
 
   return (
-    <Modal headerBackground="gradientCardHeader" onDismiss={onDismiss} title="">
+    <Modal headerBackground="gradientCardHeader" onDismiss={onDismiss} title="Settings">
       <ScrollableContainer>
         {mode === SettingsMode.GLOBAL && (
           <>
@@ -137,7 +137,7 @@ const SettingsModal: React.FC<React.PropsWithChildren<InjectedModalProps>> = ({ 
                   }}
                 />
               </Flex>
-              <Flex justifyContent="space-between" alignItems="center" mb="24px">
+              {/* <Flex justifyContent="space-between" alignItems="center" mb="24px">
                 <Flex alignItems="center">
                   <Text>{t('Show username')}</Text>
                   <QuestionHelper
@@ -154,8 +154,8 @@ const SettingsModal: React.FC<React.PropsWithChildren<InjectedModalProps>> = ({ 
                     setUserUsernameVisibility(!userUsernameVisibility)
                   }}
                 />
-              </Flex>
-              {chainId === ChainId.BSC && <GasSettings />}
+              </Flex> */}
+              {chainId === ChainId.ETHEREUM && <GasSettings />}
             </Flex>
           </>
         )}

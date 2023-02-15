@@ -68,7 +68,7 @@ const Hero = () => {
           >
             <Box margin="0 auto">
               <StyledHeading as="h1" mb={['12px', '12px', '16px']} textAlign="center">
-                {t('IAO: Initial Alien Offerings')}
+                {t('IAO: Initial Alien Offering')}
               </StyledHeading>
               <StyledSubTitle bold textAlign="center">
                 {t('Buy new tokens launching on Ethereum Chain')}

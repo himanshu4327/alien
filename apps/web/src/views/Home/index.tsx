@@ -238,7 +238,7 @@ const Home: React.FC<React.PropsWithChildren> = () => {
       >
         <Flex paddingTop="123px" zIndex="-1">
           <StyledHeading scale="xxl" textTransform="uppercase" textAlign="center">
-            The world is ruled by humans, Universe IS by <StyledSpan>Alien</StyledSpan>
+            The world is ruled by humans, Universe by <StyledSpan>Alien</StyledSpan>
           </StyledHeading>
         </Flex>
         <Box maxWidth="700px" margin="50px auto">

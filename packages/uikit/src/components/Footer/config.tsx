@@ -152,11 +152,11 @@ export const socials = [
     icon: TelegramIcon,
     href: "https://t.me/AlienFi",
   },
-  {
-    label: "Discord",
-    icon: DiscordIcon,
-    href: "#",
-  },
+  // {
+  //   label: "Discord",
+  //   icon: DiscordIcon,
+  //   href: "#",
+  // },
   {
     label: "Twitter",
     icon: TwitterIcon,

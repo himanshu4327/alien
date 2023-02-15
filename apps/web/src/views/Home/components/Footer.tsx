@@ -77,8 +77,8 @@ const Footer = () => {
         </Container>
 
         <StyledText textAlign="center" color="white" mb="10px">
-          Alien token is at the heart of the Alien ecosystem. Buy it, win it, farm it, spend it, stake it... heck, you
-          can even vote with it!
+          Alien token is the heart of the AlienFi ecosystem. Farm with it, Earn with it, Gamble with it, and even vote
+          with it. AlienFi set to become the leading DEX on Arbitrum.
         </StyledText>
 
         {!account && <StyledConntectButton />}

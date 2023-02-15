@@ -45,7 +45,7 @@ const AlienSectionData = () => {
           alignSelf={['flex-start', null, null, 'center']}
         >
           <StyledHeading scale="xl" textAlign="center" textTransform="uppercase">
-            Aliens <StyledSpan>knew</StyledSpan>
+            Aliens <StyledSpan>know</StyledSpan>
           </StyledHeading>
           <StyledSubHeading scale="xl" textTransform="uppercase" textAlign="center">
             The universe better
@@ -64,7 +64,7 @@ const AlienSectionData = () => {
           </Text>
           <Flex justifyContent="center" my="10px">
             <NextLinkFromReactRouter to="/iao">
-              <Button mr="10px">Buy Now</Button>
+              <Button mr="10px">Participate</Button>
             </NextLinkFromReactRouter>
             <Link href="/#">
               <Text style={{ fontSize: '16px' }}>Learn</Text>

@@ -44,21 +44,21 @@ const walletsConfig = ({
       qrCode,
       downloadLink: 'https://metamask.app.link/dapp/alien.fi/',
     },
-    {
-      id: 'binance',
-      title: 'Binance Wallet',
-      icon: '/images/wallets/binance.png',
-      installed: typeof window !== 'undefined' && Boolean(window.BinanceChain),
-      connectorId: ConnectorNames.BSC,
-      guide: {
-        desktop: 'https://www.bnbchain.org/en/binance-wallet',
-      },
-      downloadLink: {
-        desktop: isFirefox
-          ? 'https://addons.mozilla.org/en-US/firefox/addon/binance-chain/?src=search'
-          : 'https://chrome.google.com/webstore/detail/binance-wallet/fhbohimaelbohpjbbldcngcnapndodjp',
-      },
-    },
+    // {
+    //   id: 'binance',
+    //   title: 'Binance Wallet',
+    //   icon: '/images/wallets/binance.png',
+    //   installed: typeof window !== 'undefined' && Boolean(window.BinanceChain),
+    //   connectorId: ConnectorNames.BSC,
+    //   guide: {
+    //     desktop: 'https://www.bnbchain.org/en/binance-wallet',
+    //   },
+    //   downloadLink: {
+    //     desktop: isFirefox
+    //       ? 'https://addons.mozilla.org/en-US/firefox/addon/binance-chain/?src=search'
+    //       : 'https://chrome.google.com/webstore/detail/binance-wallet/fhbohimaelbohpjbbldcngcnapndodjp',
+    //   },
+    // },
     {
       id: 'coinbase',
       title: 'Coinbase Wallet',
@@ -86,30 +86,30 @@ const walletsConfig = ({
       icon: '/images/wallets/walletconnect.png',
       connectorId: ConnectorNames.WalletConnect,
     },
-    {
-      id: 'opera',
-      title: 'Opera Wallet',
-      icon: '/images/wallets/opera.png',
-      connectorId: ConnectorNames.Injected,
-      installed: typeof window !== 'undefined' && Boolean(window.ethereum?.isOpera),
-      downloadLink: 'https://www.opera.com/crypto/next',
-    },
-    {
-      id: 'brave',
-      title: 'Brave Wallet',
-      icon: '/images/wallets/brave.png',
-      connectorId: ConnectorNames.Injected,
-      installed: typeof window !== 'undefined' && Boolean(window.ethereum?.isBraveWallet),
-      downloadLink: 'https://brave.com/wallet/',
-    },
-    {
-      id: 'math',
-      title: 'MathWallet',
-      icon: '/images/wallets/mathwallet.png',
-      connectorId: ConnectorNames.Injected,
-      installed: typeof window !== 'undefined' && Boolean(window.ethereum?.isMathWallet),
-      qrCode,
-    },
+    // {
+    //   id: 'opera',
+    //   title: 'Opera Wallet',
+    //   icon: '/images/wallets/opera.png',
+    //   connectorId: ConnectorNames.Injected,
+    //   installed: typeof window !== 'undefined' && Boolean(window.ethereum?.isOpera),
+    //   downloadLink: 'https://www.opera.com/crypto/next',
+    // },
+    // {
+    //   id: 'brave',
+    //   title: 'Brave Wallet',
+    //   icon: '/images/wallets/brave.png',
+    //   connectorId: ConnectorNames.Injected,
+    //   installed: typeof window !== 'undefined' && Boolean(window.ethereum?.isBraveWallet),
+    //   downloadLink: 'https://brave.com/wallet/',
+    // },
+    // {
+    //   id: 'math',
+    //   title: 'MathWallet',
+    //   icon: '/images/wallets/mathwallet.png',
+    //   connectorId: ConnectorNames.Injected,
+    //   installed: typeof window !== 'undefined' && Boolean(window.ethereum?.isMathWallet),
+    //   qrCode,
+    // },
     {
       id: 'tokenpocket',
       title: 'TokenPocket',
@@ -136,17 +136,17 @@ const walletsConfig = ({
         (Boolean((window.ethereum as ExtendEthereum)?.isCoin98) || Boolean(window.coin98)),
       qrCode,
     },
-    {
-      id: 'blocto',
-      title: 'Blocto',
-      icon: '/images/wallets/blocto.png',
-      connectorId: ConnectorNames.Blocto,
-      get installed() {
-        return typeof window !== 'undefined' && Boolean((window.ethereum as ExtendEthereum)?.isBlocto)
-          ? true
-          : undefined // undefined to show SDK
-      },
-    },
+    // {
+    //   id: 'blocto',
+    //   title: 'Blocto',
+    //   icon: '/images/wallets/blocto.png',
+    //   connectorId: ConnectorNames.Blocto,
+    //   get installed() {
+    //     return typeof window !== 'undefined' && Boolean((window.ethereum as ExtendEthereum)?.isBlocto)
+    //       ? true
+    //       : undefined // undefined to show SDK
+    //   },
+    // },
   ]
 }
 
@@ -178,4 +178,4 @@ const docLangCodeMapping: Record<string, string> = {
   'pt-br': 'portuguese-brazilian',
 }
 
-export const getDocLink = (code: string) => (docLangCodeMapping[code] ? `#` : `#`)
+export const getDocLink = (code: string) => `https://metamask.io/`
