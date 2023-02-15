@@ -137,7 +137,7 @@ const ifos: Ifo[] = [
     //   distributionRatio: 1,
     // },
     poolUnlimited: {
-      saleAmount: '1,380,000 AlienFi',
+      saleAmount: '1,380,000 Alien',
       raiseAmount: '230 ETH ',
       distributionRatio: 0.7,
     },
