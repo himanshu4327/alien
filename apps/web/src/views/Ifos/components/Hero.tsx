@@ -72,7 +72,7 @@ const Hero = () => {
               </StyledHeading>
               <StyledSubTitle bold textAlign="center">
                 {t('Buy new tokens launching on Ethereum Chain')}
-                {isMobile && <StyledButton onClick={handleClick}>{t('How does it work?')}</StyledButton>}
+                {/* {isMobile && <StyledButton onClick={handleClick}>{t('How does it work?')}</StyledButton>} */}
               </StyledSubTitle>
             </Box>
             {/* {!isMobile && (

@@ -141,7 +141,7 @@ const SettingsModal: React.FC<React.PropsWithChildren<InjectedModalProps>> = ({ 
                 <Flex alignItems="center">
                   <Text>{t('Show username')}</Text>
                   <QuestionHelper
-                    text={t('Shows username of wallet instead of bunnies')}
+                    text={t('Shows username of wallet instead of Aliens')}
                     placement="top-start"
                     ml="4px"
                   />

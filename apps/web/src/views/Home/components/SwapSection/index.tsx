@@ -1,5 +1,13 @@
 import styled from 'styled-components'
-import { Flex, Text, Button, Link, NextLinkFromReactRouter as RouterLink, Heading } from '@pancakeswap/uikit'
+import {
+  Flex,
+  Text,
+  Button,
+  Link,
+  NextLinkFromReactRouter as RouterLink,
+  Heading,
+  NextLinkFromReactRouter,
+} from '@pancakeswap/uikit'
 import Image from 'next/image'
 // eslint-disable-next-line lodash/import-scope
 import { reverse } from 'lodash'
@@ -71,13 +79,9 @@ const SwapSection = () => {
             Trade any token on Arbitrum in seconds, just by connecting your wallet.
           </Text>
           <Flex justifyContent="center" my="10px">
-            <Button mr="16px">
-              <Link external href="/iao">
-                <Text style={{ fontSize: '16px' }} color="card" bold fontSize="16px">
-                  Buy Now
-                </Text>
-              </Link>
-            </Button>
+            <NextLinkFromReactRouter to="/iao">
+              <Button mr="10px">Buy Now</Button>
+            </NextLinkFromReactRouter>
             <Link external href="/#">
               <Text style={{ fontSize: '16px' }}>Learn</Text>
             </Link>
