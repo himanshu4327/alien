@@ -10,9 +10,11 @@ export const StyledMenuItemContainer = styled.div<StyledMenuItemProps>`
     $isActive &&
     $variant === "subMenu" &&
     `
-    background: linear-gradient(242.24deg, #00F666 -86.49%, rgba(0, 246, 102, 0) 96.54%);
-    box-shadow: inset 0px 0px 4px 1px #00F666;
-    color:#fff;
+     background: linear-gradient(242.24deg, #00F666 -86.49%, rgba(0, 246, 102, 0) 96.54%);
+     border-left:1px solid #017531;
+     border-top:1px solid #017531;
+     border-bottom:1px solid #017531;
+     color:#fff;
     `};
 `;
 
@@ -63,13 +65,11 @@ color: #FFFFFF;
       : `
     padding: 4px 4px 0px 4px;
     height: 42px;
-  `}
-
-  &:hover {
-    color: "#001D13";
-    background: ${({ theme }) => theme.colors.tertiary};
-    ${({ $variant }) => $variant === "default" && "border-radius: 16px;"};
-  }
+  `} // &:hover {
+  //   color: "#001D13";
+  //   background: ${({ theme }) => theme.colors.tertiary};
+  //   ${({ $variant }) => $variant === "default" && "border-radius: 16px;"};
+  // }
 `;
 
 export default StyledMenuItem;

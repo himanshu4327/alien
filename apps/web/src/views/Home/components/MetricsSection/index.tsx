@@ -53,54 +53,33 @@ const Stats = () => {
     <Flex justifyContent="center" alignItems="center" flexDirection="column">
       <img src={GradientLogo.src} alt="" height={100} width={100} />
       <StyledHeading textAlign="center" scale="xl" textTransform="uppercase">
-        WHICH SIDE ARE <StyledSpan>YOU ON? </StyledSpan>
+        {t('Used by')} <StyledSpan>millions</StyledSpan>,
       </StyledHeading>
-
+      <StyledHeading textAlign="center" scale="xl" mb="32px" textTransform="uppercase">
+        {t('Trusted with ')}
+        <StyledSpan>billions</StyledSpan>.
+      </StyledHeading>
       <Flex flexDirection={['column', null, null, 'row']} mt="50px">
         <IconCard {...UsersCardData} mr={[null, null, null, '16px']} mb={['16px', null, null, '0']}>
-          {/* <StatCardContent
+          <StatCardContent
             headingText={t('%users% users', { users })}
             bodyText={t('in the last 30 days')}
             highlightColor={theme.colors.primary}
-          /> */}
-          <Flex flexDirection="column" alignItems="center" minWidth="250px">
-            <Heading scale="xl" fontFamily="Alien" my="20px">
-              Users
-            </Heading>
-            <Heading scale="lg" color="#ccc" fontWeight="400">
-              N/A
-            </Heading>
-          </Flex>
+          />
         </IconCard>
         <IconCard {...TradesCardData} mr={[null, null, null, '16px']} mb={['16px', null, null, '0']}>
-          {/* <StatCardContent
+          <StatCardContent
             headingText={t('%trades% trades', { trades })}
             bodyText={t('made in the last 30 days')}
             highlightColor={theme.colors.primary}
-          /> */}
-          <Flex flexDirection="column" alignItems="center" minWidth="250px">
-            <Heading scale="xl" fontFamily="Alien" my="20px">
-              Trades
-            </Heading>
-            <Heading scale="lg" color="#ccc" fontWeight="400">
-              N/A
-            </Heading>
-          </Flex>
+          />
         </IconCard>
         <IconCard {...StakedCardData}>
-          {/* <StatCardContent
+          <StatCardContent
             headingText={t('$%tvl% staked', { tvl: tvlString })}
             bodyText={t('Total Value Locked')}
             highlightColor={theme.colors.primary}
-          /> */}
-          <Flex flexDirection="column" alignItems="center" minWidth="250px">
-            <Heading scale="xl" fontFamily="Alien" my="20px">
-              Staked
-            </Heading>
-            <Heading scale="lg" color="#ccc" fontWeight="400">
-              N/A
-            </Heading>
-          </Flex>
+          />
         </IconCard>
       </Flex>
     </Flex>

@@ -71,7 +71,6 @@ const PoolStatsInfo: React.FC<React.PropsWithChildren<ExpandedFooterProps>> = ({
           flexDirection={['column', 'column', 'column', 'row']}
           justifyContent="space-evenly"
           width={['100%', '100%', '50%', '100%', '50%']}
-          border="1px solid"
         >
           {!vaultKey && <AprInfo pool={pool} stakedBalance={stakedBalance} />}
           {showTotalStaked && (

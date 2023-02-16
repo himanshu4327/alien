@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useDelayedUnmount } from "@pancakeswap/hooks";
 import { ExpandActionCell } from "../Cells/ExpandActionCell";
 import useMatchBreakpoints from "../../../contexts/MatchBreakpoints/useMatchBreakpoints";
+
 const StyledRow = styled.div`
   display: flex;
   cursor: pointer;

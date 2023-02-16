@@ -63,8 +63,8 @@ const AlienSectionData = () => {
             Trade any token on Arbitrum in seconds, just by connecting your wallet.
           </Text>
           <Flex justifyContent="center" my="10px">
-            <NextLinkFromReactRouter to="/iao">
-              <Button mr="10px">Participate</Button>
+            <NextLinkFromReactRouter to="/swap">
+              <Button mr="10px">Trade Now</Button>
             </NextLinkFromReactRouter>
             <Link href="/#">
               <Text style={{ fontSize: '16px' }}>Learn</Text>

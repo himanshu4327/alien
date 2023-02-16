@@ -14,7 +14,7 @@ const StyledCard = styled(Card)<{ background: string; rotation?: string }>`
     ${({ rotation }) => (rotation ? `transform: rotate(${rotation});` : '')}
   }
   ${({ theme }) => theme.mediaQueries.xl} {
-    height: 270px;
+    height: 370px;
   }
 `
 

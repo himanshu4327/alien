@@ -9,7 +9,7 @@ interface InactiveButtonProps extends BaseButtonProps {
 }
 
 const InactiveButton: PolymorphicComponent<InactiveButtonProps, "button"> = styled(Button)<InactiveButtonProps>`
-  //background-color: linear-gradient(242.24deg, #00f666 -86.49%, rgba(0, 246, 102, 0) 96.54%);
+  background-color: transparent;
   font-size: 16px;
   color: white;
   opacity: 0.5;

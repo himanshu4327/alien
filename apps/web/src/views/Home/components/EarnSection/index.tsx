@@ -53,7 +53,7 @@ const EarnSectionData = () => {
           <Text fontSize="16px" color="textSubtle" mb="24px" textAlign="center" width="80%" margin="0 auto">
             Alien makes it easy to make your crypto work for you
           </Text>
-          {/* <Flex justifyContent="center" my="10px">
+          <Flex justifyContent="center" my="10px">
             <Button mr="16px">
               <Link external href="/farms">
                 <Text style={{ fontSize: '16px' }} color="card" bold fontSize="16px">
@@ -64,7 +64,7 @@ const EarnSectionData = () => {
             <Link external href="/#">
               <Text style={{ fontSize: '16px' }}>Learn</Text>
             </Link>
-          </Flex> */}
+          </Flex>
         </Flex>
       </Flex>
     </Flex>

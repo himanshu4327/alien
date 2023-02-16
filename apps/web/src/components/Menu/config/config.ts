@@ -43,91 +43,92 @@ const config: (
   chainId?: number,
 ) => ConfigMenuItemsType[] = (t, isDark, languageCode, chainId) =>
   [
-    // {
-    //   label: t('Trade'),
-    //   icon: SwapIcon,
-    //   fillIcon: SwapFillIcon,
-    //   href: '/swap',
-    //   showItemsOnMobile: false,
-    //   items: [
-    //     {
-    //       label: t('Swap'),
-    //       href: '/swap',
-    //     },
-    //     {
-    //       label: t('Limit'),
-    //       href: '/limit-orders',
-    //       supportChainIds: SUPPORT_ONLY_BSC,
-    //       image: '/images/decorations/3d-coin.png',
-    //     },
-    //     {
-    //       label: t('Liquidity'),
-    //       href: '/liquidity',
-    //     },
-    //     {
-    //       label: t('Perpetual'),
+    {
+      label: t('Trade'),
+      icon: SwapIcon,
+      fillIcon: SwapFillIcon,
+      href: '/swap',
+      showItemsOnMobile: false,
+      items: [
+        {
+          label: t('Swap'),
+          href: '/swap',
+        },
+        {
+          label: t('Limit'),
+          href: '/limit-orders',
+          supportChainIds: SUPPORT_ONLY_BSC,
+          image: '/images/decorations/3d-coin.png',
+        },
+        {
+          label: t('Liquidity'),
+          href: '/liquidity',
+        },
+        // {
+        //   label: t('Perpetual'),
 
-    //       // href: `https://perp.pancakeswap.finance/${perpLangMap(languageCode)}/futures/BTCUSDT?theme=${perpTheme(isDark,
-    //       //     )}`,
-    //       href: '/#',
-    //       supportChainIds: SUPPORT_ONLY_BSC,
-    //       type: DropdownMenuItemType.EXTERNAL_LINK,
-    //     },
-    //     {
-    //       label: t('Bridge'),
-    //       href: '/#',
-    //       type: DropdownMenuItemType.EXTERNAL_LINK,
-    //     },
-    //   ].map((item) => addMenuItemSupported(item, chainId)),
-    // },
-    // {
-    //   label: t('Earn'),
-    //   href: '/farms',
-    //   icon: EarnIcon,
-    //   fillIcon: EarnFillIcon,
-    //   image: '/images/decorations/pe2.png',
-    //   items: [
-    //     {
-    //       label: t('Farms'),
-    //       href: '/farms',
-    //     },
-    //     {
-    //       label: t('Pools'),
-    //       href: '/pools',
-    //       supportChainIds: SUPPORT_ONLY_BSC,
-    //     },
-    //   ].map((item) => addMenuItemSupported(item, chainId)),
-    // },
-    // {
-    //   label: t('Win'),
-    //   href: '/prediction',
-    //   icon: TrophyIcon,
-    //   fillIcon: TrophyFillIcon,
-    //   supportChainIds: SUPPORT_ONLY_BSC,
-    //   items: [
-    //     // {
-    //     //   label: t('Trading Competition'),
-    //     //   href: '/competition',
-    //     //   image: '/images/decorations/tc.png',
-    //     //   hideSubNav: true,
-    //     // },
-    //     // {
-    //     //   label: t('Prediction (BETA)'),
-    //     //   href: '/prediction',
-    //     //   image: '/images/decorations/prediction.png',
-    //     // },
-    //     {
-    //       label: t('Lottery'),
-    //       href: '/lottery',
-    //       image: '/images/decorations/lottery.png',
-    //     },
-    //     // {
-    //     //   label: t('Pottery (BETA)'),
-    //     //   href: '/pottery',
-    //     //   image: '/images/decorations/lottery.png',
-    //     // },
-    //   ],
-    // },
+        //   href: `https://perp.pancakeswap.finance/${perpLangMap(languageCode)}/futures/BTCUSDT?theme=${perpTheme(
+        //     isDark,
+        //   )}`,
+        //   href: '/#',
+        //   supportChainIds: SUPPORT_ONLY_BSC,
+        //   type: DropdownMenuItemType.EXTERNAL_LINK,
+        // },
+        {
+          label: t('Bridge'),
+          href: '/#',
+          type: DropdownMenuItemType.EXTERNAL_LINK,
+        },
+      ].map((item) => addMenuItemSupported(item, chainId)),
+    },
+    {
+      label: t('Earn'),
+      href: '/farms',
+      icon: EarnIcon,
+      fillIcon: EarnFillIcon,
+      image: '/images/decorations/pe2.png',
+      items: [
+        {
+          label: t('Farms'),
+          href: '/farms',
+        },
+        {
+          label: t('Pools'),
+          href: '/pools',
+          supportChainIds: SUPPORT_ONLY_BSC,
+        },
+      ].map((item) => addMenuItemSupported(item, chainId)),
+    },
+    {
+      label: t('Win'),
+      href: '/lottery',
+      icon: TrophyIcon,
+      fillIcon: TrophyFillIcon,
+      supportChainIds: SUPPORT_ONLY_BSC,
+      items: [
+        // {
+        //   label: t('Trading Competition'),
+        //   href: '/competition',
+        //   image: '/images/decorations/tc.png',
+        //   hideSubNav: true,
+        // },
+        // {
+        //   label: t('Prediction (BETA)'),
+        //   href: '/prediction',
+        //   image: '/images/decorations/prediction.png',
+        // },
+        {
+          label: t('Lottery'),
+          href: '/lottery',
+          image: '/images/decorations/lottery.png',
+        },
+        // {
+        //   label: t('Pottery (BETA)'),
+        //   href: '/pottery',
+        //   image: '/images/decorations/lottery.png',
+        // },
+      ],
+    },
     // {
     //   label: t('NFT'),
     //   href: `${nftsBaseUrl}`,

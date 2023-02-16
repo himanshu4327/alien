@@ -79,8 +79,8 @@ const SwapSection = () => {
             Join AlienFi in launching new projects on Arbitrum Network.
           </Text>
           <Flex justifyContent="center" my="10px">
-            <NextLinkFromReactRouter to="/iao">
-              <Button mr="10px">Buy Now</Button>
+            <NextLinkFromReactRouter to="/swap">
+              <Button mr="10px">Trade Now</Button>
             </NextLinkFromReactRouter>
             <Link external href="/#">
               <Text style={{ fontSize: '16px' }}>Learn</Text>

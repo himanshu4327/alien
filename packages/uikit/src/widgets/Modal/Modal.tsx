@@ -52,7 +52,6 @@ const Modal: React.FC<React.PropsWithChildren<ModalProps>> = ({
   ...props
 }) => {
   const theme = useTheme();
-  console.log("title", title);
   return (
     <ModalWrapper minWidth={minWidth} onDismiss={onDismiss} hideCloseButton={hideCloseButton} {...props}>
       <ModalHeader>

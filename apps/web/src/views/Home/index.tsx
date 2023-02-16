@@ -305,7 +305,7 @@ const Home: React.FC<React.PropsWithChildren> = () => {
         hasCurvedDivider={false}
       >
         <AlienSectionData />
-        {/* <CakeDataRow /> */}
+        <CakeDataRow />
       </PageSection>
       <PageSection
         innerProps={{ style: HomeSectionContainerStyles }}
