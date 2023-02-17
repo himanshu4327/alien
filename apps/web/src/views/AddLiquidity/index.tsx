@@ -780,13 +780,13 @@ export default function AddLiquidity({ currencyA, currencyB }) {
 
                 {currencies[Field.CURRENCY_A] && currencies[Field.CURRENCY_B] && pairState !== PairState.INVALID && (
                   <>
-                    <LightCard padding="0px" borderRadius="20px">
+                    <LightCard padding="0px">
                       <RowBetween padding="1rem">
                         <Text fontSize="14px">
                           {noLiquidity ? t('Initial prices and share in the pair') : t('Prices and Share')}
                         </Text>
-                      </RowBetween>{' '}
-                      <LightCard padding="1rem" borderRadius="20px">
+                      </RowBetween>
+                      <LightCard padding="1rem">
                         <PoolPriceBar
                           currencies={currencies}
                           poolTokenPercentage={preferZapInstead ? zapIn.poolTokenPercentage : poolTokenPercentage}

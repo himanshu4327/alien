@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import { variant as systemVariant, space } from "styled-system";
 import { WarningIcon, ErrorIcon, CheckmarkCircleFillIcon, InfoFilledIcon } from "../Svg";
+import { Flex } from "@pancakeswap/uikit";
 import { Text, TextProps } from "../Text";
 import { Box } from "../Box";
 import { MessageProps } from "./types";
@@ -26,10 +27,6 @@ const MessageContainer = styled.div<MessageProps>`
   ${systemVariant({
     variants,
   })}
-`;
-
-const Flex = styled.div`
-  display: flex;
 `;
 
 const colors = {
@@ -61,7 +58,7 @@ const Message: React.FC<React.PropsWithChildren<MessageProps>> = ({
   return (
     <MessageContext.Provider value={{ variant }}>
       <MessageContainer variant={variant} {...props}>
-        <Flex>
+        <Flex flexDirection="column">
           <Box mr="12px">{icon ?? <Icon color={variants[variant].borderColor} width="24px" />}</Box>
           {children}
           {actionInline && action}

@@ -56,16 +56,7 @@ const Input = styled.input<InputProps>`
   }
 
   &:focus:not(:disabled) {
-    box-shadow: ${({ theme, isWarning, isSuccess }) => {
-      if (isWarning) {
-        return theme.shadows.warning;
-      }
-
-      if (isSuccess) {
-        return theme.shadows.success;
-      }
-      return theme.shadows.focus;
-    }};
+    box-shadow: 1px 1px 2px 2px rgb(0 246 102 / 50%), -1px -1px 2px 2px rgb(0 246 102 / 50%);
   }
 `;
 

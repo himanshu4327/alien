@@ -35,7 +35,7 @@ const Multiplier: React.FunctionComponent<React.PropsWithChildren<FarmTableMulti
   const { t } = useTranslation();
   const tooltipContent = (
     <>
-      <Text style={{ color: "white" }}>
+      <Text color="#fff" my="10px" fontSize="12px">
         {rewardCakePerSecond
           ? t(
               "The Multiplier represents the proportion of Alien rewards each farm receives, as a proportion of the Alien produced each second."
@@ -44,12 +44,12 @@ const Multiplier: React.FunctionComponent<React.PropsWithChildren<FarmTableMulti
               "The Multiplier represents the proportion of Alien rewards each farm receives, as a proportion of the Alien produced each block."
             )}
       </Text>
-      <Text style={{ color: "white" }} my="24px">
+      <Text color="#fff" my="10px" fontSize="12px">
         {rewardCakePerSecond
           ? t("For example, if a 1x farm received 1 Alien per second, a 40x farm would receive 40 Alien per second.")
           : t("For example, if a 1x farm received 1 Alien per block, a 40x farm would receive 40 Alien per block.")}
       </Text>
-      <Text style={{ color: "white" }}>
+      <Text color="#fff" my="10px" fontSize="12px">
         {t("This amount is already included in all APR calculations for the farm.")}
       </Text>
     </>

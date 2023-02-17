@@ -10,7 +10,6 @@ export interface Props {
   cakePriceUsd?: number;
   showSkeleton?: boolean;
 }
-
 const PriceLink = styled.a`
   display: flex;
   align-items: center;

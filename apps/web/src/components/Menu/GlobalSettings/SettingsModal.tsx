@@ -162,9 +162,9 @@ const SettingsModal: React.FC<React.PropsWithChildren<InjectedModalProps>> = ({ 
         {mode === SettingsMode.SWAP_LIQUIDITY && (
           <>
             <Flex pt="3px" flexDirection="column" justifyContent="center">
-              <Heading textAlign="center" mb="10px" scale="lg" color="#fff">
+              {/* <Heading textAlign="center" mb="10px" scale="lg" color="#fff">
                 Settings
-              </Heading>
+              </Heading> */}
               <Text bold textTransform="uppercase" fontSize="16px" color="#fff" mb="24px" textAlign="center">
                 {t('Swaps & Liquidity')}
               </Text>
@@ -241,7 +241,7 @@ const SettingsModal: React.FC<React.PropsWithChildren<InjectedModalProps>> = ({ 
                 <QuestionHelper
                   text={
                     <Flex>
-                      <Text mr="5px" color="#fff">
+                      <Text mr="5px" color="#fff" fontSize="12px">
                         {t(
                           'Stableswap will enable users to save fees on trades. Output cannot be edited for routes that include StableSwap',
                         )}

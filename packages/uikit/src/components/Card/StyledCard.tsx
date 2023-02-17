@@ -50,7 +50,10 @@ export const StyledCard = styled.div<StyledCardProps>`
   position: relative;
   border-radius: 0;
   // max-width: 320px;
-  box-shadow: -1px 1px 1px #00f666, -1px -1px 1px #00f666;
+  //box-shadow: -1px 1px 1px #00f666, -1px -1px 1px #00f666;
+  border-left: 1px solid #017531;
+  border-top: 1px solid #017531;
+  border-bottom: 1px solid #017531;
   ${({ isActive }) =>
     isActive &&
     css`

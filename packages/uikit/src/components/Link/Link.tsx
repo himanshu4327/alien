@@ -8,6 +8,10 @@ const StyledLink = styled(Text)<LinkProps>`
   display: flex;
   align-items: center;
   width: fit-content;
+  line-height: 1;
+  color: #fff;
+  text-align: left;
+  position: relative;
   &:hover {
     text-decoration: underline;
   }

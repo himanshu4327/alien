@@ -57,7 +57,7 @@ const EarnSectionData = () => {
             <Button mr="16px">
               <Link external href="/farms">
                 <Text style={{ fontSize: '16px' }} color="card" bold fontSize="16px">
-                  Trade Now
+                  Farm Now
                 </Text>
               </Link>
             </Button>

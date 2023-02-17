@@ -36,9 +36,14 @@ const ModalHeader = styled(UIKitModalHeader)`
 `
 
 const Tabs = styled.div`
-  background-color: ${({ theme }) => theme.colors.dropdown};
-  border-bottom: 1px solid ${({ theme }) => theme.colors.cardBorder};
+  // background-color: ${({ theme }) => theme.colors.dropdown};
+  // border-bottom: 1px solid ${({ theme }) => theme.colors.cardBorder};
   padding: 16px 24px;
+`
+const StyledButtonMenuItem = styled(ButtonMenuItem)`
+  border-left: 1px solid #017531;
+  border-top: 1px solid #017531;
+  border-bottom: 1px solid #017531;
 `
 
 const WalletModal: React.FC<React.PropsWithChildren<WalletModalProps>> = ({
@@ -57,9 +62,9 @@ const WalletModal: React.FC<React.PropsWithChildren<WalletModalProps>> = ({
 
   const TabsComponent: React.FC<React.PropsWithChildren> = () => (
     <Tabs>
-      <ButtonMenu scale="sm" variant="subtle" onItemClick={handleClick} activeIndex={view} fullWidth>
-        <ButtonMenuItem>{t('Wallet')}</ButtonMenuItem>
-        <ButtonMenuItem>{t('Transactions')}</ButtonMenuItem>
+      <ButtonMenu scale="sm" onItemClick={handleClick} activeIndex={view} fullWidth>
+        <StyledButtonMenuItem>{t('Wallet')}</StyledButtonMenuItem>
+        <StyledButtonMenuItem>{t('Transactions')}</StyledButtonMenuItem>
       </ButtonMenu>
     </Tabs>
   )

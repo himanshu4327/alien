@@ -57,7 +57,6 @@ const StyledButton = styled.button<BaseButtonProps>`
   &:hover:not(:disabled):not(.pancake-button--disabled):not(.pancake-button--disabled):not(:active) {
     opacity: 0.65;
   }
-
   &:active:not(:disabled):not(.pancake-button--disabled):not(.pancake-button--disabled) {
     opacity: 0.85;
     transform: translateY(1px);
@@ -93,7 +92,6 @@ const StyledButton = styled.button<BaseButtonProps>`
         font-size: 12px;
         font-weight: 400;
         transform: rotate(31.17deg);
-
         color: ${decorator.color ?? "white"};
       }
     `}

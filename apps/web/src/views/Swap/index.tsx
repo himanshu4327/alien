@@ -41,7 +41,7 @@ export default function Swap() {
     <Page removePadding={isChartExpanded} hideFooterOnDesktop={isChartExpanded}>
       <Flex
         style={{ backgroundColor: '#000000' }}
-        width={['328px', '100%']}
+        width={['428px', '100%']}
         height="100%"
         justifyContent="center"
         position="relative"

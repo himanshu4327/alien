@@ -74,12 +74,12 @@ const Pools: React.FC<React.PropsWithChildren> = () => {
             <>
               {showFinishedPools && (
                 <FinishedTextContainer>
-                  <Text fontSize={['16px', null, '20px']} pr="4px">
+                  {/* <Text fontSize={['16px', null, '20px']} pr="4px">
                     {t('Looking for v1 Alien pools?')}
                   </Text>
                   <FinishedTextLink href="/migration" fontSize={['16px', null, '20px']}>
                     {t('Go to migration page')}.
-                  </FinishedTextLink>
+                  </FinishedTextLink> */}
                 </FinishedTextContainer>
               )}
               {account && !userDataLoaded && stakedOnly && (

@@ -66,13 +66,17 @@ export const DropdownMenuDivider = styled.hr`
 `;
 
 export const StyledDropdownMenu = styled.div<{ $isOpen: boolean; $isBottomNav: boolean }>`
-  background-color: ${({ theme }) => theme.card.background};
-  border: 1px solid ${({ theme }) => theme.colors.cardBorder};
-  border-radius: 16px;
+  // background-color: ${({ theme }) => theme.card.background};
+  //border: 1px solid ${({ theme }) => theme.colors.cardBorder};
+  // border-radius: 16px;
   padding-bottom: 4px;
   padding-top: 4px;
   pointer-events: auto;
   margin-bottom: 0;
+  // border-left: 1px solid #017531;
+  // border-top: 1px solid #017531;
+  // border-bottom: 1px solid #017531;
+  box-shadow: 0px 0px 1px 0px #00f666, 0px 0px 2px 0px #00f666, 0px 0px 0px 0px #00f666;
   width: ${({ $isBottomNav }) => ($isBottomNav ? "calc(100% - 32px)" : "280px")};
   visibility: visible;
   z-index: 1001;

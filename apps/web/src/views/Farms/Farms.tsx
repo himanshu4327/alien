@@ -46,8 +46,7 @@ const ControlContainer = styled.div`
   width: 100%;
   align-items: center;
   position: relative;
-
-  justify-content: space-between;
+  justify-content: center;
   flex-direction: column;
   margin-bottom: 32px;
 
@@ -101,7 +100,6 @@ const ToggleWrapper = styled.div`
 const LabelWrapper = styled.div`
   > ${Text} {
     font-size: 12px;
-    font-family: 'AleinSolid';
     backgound-color: #001d13;
   }
 `
@@ -457,7 +455,7 @@ const Farms: React.FC<React.PropsWithChildren> = ({ children }) => {
             </LabelWrapper>
           </FilterContainer>
         </ControlContainer>
-        {isInactive && (
+        {/* {isInactive && (
           <FinishedTextContainer>
             <Text fontSize={['16px', null, '20px']} color="secondary" pr="4px">
               {t("Don't see the farm you are staking?")}
@@ -474,7 +472,7 @@ const Farms: React.FC<React.PropsWithChildren> = ({ children }) => {
               </FinishedTextLink>
             </Flex>
           </FinishedTextContainer>
-        )}
+        )} */}
         {viewMode === ViewMode.TABLE ? (
           <Table farms={chosenFarmsMemoized} cakePrice={cakePrice} userDataReady={userDataReady} />
         ) : (

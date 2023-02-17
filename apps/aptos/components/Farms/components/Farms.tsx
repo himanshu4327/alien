@@ -40,11 +40,10 @@ const ControlContainer = styled.div`
   width: 100%;
   align-items: center;
   position: relative;
-
+  justify-content: center;
   justify-content: space-between;
   flex-direction: column;
   margin-bottom: 32px;
-
   ${({ theme }) => theme.mediaQueries.sm} {
     flex-direction: row;
     flex-wrap: wrap;

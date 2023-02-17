@@ -14,9 +14,7 @@ interface FarmTypesFilterProps {
 
 export const FarmTypesWrapper = styled(Flex)`
   // background: ${({ theme }) => theme.colors.dropdown};
-   background: #001d13;
-  
- 
+  background: #001d13;
 `
 
 export const StyledItemRow = styled(Flex)`
@@ -32,6 +30,12 @@ const ToggleWrapper = styled.div`
   ${Text} {
     margin-left: 8px;
   }
+`
+
+const StyledFarmtypeButton = styled(Button)`
+  color: #fff;
+  opacity: 0.5;
+  letter-spacing: 2px;
 `
 
 export const FarmTypesFilter: React.FC<FarmTypesFilterProps> = ({
@@ -74,17 +78,24 @@ export const FarmTypesFilter: React.FC<FarmTypesFilterProps> = ({
         <Box ref={wrapperRef}>
           <InlineMenu
             component={
-              <Button  style={{fontFamily:"AleinSolid" , opacity:'0.5' , color:"white" , fontSize:"18px"}}  onClick={handleMenuClick}  scale="sm">
+              <StyledFarmtypeButton onClick={handleMenuClick} scale="sm">
                 {t('Farm Types')}
                 {farmTypesEnableCount > 0 && `(${farmTypesEnableCount})`}
-              </Button>
+              </StyledFarmtypeButton>
             }
             isOpen={isOpen}
             options={{ placement: 'top' }}
           >
             <Box width={['100%', '345px']} ref={menuRef}>
               <FarmTypesWrapper alignItems="center" p="16px">
-                <Text  style={{fontFamily:"AlienSolid" , opacity:"0.5"}} fontSize={20} bold color="text" display="inline-block" ml="8px">
+                <Text
+                  style={{ fontFamily: 'AlienSolid', opacity: '0.5' }}
+                  fontSize={20}
+                  bold
+                  color="text"
+                  display="inline-block"
+                  ml="8px"
+                >
                   {t('Farm Types')}
                 </Text>
               </FarmTypesWrapper>

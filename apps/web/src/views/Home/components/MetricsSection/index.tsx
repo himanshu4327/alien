@@ -53,13 +53,9 @@ const Stats = () => {
     <Flex justifyContent="center" alignItems="center" flexDirection="column">
       <img src={GradientLogo.src} alt="" height={100} width={100} />
       <StyledHeading textAlign="center" scale="xl" textTransform="uppercase">
-        {t('Used by')} <StyledSpan>millions</StyledSpan>,
+        WHICH SIDE ARE <StyledSpan>YOU ON? </StyledSpan>
       </StyledHeading>
-      <StyledHeading textAlign="center" scale="xl" mb="32px" textTransform="uppercase">
-        {t('Trusted with ')}
-        <StyledSpan>billions</StyledSpan>.
-      </StyledHeading>
-      <Flex flexDirection={['column', null, null, 'row']} mt="50px">
+      <Flex flexDirection={['column', null, null, 'row']}>
         <IconCard {...UsersCardData} mr={[null, null, null, '16px']} mb={['16px', null, null, '0']}>
           <StatCardContent
             headingText={t('%users% users', { users })}

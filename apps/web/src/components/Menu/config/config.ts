@@ -54,12 +54,12 @@ const config: (
           label: t('Swap'),
           href: '/swap',
         },
-        {
-          label: t('Limit'),
-          href: '/limit-orders',
-          supportChainIds: SUPPORT_ONLY_BSC,
-          image: '/images/decorations/3d-coin.png',
-        },
+        // {
+        //   label: t('Limit'),
+        //   href: '/limit-orders',
+        //   supportChainIds: SUPPORT_ONLY_BSC,
+        //   image: '/images/decorations/3d-coin.png',
+        // },
         {
           label: t('Liquidity'),
           href: '/liquidity',
@@ -74,11 +74,11 @@ const config: (
         //   supportChainIds: SUPPORT_ONLY_BSC,
         //   type: DropdownMenuItemType.EXTERNAL_LINK,
         // },
-        {
-          label: t('Bridge'),
-          href: '/#',
-          type: DropdownMenuItemType.EXTERNAL_LINK,
-        },
+        // {
+        //   label: t('Bridge'),
+        //   href: '/#',
+        //   type: DropdownMenuItemType.EXTERNAL_LINK,
+        // },
       ].map((item) => addMenuItemSupported(item, chainId)),
     },
     {
@@ -99,36 +99,36 @@ const config: (
         },
       ].map((item) => addMenuItemSupported(item, chainId)),
     },
-    {
-      label: t('Win'),
-      href: '/lottery',
-      icon: TrophyIcon,
-      fillIcon: TrophyFillIcon,
-      supportChainIds: SUPPORT_ONLY_BSC,
-      items: [
-        // {
-        //   label: t('Trading Competition'),
-        //   href: '/competition',
-        //   image: '/images/decorations/tc.png',
-        //   hideSubNav: true,
-        // },
-        // {
-        //   label: t('Prediction (BETA)'),
-        //   href: '/prediction',
-        //   image: '/images/decorations/prediction.png',
-        // },
-        {
-          label: t('Lottery'),
-          href: '/lottery',
-          image: '/images/decorations/lottery.png',
-        },
-        // {
-        //   label: t('Pottery (BETA)'),
-        //   href: '/pottery',
-        //   image: '/images/decorations/lottery.png',
-        // },
-      ],
-    },
+    // {
+    //   label: t('Win'),
+    //   href: '/lottery',
+    //   icon: TrophyIcon,
+    //   fillIcon: TrophyFillIcon,
+    //   supportChainIds: SUPPORT_ONLY_BSC,
+    //   items: [
+    // {
+    //   label: t('Trading Competition'),
+    //   href: '/competition',
+    //   image: '/images/decorations/tc.png',
+    //   hideSubNav: true,
+    // },
+    // {
+    //   label: t('Prediction (BETA)'),
+    //   href: '/prediction',
+    //   image: '/images/decorations/prediction.png',
+    // },
+    // {
+    //   label: t('Lottery'),
+    //   href: '/lottery',
+    //   image: '/images/decorations/lottery.png',
+    // },
+    // {
+    //   label: t('Pottery (BETA)'),
+    //   href: '/pottery',
+    //   image: '/images/decorations/lottery.png',
+    // },
+    // ],
+    // },
     // {
     //   label: t('NFT'),
     //   href: `${nftsBaseUrl}`,
