@@ -27,7 +27,7 @@ export function sortPools<T>(account: string, sortOption: string, poolsToSort: D
             }
             return getCakeVaultEarnings(
               account,
-              userData.cakeAtLastUserAction,
+              userData.alienAtLastUserAction,
               userData.userShares,
               pricePerFullShare,
               pool.earningTokenPrice,

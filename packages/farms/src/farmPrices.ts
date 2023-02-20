@@ -14,7 +14,7 @@ export const getFarmBaseTokenPrice = (
   nativePriceUSD: FixedNumber,
   wNative: string,
   stable: string,
-  quoteTokenInBusd,
+  quoteTokenInBusd: FixedNumber,
 ): FixedNumber => {
   const hasTokenPriceVsQuote = Boolean(farm.tokenPriceVsQuote)
 
@@ -161,6 +161,7 @@ export const getFarmsPrices = (
   decimals: number,
 ): FarmWithPrices[] => {
   const nativeStableFarm = farms.find((farm) => equalsIgnoreCase(farm.lpAddress, nativeStableLp.address))
+  // console.log("nativeStableFarm",nativeStableFarm)
 
   const isNativeFirst = nativeStableFarm?.token.symbol === nativeStableLp.wNative
 

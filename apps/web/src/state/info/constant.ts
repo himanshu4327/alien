@@ -3,12 +3,14 @@ import { infoClientETH, infoClient, infoStableSwapClient } from 'utils/graphql'
 
 import { ChainId } from '@pancakeswap/sdk'
 import { ETH_TOKEN_BLACKLIST, PCS_ETH_START, PCS_V2_START, TOKEN_BLACKLIST } from 'config/constants/info'
+import { CHAIN_ID } from '@gelatonetwork/limit-orders-lib/dist/constants'
 
 export type MultiChainName = 'BSC' | 'ETH'
 
 export const multiChainQueryMainToken = {
   BSC: 'BNB',
   ETH: 'ETH',
+  ARBITRUM: 'ARBITRUM',
 }
 
 export const multiChainBlocksClient = {
@@ -24,11 +26,13 @@ export const multiChainStartTime = {
 export const multiChainId = {
   BSC: ChainId.BSC,
   ETH: ChainId.ETHEREUM,
+  ARBITRUM: ChainId.ARBITRUM,
 }
 
 export const multiChainPaths = {
   [ChainId.BSC]: '',
   [ChainId.ETHEREUM]: '/eth',
+  [ChainId.ARBITRUM]: '/arbitrum',
 }
 
 export const multiChainQueryClient = {
@@ -44,6 +48,7 @@ export const multiChainQueryEndPoint = {
 export const multiChainScan = {
   BSC: 'BscScan',
   ETH: 'EtherScan',
+  ARBITRUM: 'Arbiscan',
 }
 
 export const multiChainTokenBlackList = {

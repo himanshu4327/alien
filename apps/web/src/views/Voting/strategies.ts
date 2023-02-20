@@ -241,7 +241,7 @@ export function lockedCakeUser(
           },
           {
             internalType: 'uint256',
-            name: 'cakeAtLastUserAction',
+            name: 'alienAtLastUserAction',
             type: 'uint256',
           },
           {

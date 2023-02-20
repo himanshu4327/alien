@@ -17,7 +17,7 @@ const StyledCell = styled(Pool.BaseCell)`
   ${({ theme }) => theme.mediaQueries.sm} {
     flex: 1 0 120px;
   }
-`
+` 
 
 const HelpIconWrapper = styled.div`
   align-self: center;
@@ -30,12 +30,12 @@ const AutoEarningsCell: React.FC<React.PropsWithChildren<AutoEarningsCellProps>>
 
   const vaultData = useVaultPoolByKey(vaultKey)
   const {
-    userData: { userShares, cakeAtLastUserAction, isLoading },
+    userData: { userShares, alienAtLastUserAction, isLoading },
     pricePerFullShare,
   } = vaultData
   const { hasAutoEarnings, autoCakeToDisplay, autoUsdToDisplay } = getCakeVaultEarnings(
     account,
-    cakeAtLastUserAction,
+    alienAtLastUserAction,
     userShares,
     pricePerFullShare,
     earningTokenPrice,
@@ -46,7 +46,7 @@ const AutoEarningsCell: React.FC<React.PropsWithChildren<AutoEarningsCellProps>>
       : null,
   )
 
-  const labelText = t('Recent CAKE profit')
+  const labelText = t('Recent ALIEN profit')
   const earningTokenBalance = autoCakeToDisplay
   const hasEarnings = hasAutoEarnings
   const earningTokenDollarBalance = autoUsdToDisplay

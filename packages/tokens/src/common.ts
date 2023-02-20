@@ -18,6 +18,15 @@ export const CAKE_TESTNET = new ERC20Token(
   'https://pancakeswap.finance/',
 )
 
+export const ALIEN_MAINET = new ERC20Token(
+  ChainId.ARBITRUM,
+  '0x453c56d477b792454fE417A35716a8A846541180',
+  18,
+  'ALIEN',
+  'AlienFi',
+  'https://alien.fi/',
+)
+
 export const USDC_BSC = new ERC20Token(
   ChainId.BSC,
   '0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d',
@@ -52,6 +61,15 @@ export const USDC_RINKEBY = new ERC20Token(
   'test USD Coin',
 )
 
+export const USDC_ARBITRUM = new ERC20Token(
+  ChainId.ARBITRUM,
+  '0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8',
+  6,
+  'USDC',
+  'USD Coin (PoS)',
+  'https://www.centre.io/usdc',
+)
+
 export const USDC_GOERLI = new ERC20Token(
   ChainId.GOERLI,
   '0x07865c6E87B9F70255377e024ace6630C1Eaa37F',
@@ -72,6 +90,15 @@ export const USDT_BSC = new ERC20Token(
 export const USDT_ETH = new ERC20Token(
   ChainId.ETHEREUM,
   '0xdAC17F958D2ee523a2206206994597C13D831ec7',
+  6,
+  'USDT',
+  'Tether USD',
+  'https://tether.to/',
+)
+
+export const USDT_ARBITRUM = new ERC20Token(
+  ChainId.ARBITRUM,
+  '0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9',
   6,
   'USDT',
   'Tether USD',
@@ -129,11 +156,17 @@ export const BUSD: Record<ChainId, ERC20Token> = {
   [ChainId.GOERLI]: BUSD_GOERLI,
   [ChainId.BSC]: BUSD_BSC,
   [ChainId.BSC_TESTNET]: BUSD_TESTNET,
+  [ChainId.ARBITRUM]: USDC_ARBITRUM,
 }
 
 export const CAKE = {
   [ChainId.BSC]: CAKE_MAINNET,
   [ChainId.BSC_TESTNET]: CAKE_TESTNET,
+  [ChainId.ARBITRUM]: ALIEN_MAINET,
+}
+
+export const ALIEN = {
+  [ChainId.ARBITRUM]: ALIEN_MAINET,
 }
 
 export const USDC = {
@@ -142,12 +175,30 @@ export const USDC = {
   [ChainId.ETHEREUM]: USDC_ETH,
   [ChainId.RINKEBY]: USDC_RINKEBY,
   [ChainId.GOERLI]: USDC_GOERLI,
+  [ChainId.ARBITRUM]: USDC_ARBITRUM,
 }
 
 export const USDT = {
   [ChainId.BSC]: USDT_BSC,
   [ChainId.ETHEREUM]: USDT_ETH,
+  [ChainId.ARBITRUM]: USDT_ARBITRUM,
 }
+
+export const WBTC_ARBITRUM = new ERC20Token(
+  ChainId.ARBITRUM,
+  '0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f',
+  8,
+  'WBTC',
+  'Wrapped BTC',
+)
+
+export const DAI_ARBITRUM = new ERC20Token(
+  ChainId.ARBITRUM,
+  '0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1',
+  18,
+  'DAI',
+  'Dai Stablecoin',
+)
 
 export const WBTC_ETH = new ERC20Token(
   ChainId.ETHEREUM,

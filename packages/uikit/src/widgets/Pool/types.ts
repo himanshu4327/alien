@@ -88,7 +88,7 @@ export interface DeserializedVaultFees extends SerializedVaultFees {
 export interface DeserializedVaultUser {
   isLoading: boolean;
   userShares: BigNumber;
-  cakeAtLastUserAction: BigNumber;
+  alienAtLastUserAction: BigNumber;
   lastDepositedTime: string;
   lastUserActionTime: string;
   balance: {

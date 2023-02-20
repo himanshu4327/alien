@@ -17,10 +17,10 @@ import { BIG_ZERO } from '@pancakeswap/utils/bigNumber'
 import cakeAbi from 'config/abi/cake.json'
 import { getCakeVaultAddress, getCakeFlexibleSideVaultAddress } from 'utils/addressHelpers'
 import { multicallv2 } from 'utils/multicall'
-import { bscTokens } from '@pancakeswap/tokens'
+import { bscTokens, arbitrumTokens } from '@pancakeswap/tokens'
 import { isAddress } from 'utils'
 import { getBalanceNumber } from '@pancakeswap/utils/formatBalance'
-import { bscRpcProvider } from 'utils/providers'
+import { bscRpcProvider, arbitrumRpcProvider } from 'utils/providers'
 import { getPoolsPriceHelperLpFiles } from 'config/constants/priceHelperLps/index'
 import fetchFarms from '../farms/fetchFarms'
 import getFarmsPrices from '../farms/getFarmsPrices'
@@ -55,7 +55,7 @@ export const initialPoolVaultState = Object.freeze({
   userData: {
     isLoading: true,
     userShares: null,
-    cakeAtLastUserAction: null,
+    alienAtLastUserAction: null,
     lastDepositedTime: null,
     lastUserActionTime: null,
     credit: null,
@@ -83,13 +83,15 @@ const initialState: PoolsState = {
   cakeFlexibleSideVault: initialPoolVaultState,
 }
 
-const cakeVaultAddress = getCakeVaultAddress()
+const CHAINID = 42161;
+const cakeVaultAddress = getCakeVaultAddress(CHAINID)
 
 export const fetchCakePoolPublicDataAsync = () => async (dispatch, getState) => {
   const farmsData = getState().farms.data
   const prices = getTokenPricesFromFarm(farmsData)
 
   const cakePool = poolsConfig.filter((p) => p.sousId === 0)[0]
+  console.log("cakePool", cakePool)
 
   const stakingTokenAddress = isAddress(cakePool.stakingToken.address)
   const stakingTokenPrice = stakingTokenAddress ? prices[stakingTokenAddress] : 0
@@ -110,12 +112,12 @@ export const fetchCakePoolPublicDataAsync = () => async (dispatch, getState) => 
 
 export const fetchCakePoolUserDataAsync = (account: string) => async (dispatch) => {
   const allowanceCall = {
-    address: bscTokens.cake.address,
+    address: arbitrumTokens.alien.address,
     name: 'allowance',
     params: [account, cakeVaultAddress],
   }
   const balanceOfCall = {
-    address: bscTokens.cake.address,
+    address: arbitrumTokens.alien.address,
     name: 'balanceOf',
     params: [account],
   }
@@ -140,7 +142,7 @@ export const fetchPoolsPublicDataAsync =
         fetchPoolsBlockLimits(),
         fetchPoolsTotalStaking(),
         fetchPoolsProfileRequirement(),
-        currentBlockNumber ? Promise.resolve(currentBlockNumber) : bscRpcProvider.getBlockNumber(),
+        currentBlockNumber ? Promise.resolve(currentBlockNumber) : arbitrumRpcProvider.getBlockNumber(),
       ])
 
       const blockLimitsSousIdMap = keyBy(blockLimits, 'sousId')
@@ -318,14 +320,14 @@ export const fetchCakeFlexibleSideVaultPublicData = createAsyncThunk<SerializedC
 )
 
 export const fetchCakeVaultFees = createAsyncThunk<SerializedVaultFees>('cakeVault/fetchFees', async () => {
-  const vaultFees = await fetchVaultFees(getCakeVaultAddress())
+  const vaultFees = await fetchVaultFees(getCakeVaultAddress(CHAINID))
   return vaultFees
 })
 
 export const fetchCakeFlexibleSideVaultFees = createAsyncThunk<SerializedVaultFees>(
   'cakeFlexibleSideVault/fetchFees',
   async () => {
-    const vaultFees = await fetchVaultFees(getCakeFlexibleSideVaultAddress())
+    const vaultFees = await fetchVaultFees(getCakeFlexibleSideVaultAddress(CHAINID))
     return vaultFees
   },
 )

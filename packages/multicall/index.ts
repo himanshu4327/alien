@@ -11,6 +11,7 @@ export const multicallAddresses = {
   5: '0xcA11bde05977b3631167028862bE2a173976CA11',
   56: '0xcA11bde05977b3631167028862bE2a173976CA11',
   97: '0xcA11bde05977b3631167028862bE2a173976CA11',
+  42161: '0x71d473630E3bb09d647b5AE20dCA663ABeBAe47d',
 }
 
 export const getMulticallContract = (chainId: ChainId, provider: Provider) => {
@@ -62,7 +63,7 @@ export type MultiCall = <T = any>(abi: any[], calls: Call[], chainId?: ChainId) 
 export function createMulticall<TProvider extends Provider>(
   provider: ({ chainId }: { chainId?: number | undefined }) => TProvider,
 ) {
-  const multicall: MultiCall = async (abi: any[], calls: Call[], chainId = ChainId.BSC) => {
+  const multicall: MultiCall = async (abi: any[], calls: Call[], chainId = ChainId.ARBITRUM) => {
     const multi = getMulticallContract(chainId, provider({ chainId }))
     if (!multi) throw new Error(`Multicall Provider missing for ${chainId}`)
     const itf = new Interface(abi)
@@ -78,7 +79,7 @@ export function createMulticall<TProvider extends Provider>(
     return res as any
   }
 
-  const multicallv2: MultiCallV2 = async ({ abi, calls, chainId = ChainId.BSC, options, provider: _provider }) => {
+  const multicallv2: MultiCallV2 = async ({ abi, calls, chainId = ChainId.ARBITRUM, options, provider: _provider }) => {
     const { requireSuccess = true, ...overrides } = options || {}
     const multi = getMulticallContract(chainId, _provider || provider({ chainId }))
     if (!multi) throw new Error(`Multicall Provider missing for ${chainId}`)
@@ -98,7 +99,7 @@ export function createMulticall<TProvider extends Provider>(
     return res as any
   }
 
-  const multicallv3 = async ({ calls, chainId = ChainId.BSC, allowFailure, overrides }: MulticallV3Params) => {
+  const multicallv3 = async ({ calls, chainId = ChainId.ARBITRUM, allowFailure, overrides }: MulticallV3Params) => {
     const multi = getMulticallContract(chainId, provider({ chainId }))
     if (!multi) throw new Error(`Multicall Provider missing for ${chainId}`)
     const interfaceCache = new WeakMap()

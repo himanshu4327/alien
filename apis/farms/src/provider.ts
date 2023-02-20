@@ -23,3 +23,11 @@ export const goerliProvider = new StaticJsonRpcProvider(
   },
   5,
 )
+
+export const arbitrumProvider = new StaticJsonRpcProvider(
+  {
+    url: 'https://damp-convincing-glitter.arbitrum-mainnet.discover.quiknode.pro/07baa653cbfbbb555896be38ee3e75bd0db276fd/',
+    skipFetchSetup: true,
+  },
+  42161,
+)

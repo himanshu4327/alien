@@ -42,7 +42,7 @@ export const poolsWithVaultSelector = createSelector(
       ...cakePool,
       ...deserializedLockedCakeVault,
       vaultKey: VaultKey.CakeVault,
-      userData: { ...cakePool.userData, ...deserializedLockedCakeVault.userData },
+      userData: { ...cakePool?.userData, ...deserializedLockedCakeVault.userData },
     }
 
     const lockedVaultPosition = getVaultPosition(deserializedLockedCakeVault.userData)

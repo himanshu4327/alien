@@ -2,8 +2,8 @@ import { FixedNumber } from '@ethersproject/bignumber'
 import { FarmWithPrices } from './farmPrices'
 
 // copy from src/config, should merge them later
-const BSC_BLOCK_TIME = 3
-const BLOCKS_PER_YEAR = (60 / BSC_BLOCK_TIME) * 60 * 24 * 365 // 10512000
+const ARBITRUM_BLOCK_TIME = 0.3
+const BLOCKS_PER_YEAR = (60 / ARBITRUM_BLOCK_TIME) * 60 * 24 * 365 // 10512000
 
 const FIXED_ZERO = FixedNumber.from(0)
 const FIXED_100 = FixedNumber.from(100)

@@ -217,7 +217,7 @@ const Staked: React.FunctionComponent<React.PropsWithChildren<StackedActionProps
             {
               step: 2,
               tx: '',
-              chainId: ChainId.BSC,
+              chainId: ChainId.ARBITRUM,
               status: FarmTransactionStatus.PENDING,
             },
           ],
@@ -273,7 +273,7 @@ const Staked: React.FunctionComponent<React.PropsWithChildren<StackedActionProps
             },
             {
               step: 2,
-              chainId: ChainId.BSC,
+              chainId: ChainId.ARBITRUM,
               tx: '',
               status: FarmTransactionStatus.PENDING,
             },
@@ -326,7 +326,7 @@ const Staked: React.FunctionComponent<React.PropsWithChildren<StackedActionProps
       cakePrice={cakePrice}
       showActiveBooster={boosterState === YieldBoosterState.ACTIVE}
       bCakeMultiplier={bCakeMultiplier}
-      showCrossChainFarmWarning={chainId !== ChainId.BSC && chainId !== ChainId.BSC_TESTNET}
+      showCrossChainFarmWarning={chainId !== ChainId.ARBITRUM && chainId !== ChainId.BSC_TESTNET}
       crossChainWarningText={crossChainWarningText}
       decimals={18}
       allowance={allowance}
@@ -347,7 +347,7 @@ const Staked: React.FunctionComponent<React.PropsWithChildren<StackedActionProps
       onConfirm={handleUnstake}
       tokenName={lpSymbol}
       decimals={18}
-      showCrossChainFarmWarning={chainId !== ChainId.BSC && chainId !== ChainId.BSC_TESTNET}
+      showCrossChainFarmWarning={chainId !== ChainId.ARBITRUM && chainId !== ChainId.BSC_TESTNET}
     />,
   )
 

@@ -57,12 +57,12 @@ const LockedStakingApy: React.FC<React.PropsWithChildren<LockedStakingApyProps>>
 
   // earningTokenBalance includes overdue fee if any
   const earningTokenBalance = useMemo(() => {
-    return getBalanceNumber(currentLockedAmountAsBigNumber.minus(userData?.cakeAtLastUserAction))
-  }, [currentLockedAmountAsBigNumber, userData?.cakeAtLastUserAction])
+    return getBalanceNumber(currentLockedAmountAsBigNumber.minus(userData?.alienAtLastUserAction))
+  }, [currentLockedAmountAsBigNumber, userData?.alienAtLastUserAction])
 
   const boostedYieldAmount = useMemo(() => {
-    return getFullDisplayBalance(userData?.cakeAtLastUserAction, 18, 5)
-  }, [userData?.cakeAtLastUserAction])
+    return getFullDisplayBalance(userData?.alienAtLastUserAction, 18, 5)
+  }, [userData?.alienAtLastUserAction])
 
   const tooltipContent = <LockedAprTooltipContent boostedYieldAmount={boostedYieldAmount} />
   const { targetRef, tooltip, tooltipVisible } = useTooltip(tooltipContent, { placement: 'bottom-start' })

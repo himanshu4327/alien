@@ -5,9 +5,10 @@ import cakeVaultAbi from 'config/abi/cakeVaultV2.json'
 import { multicallv2 } from 'utils/multicall'
 import { getCakeFlexibleSideVaultV2Contract } from '../../utils/contractHelpers'
 
-const cakeVaultAddress = getCakeVaultAddress()
-const flexibleSideVaultContract = getCakeFlexibleSideVaultV2Contract()
-
+const CHAIIND = 42161;
+const cakeVaultAddress = getCakeVaultAddress(CHAIIND)
+const flexibleSideVaultContract = getCakeFlexibleSideVaultV2Contract() 
+ 
 export const fetchVaultUser = async (account: string): Promise<SerializedLockedVaultUser> => {
   try {
     const calls = ['userInfo', 'calculatePerformanceFee', 'calculateOverdueFee'].map((method) => ({
@@ -25,7 +26,7 @@ export const fetchVaultUser = async (account: string): Promise<SerializedLockedV
       userShares: new BigNumber(userContractResponse.shares.toString()).toJSON(),
       lastDepositedTime: userContractResponse.lastDepositedTime.toString(),
       lastUserActionTime: userContractResponse.lastUserActionTime.toString(),
-      cakeAtLastUserAction: new BigNumber(userContractResponse.cakeAtLastUserAction.toString()).toJSON(),
+      alienAtLastUserAction: new BigNumber(userContractResponse.alienAtLastUserAction.toString()).toJSON(),
       userBoostedShare: new BigNumber(userContractResponse.userBoostedShare.toString()).toJSON(),
       locked: userContractResponse.locked,
       lockEndTime: userContractResponse.lockEndTime.toString(),
@@ -40,7 +41,7 @@ export const fetchVaultUser = async (account: string): Promise<SerializedLockedV
       userShares: null,
       lastDepositedTime: null,
       lastUserActionTime: null,
-      cakeAtLastUserAction: null,
+      alienAtLastUserAction: null,
       userBoostedShare: null,
       lockEndTime: null,
       lockStartTime: null,
@@ -60,7 +61,7 @@ export const fetchFlexibleSideVaultUser = async (account: string): Promise<Seria
       userShares: new BigNumber(userContractResponse.shares.toString()).toJSON(),
       lastDepositedTime: userContractResponse.lastDepositedTime.toString(),
       lastUserActionTime: userContractResponse.lastUserActionTime.toString(),
-      cakeAtLastUserAction: new BigNumber(userContractResponse.cakeAtLastUserAction.toString()).toJSON(),
+      alienAtLastUserAction: new BigNumber(userContractResponse.alienAtLastUserAction.toString()).toJSON(),
     }
   } catch (error) {
     return {
@@ -68,7 +69,7 @@ export const fetchFlexibleSideVaultUser = async (account: string): Promise<Seria
       userShares: null,
       lastDepositedTime: null,
       lastUserActionTime: null,
-      cakeAtLastUserAction: null,
+      alienAtLastUserAction: null,
     }
   }
 }

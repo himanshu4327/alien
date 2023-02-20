@@ -12,22 +12,23 @@ import sousChefV2 from '../../config/abi/sousChefV2.json'
 import sousChefV3 from '../../config/abi/sousChefV3.json'
 
 const livePoolsWithEnd = poolsConfig.filter((p) => p.sousId !== 0 && !p.isFinished)
+const CHAIIND = 42161;
 
 const startEndBlockCalls = livePoolsWithEnd.flatMap((poolConfig) => {
   return [
     {
-      address: getAddress(poolConfig.contractAddress),
+      address: getAddress(poolConfig.contractAddress, CHAIIND),
       name: 'startBlock',
     },
     {
-      address: getAddress(poolConfig.contractAddress),
+      address: getAddress(poolConfig.contractAddress, CHAIIND),
       name: 'bonusEndBlock',
     },
   ]
 })
 
 export const fetchPoolsBlockLimits = async () => {
-  const startEndBlockRaw = await multicall(sousChefABI, startEndBlockCalls)
+  const startEndBlockRaw = await multicall(sousChefABI, startEndBlockCalls, CHAIIND)
 
   const startEndBlockResult = startEndBlockRaw.reduce((resultArray, item, index) => {
     const chunkIndex = Math.floor(index / 2)
@@ -56,12 +57,12 @@ const poolsBalanceOf = poolsConfig.map((poolConfig) => {
   return {
     address: poolConfig.stakingToken.address,
     name: 'balanceOf',
-    params: [getAddress(poolConfig.contractAddress)],
+    params: [getAddress(poolConfig.contractAddress, CHAIIND)],
   }
 })
 
 export const fetchPoolsTotalStaking = async () => {
-  const poolsTotalStaked = await multicall(erc20ABI, poolsBalanceOf)
+  const poolsTotalStaked = await multicall(erc20ABI, poolsBalanceOf, CHAIIND)
 
   return poolsConfig.map((p, index) => ({
     sousId: p.sousId,
@@ -73,13 +74,13 @@ export const fetchPoolsStakingLimits = async (
   poolsWithStakingLimit: number[],
 ): Promise<{ [key: string]: { stakingLimit: BigNumber; numberBlocksForUserLimit: number } }> => {
   const validPools = poolsConfig
-    .filter((p) => p.stakingToken.symbol !== 'BNB' && !p.isFinished)
+    .filter((p) => p.stakingToken.symbol !== 'ETH' && !p.isFinished)
     .filter((p) => !poolsWithStakingLimit.includes(p.sousId))
 
   // Get the staking limit for each valid pool
   const poolStakingCalls = validPools
     .map((validPool) => {
-      const contractAddress = getAddress(validPool.contractAddress)
+      const contractAddress = getAddress(validPool.contractAddress, CHAIIND)
       return ['hasUserLimit', 'poolLimitPerUser', 'numberBlocksForUserLimit'].map((method) => ({
         address: contractAddress,
         name: method,
@@ -90,6 +91,7 @@ export const fetchPoolsStakingLimits = async (
   const poolStakingResultRaw = await multicallv2({
     abi: sousChefV2,
     calls: poolStakingCalls,
+    chainId: CHAIIND,
     options: { requireSuccess: false },
   })
   const chunkSize = poolStakingCalls.length / validPools.length

@@ -62,8 +62,8 @@ const AutoAprCell: React.FC<React.PropsWithChildren<AprCellProps>> = ({ pool }) 
   )
 
   const boostedYieldAmount = useMemo(() => {
-    return isLock ? getFullDisplayBalance(userData?.cakeAtLastUserAction, 18, 5) : 0
-  }, [isLock, userData?.cakeAtLastUserAction])
+    return isLock ? getFullDisplayBalance(userData?.alienAtLastUserAction, 18, 5) : 0
+  }, [isLock, userData?.alienAtLastUserAction])
 
   const tooltipContent = <LockedAprTooltipContent boostedYieldAmount={boostedYieldAmount} />
   const { targetRef, tooltip, tooltipVisible } = useTooltip(tooltipContent, { placement: 'bottom-start' })

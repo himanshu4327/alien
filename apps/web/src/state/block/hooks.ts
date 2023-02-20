@@ -51,6 +51,7 @@ export const usePollBlockNumber = () => {
 export const useCurrentBlock = (): number => {
   const { chainId } = useActiveChainId()
   const { data: currentBlock = 0 } = useSWRImmutable(['blockNumber', chainId])
+  // console.log("currentBlock", currentBlock);
   return currentBlock
 }
 

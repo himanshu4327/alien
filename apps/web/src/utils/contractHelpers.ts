@@ -4,7 +4,7 @@ import { provider } from 'utils/wagmi'
 import { Contract } from '@ethersproject/contracts'
 import poolsConfig from 'config/constants/pools'
 import { PoolCategory } from 'config/constants/types'
-import { CAKE } from '@pancakeswap/tokens'
+import { CAKE, ALIEN } from '@pancakeswap/tokens'
 
 // Addresses
 import {
@@ -154,7 +154,7 @@ import { ChainId } from '@pancakeswap/sdk'
 export const getContract = ({
   abi,
   address,
-  chainId = ChainId.BSC,
+  chainId = ChainId.ARBITRUM,
   signer,
 }: {
   abi: any
@@ -203,8 +203,9 @@ export const getPointCenterIfoContract = (signer?: Signer | Provider) => {
 export const getCakeContract = (signer?: Signer | Provider, chainId?: number) => {
   return getContract({
     abi: cakeAbi,
-    address: chainId ? CAKE[chainId].address : CAKE[ChainId.BSC].address,
+    address: chainId ? ALIEN[chainId].address : ALIEN[ChainId.ARBITRUM].address,
     signer,
+    chainId: 42161,
   }) as Cake
 }
 export const getProfileContract = (signer?: Signer | Provider) => {
@@ -272,10 +273,11 @@ export const getCakeVaultV2Contract = (signer?: Signer | Provider) => {
 export const getCakeFlexibleSideVaultV2Contract = (signer?: Signer | Provider) => {
   return getContract({
     abi: cakeFlexibleSideVaultV2Abi,
-    address: getCakeFlexibleSideVaultAddress(),
+    address: getCakeFlexibleSideVaultAddress(42161),
     signer,
+    chainId: 42161
   }) as CakeFlexibleSideVaultV2
-}
+}            
 
 export const getPredictionsContract = (address: string, signer?: Signer | Provider) => {
   return getContract({ abi: predictionsAbi, address, signer }) as Predictions

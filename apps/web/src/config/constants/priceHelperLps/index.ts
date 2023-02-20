@@ -11,6 +11,8 @@ export const getPoolsPriceHelperLpFiles = (chainId: ChainId) => {
   switch (chainId) {
     case ChainId.BSC:
       return PoolsBscPriceHelper
+      // case ChainId.ARBITRUM:
+      //   return PoolsBscPriceHelper  
     case ChainId.BSC_TESTNET:
       return PoolsBscTestnetPriceHelper
     case ChainId.ETHEREUM:
@@ -21,3 +23,5 @@ export const getPoolsPriceHelperLpFiles = (chainId: ChainId) => {
       return []
   }
 }
+
+

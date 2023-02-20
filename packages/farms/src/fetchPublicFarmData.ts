@@ -41,7 +41,10 @@ const abi = [
 ]
 
 const fetchFarmCalls = (farm: SerializedFarmPublicData, masterChefAddress: string, vaultAddress?: string) => {
+  
+   
   const { lpAddress, token, quoteToken } = farm
+  // console.log("fetchFarmCalls", lpAddress, token, quoteToken);
   return [
     // Balance of token in the LP contract
     {
@@ -71,7 +74,7 @@ const fetchFarmCalls = (farm: SerializedFarmPublicData, masterChefAddress: strin
 
 export const fetchPublicFarmsData = async (
   farms: SerializedFarmConfig[],
-  chainId = ChainId.BSC,
+  chainId = ChainId.ARBITRUM,
   multicall: MultiCallV2,
   masterChefAddress: string,
 ): Promise<any[]> => {

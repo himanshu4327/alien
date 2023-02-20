@@ -1,7 +1,8 @@
-import { ChainId, WBNB } from '@pancakeswap/sdk'
-import { BUSD } from '@pancakeswap/tokens'
+import { ChainId, WBNB, WNATIVE } from '@pancakeswap/sdk'
+import { BUSD, USDC } from '@pancakeswap/tokens'
 import { equalsIgnoreCase } from '@pancakeswap/utils/equalsIgnoreCase'
 import { FarmData } from './types'
+
 
 /**
  * Returns the first farm with a quote token that matches from an array of preferred quote tokens
@@ -13,8 +14,9 @@ import { FarmData } from './types'
 export const getFarmFromTokenAddress = (
   farms: FarmData[],
   tokenAddress: string,
-  preferredQuoteTokensAddress: string[] = [BUSD[ChainId.BSC].address, WBNB[ChainId.BSC].address],
+  preferredQuoteTokensAddress: string[] = [USDC[ChainId.ARBITRUM].address, WNATIVE[ChainId.ARBITRUM].address],
 ): FarmData => {
+  console.log("getFarmFromTokenAddress")
   const farmsWithToken = farms.filter((farm) => equalsIgnoreCase(farm.token.address, tokenAddress))
   const filteredFarm = farmsWithToken.find((farm) => {
     return preferredQuoteTokensAddress.some((quoteTokenAddress) => {

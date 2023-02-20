@@ -5,10 +5,11 @@ import cakeVaultAbi from 'config/abi/cakeVaultV2.json'
 import { getCakeVaultAddress, getCakeFlexibleSideVaultAddress } from 'utils/addressHelpers'
 import { BIG_ZERO } from '@pancakeswap/utils/bigNumber'
 import { ChainId } from '@pancakeswap/sdk'
-import { CAKE } from '@pancakeswap/tokens'
+import { CAKE, ALIEN } from '@pancakeswap/tokens'
 
-const cakeVaultV2 = getCakeVaultAddress()
-const cakeFlexibleSideVaultV2 = getCakeFlexibleSideVaultAddress()
+const CHAIIND = 42161;
+const cakeVaultV2 = getCakeVaultAddress(CHAIIND);
+const cakeFlexibleSideVaultV2 = getCakeFlexibleSideVaultAddress(CHAIIND)
 export const fetchPublicVaultData = async (cakeVaultAddress = cakeVaultV2) => {
   try {
     const calls = ['getPricePerFullShare', 'totalShares', 'totalLockedAmount'].map((method) => ({
@@ -19,7 +20,7 @@ export const fetchPublicVaultData = async (cakeVaultAddress = cakeVaultV2) => {
 
     const cakeBalanceOfCall = {
       abi: cakeAbi,
-      address: CAKE[ChainId.BSC].address,
+      address: ALIEN[ChainId.ARBITRUM].address,
       name: 'balanceOf',
       params: [cakeVaultV2],
     }
@@ -58,7 +59,7 @@ export const fetchPublicFlexibleSideVaultData = async (cakeVaultAddress = cakeFl
 
     const cakeBalanceOfCall = {
       abi: cakeAbi,
-      address: CAKE[ChainId.BSC].address,
+      address: CAKE[ChainId.ARBITRUM].address,
       name: 'balanceOf',
       params: [cakeVaultAddress],
     }
