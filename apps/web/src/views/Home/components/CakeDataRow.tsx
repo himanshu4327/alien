@@ -197,8 +197,8 @@ const CakeDataRow = () => {
 
       <StyledColumnC noMobileBorder>
         <StyledText color="textSubtle">{t('Max Supply')}</StyledText>
-
-        <Balance decimals={0} lineHeight="1.1" fontSize="21px" bold value={750000000} />
+        {/* <Balance decimals={0} lineHeight="1.1" fontSize="21px" bold value={750000000} /> */}
+        <Heading>N/A</Heading>
       </StyledColumnC>
 
       <StyledColumnD noDesktopBorder>
@@ -225,7 +225,8 @@ const CakeDataRow = () => {
         <StyledText color="textSubtle" textAlign="center">
           {t('Current emissions')}
         </StyledText>
-        <Heading scale="md">{t('%cakeEmissions%/block', { cakeEmissions: emissionsPerBlock })}</Heading>
+        {/* <Heading scale="md">{t('%cakeEmissions%/block', { cakeEmissions: emissionsPerBlock })}</Heading> */}
+        <Heading>0.4/block</Heading>
       </StyledColumnF>
     </Grid>
   )

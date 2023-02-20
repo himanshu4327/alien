@@ -37,6 +37,7 @@ const Farm: React.FunctionComponent<React.PropsWithChildren<FarmTableFarmTokenIn
   stakedBalance,
   children,
 }) => {
+  console.log("children", children);
   const { t } = useTranslation();
   const rawStakedBalance = stakedBalance ? getBalanceNumber(stakedBalance) : 0;
 
@@ -66,10 +67,10 @@ const Farm: React.FunctionComponent<React.PropsWithChildren<FarmTableFarmTokenIn
   const pairContainer = (
     <Container>
       <TokenWrapper>{children}</TokenWrapper>
-      <div>
-        {/* {handleRenderFarming()} */}
+      {/* <div>
+        {handleRenderFarming()}
         <Text bold>{label}</Text>
-      </div>
+      </div> */}
     </Container>
   );
 

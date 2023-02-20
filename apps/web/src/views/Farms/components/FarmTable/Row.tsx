@@ -161,7 +161,7 @@ const Row: React.FunctionComponent<React.PropsWithChildren<RowPropsWithLoading>>
                           boosted={props?.details?.boosted}
                         />
                       </CellLayout>
-                      <CellLayout label={t('UP TO')}>
+                      {/* <CellLayout label={t('UP TO')}>
                         {props?.details?.boosted && userDataReady ? (
                           <BoostedApr
                             lpRewardsApr={props?.apr?.lpRewardsApr}
@@ -175,7 +175,7 @@ const Row: React.FunctionComponent<React.PropsWithChildren<RowPropsWithLoading>>
                             }
                           />
                         ) : null}
-                      </CellLayout>
+                      </CellLayout> */}
                     </CellInner>
                   </td>
                 )

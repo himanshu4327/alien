@@ -295,7 +295,7 @@ const Home: React.FC<React.PropsWithChildren> = () => {
         <EarnSectionData />
         {/* TODO: until we are enable fetch multi-chain farms */}
 
-        <UserBannerWrapper>{chainId === ChainId.BSC && <FarmsPoolsRow />}</UserBannerWrapper>
+        {/* <UserBannerWrapper>{chainId === ChainId.BSC && <FarmsPoolsRow />}</UserBannerWrapper> */}
       </PageSection>
 
       <PageSection

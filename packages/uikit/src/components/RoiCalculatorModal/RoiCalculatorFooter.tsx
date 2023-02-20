@@ -118,19 +118,19 @@ const RoiCalculatorFooter: React.FC<React.PropsWithChildren<RoiCalculatorFooterP
             )}
             {isFarm && (
               <>
-                <Text color="textSubtle" small>
+                <Text color="#fff" small>
                   {t("APR (incl. LP rewards)")}
                 </Text>
                 <Text small textAlign="right">
                   {displayApr}%
                 </Text>
-                <Text color="textSubtle" small>
+                <Text color="#fff" small>
                   *{t("Base APR (Alien yield only)")}
                 </Text>
                 <Text small textAlign="right">
                   {apr.toFixed(2)}%
                 </Text>
-                <Text color="textSubtle" small>
+                <Text color="#fff" small>
                   *{t("LP Rewards APR")}
                 </Text>
                 <Text small textAlign="right">

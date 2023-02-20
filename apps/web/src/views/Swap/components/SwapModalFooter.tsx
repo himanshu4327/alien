@@ -107,10 +107,18 @@ export default function SwapModalFooter({
             <QuestionHelper
               text={
                 <>
-                  <Text mb="12px">{t('For each trade a %amount% fee is paid', { amount: totalFeePercent })}</Text>
-                  <Text>- {t('%amount% to LP token holders', { amount: lpHoldersFeePercent })}</Text>
-                  <Text>- {t('%amount% to the Treasury', { amount: treasuryFeePercent })}</Text>
-                  <Text>- {t('%amount% towards Alien buyback and burn', { amount: buyBackFeePercent })}</Text>
+                  <Text color="#fff" fontSize="14px" mb="12px">
+                    {t('For each trade a %amount% fee is paid', { amount: totalFeePercent })}
+                  </Text>
+                  <Text color="#fff" fontSize="14px">
+                    - {t('%amount% to LP token holders', { amount: lpHoldersFeePercent })}
+                  </Text>
+                  <Text color="#fff" fontSize="14px">
+                    - {t('%amount% to the Treasury', { amount: treasuryFeePercent })}
+                  </Text>
+                  <Text color="#fff" fontSize="14px">
+                    - {t('%amount% towards Alien buyback and burn', { amount: buyBackFeePercent })}
+                  </Text>
                 </>
               }
               ml="4px"

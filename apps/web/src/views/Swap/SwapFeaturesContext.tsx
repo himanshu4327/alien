@@ -22,7 +22,7 @@ export const SwapFeaturesContext = createContext<{
   setIsChartDisplayed: null,
 })
 
-const CHART_SUPPORT_CHAIN_IDS = [ChainId.ARBITRUM]
+const CHART_SUPPORT_CHAIN_IDS = []
 const ACCESS_TOKEN_SUPPORT_CHAIN_IDS = [ChainId.ARBITRUM]
 const STABLE_SUPPORT_CHAIN_IDS = [ChainId.BSC_TESTNET, ChainId.BSC]
 

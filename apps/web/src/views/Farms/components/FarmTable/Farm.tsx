@@ -24,7 +24,7 @@ const Farm: React.FunctionComponent<React.PropsWithChildren<FarmTableFarmTokenIn
       isStable={isStable}
       stakedBalance={proxy?.stakedBalance?.gt(0) ? proxy?.stakedBalance : stakedBalance}
     >
-      <TokenPairImage width={40} height={40} variant="inverted" primaryToken={token} secondaryToken={quoteToken} />
+      <TokenPairImage width={80} height={40} primaryToken={token} secondaryToken={quoteToken} />
     </FarmTokenInfo>
   )
 }

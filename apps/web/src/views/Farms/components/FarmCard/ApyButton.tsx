@@ -96,27 +96,21 @@ const ApyButton: React.FC<React.PropsWithChildren<ApyButtonProps>> = ({
 
   const { targetRef, tooltip, tooltipVisible } = useTooltip(
     <>
-      <Text style={{ opacity: '0.5', color: 'white' }}>
+      <Text color="#fff" fontSize="14px">
         {t('APR (incl. LP rewards)')}
-        <Text style={{ display: 'inline-block', opacity: '0.5', color: 'white' }} color={strikethrough && 'secondary'}>
+        <Text color="#fff" fontSize="14px">
           {strikethrough ? `${(apr * boostMultiplier + lpRewardsApr).toFixed(2)}%` : `${displayApr}%`}
         </Text>
       </Text>
-      <Text style={{ opacity: '0.5', color: 'white' }} ml="5px">
-        *{t('Base APR (Alien yield only)')}:{' '}
-        {strikethrough ? (
-          <Text style={{ display: 'inline-block', opacity: '0.5', color: 'white' }} color="secondary">{`${(
-            apr * boostMultiplier
-          ).toFixed(2)}%`}</Text>
-        ) : (
-          `${apr.toFixed(2)}%`
-        )}
+      <Text color="#fff" fontSize="14px" ml="5px">
+        *{t(' Base APR (Alien yield only)')}:{' '}
+        {strikethrough ? <Text>{`${(apr * boostMultiplier).toFixed(2)}%`}</Text> : `${apr.toFixed(2)}%`}
       </Text>
-      <Text style={{ opacity: '0.5', color: 'white' }} ml="5px">
+      <Text color="#fff" fontSize="14px" ml="5px">
         *{t('LP Rewards APR')}: {lpRewardsApr === 0 ? '-' : lpRewardsApr}%
       </Text>
       {strikethrough && (
-        <Text style={{ opacity: '0.5', color: 'white' }}>
+        <Text color="#fff" fontSize="14px">
           {t('Available Boosted')}:{' '}
           <Text color="secondary" style={{ display: 'inline-block', opacity: '0.5', color: 'white' }}>
             {t('Up to %boostMultiplier%x', { boostMultiplier: boostMultiplierDisplay })}
@@ -124,7 +118,7 @@ const ApyButton: React.FC<React.PropsWithChildren<ApyButtonProps>> = ({
         </Text>
       )}
       {strikethrough && (
-        <Text style={{ opacity: '0.5', color: 'white' }} color="secondary">
+        <Text color="#fff" fontSize="14px">
           {t('Boost only applies to base APR (Alien yield)')}
         </Text>
       )}

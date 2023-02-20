@@ -40,7 +40,7 @@ const CardHeading: React.FC<React.PropsWithChildren<ExpandableSectionProps>> = (
   return (
     <Wrapper justifyContent="space-between" alignItems="center" mb="12px">
       {isReady ? (
-        <TokenPairImage variant="inverted" primaryToken={token} secondaryToken={quoteToken} width={64} height={64} />
+        <TokenPairImage variant="inverted" primaryToken={token} secondaryToken={quoteToken} width={62} height={32} />
       ) : (
         <Skeleton mr="8px" width={63} height={63} variant="circle" />
       )}
