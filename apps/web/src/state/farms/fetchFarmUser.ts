@@ -18,6 +18,7 @@ export const fetchFarmUserAllowances = async (
 ) => {
   const isBscNetwork = verifyBscNetwork(chainId)
   const masterChefAddress = isBscNetwork ? getMasterChefAddress(chainId) : getNonBscVaultAddress(chainId)
+  console.log("masterChefAddress", masterChefAddress);
 
   const calls = farmsToFetch.map((farm) => {
     const lpContractAddress = farm.lpAddress
@@ -83,14 +84,14 @@ export const fetchFarmUserStakedBalances = async (
 
 export const fetchFarmUserEarnings = async (account: string, farmsToFetch: SerializedFarmConfig[], chainId: number) => {
   const isBscNetwork = verifyBscNetwork(chainId)
-  const multiCallChainId = farmFetcher.isTestnet(chainId) ? ChainId.BSC_TESTNET : ChainId.BSC
+  const multiCallChainId = farmFetcher.isTestnet(chainId) ? ChainId.BSC_TESTNET : ChainId.ARBITRUM
   const userAddress = isBscNetwork ? account : await fetchCProxyAddress(account, multiCallChainId)
   const masterChefAddress = getMasterChefAddress(multiCallChainId)
 
   const calls = farmsToFetch.map((farm) => {
     return {
       address: masterChefAddress,
-      name: 'pendingCake',
+      name: 'pendingAlien',
       params: [farm.pid, userAddress],
     }
   })

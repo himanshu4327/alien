@@ -137,8 +137,13 @@ const ifos: Ifo[] = [
     //   distributionRatio: 1,
     // },
     poolUnlimited: {
+<<<<<<< HEAD
       saleAmount: '1,380,000 Alien',
       raiseAmount: '230 ETH ',
+=======
+      saleAmount: '1,500,000 AlienFi',
+      raiseAmount: '250 ETH ',
+>>>>>>> e1517f9081bd578091d57bd1e5e4193454b5691b
       distributionRatio: 0.7,
     },
     currency: ethereumTokens.ether,

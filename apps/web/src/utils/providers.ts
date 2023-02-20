@@ -8,6 +8,6 @@ export const testbscRpcProvider = new StaticJsonRpcProvider('https://data-seed-p
 
 export const ethereumRpcProvider = new StaticJsonRpcProvider('https://rpc.ankr.com/eth')
 
-
+export const arbitrumRpcProvider = new StaticJsonRpcProvider('https://arbitrum.blockpi.network/v1/rpc/public')
 
 export default null

@@ -60,12 +60,20 @@ export const usePollFarmsWithUserData = () => {
     : ['farmsWithUserData', account, chainId]
 
   useSWRImmutable(
-    account && chainId && !isProxyContractLoading ? name : null,
+    // account && chainId && !isProxyContractLoading ? name : null,
+    // async () => {
+    //   const farmsConfig = await getFarmConfig(chainId)
+    //   const pids = farmsConfig.map((farmToFetch) => farmToFetch.pid)
+    //   const params = proxyCreated ? { account, pids, proxyAddress, chainId } : { account, pids, chainId }
+
+    account && chainId ? name : null,
     async () => {
       const farmsConfig = await getFarmConfig(chainId)
-      const pids = farmsConfig.map((farmToFetch) => farmToFetch.pid)
-      const params = proxyCreated ? { account, pids, proxyAddress, chainId } : { account, pids, chainId }
+      // console.log('farmsConfig', farmsConfig)
 
+      const pids = farmsConfig.map((farmToFetch) => farmToFetch.pid)
+      // console.log('userfarmdata', pids)
+      const params = proxyCreated ? { account, pids, proxyAddress, chainId } : { account, pids, chainId }
       dispatch(fetchFarmUserDataAsync(params))
     },
     {

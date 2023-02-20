@@ -1,4 +1,4 @@
-import { BNB_ADDRESS } from './constants'
+import { BNB_ADDRESS, WETH_ADDRESS } from './constants'
 
 const MIN_VALUE_DISPLAYED = 0.001
 
@@ -22,12 +22,17 @@ export const getTimeWindowChange = (lineChartData) => {
 }
 
 export const getTokenAddress = (tokenAddress: undefined | string) => {
+  
   if (!tokenAddress) {
     return ''
   }
   const lowerCaseAddress = tokenAddress.toLowerCase()
-  if (lowerCaseAddress === 'bnb') {
-    return BNB_ADDRESS
+  // if (lowerCaseAddress === 'bnb') {
+  //   return BNB_ADDRESS
+  // }
+
+  if (lowerCaseAddress === 'eth') {
+    return WETH_ADDRESS
   }
 
   return lowerCaseAddress

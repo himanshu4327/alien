@@ -2,6 +2,7 @@ import { ChainId } from '@pancakeswap/sdk'
 import { Pool } from '@pancakeswap/uikit'
 import addresses from 'config/constants/contracts'
 import { VaultKey } from 'state/types'
+import { chainId } from 'wagmi'
 
 export const getAddress = (address: Pool.Address, chainId?: number): string => {
   return address[chainId] ? address[chainId] : address[ChainId.BSC]
@@ -66,12 +67,14 @@ export const getVaultPoolAddress = (vaultKey: VaultKey) => {
   return getAddress(addresses[vaultKey])
 }
 
-export const getCakeVaultAddress = () => {
-  return getAddress(addresses.cakeVault)
+// eslint-disable-next-line @typescript-eslint/no-shadow
+export const getCakeVaultAddress = (chainId?: number) => {
+  return chainId ? getAddress(addresses.cakeVault, chainId) : getAddress(addresses.cakeVault)
 }
 
-export const getCakeFlexibleSideVaultAddress = () => {
-  return getAddress(addresses.cakeFlexibleSideVault)
+// eslint-disable-next-line @typescript-eslint/no-shadow
+export const getCakeFlexibleSideVaultAddress = (chainId?: number) => {
+  return chainId ? getAddress(addresses.cakeFlexibleSideVault,chainId) :  getAddress(addresses.cakeFlexibleSideVault)
 }
 
 export const getBunnySpecialCakeVaultAddress = () => {

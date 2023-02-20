@@ -1,4 +1,5 @@
 // BNB Address
 const BNB_ADDRESS = '0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c'
+const WETH_ADDRESS = '0x82aF49447D8a07e3bd95BD0d56f35241523fBab1'
 
-export { BNB_ADDRESS }
+export { BNB_ADDRESS, WETH_ADDRESS }

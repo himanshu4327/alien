@@ -2,7 +2,7 @@ import { FixedNumber } from '@ethersproject/bignumber'
 import { Contract } from '@ethersproject/contracts'
 import { getFarmCakeRewardApr, SerializedFarmConfig } from '@pancakeswap/farms'
 import { ChainId, CurrencyAmount, Pair } from '@pancakeswap/sdk'
-import { BUSD, CAKE } from '@pancakeswap/tokens'
+import { BUSD, CAKE, ALIEN, USDC } from '@pancakeswap/tokens'
 import { farmFetcher } from './helper'
 import { FarmKV, FarmResult } from './kv'
 import { updateLPsAPR } from './lpApr'
@@ -45,10 +45,15 @@ const cakeBusdPairMap = {
     tokenA: CAKE[ChainId.BSC_TESTNET],
     tokenB: BUSD[ChainId.BSC_TESTNET],
   },
+  [ChainId.ARBITRUM]: {
+    address: Pair.getAddress(ALIEN[ChainId.ARBITRUM], USDC[ChainId.ARBITRUM]),
+    tokenA: ALIEN[ChainId.ARBITRUM],
+    tokenB: USDC[ChainId.ARBITRUM],
+  },
 }
 
 const getCakePrice = async (isTestnet: boolean) => {
-  const pairConfig = cakeBusdPairMap[isTestnet ? ChainId.BSC_TESTNET : ChainId.BSC]
+  const pairConfig = cakeBusdPairMap[isTestnet ? ChainId.BSC_TESTNET : ChainId.ARBITRUM]
   const pairContract = new Contract(pairConfig.address, pairAbi, isTestnet ? bscTestnetProvider : bscProvider)
   const reserves = await pairContract.getReserves()
   const { reserve0, reserve1 } = reserves

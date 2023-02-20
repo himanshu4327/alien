@@ -15,6 +15,11 @@ const evmNativeStableLpMap = {
     wNative: 'WETH',
     stable: 'USDC',
   },
+  [ChainId.ARBITRUM]: {
+    address: '0xB2C362Bf6C0e5ECba587732f5155981E60d9Da85',
+    wNative: 'WETH',
+    stable: 'USDC',
+  },
   [ChainId.GOERLI]: {
     address: '0xf5bf0C34d3c428A74Ceb98d27d38d0036C587200',
     wNative: 'WETH',
@@ -29,7 +34,7 @@ const evmNativeStableLpMap = {
     address: '0x4E96D2e92680Ca65D58A0e2eB5bd1c0f44cAB897',
     wNative: 'WBNB',
     stable: 'BUSD',
-  },
+  }
 }
 
 export const getTokenAmount = (balance: FixedNumber, decimals: number) => {
@@ -56,8 +61,9 @@ export async function farmV2FetchFarms({
   totalRegularAllocPoint,
   totalSpecialAllocPoint,
 }: FetchFarmsParams) {
+ 
   const stableFarms = farms.filter(isStableFarm)
-
+   
   const [stableFarmsResults, poolInfos, lpDataResults] = await Promise.all([
     fetchStableFarmData(stableFarms, chainId, multicallv2),
     fetchMasterChefData(farms, isTestnet, multicallv2, masterChefAddress),
@@ -113,6 +119,7 @@ export async function farmV2FetchFarms({
     }
   })
 
+  // console.log("farmsData", farmsData)
   const farmsDataWithPrices = getFarmsPrices(farmsData, evmNativeStableLpMap[chainId], 18)
 
   return farmsDataWithPrices
@@ -123,7 +130,7 @@ const masterChefV2Abi = [
     inputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
     name: 'poolInfo',
     outputs: [
-      { internalType: 'uint256', name: 'accCakePerShare', type: 'uint256' },
+      { internalType: 'uint256', name: 'accAlienPerShare', type: 'uint256' },
       { internalType: 'uint256', name: 'lastRewardBlock', type: 'uint256' },
       { internalType: 'uint256', name: 'allocPoint', type: 'uint256' },
       { internalType: 'uint256', name: 'totalBoostedShare', type: 'uint256' },
@@ -155,7 +162,7 @@ const masterChefV2Abi = [
   },
   {
     inputs: [{ internalType: 'bool', name: '_isRegular', type: 'bool' }],
-    name: 'cakePerBlock',
+    name: 'alienPerBlock',
     outputs: [{ internalType: 'uint256', name: 'amount', type: 'uint256' }],
     stateMutability: 'view',
     type: 'function',
@@ -187,7 +194,7 @@ export const fetchMasterChefData = async (
     const masterChefMultiCallResult = await multicallv2({
       abi: masterChefV2Abi,
       calls: masterChefAggregatedCalls,
-      chainId: isTestnet ? ChainId.BSC_TESTNET : ChainId.BSC,
+      chainId: isTestnet ? ChainId.BSC_TESTNET : ChainId.ARBITRUM,
     })
 
     let masterChefChunkedResultCounter = 0
@@ -215,7 +222,7 @@ export const fetchMasterChefV2Data = async ({
   masterChefAddress: string
 }) => {
   try {
-    const [[poolLength], [totalRegularAllocPoint], [totalSpecialAllocPoint], [cakePerBlock]] = await multicallv2<
+    const [[poolLength], [totalRegularAllocPoint], [totalSpecialAllocPoint], [alienPerBlock]] = await multicallv2<
       [[BigNumber], [BigNumber], [BigNumber], [BigNumber]]
     >({
       abi: masterChefV2Abi,
@@ -234,18 +241,18 @@ export const fetchMasterChefV2Data = async ({
         },
         {
           address: masterChefAddress,
-          name: 'cakePerBlock',
+          name: 'alienPerBlock',
           params: [true],
         },
       ],
-      chainId: isTestnet ? ChainId.BSC_TESTNET : ChainId.BSC,
+      chainId: isTestnet ? ChainId.BSC_TESTNET : ChainId.ARBITRUM,
     })
 
     return {
       poolLength,
       totalRegularAllocPoint,
       totalSpecialAllocPoint,
-      cakePerBlock,
+      alienPerBlock,
     }
   } catch (error) {
     console.error('Get MasterChef data error', error)
@@ -383,6 +390,9 @@ const getClassicFarmsDynamicData = ({
   // Ratio in % of LP tokens that are staked in the MC, vs the total number in circulation
   const lpTokenRatio =
     !lpTotalSupply.isZero() && !lpTokenBalanceMC.isZero() ? lpTokenBalanceMC.divUnsafe(lpTotalSupply) : FIXED_ZERO
+   
+    // console.log("lpTokenRatio", lpTokenRatio)
+
 
   // // Amount of quoteToken in the LP that are staked in the MC
   const quoteTokenAmountMcFixed = quoteTokenAmountTotal.mulUnsafe(lpTokenRatio)

@@ -11,7 +11,8 @@ import { BIG_ZERO } from '@pancakeswap/utils/bigNumber'
 import { BOOST_WEIGHT, DURATION_FACTOR, MAX_LOCK_DURATION } from 'config/constants/pools'
 import { multicallv2 } from '../utils/multicall'
 
-const masterChefAddress = getMasterChefAddress()
+const CHAINID = 42161;
+const masterChefAddress = getMasterChefAddress(CHAINID)
 
 // default
 const DEFAULT_PERFORMANCE_FEE_DECIMALS = 2
@@ -32,6 +33,7 @@ const getFlexibleApy = (
 const _getBoostFactor = (boostWeight: BigNumber, duration: number, durationFactor: BigNumber) => {
   return FixedNumber.from(boostWeight)
     .mulUnsafe(FixedNumber.from(Math.max(duration, 0)))
+    .mulUnsafe(FixedNumber.from(31536000))
     .divUnsafe(FixedNumber.from(durationFactor))
     .divUnsafe(FixedNumber.from(PRECISION_FACTOR))
 }
@@ -39,7 +41,7 @@ const _getBoostFactor = (boostWeight: BigNumber, duration: number, durationFacto
 const getLockedApy = (flexibleApy: string, boostFactor: FixedNumber) =>
   FixedNumber.from(flexibleApy).mulUnsafe(boostFactor.addUnsafe(FixedNumber.from('1')))
 
-const cakePoolPID = 0
+const alienPoolPID = 7
 
 export function useVaultApy({ duration = MAX_LOCK_DURATION }: { duration?: number } = {}) {
   const {
@@ -55,13 +57,13 @@ export function useVaultApy({ duration = MAX_LOCK_DURATION }: { duration?: numbe
     const calls = [
       {
         address: masterChefAddress,
-        name: 'cakePerBlock',
+        name: 'alienPerBlock',
         params: [false],
       },
       {
         address: masterChefAddress,
         name: 'poolInfo',
-        params: [cakePoolPID],
+        params: [alienPoolPID],
       },
       {
         address: masterChefAddress,

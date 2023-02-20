@@ -8,7 +8,10 @@
   },
   "tags": {},
   "logoURI": "https://pancakeswap.finance/logo.png",
-  "keywords": ["pancake", "default"],
+  "keywords": [
+    "pancake",
+    "default"
+  ],
   "tokens": [
     {
       "name": "Wrapped BNB",
@@ -57,6 +60,15 @@
       "chainId": 56,
       "decimals": 18,
       "logoURI": "https://pancakeswap.finance/images/tokens/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82.png"
+    },
+    {
+      "name": "AlienFi",
+      "symbol": "ALIEN",
+      "address": "0x453c56d477b792454fE417A35716a8A846541180",
+      "chainId": 42161,
+      "decimals": 18,
+      "isCustomToken": true,
+      "logoURI": "/images/tokens/0x453c56d477b792454fE417A35716a8A846541180.png"
     },
     {
       "name": "Venus",
@@ -163,11 +175,27 @@
       "logoURI": "https://tokens.pancakeswap.finance/images/symbol/weth.png"
     },
     {
+      "name": "Wrapped Ether",
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "symbol": "WETH",
+      "decimals": 18,
+      "chainId": 42161,
+      "logoURI": "https://tokens.pancakeswap.finance/images/symbol/weth.png"
+    },
+    {
       "name": "USD Coin",
       "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
       "symbol": "USDC",
       "decimals": 6,
       "chainId": 1,
+      "logoURI": "https://tokens.pancakeswap.finance/images/symbol/usdc.png"
+    },
+    {
+      "name": "USD Coin",
+      "address": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+      "symbol": "USDC",
+      "decimals": 6,
+      "chainId": 42161,
       "logoURI": "https://tokens.pancakeswap.finance/images/symbol/usdc.png"
     },
     {
@@ -195,6 +223,14 @@
       "logoURI": "https://tokens.pancakeswap.finance/images/symbol/usdt.png"
     },
     {
+      "name": "Tether USD",
+      "address": "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9",
+      "symbol": "USDT",
+      "decimals": 6,
+      "chainId": 42161,
+      "logoURI": "https://tokens.pancakeswap.finance/images/symbol/usdt.png"
+    },
+    {
       "name": "Wrapped BNB",
       "symbol": "WBNB",
       "address": "0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd",
@@ -209,6 +245,22 @@
       "chainId": 1,
       "decimals": 8,
       "logoURI": "https://tokens.pancakeswap.finance/images/symbol/wbtc.png"
+    },
+    {
+      "name": "Wrapped BTC",
+      "symbol": "WBTC",
+      "address": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f",
+      "chainId": 42161,
+      "decimals": 8,
+      "logoURI": "https://tokens.pancakeswap.finance/images/symbol/wbtc.png"
+    },
+    {
+      "name": "Dai Stablecoin",
+      "symbol": "DAI",
+      "address": "0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1",
+      "chainId": 42161,
+      "decimals": 18,
+      "logoURI": "https://tokens.pancakeswap.finance/images/symbol/dai.png"
     }
   ]
 }

@@ -15,7 +15,7 @@ import CardFooter from './components/PoolCard/CardFooter'
 import CakeVaultCard from './components/CakeVaultCard'
 import PoolControls from './components/PoolControls'
 import PoolRow, { VaultPoolRow } from './components/PoolsTable/PoolRow'
-
+ 
 const CardLayout = styled(FlexLayout)`
   justify-content: center;
 `

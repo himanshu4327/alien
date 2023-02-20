@@ -38,6 +38,7 @@ export interface SerializedStableFarmConfig extends SerializedClassicFarmConfig 
 export interface SerializedClassicFarmConfig extends FarmConfigBaseProps {
   token: SerializedWrappedToken
   quoteToken: SerializedWrappedToken
+  isToken?:boolean
 }
 
 export type SerializedFarmConfig = SerializedStableFarmConfig | SerializedClassicFarmConfig

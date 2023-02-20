@@ -37,12 +37,12 @@ interface WalletInfoProps {
 const WalletInfo: React.FC<WalletInfoProps> = ({ hasLowNativeBalance, onDismiss }) => {
   const { t } = useTranslation()
   const { account, chainId, chain } = useActiveWeb3React()
-  const isBSC = chainId === ChainId.BSC
-  const bnbBalance = useBalance({ addressOrName: account, chainId: ChainId.BSC })
+  const isBSC = chainId === ChainId.ARBITRUM
+  const bnbBalance = useBalance({ addressOrName: account, chainId: ChainId.ARBITRUM })
   const nativeBalance = useBalance({ addressOrName: account, enabled: !isBSC })
   const native = useNativeCurrency()
   const wNativeToken = !isBSC ? WNATIVE[chainId] : null
-  const wBNBToken = WNATIVE[ChainId.BSC]
+  const wBNBToken = WNATIVE[ChainId.ARBITRUM]
   const { balance: wNativeBalance, fetchStatus: wNativeFetchStatus } = useTokenBalance(wNativeToken?.address)
   const { balance: wBNBBalance, fetchStatus: wBNBFetchStatus } = useTokenBalance(wBNBToken?.address, true)
   const { balance: cakeBalance, fetchStatus: cakeFetchStatus } = useGetCakeBalance()
@@ -113,25 +113,25 @@ const WalletInfo: React.FC<WalletInfoProps> = ({ hasLowNativeBalance, onDismiss 
         </Box>
       )}
       <Box mb="24px">
-        {/* <Flex justifyContent="space-between" alignItems="center" mb="8px">
+        <Flex justifyContent="space-between" alignItems="center" mb="8px">
           <Flex bg={COLORS.BNB} borderRadius="16px" pl="4px" pr="8px" py="2px">
-            <ChainLogo chainId={ChainId.BSC} />
+            <ChainLogo chainId={ChainId.ARBITRUM} />
             <Text color="white" ml="4px">
-              BNB Smart Chain
+              Arbitrum One
             </Text>
           </Flex>
-          <LinkExternal href={getBlockExploreLink(account, 'address', ChainId.BSC)}>
-            {getBlockExploreName(ChainId.BSC)}
+          <LinkExternal href={getBlockExploreLink(account, 'address', ChainId.ARBITRUM)}>
+            {getBlockExploreName(ChainId.ARBITRUM)}
           </LinkExternal>
-        </Flex> */}
-        {/* <Flex alignItems="center" justifyContent="space-between">
+        </Flex>
+        <Flex alignItems="center" justifyContent="space-between">
           <Text color="textSubtle">BNB {t('Balance')}</Text>
           {!bnbBalance.isFetched ? (
             <Skeleton height="22px" width="60px" />
           ) : (
             <Text>{formatBigNumber(bnbBalance.data.value, 6)}</Text>
           )}
-        </Flex> */}
+        </Flex>
         {wBNBBalance.gt(0) && (
           <Flex alignItems="center" justifyContent="space-between">
             <Text color="textSubtle">WBNB {t('Balance')}</Text>

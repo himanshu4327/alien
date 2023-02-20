@@ -23,12 +23,12 @@ const AutoHarvestAction: React.FunctionComponent<React.PropsWithChildren<Pool.De
 
   const vaultData = useVaultPoolByKey(vaultKey)
   const {
-    userData: { userShares, cakeAtLastUserAction },
+    userData: { userShares, alienAtLastUserAction },
     pricePerFullShare,
   } = vaultData
   const { hasAutoEarnings, autoCakeToDisplay, autoUsdToDisplay } = getCakeVaultEarnings(
     account,
-    cakeAtLastUserAction,
+    alienAtLastUserAction,
     userShares,
     pricePerFullShare,
     earningTokenPrice,

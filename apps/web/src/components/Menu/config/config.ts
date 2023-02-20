@@ -16,7 +16,7 @@ import { ContextApi } from '@pancakeswap/localization'
 import { nftsBaseUrl } from 'views/Nft/market/constants'
 import { perpLangMap } from 'utils/getPerpetualLanguageCode'
 import { perpTheme } from 'utils/getPerpetualTheme'
-import { SUPPORT_ONLY_BSC, SUPPORT_ONLY_IAO } from 'config/constants/supportChains'
+import { SUPPORT_ONLY_BSC, SUPPORT_ONLY_IAO, SUPPORT_ONLY_ARBITRUM } from 'config/constants/supportChains'
 
 export type ConfigMenuDropDownItemsType = DropdownMenuItems & { hideSubNav?: boolean }
 export type ConfigMenuItemsType = Omit<MenuItemsType, 'items'> & { hideSubNav?: boolean; image?: string } & {
@@ -53,6 +53,7 @@ const config: (
         {
           label: t('Swap'),
           href: '/swap',
+          supportChainIds: SUPPORT_ONLY_ARBITRUM,
         },
         // {
         //   label: t('Limit'),
@@ -63,13 +64,13 @@ const config: (
         {
           label: t('Liquidity'),
           href: '/liquidity',
+          supportChainIds: SUPPORT_ONLY_ARBITRUM,
         },
         // {
         //   label: t('Perpetual'),
 
-        //   href: `https://perp.pancakeswap.finance/${perpLangMap(languageCode)}/futures/BTCUSDT?theme=${perpTheme(
-        //     isDark,
-        //   )}`,
+        //   // href: `https://perp.pancakeswap.finance/${perpLangMap(languageCode)}/futures/BTCUSDT?theme=${perpTheme(isDark,
+        //   //     )}`,
         //   href: '/#',
         //   supportChainIds: SUPPORT_ONLY_BSC,
         //   type: DropdownMenuItemType.EXTERNAL_LINK,
@@ -91,11 +92,12 @@ const config: (
         {
           label: t('Farms'),
           href: '/farms',
+          supportChainIds: SUPPORT_ONLY_ARBITRUM,
         },
         {
           label: t('Pools'),
           href: '/pools',
-          supportChainIds: SUPPORT_ONLY_BSC,
+          supportChainIds: SUPPORT_ONLY_ARBITRUM,
         },
       ].map((item) => addMenuItemSupported(item, chainId)),
     },

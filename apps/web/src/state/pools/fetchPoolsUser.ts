@@ -10,20 +10,20 @@ import multiCallAbi from 'config/abi/Multicall.json'
 
 // Pool 0, Cake / Cake is a different kind of contract (master chef)
 // BNB pools use the native BNB token (wrapping ? unwrapping is done at the contract level)
-const nonBnbPools = poolsConfig.filter((pool) => pool.stakingToken.symbol !== 'BNB')
-const bnbPools = poolsConfig.filter((pool) => pool.stakingToken.symbol === 'BNB')
+const nonBnbPools = poolsConfig.filter((pool) => pool.stakingToken.symbol !== 'ETH')
+const bnbPools = poolsConfig.filter((pool) => pool.stakingToken.symbol === 'ETH')
 const nonMasterPools = poolsConfig.filter((pool) => pool.sousId !== 0)
-
+const CHAIIND = 42161;
 const multicallAddress = getMulticallAddress()
 
 export const fetchPoolsAllowance = async (account) => {
   const calls = nonBnbPools.map((pool) => ({
     address: pool.stakingToken.address,
     name: 'allowance',
-    params: [account, getAddress(pool.contractAddress)],
+    params: [account, getAddress(pool.contractAddress, CHAIIND)],
   }))
 
-  const allowances = await multicall(erc20ABI, calls)
+  const allowances = await multicall(erc20ABI, calls, CHAIIND)
   return fromPairs(nonBnbPools.map((pool, index) => [pool.sousId, new BigNumber(allowances[index]).toJSON()]))
 }
 
@@ -64,11 +64,11 @@ export const fetchUserBalances = async (account) => {
 
 export const fetchUserStakeBalances = async (account) => {
   const calls = nonMasterPools.map((p) => ({
-    address: getAddress(p.contractAddress),
+    address: getAddress(p.contractAddress, CHAIIND),
     name: 'userInfo',
     params: [account],
   }))
-  const userInfo = await multicall(sousChefABI, calls)
+  const userInfo = await multicall(sousChefABI, calls, CHAIIND)
   return fromPairs(
     nonMasterPools.map((pool, index) => [pool.sousId, new BigNumber(userInfo[index].amount._hex).toJSON()]),
   )
@@ -76,10 +76,10 @@ export const fetchUserStakeBalances = async (account) => {
 
 export const fetchUserPendingRewards = async (account) => {
   const calls = nonMasterPools.map((p) => ({
-    address: getAddress(p.contractAddress),
+    address: getAddress(p.contractAddress, CHAIIND),
     name: 'pendingReward',
     params: [account],
   }))
-  const res = await multicall(sousChefABI, calls)
+  const res = await multicall(sousChefABI, calls, CHAIIND)
   return fromPairs(nonMasterPools.map((pool, index) => [pool.sousId, new BigNumber(res[index]).toJSON()]))
 }

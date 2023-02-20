@@ -124,7 +124,7 @@ export const arbitrum: Chain = {
   network: 'arbitrum',
   rpcUrls: {
     public: 'https://rpc.ankr.com/arbitrum',
-    default: 'https://arbitrum-mainnet.infura.io',
+    default: 'https://arbitrum.blockpi.network/v1/rpc/public',
   },
   nativeCurrency: { name: 'Arbitrum One', symbol: 'ETH', decimals: 18 },
   blockExplorers: {

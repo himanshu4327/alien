@@ -24,15 +24,15 @@ export const convertSharesToCake = (
 
 export const getCakeVaultEarnings = (
   account: string,
-  cakeAtLastUserAction: BigNumber,
+  alienAtLastUserAction: BigNumber,
   userShares: BigNumber,
   pricePerFullShare: BigNumber,
   earningTokenPrice: number,
   fee?: BigNumber
 ) => {
-  const hasAutoEarnings = account && cakeAtLastUserAction?.gt(0) && userShares?.gt(0);
+  const hasAutoEarnings = account && alienAtLastUserAction?.gt(0) && userShares?.gt(0);
   const { cakeAsBigNumber } = convertSharesToCake(userShares, pricePerFullShare);
-  const autoCakeProfit = cakeAsBigNumber.minus(fee || BIG_ZERO).minus(cakeAtLastUserAction);
+  const autoCakeProfit = cakeAsBigNumber.minus(fee || BIG_ZERO).minus(alienAtLastUserAction);
   const autoCakeToDisplay = autoCakeProfit.gte(0) ? getBalanceNumber(autoCakeProfit, 18) : 0;
 
   const autoUsdProfit = autoCakeProfit.times(earningTokenPrice);
