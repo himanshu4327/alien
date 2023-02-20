@@ -22,7 +22,7 @@ const EnableStakeAction: React.FunctionComponent<React.PropsWithChildren<EnableS
         </Text>
       </ActionTitles>
       <ActionContent>
-        <Button disabled={pendingTx} onClick={handleApprove} variant="secondary">
+        <Button disabled={pendingTx} onClick={handleApprove} variant="AlienActive">
           {t("Enable")}
         </Button>
       </ActionContent>

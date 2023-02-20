@@ -64,14 +64,14 @@ export const styleVariants = {
   [variants.ALIEN]: {
     color: "#00F666",
     borderImage: "linear-gradient( #00F666 100%, #00F666 0%)",
-    boxShadow: "1px 0px 2px #00f666, 1px -1px 0px #017531",
+    boxShadow: "1px 0px 5px #00f666, 0px -1px 5px #00f666",
     backdropFilter: "blur(5.5px)",
     background: "radial-gradient(52.44% 52.44% at 50.26% 115.85%, #00F666 0%, rgba(2, 73, 32, 0.2) 100%)",
   },
   [variants.ALIENACTIVE]: {
     color: "#fff",
     borderImage: "linear-gradient( #00F666 100%, #00F666 0%)",
-    boxShadow: "1px 0px 2px #00f666, 1px -1px 0px #00f666",
+    boxShadow: "1px 0px 5px #00f666, 0px -1px 5px #00f666",
     backdropFilter: "blur(5.5px)",
     background: "radial-gradient(52.44% 52.44% at 50.26% 115.85%, #00F666 0%, rgba(2, 73, 32, 0.2) 100%)",
   },
