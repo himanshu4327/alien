@@ -1,6 +1,6 @@
 import { Flex, Link, LinkExternal, Skeleton, Text, TimerIcon, Balance, Pool } from '@pancakeswap/uikit'
 import AddToWalletButton, { AddToWalletTextOptions } from 'components/AddToWallet/AddToWalletButton'
-import { bsc } from '@pancakeswap/wagmi/chains'
+import { bsc, arbitrum } from '@pancakeswap/wagmi/chains'
 import { useTranslation } from '@pancakeswap/localization'
 import { memo } from 'react'
 import { useCurrentBlock } from 'state/block/hooks'
@@ -138,7 +138,7 @@ const PoolStatsInfo: React.FC<React.PropsWithChildren<ExpandedFooterProps>> = ({
           {vaultKey && (
             <Flex mb="2px" justifyContent="flex-start" mx={['0', '0', '0', '0', '5px']}>
               <LinkExternal
-                href="https://docs.pancakeswap.finance/products/syrup-pool/new-cake-pool"
+                href="https://alien-2.gitbook.io/alien-finance/"
                 bold={false}
                 small
               >
@@ -149,7 +149,7 @@ const PoolStatsInfo: React.FC<React.PropsWithChildren<ExpandedFooterProps>> = ({
           {poolContractAddress && (
             <Flex mb="2px" justifyContent="flex-start" mx={['0', '0', '0', '0', '5px']}>
               <LinkExternal
-                href={`${bsc.blockExplorers.default.url}/address/${
+                href={`${arbitrum.blockExplorers.default.url}address/${
                   vaultKey ? cakeVaultContractAddress : poolContractAddress
                 }`}
                 bold={false}

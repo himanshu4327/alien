@@ -63,7 +63,7 @@ const Pools: React.FC<React.PropsWithChildren> = () => {
               {t('Pools')}
             </StyledHeading>
             <StyledSubHeading scale="md" color="text">
-              {t('stake LP tokens to earn.')}
+              {t('stake tokens to earn.')}
             </StyledSubHeading>
           </Flex>
         </Flex>
