@@ -313,7 +313,7 @@ const VaultStakeModal: React.FC<React.PropsWithChildren<VaultStakeModalProps>> =
         </Flex>
       )}
       {pool.vaultKey === VaultKey.CakeVault && cakeAsNumberBalance ? (
-        <Box mt="8px" maxWidth="370px">
+        <Box mt="8px" maxWidth="370px" margin="auto">
           <ConvertToLock stakingToken={stakingToken} currentStakedAmount={cakeAsNumberBalance} />
         </Box>
       ) : null}
