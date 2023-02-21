@@ -127,7 +127,7 @@ const ifos: Ifo[] = [
 
   {
     id: 'k1',
-    address: '0x6740Acb82ac5C63A7ad2397ee1faed7c788F5f8c',
+    address: '0x24680667Eb94DB0b380880b15a4ac654045136F7',
     isActive: true,
     name: 'AlienFi PreSale',
     plannedStartTime: 1675141181,
