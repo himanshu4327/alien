@@ -20,7 +20,7 @@ export const CAKE_TESTNET = new ERC20Token(
 
 export const ALIEN_MAINET = new ERC20Token(
   ChainId.ARBITRUM,
-  '0x453c56d477b792454fE417A35716a8A846541180',
+  '0x6740Acb82ac5C63A7ad2397ee1faed7c788F5f8c',
   18,
   'ALIEN',
   'AlienFi',

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { BSC_BLOCK_TIME, ETHER_BLOCK_TIME } from 'config'
-import { bscRpcProvider } from 'utils/providers'
+import { bscRpcProvider, arbitrumRpcProvider } from 'utils/providers'
 
 /**
  * Returns a countdown in seconds of a given block
@@ -8,7 +8,7 @@ import { bscRpcProvider } from 'utils/providers'
 const useBlockCountdown = (blockNumber: number) => {
   const timer = useRef<ReturnType<typeof setTimeout>>(null)
   const [secondsRemaining, setSecondsRemaining] = useState(0)
-
+ 
   useEffect(() => {
     const startCountdown = async () => {
       const currentBlock = await bscRpcProvider.getBlockNumber()

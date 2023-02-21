@@ -64,11 +64,11 @@
     {
       "name": "AlienFi",
       "symbol": "ALIEN",
-      "address": "0x453c56d477b792454fE417A35716a8A846541180",
+      "address": "0x6740Acb82ac5C63A7ad2397ee1faed7c788F5f8c",
       "chainId": 42161,
       "decimals": 18,
       "isCustomToken": true,
-      "logoURI": "/images/tokens/0x453c56d477b792454fE417A35716a8A846541180.png"
+      "logoURI": "/images/tokens/0x6740Acb82ac5C63A7ad2397ee1faed7c788F5f8c.png"
     },
     {
       "name": "Venus",

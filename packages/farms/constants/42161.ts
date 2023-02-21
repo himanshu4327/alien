@@ -9,7 +9,7 @@ const farms: SerializedFarmConfig[] = [
   {
     pid: 0,
     lpSymbol: 'ALIEN',
-    lpAddress: '0xDcC3D2cAd2C8C27A8ba4c4892ce8136116082e1A',
+    lpAddress: '0xE145A5710Be68C3C9C50c5288909E813c5e92F4e',
     token: arbitrumTokens.alien,
     isToken: true,
     quoteToken: arbitrumTokens.usdc,
@@ -17,14 +17,14 @@ const farms: SerializedFarmConfig[] = [
   {
     pid: 1,
     lpSymbol: 'USDC-ALIEN LP',
-    lpAddress: '0xDcC3D2cAd2C8C27A8ba4c4892ce8136116082e1A',
+    lpAddress: '0xE145A5710Be68C3C9C50c5288909E813c5e92F4e',
     token: arbitrumTokens.alien,
     quoteToken: arbitrumTokens.usdc,
   },
   {
     pid: 2,
     lpSymbol: 'ETH-ALIEN LP',
-    lpAddress: '0x32116401bdb5Ab9C30be88Dd546156f60458C9c7',
+    lpAddress: '0x2408bcB8Edb820DAd4660dF627337c083EBA762a',
     token: arbitrumTokens.alien,
     quoteToken: arbitrumTokens.weth,
   },

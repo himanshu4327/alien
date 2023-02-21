@@ -8,7 +8,7 @@ import { ChainId } from '@pancakeswap/sdk'
 import { useMemo } from 'react'
 import useSWR from 'swr'
 import { BIG_ZERO } from '@pancakeswap/utils/bigNumber'
-import { bscRpcProvider, testbscRpcProvider, ethereumRpcProvider  } from 'utils/providers'
+import { bscRpcProvider, testbscRpcProvider, ethereumRpcProvider, arbitrumRpcProvider  } from 'utils/providers'
 import { useWeb3React } from '@pancakeswap/wagmi'
 import { useTokenContract } from './useContract'
 import { useSWRContract } from './useSWRContract'
@@ -22,7 +22,7 @@ const useTokenBalance = (tokenAddress: string, forceBSC?: boolean) => {
     () =>
       account
         ? {
-            contract: forceBSC ? contract.connect(bscRpcProvider) : contract,
+            contract: forceBSC ? contract.connect(arbitrumRpcProvider) : contract,
             methodName: 'balanceOf',
             params: [account],
           }
@@ -60,7 +60,7 @@ export const useGetNativeBalance = () => {
 
 export const useGetCakeBalance = () => {
   const { chainId } = useWeb3React()
-  const { balance, fetchStatus } = useTokenBalance(ALIEN[chainId]?.address || ALIEN[ChainId.ARBITRUM]?.address, true)
+  const { balance, fetchStatus } = useTokenBalance(ALIEN[ChainId.ARBITRUM]?.address, true)
 
   // TODO: Remove ethers conversion once useTokenBalance is converted to ethers.BigNumber
   return { balance: EthersBigNumber.from(balance.toString()), fetchStatus }
