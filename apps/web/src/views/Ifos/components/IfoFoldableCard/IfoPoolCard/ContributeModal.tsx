@@ -50,7 +50,7 @@ interface Props {
   onDismiss?: () => void
 }
 
-const multiplierValues = [0.1, 0.25, 0.5, 0.75, 1]
+const multiplierValues = [0.1, 0.25, 0.5, 0.75]
 
 // Default value for transaction setting, tweak based on BSC network congestion.
 const gasPrice = parseUnits('50', 'gwei').toString()
@@ -99,6 +99,8 @@ const ContributeModal: React.FC<React.PropsWithChildren<Props>> = ({
   const raisingTokenContractApprover = useERC20(currency.address)
   const { t } = useTranslation()
   const valueWithTokenDecimals = new BigNumber(value).times(DEFAULT_TOKEN_DECIMAL)
+  const amnt = Number(valueWithTokenDecimals.toString()).toFixed(0)
+
   const label = currency === bscTokens.cake ? t('Max. CAKE entry') : t('Max. token entry')
 
   const { isApproving, isApproved, isConfirmed, isConfirming, handleApprove, handleConfirm } =
@@ -120,9 +122,9 @@ const ContributeModal: React.FC<React.PropsWithChildren<Props>> = ({
         )
       },
       onConfirm: () => {
-        return callWithMarketGasPrice(contract, 'deposit', [valueWithTokenDecimals.toString()], {
+        return callWithMarketGasPrice(contract, 'deposit', [amnt], {
           gasPrice,
-          value: parseUnits(valueWithTokenDecimals.toString(), 'wei').toString(),
+          value: amnt,
         })
       },
       onSuccess: async ({ receipt }) => {
