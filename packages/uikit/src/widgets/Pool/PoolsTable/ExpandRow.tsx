@@ -17,10 +17,8 @@ export const ExpandRow: React.FC<
 > = memo(({ children, panel, initialActivity = false }) => {
   const hasSetInitialValue = useRef(false);
   const { isTablet, isDesktop } = useMatchBreakpoints();
-
   const [expanded, setExpanded] = useState(initialActivity);
   const shouldRenderActionPanel = useDelayedUnmount(expanded, 300);
-
   const toggleExpanded = useCallback(() => {
     setExpanded((prev) => !prev);
   }, []);

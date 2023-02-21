@@ -1,4 +1,4 @@
-import { Text, TokenPairImage as UITokenPairImage, useMatchBreakpoints, Skeleton, Pool } from '@pancakeswap/uikit'
+import { Text, TokenPairImage as UITokenPairImage, useMatchBreakpoints, Skeleton, Pool, Box } from '@pancakeswap/uikit'
 import BigNumber from 'bignumber.js'
 import { TokenPairImage } from 'components/TokenImage'
 import { vaultPoolConfig } from 'config/constants/pools'
@@ -82,13 +82,17 @@ const NameCell: React.FC<React.PropsWithChildren<NameCellProps>> = ({ pool }) =>
                   {t('Staked')}
                 </Text>
               ))}
-            <Text bold={!isMobile} small={isMobile} color="textSubtle">
+
+            <Text bold={!isMobile} small={isMobile} color="textSubtle" fontSize="12px">
               {title}
             </Text>
+
             {showSubtitle && (
-              <Text fontSize="12px" color="#fff" maxWidth="100px">
-                {subtitle}
-              </Text>
+              <Box>
+                <Text fontSize="10px" color="#fff" maxWidth="100px">
+                  {subtitle}
+                </Text>
+              </Box>
             )}
           </Pool.CellContent>
         </>

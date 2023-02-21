@@ -61,7 +61,7 @@ const EarnSectionData = () => {
                 </Text>
               </Link>
             </Button>
-            <Link external href="/#">
+            <Link external href="https://alien-2.gitbook.io/alien-finance/">
               <Text style={{ fontSize: '16px' }}>Learn</Text>
             </Link>
           </Flex>

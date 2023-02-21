@@ -66,7 +66,7 @@ const AlienSectionData = () => {
             <NextLinkFromReactRouter to="/swap">
               <Button mr="10px">Trade Now</Button>
             </NextLinkFromReactRouter>
-            <Link href="/#">
+            <Link href="https://alien-2.gitbook.io/alien-finance/">
               <Text style={{ fontSize: '16px' }}>Learn</Text>
             </Link>
           </Flex>

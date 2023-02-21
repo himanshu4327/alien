@@ -43,7 +43,7 @@ class MyDocument extends Document {
           <link rel="manifest" href="/manifest.json" />
           <link
             rel="preload"
-            href="/fonts/alien_league/alienleaguebold.ttf"
+            href="/fonts/alien_league/alienleague.ttf"
             as="font"
             type="font/ttf"
             crossOrigin="anonymous"
