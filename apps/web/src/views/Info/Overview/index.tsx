@@ -41,6 +41,11 @@ export const ChartCardsContainer = styled(Flex)`
     flex-direction: row;
   } ;
 `
+
+const StyledCard = styled(Card)`
+  border: 0;
+  box-shadow: 0 0 5px #00f666;
+`
 const Overview: React.FC<React.PropsWithChildren> = () => {
   const {
     t,
@@ -91,7 +96,7 @@ const Overview: React.FC<React.PropsWithChildren> = () => {
         <span style={{ fontFamily: 'Alien', color: '#00F666' }}>Alien</span> Info & ANALYSIS
       </Styledheading>
       <ChartCardsContainer>
-        <Card>
+        <StyledCard>
           <HoverableChart
             chartData={chartData}
             protocolData={protocolData}
@@ -100,8 +105,8 @@ const Overview: React.FC<React.PropsWithChildren> = () => {
             title={t('Liquidity')}
             ChartComponent={LineChart}
           />
-        </Card>
-        <Card>
+        </StyledCard>
+        <StyledCard>
           <HoverableChart
             chartData={chartData}
             protocolData={protocolData}
@@ -110,7 +115,7 @@ const Overview: React.FC<React.PropsWithChildren> = () => {
             title={t('Volume 24H')}
             ChartComponent={BarChart}
           />
-        </Card>
+        </StyledCard>
       </ChartCardsContainer>
       <Heading scale="lg" mt="40px" mb="16px" textAlign="center">
         {t('Top Tokens')}

@@ -43,7 +43,7 @@ function ConfirmationPendingContent({ pendingText }: { pendingText: string }) {
       <AutoColumn gap="12px" justify="center">
         <Text fontSize="20px">{t('Waiting For Confirmation')}</Text>
         <AutoColumn gap="12px" justify="center">
-          <Text bold small textAlign="center">
+          <Text bold small textAlign="center" color="primary">
             {pendingText}
           </Text>
         </AutoColumn>

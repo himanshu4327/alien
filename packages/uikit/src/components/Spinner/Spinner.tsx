@@ -27,6 +27,7 @@ const float = keyframes`
 
 const Container = styled.div`
   position: relative;
+  height: 100px;
 `;
 
 const RotatingPancakeIcon = styled(PancakeIcon)`
@@ -47,8 +48,8 @@ const FloatingUfosTopRight = styled.div`
   background-repeat: no-repeat;
   position: absolute;
   right: -3rem;
-  top: 3rem;
-  animation: ${rotate} 2s ease-in-out infinite;
+  top: 0rem;
+  animation: ${rotate} 7s ease-in-out infinite;
   width: 100px;
   height: 100px;
   display: block;

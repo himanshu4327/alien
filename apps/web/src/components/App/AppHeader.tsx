@@ -58,7 +58,7 @@ const AppHeader: React.FC<React.PropsWithChildren<Props>> = ({ title, subtitle, 
             )}
           </Flex>
           <Flex alignItems="center">
-            <Text color="textSubtle" fontSize="14px">
+            <Text color="textSubtle" fontSize="14px" margin="0 auto">
               {subtitle}
             </Text>
           </Flex>

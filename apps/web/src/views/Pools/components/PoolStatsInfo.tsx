@@ -137,11 +137,7 @@ const PoolStatsInfo: React.FC<React.PropsWithChildren<ExpandedFooterProps>> = ({
           )}
           {vaultKey && (
             <Flex mb="2px" justifyContent="flex-start" mx={['0', '0', '0', '0', '5px']}>
-              <LinkExternal
-                href="https://alien-2.gitbook.io/alien-finance/"
-                bold={false}
-                small
-              >
+              <LinkExternal href="https://alien-2.gitbook.io/alien-finance/staking/alienfi-pools" bold={false} small>
                 {t('View Tutorial')}
               </LinkExternal>
             </Flex>

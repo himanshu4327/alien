@@ -10,12 +10,11 @@ export const TableWrapper = styled(Flex)`
   padding-top: 16px;
   flex-direction: column;
   gap: 16px;
-  background-color: ${({ theme }) => theme.card.background};
+  // background-color: ${({ theme }) => theme.card.background};
+  background: rgba(0, 246, 102, 0.1);
   border-radius: ${({ theme }) => theme.radii[0]};
-  border: 1px solid ${({ theme }) => theme.colors.cardBorder};
-  ${({ theme }) => theme.mediaQueries.md} {
-    border-radius: ${({ theme }) => theme.radii.card};
-  }
+  //border: 1px solid ${({ theme }) => theme.colors.cardBorder};
+  box-shadow: 0px 0px 11px -1px #00f666;
 `
 
 export const PageButtons = styled.div`

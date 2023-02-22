@@ -251,7 +251,7 @@ const TokenTable: React.FC<
               return (
                 <Fragment key={data.address}>
                   <DataRow index={(page - 1) * MAX_ITEMS + i} tokenData={data} />
-                  <Break />
+                  {/* <Break /> */}
                 </Fragment>
               )
             }

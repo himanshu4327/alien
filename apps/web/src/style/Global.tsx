@@ -29,8 +29,8 @@ const GlobalStyle = createGlobalStyle`
 
 * {
   font-family: 'AlienSolid', "Roboto";
-
 }
+
   
 
 
