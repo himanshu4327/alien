@@ -27,7 +27,7 @@ const StyledModal = styled(Modal)`
   }
 
   ${({ theme }) => theme.mediaQueries.md} {
-    width: 380px;
+    width: 480px;
   }
 `;
 

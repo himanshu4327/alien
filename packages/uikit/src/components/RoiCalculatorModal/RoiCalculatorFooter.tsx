@@ -111,7 +111,7 @@ const RoiCalculatorFooter: React.FC<React.PropsWithChildren<RoiCalculatorFooterP
                 <Text color="textSubtle" small>
                   {Number.isFinite(apy) && apy !== 0 && !isLocked ? t("APY") : t("APR")}
                 </Text>
-                <Text small textAlign="right">
+                <Text small textAlign="right" fontSize="12px">
                   {Number.isFinite(apy) && apy !== 0 ? apy.toFixed(2) : apr?.toFixed(2)}%
                 </Text>
               </>

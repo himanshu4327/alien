@@ -7,7 +7,6 @@ import styled from "styled-components";
 
 const StyledBox = styled.div`
   position: relative;
-  top: -5px;
   margin-right: 5px;
 `;
 const LinkExternal: React.FC<React.PropsWithChildren<LinkProps>> = ({ children, ...props }) => {
