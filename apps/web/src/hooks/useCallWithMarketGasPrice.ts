@@ -31,7 +31,7 @@ export function useCallWithMarketGasPrice() {
         },
       })
 
-      console.log('overrride', overrides)
+      // console.log('overrride', overrides)
 
       const contractMethod = get(contract, methodName)
       const tx = await contractMethod(...methodArgs, { ...overrides })
