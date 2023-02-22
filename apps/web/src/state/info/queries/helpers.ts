@@ -209,7 +209,7 @@ export const fetchChartDataWithAddress = async (
   }
 }
 
-export async function getPairTokenMap(poolAddresses: string[], chainName: 'ETH' | 'BSC') {
+export async function getPairTokenMap(poolAddresses: string[], chainName: 'ETH' | 'BSC' | 'ARBITRUM') {
   let rawPairTokenResults: string[][]
   const calls = poolAddresses
     .map((poolAddress) => {
@@ -224,7 +224,7 @@ export async function getPairTokenMap(poolAddresses: string[], chainName: 'ETH' 
       abi: IPancakePairABI,
       calls,
       options: { requireSuccess: false },
-      chainId: chainName === 'ETH' ? ChainId.ETHEREUM : ChainId.BSC,
+      chainId: chainName === 'ETH' ? ChainId.ETHEREUM : ChainId.ARBITRUM,
     })
   } catch (error) {
     console.info('Error fetching tokenIds from pair')
@@ -253,7 +253,7 @@ export async function getPairTokenMap(poolAddresses: string[], chainName: 'ETH' 
       abi: bep20Abi,
       calls: tokenCalls,
       options: { requireSuccess: false },
-      chainId: chainName === 'ETH' ? ChainId.ETHEREUM : ChainId.BSC,
+      chainId:  ChainId.ARBITRUM
     })
   } catch (error) {
     console.info('Error fetching tokenIds from pair')

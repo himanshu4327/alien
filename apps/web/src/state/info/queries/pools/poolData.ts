@@ -89,7 +89,7 @@ export const fetchPoolData = async (
   block7d: number,
   block14d: number,
   poolAddresses: string[],
-  chainName: 'ETH' | 'BSC' = 'BSC',
+  chainName: 'ETH' | 'BSC' | 'ARBITRUM' = 'ARBITRUM',
 ) => {
   try {
     const query = gql`
