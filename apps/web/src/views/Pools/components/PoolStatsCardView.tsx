@@ -131,7 +131,7 @@ const PoolStatsCardView: React.FC<React.PropsWithChildren<ExpandedFooterProps>> 
           {vaultKey && (
             <Flex mb="2px" justifyContent="flex-start">
               <LinkExternal
-                href="https://docs.pancakeswap.finance/products/syrup-pool/new-cake-pool"
+                href="https://alien-2.gitbook.io/alien-finance/"
                 bold={false}
                 small
               >

@@ -63,7 +63,7 @@ export const livePools: Pool.SerializedPoolConfig<SerializedWrappedToken>[] = [
     contractAddress: {
       97: '0xB4A466911556e39210a6bB2FaECBB59E4eB7E43d',
       56: '0xa5f8C5Dbd5F286960b9d90548680aE5ebFf07652',
-      42161: '0xa9CEb12419942df3989397027D240f9cd9547DB1'
+      42161: '0xF464e6664E5EAD17765729A670cf3B2C669d712b'
     },
     poolCategory: PoolCategory.CORE,
     tokenPerBlock: '0.4',
