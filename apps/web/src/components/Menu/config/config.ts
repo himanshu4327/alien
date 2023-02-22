@@ -158,17 +158,18 @@ const config: (
       href: '/iao',
       icon: MoreIcon,
       hideSubNav: true,
-      supportChainIds: SUPPORT_ONLY_IAO,
+      // supportChainIds: SUPPORT_ONLY_IAO,
       items: [
         {
           label: t('Iao'),
           href: '/iao',
-          supportChainIds: SUPPORT_ONLY_BSC,
+          supportChainIds: SUPPORT_ONLY_IAO,
           image: '/images/ifos/ifo-bunny.png',
         },
         // {
         //   label: t('Info'),
         //   href: '/info',
+        //   supportChainIds: SUPPORT_ONLY_BSC,
         // },
         // {
         //   label: t('ILO'),
