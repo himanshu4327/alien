@@ -246,12 +246,22 @@ const Home: React.FC<React.PropsWithChildren> = () => {
             Trade, earn, and win crypto on the most popular decentralized platform in the galaxy.
           </StyledSubHeading>
         </Box>
-        <Flex marginTop="120px" justifyContent="center">
+
+        {(chainId === Number(1)) ? <Flex marginTop="120px" justifyContent="center">
           {!account && <StyledButton mr="8px" />}
           <NextLinkFromReactRouter to="/iao">
             <Button>{t('Buy now')}</Button>
           </NextLinkFromReactRouter>
-        </Flex>
+        </Flex> :
+          <Flex marginTop="120px" justifyContent="center">
+            {!account && <StyledButton mr="8px" />}
+            <NextLinkFromReactRouter to="/swap">
+              <Button>{t('Buy now')}</Button>
+            </NextLinkFromReactRouter>
+          </Flex>
+        }
+
+
         <Hero />
       </StyledHeroSection>
       <PageSection

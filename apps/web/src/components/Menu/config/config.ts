@@ -159,7 +159,7 @@ const config: (
       href: '/iao',
       icon: IAOIcon,
       hideSubNav: true,
-      // supportChainIds: SUPPORT_ONLY_IAO,
+      supportChainIds: SUPPORT_ONLY_IAO,
       items: [
         {
           label: t('Iao'),
