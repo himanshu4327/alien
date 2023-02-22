@@ -213,7 +213,6 @@ const config: (
       href: '/#',
       icon: MoreIcon,
       hideSubNav: true,
-      supportChainIds: SUPPORT_ONLY_IAO,
       items: [
         {
           label: t('Whitepaper'),
