@@ -76,13 +76,13 @@ const SwapSection = () => {
             <img src={BurningGif.src} alt="gif" width={900} height={700} />
           </Flex>
           <Text fontSize="16px" color="textSubtle" mb="24px" textAlign="center" width="80%" margin="0 auto">
-            Join AlienFi in launching new projects on Arbitrum Network.
+            AlienFi provides safe & low-cost trading experience
           </Text>
           <Flex justifyContent="center" my="10px">
             <NextLinkFromReactRouter to="/swap">
               <Button mr="10px">Trade Now</Button>
             </NextLinkFromReactRouter>
-            <Link external href="https://alien-2.gitbook.io/alien-finance/">
+            <Link external href="https://alien-2.gitbook.io/alien-finance/trading/alienfi-swap">
               <Text style={{ fontSize: '16px' }}>Learn</Text>
             </Link>
           </Flex>

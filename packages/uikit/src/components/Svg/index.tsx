@@ -91,6 +91,7 @@ export { default as MinusIcon } from "./Icons/Minus";
 export { default as MoonIcon } from "./Icons/Moon";
 export { default as MoreHorizontalIcon } from "./Icons/MoreHorizontal";
 export { default as MoreIcon } from "./Icons/More";
+export { default as IAOIcon } from "./Icons/IAO";
 export { default as MoreVerticalIcon } from "./Icons/MoreVertical";
 export { default as NftFilledIcon } from "./Icons/NftFilled";
 export { default as NftFillIcon } from "./Icons/NftFill";

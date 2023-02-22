@@ -249,7 +249,7 @@ const Home: React.FC<React.PropsWithChildren> = () => {
         <Flex marginTop="120px" justifyContent="center">
           {!account && <StyledButton mr="8px" />}
           <NextLinkFromReactRouter to="/iao">
-            <Button>{t('Buy Now')}</Button>
+            <Button>{t('Buy now')}</Button>
           </NextLinkFromReactRouter>
         </Flex>
         <Hero />

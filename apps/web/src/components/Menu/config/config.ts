@@ -10,6 +10,7 @@ import {
   NftIcon,
   NftFillIcon,
   MoreIcon,
+  IAOIcon,
   DropdownMenuItems,
 } from '@pancakeswap/uikit'
 import { ContextApi } from '@pancakeswap/localization'
@@ -156,7 +157,7 @@ const config: (
     {
       label: 'IAO',
       href: '/iao',
-      icon: MoreIcon,
+      icon: IAOIcon,
       hideSubNav: true,
       // supportChainIds: SUPPORT_ONLY_IAO,
       items: [
@@ -170,6 +171,65 @@ const config: (
         //   label: t('Info'),
         //   href: '/info',
         //   supportChainIds: SUPPORT_ONLY_BSC,
+        // },
+        // {
+        //   label: t('ILO'),
+        //   href: '/iwo',
+        //   supportChainIds: SUPPORT_ONLY_BSC,
+        //   image: '/images/ifos/ifo-bunny.png',
+        // },
+        // {
+        //   label: t('Voting'),
+        //   href: '/voting',
+        //   supportChainIds: SUPPORT_ONLY_BSC,
+        //   image: '/images/voting/voting-bunny.png',
+        // },
+        // {
+        //   type: DropdownMenuItemType.DIVIDER,
+        // },
+        // {
+        //   label: t('Leaderboard'),
+        //   href: '/teams',
+        //   supportChainIds: SUPPORT_ONLY_BSC,
+        //   image: '/images/decorations/leaderboard.png',
+        // },
+        // {
+        //   type: DropdownMenuItemType.DIVIDER,
+        // },
+        // {
+        //   label: t('Blog'),
+        //   href: 'https://medium.com/pancakeswap',
+        //   type: DropdownMenuItemType.EXTERNAL_LINK,
+        // },
+        // {
+        //   label: t('Docs'),
+        //   href: 'https://docs.pancakeswap.finance',
+        //   type: DropdownMenuItemType.EXTERNAL_LINK,
+        // },
+      ].map((item) => addMenuItemSupported(item, chainId)),
+    },
+    {
+      label: '...',
+      href: '/#',
+      icon: MoreIcon,
+      hideSubNav: true,
+      supportChainIds: SUPPORT_ONLY_IAO,
+      items: [
+        {
+          label: t('Whitepaper'),
+          href: 'https://alien-2.gitbook.io/alien-finance/',
+          supportChainIds: SUPPORT_ONLY_BSC,
+          image: '/images/ifos/ifo-bunny.png',
+        },
+        {
+          label: t('Partnership'),
+          href: 'https://forms.gle/71X64hM8hTbF9SN48',
+          supportChainIds: SUPPORT_ONLY_BSC,
+          image: '/images/ifos/ifo-bunny.png',
+        },
+        // {
+        //   label: t('Info'),
+        //   href: '/info',
         // },
         // {
         //   label: t('ILO'),

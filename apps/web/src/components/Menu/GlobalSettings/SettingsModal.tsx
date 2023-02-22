@@ -118,9 +118,10 @@ const SettingsModal: React.FC<React.PropsWithChildren<InjectedModalProps>> = ({ 
                 <ThemeSwitcher isDark={isDark} toggleTheme={() => setTheme('dark')} />
               </Flex> */}
               <Flex justifyContent="space-between" alignItems="center" mb="24px">
-                <Flex alignItems="center">
-                  <Text>{t('Subgraph Health Indicator')}</Text>
+                <Flex alignItems="center" minWidth={[null, null, '350px']}>
+                  <Text fontSize="14px">{t('Subgraph Health Indicator')}</Text>
                   <QuestionHelper
+                    display="inline"
                     text={t(
                       'Turn on subgraph health indicator all the time. Default is to show the indicator only when the network is delayed',
                     )}
@@ -235,7 +236,7 @@ const SettingsModal: React.FC<React.PropsWithChildren<InjectedModalProps>> = ({ 
                 }}
               />
             </Flex>
-            <Flex justifyContent="space-between" alignItems="center" mb="24px">
+            {/* <Flex justifyContent="space-between" alignItems="center" mb="24px">
               <Flex alignItems="center">
                 <Text>{t('Use StableSwap by default')}</Text>
                 <QuestionHelper
@@ -258,7 +259,7 @@ const SettingsModal: React.FC<React.PropsWithChildren<InjectedModalProps>> = ({ 
                 onChange={(e) => setIsStableSwapByDefault(e.target.checked)}
                 scale="md"
               />
-            </Flex>
+            </Flex> */}
           </>
         )}
       </ScrollableContainer>

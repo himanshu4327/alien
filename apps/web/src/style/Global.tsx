@@ -14,6 +14,7 @@ const GlobalStyle = createGlobalStyle`
 @font-face {
   font-family: "Alien";
   src: url('/fonts/alien_league/alienleaguebold.ttf');
+  font-display: fallback;
   
 }
   
@@ -21,12 +22,14 @@ const GlobalStyle = createGlobalStyle`
   font-family: "AlienSolid";
   src: url('/fonts/alien-encounters-solid/Alien-Encounters-Solid-Regular.ttf');
   font-display: fallback;
+  font-display: fallback;
 }
 
 
 
 * {
-  font-family: 'AlienSolid';
+  font-family: 'AlienSolid', "Roboto";
+
 }
   
 
