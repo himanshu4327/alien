@@ -74,7 +74,7 @@ function MyApp(props: AppProps<{ initialReduxState: any }>) {
         <meta name="twitter:image" content="/#" />
         <meta
           name="twitter:description"
-          content="The secure DEX on Arbitrum. Swap, earn and farm tokens with few clicks and automate your earnings"
+          content="The most faster, cheaper and secure DEX on Arbitrum. Swap, earn and farm tokens with few clicks and automate your earnings"
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Alien - A next evolution DeFi exchange on Arbitrum" />
