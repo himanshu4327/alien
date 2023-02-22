@@ -91,7 +91,7 @@ export const fetchCakePoolPublicDataAsync = () => async (dispatch, getState) => 
   const prices = getTokenPricesFromFarm(farmsData)
 
   const cakePool = poolsConfig.filter((p) => p.sousId === 0)[0]
-  console.log("cakePool", cakePool)
+  // console.log("cakePool", cakePool)
 
   const stakingTokenAddress = isAddress(cakePool.stakingToken.address)
   const stakingTokenPrice = stakingTokenAddress ? prices[stakingTokenAddress] : 0
