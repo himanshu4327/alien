@@ -30,7 +30,7 @@ const Logoround = styled.div`
 
 const CakePrice: React.FC<React.PropsWithChildren<Props>> = ({ cakePriceUsd, color = "#fff", showSkeleton = true }) => {
   return cakePriceUsd ? (
-    <PriceLink href="#" target="_blank">
+    <PriceLink href="/swap" target="_blank">
       <Logoround />
       <Text color={color} bold>{`$${cakePriceUsd.toFixed(3)}`}</Text>
     </PriceLink>

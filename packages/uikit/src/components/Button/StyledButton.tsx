@@ -53,7 +53,6 @@ const StyledButton = styled.button<BaseButtonProps>`
   font-weight: 600;
   justify-content: center;
   letter-spacing: 0.03em;
-  line-height: 1;
   &:hover:not(:disabled):not(.pancake-button--disabled):not(.pancake-button--disabled):not(:active) {
     opacity: 0.65;
   }

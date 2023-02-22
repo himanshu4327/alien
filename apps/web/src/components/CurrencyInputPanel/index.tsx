@@ -261,7 +261,7 @@ export default function CurrencyInputPanel({
                       }}
                       scale="xs"
                       mr="5px"
-                      variant="secondary"
+                      variant="primary"
                       style={{ textTransform: 'uppercase' }}
                     >
                       {percent}%
@@ -275,7 +275,7 @@ export default function CurrencyInputPanel({
                       onMax?.()
                     }}
                     scale="xs"
-                    variant="secondary"
+                    variant="primary"
                     style={{ textTransform: 'uppercase' }}
                   >
                     {t('Max')}
