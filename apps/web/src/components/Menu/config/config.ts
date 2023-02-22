@@ -109,28 +109,28 @@ const config: (
     //   fillIcon: TrophyFillIcon,
     //   supportChainIds: SUPPORT_ONLY_BSC,
     //   items: [
-    // {
-    //   label: t('Trading Competition'),
-    //   href: '/competition',
-    //   image: '/images/decorations/tc.png',
-    //   hideSubNav: true,
-    // },
-    // {
-    //   label: t('Prediction (BETA)'),
-    //   href: '/prediction',
-    //   image: '/images/decorations/prediction.png',
-    // },
-    // {
-    //   label: t('Lottery'),
-    //   href: '/lottery',
-    //   image: '/images/decorations/lottery.png',
-    // },
-    // {
-    //   label: t('Pottery (BETA)'),
-    //   href: '/pottery',
-    //   image: '/images/decorations/lottery.png',
-    // },
-    // ],
+    //     {
+    //       label: t('Trading Competition'),
+    //       href: '/competition',
+    //       image: '/images/decorations/tc.png',
+    //       hideSubNav: true,
+    //     },
+    //     {
+    //       label: t('Prediction (BETA)'),
+    //       href: '/prediction',
+    //       image: '/images/decorations/prediction.png',
+    //     },
+    //     {
+    //       label: t('Lottery'),
+    //       href: '/lottery',
+    //       image: '/images/decorations/lottery.png',
+    //     },
+    //     {
+    //       label: t('Pottery (BETA)'),
+    //       href: '/pottery',
+    //       image: '/images/decorations/lottery.png',
+    //     },
+    //   ],
     // },
     // {
     //   label: t('NFT'),
