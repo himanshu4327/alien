@@ -17,7 +17,7 @@ export const vaultPoolConfig = {
     name: <Trans>Auto Alien</Trans>,
     description: <Trans>Automatic restaking</Trans>,
     autoCompoundFrequency: 5000,
-    gasLimit: 800000,
+    gasLimit: 1200000,
     tokenImage: {
       primarySrc: `/images/tokens/${arbitrumTokens.alien.address}.png`,
       secondarySrc: '/images/tokens/autorenew.svg',
@@ -27,7 +27,7 @@ export const vaultPoolConfig = {
     name: <Trans>Stake Alien</Trans>,
     description: <Trans>Stake, Earn – And more!</Trans>,
     autoCompoundFrequency: 5000,
-    gasLimit: 800000,
+    gasLimit: 1200000,
     tokenImage: {
       primarySrc: `/images/tokens/${arbitrumTokens.alien.address}.png`,
       secondarySrc: '/images/tokens/autorenew.svg',
@@ -37,7 +37,7 @@ export const vaultPoolConfig = {
     name: <Trans>Flexible Alien</Trans>,
     description: <Trans>Flexible staking on the side.</Trans>,
     autoCompoundFrequency: 5000,
-    gasLimit: 800000,
+    gasLimit: 1200000,
     tokenImage: {
       primarySrc: `/images/tokens/${arbitrumTokens.alien.address}.png`,
       secondarySrc: '/images/tokens/autorenew.svg',
