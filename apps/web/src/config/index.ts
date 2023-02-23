@@ -1,7 +1,7 @@
 import { getFullDecimalMultiplier } from '@pancakeswap/utils/getFullDecimalMultiplier'
 
 export const BSC_BLOCK_TIME = 0.3
-export const ETHER_BLOCK_TIME = 12
+export const ETHER_BLOCK_TIME = 0.3
 
 // CAKE_PER_BLOCK details
 // 40 CAKE is minted per block

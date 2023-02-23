@@ -66,7 +66,7 @@ export const livePools: Pool.SerializedPoolConfig<SerializedWrappedToken>[] = [
       42161: '0xf0E1cE233Bf3DF4f19F36aD03D98faf52E9fD653'
     },
     poolCategory: PoolCategory.CORE,
-    tokenPerBlock: '0.4',
+    tokenPerBlock: '0.092',
     isFinished: false,
   },
 ].map((p) => ({
